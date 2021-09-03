@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006 -c storybook -s ./storybook/public",
-    "build-storybook": "build-storybook -c storybook -o storybook-static -s ./storybook/public",
+    "build-storybook": "build-storybook -c storybook -s ./storybook/public -o storybook-static ",
     "build-lib": "rollup -c"
   },
   "repository": {
