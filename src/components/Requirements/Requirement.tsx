@@ -1,7 +1,8 @@
-import { Xmark } from "../Xmark";
 import styles from "./styles.scss";
-import { Checkmark } from "../Checkmark";
 import React, { useEffect, useState } from "react";
+
+import { Xmark } from "../../animations/Xmark";
+import { Checkmark } from "../../animations/Checkmark";
 
 export const Requirement = ({ value, requirement }: any) => {
   const [isValid, setIsValid] = useState();

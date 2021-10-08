@@ -8,8 +8,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006 -c storybook -s ./storybook/public",
     "build-storybook": "build-storybook -c storybook -s ./storybook/public -o storybook-static ",
-    "build": "rollup -c",
-    "generate": "node ./utils/generate/create-component"
+    "build": "npm run clean && rollup -c",
+    "generate": "node ./src/utils/generate/create-component.js",
+    "clean": "rimraf dist/*"
   },
   "repository": {
     "type": "git",
@@ -42,6 +43,7 @@
     "node-sass": "^5.0.0",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "rimraf": "^3.0.2",
     "rollup": "^2.56.3",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-copy": "^3.4.0",

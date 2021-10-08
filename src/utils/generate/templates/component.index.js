@@ -1,9 +1,8 @@
 module.exports = (componentName) => ({
   content: `// Generated with util/create-component.js
-export interface ${componentName}Props {
-    foo: string;
-}
+
+export * from './${componentName}'; 
 `,
-  extension: `.types.ts`,
-  main: false
+  extension: `.ts`,
+  main: true
 });

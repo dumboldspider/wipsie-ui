@@ -24,6 +24,7 @@
     "jsx": "react",
     "baseUrl": "./src/",
     "paths": {
+      "@animations": ["animations"],
       "@hooks": ["hooks"],
       "@services": ["services"],
       "@components": ["components"],

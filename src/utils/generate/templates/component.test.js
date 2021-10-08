@@ -28,4 +28,5 @@ describe("Test Component", () => {
 });
 `,
   extension: `.test.tsx`,
+  main: false
 });
