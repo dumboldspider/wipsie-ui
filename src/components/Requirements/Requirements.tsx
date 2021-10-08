@@ -9,7 +9,6 @@ export const Requirements = ({ value, requirements, onValidChange }: any) => {
   }, [value, requirements, validChangeCb]);
 
   return requirements.map((r: any, index: any) => (
-    // <p>aa</p>
     <Requirement
       key={index}
       value={value}

@@ -1,6 +1,6 @@
 // Ported from Alexander Haniotis' code here: https://codepen.io/haniotis/pen/KwvYLO
 import React from "react";
-import styles from "./styles.scss";
+import styles from "./Checkmark.module.scss";
 
 export const Checkmark = () => {
   return (

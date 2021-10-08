@@ -37,8 +37,11 @@ export default {
     commonjs(),
     typescript({ useTsconfigDeclarationDir: true }),
     postcss({
+      // namedExports: true,
+      extract: true,
       plugins: [],
       minimize: true,
+      modules: true,
     }),
     // svg(),
     url(),

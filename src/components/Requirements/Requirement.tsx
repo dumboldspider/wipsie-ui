@@ -1,4 +1,4 @@
-import styles from "./styles.scss";
+import styles from "./Requirements.module.scss";
 import React, { useEffect, useState } from "react";
 
 import { Xmark } from "../../animations/Xmark";
