@@ -45,11 +45,11 @@ export default {
     }),
     // svg(),
     url(),
-    svgr({
-      // svgo: false,
-      babel: false,
-      typescript: true, // Breaks as OP mentioned
-    }),
+    // svgr({
+    //   // svgo: false,
+    //   babel: false,
+    //   typescript: true, // Breaks as OP mentioned
+    // }),
     external(),
     resolve(),
     terser(),

@@ -1,6 +1,6 @@
 {
   "name": "@wipsie/ui",
-  "version": "1.0.0",
+  "version": "1.0.101",
   "description": "A React UI components library",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
@@ -22,6 +22,10 @@
     "url": "https://github.com/dumboldspider/wipsie-ui/issues"
   },
   "homepage": "https://github.com/dumboldspider/wipsie-ui#readme",
+  "peerDependencies": {
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@babel/preset-react": "^7.14.5",
@@ -41,8 +45,6 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
     "node-sass": "^5.0.0",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.56.3",
     "rollup-plugin-babel": "^4.4.0",
