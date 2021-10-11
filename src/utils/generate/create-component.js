@@ -23,9 +23,10 @@ fs.mkdirSync(componentDirectory);
 const generatedTemplates = templates.map((template) => template(componentName));
 
 generatedTemplates.forEach((template) => {
-
   fs.writeFileSync(
-    `${componentDirectory}/${template.main? "index" : componentName}${template.extension}`,
+    `${componentDirectory}/${template.main ? "index" : componentName}${
+      template.extension
+    }`,
     template.content
   );
 });

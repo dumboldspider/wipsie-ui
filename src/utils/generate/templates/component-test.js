@@ -23,10 +23,10 @@ describe("Test Component", () => {
 
     const component = getByTestId("${componentName}");
 
-    expect(component).toHaveTextContent("Daniel was here");
+    // expect(component).toHaveTextContent("Daniel was here");
   });
 });
 `,
   extension: `.test.tsx`,
-  main: false
+  main: false,
 });

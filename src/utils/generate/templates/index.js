@@ -1,9 +1,8 @@
 const component = require("./component");
-const componentIndex = require("./component.index");
-const componentTypes = require("./component.types");
-const componentStories = require("./component.stories");
-const componentTests = require("./component.test");
-const componentStyles = require("./component.scss");
+const componentIndex = require("./component-index");
+const componentTypes = require("./component-types");
+const componentStories = require("./component-stories");
+const componentTests = require("./component-test");
 
 module.exports = [
   component,
@@ -11,5 +10,4 @@ module.exports = [
   componentTypes,
   componentStories,
   componentTests,
-  componentStyles
 ];
