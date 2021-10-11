@@ -3,21 +3,19 @@ import React from "react";
 import { render } from "@testing-library/react";
 
 import Typography from "./Typography";
-import { TypographyProps } from "./Typography.types";
+import TypographyProps from "./Typography.types";
 
 describe("Test Component", () => {
   let props: TypographyProps;
 
   beforeEach(() => {
-    props = {
-      foo: "bar"
-    };
+    props = {};
   });
 
   const renderComponent = () => render(<Typography {...props} />);
 
   it("should render foo text correctly", () => {
-    props.foo = "Daniel was here";
+    // props.foo = "Daniel was here";
     const { getByTestId } = renderComponent();
 
     const component = getByTestId("Typography");
