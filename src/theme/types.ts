@@ -76,15 +76,17 @@ export interface WipsieThemesFonts {
   h6: WipsieThemesFontItem;
   subtitle1: WipsieThemesFontItem;
   subtitle2: WipsieThemesFontItem;
-  paragraph1: WipsieThemesFontItem;
-  paragraph2: WipsieThemesFontItem;
+  body1: WipsieThemesFontItem;
+  body2: WipsieThemesFontItem;
   caption1: WipsieThemesFontItem;
   caption2: WipsieThemesFontItem;
+  code: WipsieThemesFontItem;
+  label: WipsieThemesFontItem;
 }
 
 export interface WipsieThemesFontItem {
   fontFamily: string;
-  fontSize: string | number;
+  fontSize: string;
   fontWeight: string | number;
   textTransform?: "uppercase" | "lowercase" | "capitalize" | "none";
   lineHeight?: string | number;

@@ -8,7 +8,5 @@ export default function contrast(hex: string) {
     g = parseInt(hex.substr(3, 2), 16),
     b = parseInt(hex.substr(5, 2), 16);
 
-  console.log(r * 0.299 + g * 0.587 + b * 0.114 > threshold);
-
   return r * 0.299 + g * 0.587 + b * 0.114 > threshold ? "#000000" : "#ffffff";
 }

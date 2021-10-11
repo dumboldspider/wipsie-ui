@@ -1,4 +1,5 @@
 import { Modify } from "../../types/modify";
+import { SimpleColors } from "../../config/propTypes";
 
 type ButtonProps = Modify<
   React.HTMLProps<HTMLButtonElement>,
@@ -6,7 +7,7 @@ type ButtonProps = Modify<
     /**
      * What background color to use
      */
-    backgroundColor?: string;
+    backgroundColor?: SimpleColors | string;
     /**
      * What background color to use on hover
      */
@@ -31,6 +32,10 @@ type ButtonProps = Modify<
      * Button type
      */
     type?: "button" | "submit" | "reset" | undefined;
+    /**
+     * Button shape
+     */
+    shape?: "round" | "rounded" | "square" | undefined;
   }
 >;
 

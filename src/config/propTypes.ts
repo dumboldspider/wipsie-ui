@@ -13,12 +13,13 @@ export const normalColors = tuple(
 );
 
 export const simpleColors = tuple(
-  "default",
+  "basic",
   "primary",
   "secondary",
   "success",
+  "info",
   "warning",
-  "error"
+  "danger"
 );
 
 export const extendedColors = tuple(
@@ -121,6 +122,23 @@ const display = tuple(
   "inline-grid"
 );
 
+const typographyVariants = tuple(
+  "h1",
+  "h2",
+  "h3",
+  "h4",
+  "h5",
+  "h6",
+  "subtitle1",
+  "subtitle2",
+  "body1",
+  "body2",
+  "caption1",
+  "caption2",
+  "code",
+  "label"
+);
+
 const contentPosition = tuple("left", "right");
 
 export type Display = typeof display[number];
@@ -140,6 +158,8 @@ export type NormalSizes = typeof normalSizes[number];
 export type NormalWeights = typeof normalWeights[number];
 
 export type NormalColors = typeof normalColors[number];
+
+export type TypographyVariants = typeof typographyVariants[number];
 
 export type SimpleColors = typeof simpleColors[number];
 

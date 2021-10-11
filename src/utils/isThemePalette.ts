@@ -1,4 +1,3 @@
-import useTheme from "../hooks/useTheme";
 export default function themePalette(type: string) {
   switch (type) {
     case "primary":
