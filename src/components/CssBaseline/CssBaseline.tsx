@@ -10,6 +10,11 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
     <React.Fragment>
       {children}
       <style global jsx>{`
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
         html,
         body {
           background-color: ${theme.palette.background};
@@ -23,13 +28,12 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           -moz-osx-font-smoothing: grayscale;
           text-rendering: optimizeLegibility;
           font-size: 1rem;
-          line-height: 1.5;
           margin: 0;
           padding: 0;
           min-height: 100%;
           position: relative;
           overflow-x: hidden;
-          font-family: ${theme.font.paragraph1.fontFamily};
+          font-family: ${theme.font.body1.fontFamily};
         }
         *,
         *:before,
@@ -42,17 +46,13 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
         small {
           font-weight: 400;
           color: inherit;
-          letter-spacing: -0.005625rem;
-          font-family: ${theme.font.paragraph1.fontFamily};
+          font-family: ${theme.font.body1.fontFamily};
         }
         p {
-          margin: 1rem 0;
           font-size: 1em;
-          line-height: 1.625em;
         }
         small {
           margin: 0;
-          line-height: 1.5;
           font-size: 0.875rem;
         }
         b {
@@ -91,9 +91,7 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           list-style-type: decimal;
         }
         li {
-          margin-bottom: 0.625rem;
           font-size: 1em;
-          line-height: 1.625em;
         }
         h1,
         h2,
@@ -102,37 +100,29 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
         h5,
         h6 {
           color: inherit;
-          margin: 0 0 0.625rem 0;
         }
         h1 {
           font-size: 3rem;
-          letter-spacing: -0.066875rem;
-          line-height: 1.5;
           font-weight: 700;
         }
         h2 {
           font-size: 2.25rem;
-          letter-spacing: -0.020625rem;
           font-weight: 600;
         }
         h3 {
           font-size: 1.5rem;
-          letter-spacing: -0.029375rem;
           font-weight: 600;
         }
         h4 {
           font-size: 1.25rem;
-          letter-spacing: -0.020625rem;
           font-weight: 600;
         }
         h5 {
           font-size: 1rem;
-          letter-spacing: -0.01125rem;
           font-weight: 600;
         }
         h6 {
           font-size: 0.875rem;
-          letter-spacing: -0.005625rem;
           font-weight: 600;
         }
         button,
@@ -172,7 +162,6 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           font-family: ${theme.font.code.fontFamily};
           white-space: pre;
           overflow: auto;
-          line-height: 1.5;
           text-align: left;
           font-size: 0.875rem;
           -webkit-overflow-scrolling: touch;
@@ -180,7 +169,6 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
         pre code {
           color: ${theme.palette.text};
           font-size: 0.8125rem;
-          line-height: 1.25rem;
           white-space: pre;
         }
         pre code:before,
@@ -197,10 +185,10 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           background: transparent;
         }
         hr {
-          border-color: ${theme.palette.highlight};
+          border-color: ${theme.palette.basic[500]};
         }
         details {
-          background-color: ${theme.palette.highlight};
+          background-color: ${theme.palette.basic[700]};
           border: none;
         }
         details:focus,
@@ -229,10 +217,9 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
         }
         blockquote {
           padding: calc(0.667 * ${theme.layout.gap}) ${theme.layout.gap};
-          color: ${theme.palette.shade};
-          background-color: ${theme.palette.highlight};
+          color: ${theme.palette.basic[700]};
+          background-color: ${theme.palette.basic[300]};
           border-radius: ${theme.layout.radius};
-          margin: 1.5rem 0;
         }
         blockquote :global(*:first-child) {
           margin-top: 0;
@@ -241,8 +228,8 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           margin-bottom: 0;
         }
         ::selection {
-          background-color: ${theme.palette.primary};
-          color: ${theme.palette.text};
+          background-color: ${theme.palette.primary[500]};
+          color: ${theme.palette.background};
         }
       `}</style>
     </React.Fragment>

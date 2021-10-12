@@ -3,7 +3,7 @@ import React from "react";
 import Typography from "./Typography";
 
 export default {
-  title: "Typography",
+  title: "Components/Typography",
   component: Typography,
 
   argTypes: {
@@ -32,24 +32,41 @@ export default {
 
 const Template = (args) => <Typography {...args} />;
 
+export const Variants = () => (
+  <div style={{ display: "block", width: "100%" }}>
+    <Typography variant="h1">H1 Headline</Typography>
+    <br />
+    <Typography variant="h2">H2 Headline</Typography>
+    <br />
+    <Typography variant="h3">H3 Headline</Typography>
+    <br />
+    <Typography variant="h4">H4 Headline</Typography>
+    <br />
+    <Typography variant="h5">H5 Headline</Typography>
+    <br />
+    <Typography variant="h6">H6 Headline</Typography>
+    <br />
+    <Typography variant="subtitle1">Subtitle 1</Typography>
+    <br />
+    <Typography variant="subtitle2">Subtitle 2</Typography>
+    <br />
+    <Typography variant="body1">body 1</Typography>
+    <br />
+    <Typography variant="body2">Body 2</Typography>
+    <br />
+    <Typography variant="caption1">Caption 1</Typography>
+    <br />
+    <Typography variant="caption2">Caption 2</Typography>
+    <br />
+    <Typography variant="code">Code</Typography>
+    <br />
+    <Typography variant="label">Label</Typography>
+  </div>
+);
+
 export const Custom = Template.bind({}) as any;
 Custom.args = {
   color: "primary",
   children: "Hello World",
   variant: "h1",
 };
-
-export const WithH1 = () => (
-  <>
-    <Typography component="h1">test</Typography>
-    <Typography variant="h1" component="div">
-      testa
-    </Typography>
-  </>
-);
-
-export const WithH1Variant = () => <Typography variant="h1">test</Typography>;
-
-export const WithH2 = () => <Typography component="h2">test</Typography>;
-
-export const WithUndefined = () => <Typography>test</Typography>;

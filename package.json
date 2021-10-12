@@ -33,7 +33,7 @@
     "build:dev-types": "tsc -p ./buildconfig -d --emitDeclarationOnly --outDir lib/esm",
     "build:webpack": "webpack --config ./buildconfig/webpack.common.js",
     "build:watch": "webpack ---config ./buildconfig/webpack.dev.js",
-    "storybook": "start-storybook -p 6006  -s ./storybook/public",
+    "storybook": "start-storybook -p 6006  -s ./.storybook/public",
     "storybook:build": "build-storybook",
     "storybook:start": "yarn build-storybook && http-server ./storybook-static",
     "test": "jest --config .jest.config.js --no-cache",

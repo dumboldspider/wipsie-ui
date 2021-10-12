@@ -96,7 +96,7 @@ export const breakpoints = defaultBreakpoints;
 export const layout = defaultLayout;
 
 export const themes: WipsieThemes = {
-  type: "dark",
+  type: "light",
   font,
   layout,
   palette,

@@ -3,6 +3,7 @@
 // @ COMPONENTS
 export * from "./components/Requirements";
 export * from "./components/Button";
+export * from "./components/Typography";
 
 // @ UTILS
 

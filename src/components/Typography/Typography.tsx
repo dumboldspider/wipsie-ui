@@ -70,6 +70,7 @@ const Typography: React.FC<TypographyProps> = (props) => {
           font-weight: ${theme.font[variant].fontWeight};
           line-height: ${theme.font[variant].lineHeight};
           text-transform: ${theme.font[variant].textTransform};
+          letter-spacing: ${theme.font[variant].letterSpacing};
           ${handleColor()}
         }
       `}</style>

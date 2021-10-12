@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/react";
 import "./styles.css";
 import { Requirements } from "../../components/Requirements";
 
-const stories = storiesOf("Form/Components", module);
+const stories = storiesOf("Prototypes/Components", module);
 
 stories.add("Requirements", () => {
   const [valid, setValid] = useState(false);

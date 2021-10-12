@@ -1,23 +1,27 @@
 import React from "react";
-// import CssBaseline from '../src/css-baseline';
+import CssBaseline from "../src/components/CssBaseline/CssBaseline";
+
+console.log(CssBaseline);
 
 export const decorators = [
-  (Story) => (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "flex-start",
-        alignItems: "center",
-        flexWrap: "wrap",
-        width: "100%",
-        height: "100%",
-      }}
-    >
-      {/* <CssBaseline /> */}
-      <Story />
-    </div>
-  ),
+  (Story) => {
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "flex-start",
+          alignItems: "center",
+          flexWrap: "wrap",
+          width: "100%",
+          height: "100%",
+        }}
+      >
+        <CssBaseline />
+        <Story />
+      </div>
+    );
+  },
 ];
 
 export const parameters = {
