@@ -1,10 +1,10 @@
 // Ported from Alexander Haniotis' code here: https://codepen.io/haniotis/pen/KwvYLO
 import React from "react";
-import clsx from "clsx";
+import classnames from "classnames";
 
 export const Checkmark = () => {
   return (
-    <svg className={clsx("checkmark")} viewBox="0 0 52 52">
+    <svg className={classnames("checkmark")} viewBox="0 0 52 52">
       <style jsx>{`
         /* Ported from Alexander Haniotis' code here: https://codepen.io/haniotis/pen/KwvYLO */
         .checkmark {
@@ -60,14 +60,14 @@ export const Checkmark = () => {
         }
       `}</style>
       <circle
-        className={clsx("checkmark__circle")}
+        className={classnames("checkmark__circle")}
         cx="26"
         cy="26"
         r="25"
         fill="none"
       />
       <path
-        className={clsx("checkmark__check")}
+        className={classnames("checkmark__check")}
         fill="none"
         d="M14.1 27.2l7.1 7.2 16.7-16.8"
       />

@@ -3,7 +3,7 @@ import React from "react";
 import Container from "./Container";
 
 export default {
-    title: "Container"
+  title: "Prototypes/Container",
 };
 
 export const WithBar = () => <Container foo="bar" />;

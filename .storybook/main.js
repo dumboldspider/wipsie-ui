@@ -7,6 +7,15 @@ module.exports = {
   ],
   babel: async (options) => ({
     ...options,
+    presets: [
+      [
+        "@babel/preset-react",
+        {
+          runtime: "automatic",
+        },
+      ],
+      "@babel/preset-typescript",
+    ],
     plugins: [
       "@babel/plugin-proposal-class-properties",
       "@babel/plugin-proposal-private-methods",

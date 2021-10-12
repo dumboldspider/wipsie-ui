@@ -1,6 +1,6 @@
 // import styles from "./Requirements.module.scss";
 import React, { useEffect, useState } from "react";
-import clsx from "clsx";
+import classnames from "classnames";
 import { Xmark } from "../../animations/Xmark";
 import { Checkmark } from "../../animations/Checkmark";
 
@@ -12,7 +12,7 @@ export const Requirement = ({ value, requirement }: any) => {
   }, [value, requirement]);
 
   return (
-    <div className={clsx("requirement")}>
+    <div className={classnames("requirement")}>
       <style jsx>{`
         .requirement {
           height: 35px;
@@ -34,7 +34,9 @@ export const Requirement = ({ value, requirement }: any) => {
       `}</style>
       {isValid ? <Checkmark /> : <Xmark />}
 
-      <p className={clsx(isValid ? "valid" : "invalid")}>{requirement.text}</p>
+      <p className={classnames(isValid ? "valid" : "invalid")}>
+        {requirement.text}
+      </p>
     </div>
   );
 };

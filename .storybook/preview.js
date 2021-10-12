@@ -1,4 +1,6 @@
 import React from "react";
+import { configure, addDecorator } from "@storybook/react";
+import { action } from "@storybook/addon-actions";
 import CssBaseline from "../src/components/CssBaseline/CssBaseline";
 
 console.log(CssBaseline);
@@ -9,12 +11,13 @@ export const decorators = [
       <div
         style={{
           display: "flex",
-          flexDirection: "row",
+          flex: 1,
+          flexDirection: "column",
           justifyContent: "flex-start",
           alignItems: "center",
           flexWrap: "wrap",
           width: "100%",
-          height: "100%",
+          height: "100vh",
         }}
       >
         <CssBaseline />
@@ -36,6 +39,10 @@ export const parameters = {
       {
         name: "dark",
         value: "#000000",
+      },
+      {
+        name: "cosmic",
+        value: "#53025F",
       },
     ],
   },

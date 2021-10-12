@@ -1,6 +1,6 @@
 // Generated with util/create-component.js
 import React from "react";
-import clsx from "clsx";
+import classnames from "classnames";
 import useTheme from "../../hooks/useTheme";
 import isThemePalette from "../../utils/isThemePalette";
 
@@ -60,7 +60,7 @@ const Typography: React.FC<TypographyProps> = (props) => {
   return (
     <Component
       data-testid="Typography"
-      className={clsx("Typography")}
+      className={classnames("Typography")}
       {...otherProps}
     >
       <style jsx>{`

@@ -4,7 +4,7 @@ import React from "react";
 import ${componentName} from "./${componentName}";
 
 export default {
-    title: "${componentName}"
+    title: "Prototypes/${componentName}"
 };
 
 export const WithBar = () => <${componentName} foo="bar" />;
@@ -12,5 +12,5 @@ export const WithBar = () => <${componentName} foo="bar" />;
 export const WithBaz = () => <${componentName} foo="baz" />;
 `,
   extension: `.stories.tsx`,
-  main: false
+  main: false,
 });
