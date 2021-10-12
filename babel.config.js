@@ -1,49 +1,51 @@
 module.exports = (api) => {
   const env = api.env();
-
+  console.log("ENVI: ", env);
   let dev = false;
   let modules;
 
   switch (env) {
-    case 'docs':
-    case 'test':
-    case 'dist-dev':
-    case 'development':
+    case "docs":
+    case "test":
+    case "dist-dev":
+    case "development":
       dev = true;
       modules = false;
       break;
-    case 'dist-prod':
-    case 'esm':
+    case "dist-prod":
+    case "esm":
       modules = false;
       break;
-    case 'cjs':
+    case "production": // fix for storybook build
+      return {}; // fix for storybook build
+    case "cjs":
     default:
-      modules = 'commonjs';
+      modules = "commonjs";
   }
 
   const presets =
-    env !== 'test' && env !== 'development'
+    env !== "test" && env !== "development"
       ? [
           [
-            '@react-bootstrap',
+            "@react-bootstrap",
             {
               dev,
               modules,
               removePropTypes: !dev,
             },
           ],
-          '@babel/preset-typescript',
+          "@babel/preset-typescript",
         ]
-      : ['@babel/preset-env', '@babel/react', '@babel/preset-typescript'];
+      : ["@babel/preset-env", "@babel/react", "@babel/preset-typescript"];
 
   const plugins =
-    env !== 'test' ? ['styled-jsx/babel'] : ['styled-jsx/babel-test'];
+    env !== "test" ? ["styled-jsx/babel"] : ["styled-jsx/babel-test"];
 
   return {
     presets,
     plugins,
     ignore:
-      env !== 'test' && env !== 'development'
+      env !== "test" && env !== "development"
         ? [
             /@babel[\\|/]runtime/,
             /\.stories\.(js|ts|tsx)$/,
