@@ -23,8 +23,8 @@ export default create({
 
   // Toolbar default and active colors
   barTextColor: lightDefault.palette.background,
-  barSelectedColor: lightDefault.palette.primary[500],
-  barBg: lightDefault.palette.secondary[500],
+  barSelectedColor: lightDefault.palette.secondary[500],
+  barBg: lightDefault.palette.primary[300],
 
   // Form colors
   inputBg: lightDefault.palette.background,
