@@ -1,3 +1,4 @@
-// Generated with util/create-component.js
-export * from "./Typography";
+import _Typography from "./Typography";
+export const Typography = _Typography;
+
 export * from "./Typography.types";

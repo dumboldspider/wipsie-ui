@@ -32,6 +32,13 @@ export default {
 
 const Template = (args) => <Typography {...args} />;
 
+export const Custom = Template.bind({}) as any;
+Custom.args = {
+  color: "primary",
+  children: "Hello World",
+  variant: "h1",
+};
+
 export const Variants = () => (
   <div style={{ display: "block", width: "100%" }}>
     <Typography variant="h1">H1 Headline</Typography>
@@ -63,10 +70,3 @@ export const Variants = () => (
     <Typography variant="label">Label</Typography>
   </div>
 );
-
-export const Custom = Template.bind({}) as any;
-Custom.args = {
-  color: "primary",
-  children: "Hello World",
-  variant: "h1",
-};

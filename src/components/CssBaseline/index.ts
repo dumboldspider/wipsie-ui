@@ -1,2 +1,2 @@
-// Generated with util/create-component.js
-export * from "./CssBaseline";
+import _CssBaseline from "./CssBaseline";
+export const CssBaseline = _CssBaseline;

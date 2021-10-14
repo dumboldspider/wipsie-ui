@@ -4,8 +4,8 @@ import lightDefault from "../../src/theme/variants/light";
 export default create({
   base: "light",
 
-  colorPrimary: lightDefault.palette.secondary[500],
-  colorSecondary: lightDefault.palette.primary[500],
+  colorPrimary: lightDefault.palette.primary[500],
+  colorSecondary: lightDefault.palette.secondary[500],
 
   // UI
   appBg: lightDefault.palette.background,
@@ -23,8 +23,8 @@ export default create({
 
   // Toolbar default and active colors
   barTextColor: lightDefault.palette.background,
-  barSelectedColor: lightDefault.palette.secondary[500],
-  barBg: lightDefault.palette.primary[500],
+  barSelectedColor: lightDefault.palette.primary[500],
+  barBg: lightDefault.palette.secondary[500],
 
   // Form colors
   inputBg: lightDefault.palette.background,

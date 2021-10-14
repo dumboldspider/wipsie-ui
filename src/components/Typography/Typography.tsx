@@ -4,7 +4,7 @@ import classnames from "classnames";
 import useTheme from "../../hooks/useTheme";
 import isThemePalette from "../../utils/isThemePalette";
 
-import TypographyProps from "./Typography.types";
+import { TypographyProps } from "./Typography.types";
 
 const Typography: React.FC<TypographyProps> = (props) => {
   const theme = useTheme();
@@ -50,9 +50,17 @@ const Typography: React.FC<TypographyProps> = (props) => {
   }
 
   function handleColor() {
-    return `color: ${
-      isThemePalette(color) ? theme.palette[color][500] : color
-    };`;
+    if (!color) return `color: ${theme.palette.text};`;
+    switch (color) {
+      case "text":
+        return `color: ${theme.palette.text};`;
+      case "subtext":
+        return `color: ${theme.palette.subtext};`;
+      default:
+        return `color: ${
+          isThemePalette(color) ? theme.palette[color][500] : color
+        };`;
+    }
   }
 
   const Component = component ? component : handleVariantComponent();

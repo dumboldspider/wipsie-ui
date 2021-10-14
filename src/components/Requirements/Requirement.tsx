@@ -1,10 +1,10 @@
 // import styles from "./Requirements.module.scss";
 import React, { useEffect, useState } from "react";
 import classnames from "classnames";
-import { Xmark } from "../../animations/Xmark";
-import { Checkmark } from "../../animations/Checkmark";
+import { Xmark } from "../../assets/Xmark";
+import { Checkmark } from "../../assets/Checkmark";
 
-export const Requirement = ({ value, requirement }: any) => {
+const Requirement = ({ value, requirement }: any) => {
   const [isValid, setIsValid] = useState();
 
   useEffect(() => {
@@ -40,3 +40,5 @@ export const Requirement = ({ value, requirement }: any) => {
     </div>
   );
 };
+
+export default Requirement;

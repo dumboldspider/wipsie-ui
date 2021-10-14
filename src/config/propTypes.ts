@@ -1,6 +1,6 @@
 import tuple from "../utils/tuple";
 
-const normalSizes = tuple("mini", "small", "medium", "large", "xlarge");
+export const normalSizes = tuple("mini", "small", "medium", "large", "xlarge");
 
 export const normalColors = tuple(
   "default",

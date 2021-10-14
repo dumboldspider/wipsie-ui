@@ -1,7 +1,7 @@
 import { Modify } from "../../types/modify";
-import { SimpleColors } from "../../config/propTypes";
+import { SimpleColors, NormalSizes } from "../../config/propTypes";
 
-type ButtonProps = Modify<
+export type ButtonProps = Modify<
   React.HTMLProps<HTMLButtonElement>,
   {
     /**
@@ -11,15 +11,15 @@ type ButtonProps = Modify<
     /**
      * What background color to use on hover
      */
-    hoverBackgroundColor?: string | null;
+    hoverBackgroundColor?: SimpleColors | string | null;
     /**
      * What text color to use
      */
-    color?: string;
+    color?: SimpleColors | string | null;
     /**
      * How large should the button be?
      */
-    size?: "small" | "medium" | "large";
+    size?: NormalSizes;
     /**
      * Button variant
      */
@@ -36,7 +36,17 @@ type ButtonProps = Modify<
      * Button shape
      */
     shape?: "round" | "rounded" | "square" | undefined;
+    /**
+     * Button Icon
+     */
+    icon?: any | undefined;
+    /**
+     * Button Icon to add on left
+     */
+    startIcon?: any | undefined;
+    /**
+     * Button Icon to add on right
+     */
+    endIcon?: any | undefined;
   }
 >;
-
-export default ButtonProps;

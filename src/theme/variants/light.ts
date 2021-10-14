@@ -25,7 +25,7 @@ export const palette: WipsieThemesPalette = {
     500: "#EEF1F6",
     700: "#3A0042",
     900: "#3A0042",
-    shadow: "#0000003D",
+    shadow: "#818B9F3D",
   },
   primary: {
     100: "#FAC8E6",

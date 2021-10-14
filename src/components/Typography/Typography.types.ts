@@ -1,7 +1,7 @@
 import { Modify } from "../../types/modify";
 import { TypographyVariants, SimpleColors } from "../../config/propTypes";
 
-type TypographyProps = Modify<
+export type TypographyProps = Modify<
   React.HTMLProps<HTMLButtonElement>,
   {
     /**
@@ -18,5 +18,3 @@ type TypographyProps = Modify<
     color?: SimpleColors | string;
   }
 >;
-
-export default TypographyProps;
