@@ -492,3 +492,57 @@ export const Icons = () => {
     </Container>
   );
 };
+
+export const ChipButton = () => (
+  <Container>
+    <Container>
+      <Typography variant="h2">Chip Buttons</Typography>
+      <Spacing height="1em" />
+      <div style={{ display: "flex" }}>
+        <Button
+          chip
+          size="mini"
+          startIcon={
+            <div style={{ width: 16 }}>
+              <svg
+                focusable="false"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                data-testid="FigmaIcon"
+              >
+                <g fill-rule="nonzero" fill="none">
+                  <path
+                    d="M8 24a4 4 0 004-4v-4H8a4 4 0 000 8z"
+                    fill="#0ACF83"
+                  ></path>
+                  <path
+                    d="M4 12a4 4 0 014-4h4v8H8a4 4 0 01-4-4z"
+                    fill="#A259FF"
+                  ></path>
+                  <path
+                    d="M4 4a4 4 0 014-4h4v8H8a4 4 0 01-4-4z"
+                    fill="#F24E1E"
+                  ></path>
+                  <path d="M12 0h4a4 4 0 010 8h-4V0z" fill="#FF7262"></path>
+                  <path
+                    d="M20 12a4 4 0 11-8 0 4 4 0 018 0z"
+                    fill="#1ABCFE"
+                  ></path>
+                </g>
+              </svg>
+            </div>
+          }
+          endIcon={
+            <div style={{ width: 16 }}>
+              <button>X</button>
+            </div>
+          }
+          backgroundColor="secondary"
+          variant="contained"
+          label="Figma Chip"
+          style={{ marginRight: "10px" }}
+        />
+      </div>
+    </Container>
+  </Container>
+);

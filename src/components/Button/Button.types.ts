@@ -5,6 +5,10 @@ export type ButtonProps = Modify<
   React.HTMLProps<HTMLButtonElement>,
   {
     /**
+     * If buttom component will be a chip
+     */
+    chip?: boolean;
+    /**
      * What background color to use
      */
     backgroundColor?: SimpleColors | string;

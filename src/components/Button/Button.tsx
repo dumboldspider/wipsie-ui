@@ -12,6 +12,7 @@ import { ButtonProps } from "./Button.types";
 export const Button: React.FC<ButtonProps> = (props) => {
   const theme = useTheme();
   const {
+    chip = false,
     color = null,
     variant = "contained",
     backgroundColor = "primary",
@@ -275,11 +276,10 @@ export const Button: React.FC<ButtonProps> = (props) => {
       {startIcon && <span style={{ paddingRight: 5 }}>{startIcon}</span>}
 
       {icon && <span style={{}}>{icon}</span>}
-
       {label}
-      {endIcon && <span style={{ paddingLeft: 5 }}>{endIcon}</span>}
-
       {children}
+
+      {endIcon && <span style={{ paddingLeft: 5 }}>{endIcon}</span>}
 
       {/* @ STYLES */}
       <style jsx>{`
@@ -301,20 +301,21 @@ export const Button: React.FC<ButtonProps> = (props) => {
           ${handlePadding()}
 
           position: relative;
-          cursor: pointer;
+          ${!chip ? "cursor: pointer;" : ""}
           overflow: hidden;
           display: flex;
           align-items: center;
           ${handleAlign()}
+
           height: fit-content;
           width: ${fullWidth ? "100%" : "max-content"};
 
           transition: all 250ms ease 0ms;
         }
         .Wps-Button:hover {
-          ${handleBackgroundColorHover()}
-          ${handleTextColorHover()}
-          ${handleBorderColorHover()}
+          ${!chip && handleBackgroundColorHover()}
+          ${!chip && handleTextColorHover()}
+          ${!chip && handleBorderColorHover()}
         }
 
         .Wps-Button:disabled,
