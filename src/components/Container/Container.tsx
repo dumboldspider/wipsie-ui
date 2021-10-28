@@ -71,8 +71,8 @@ export const Container: React.FC<ContainerProps> = (props) => {
       <style jsx>{`
         .Wps-Container {
           background: ${handleBackgroundColor()};
-          padding: 1em;
-          border-radius: 16px;
+          padding: ${theme.layout.padding};
+          border-radius: ${theme.layout.radius};
           box-shadow: 0px 16px 32px ${handleShadowColor()};
           ${clickable ? "cursor: pointer;" : ""}
           transition: all 250ms ease 0ms;

@@ -52,6 +52,9 @@ export interface WipsieThemesExpressiveness {
 }
 
 export interface WipsieThemesLayout {
+  spacingUnit: number;
+  radius: string;
+  padding: string;
   gap: string;
   gapNegative: string;
   gapHalf: string;
@@ -63,7 +66,6 @@ export interface WipsieThemesLayout {
   pageWidthWithMargin: string;
   breakpointMobile: string;
   breakpointTablet: string;
-  radius: string;
   stroke: string;
 }
 

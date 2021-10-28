@@ -158,6 +158,9 @@ export const defaultBreakpoints: WipsieThemesBreakpoints = {
 };
 
 export const defaultLayout: WipsieThemesLayout = {
+  spacingUnit: 8,
+  radius: "15px",
+  padding: "1em",
   gap: "16pt",
   gapNegative: "-16pt",
   gapHalf: "8pt",
@@ -169,7 +172,6 @@ export const defaultLayout: WipsieThemesLayout = {
   pageWidthWithMargin: "782pt",
   breakpointMobile: defaultBreakpoints.xs.max,
   breakpointTablet: defaultBreakpoints.sm.max,
-  radius: "14px",
   stroke: "2px",
 };
 
