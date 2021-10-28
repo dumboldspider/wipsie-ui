@@ -1,3 +1,2 @@
-// Generated with util/create-component.js
-
-export * from './Spacing'; 
+export * from "./Spacing";
+export * from "./Spacing.types";

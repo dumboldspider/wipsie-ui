@@ -1,6 +1,6 @@
 {
   "name": "@wipsie/ui",
-  "version": "1.0.133",
+  "version": "1.0.147",
   "description": "A React UI components library",
   "license": "MIT",
   "homepage": "https://github.com/dumboldspider/wipsie-ui#readme",
@@ -33,6 +33,7 @@
     "build:dev-types": "tsc -p ./buildconfig -d --emitDeclarationOnly --outDir dist/esm",
     "build:webpack": "webpack --config ./buildconfig/webpack.common.js",
     "build:watch": "webpack ---config ./buildconfig/webpack.dev.js",
+    "pack": "yarn run clear && yarn run build && yarn run pre-publish && npm pack",
     "storybook": "start-storybook -p 6006 -s ./.storybook/public",
     "storybook:build": "build-storybook -s ./.storybook/public -o storybook-static ",
     "storybook:start": "yarn run storybook:build && serve storybook-static",
@@ -46,7 +47,8 @@
     "directory": "dist"
   },
   "dependencies": {
-    "styled-jsx": "^4.0.1"
+    "styled-jsx": "^4.0.1",
+    "classnames": "^2.3.1"
   },
   "peerDependencies": {
     "react": "latest",
@@ -86,7 +88,6 @@
     "babel-preset-react-app": "^10.0.0",
     "chalk": "^4.1.2",
     "cherry-pick": "^0.5.0",
-    "classnames": "^2.3.1",
     "css-mediaquery": "^0.1.2",
     "enzyme": "^3.11.0",
     "eslint-plugin-import": "^2.23.4",

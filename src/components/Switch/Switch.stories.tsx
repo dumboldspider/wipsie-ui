@@ -1,9 +1,9 @@
 // Generated with util/create-component.js
 import React, { useState } from "react";
-import Switch from "./Switch";
-import Container from "../Container/Container";
-import Spacing from "../Spacing/Spacing";
-import Typography from "../Typography/Typography";
+import { Switch } from "./Switch";
+import { Container } from "../Container";
+import { Spacing } from "../Spacing";
+import { Typography } from "../Typography";
 import {
   CheckOutlined,
   StepForwardOutlined,
@@ -60,6 +60,7 @@ export const Variants = () => {
           <Switch
             size="xlarge"
             color="primary"
+            // color="#91CAFA"
             checked={state}
             onClick={handleState}
             icon={<StepForwardOutlined />}
@@ -270,6 +271,157 @@ export const Variants = () => {
           <Switch
             size="xlarge"
             color="danger"
+            checked={state}
+            onClick={handleState}
+            icon={<StepForwardOutlined />}
+          />
+        </div>
+      </Container>
+      <Spacing height="1em" />
+    </Container>
+  );
+};
+export const Shapes = () => {
+  const [state, setState] = useState(false);
+  function handleState() {
+    setState(!state);
+  }
+  return (
+    <Container style={{ width: "50%" }}>
+      <Container>
+        <Typography variant="h2">Switch Sizes Primary</Typography>
+        <Spacing height="1em" />
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Switch
+            size="mini"
+            color="primary"
+            shape="round"
+            checked={state}
+            onClick={handleState}
+            icon={<StepForwardOutlined />}
+          />
+          <Switch
+            size="small"
+            color="primary"
+            shape="round"
+            checked={state}
+            onClick={handleState}
+            icon={<StepForwardOutlined />}
+          />
+          <Switch
+            size="medium"
+            color="primary"
+            shape="round"
+            checked={state}
+            onClick={handleState}
+            icon={<StepForwardOutlined />}
+          />
+          <Switch
+            size="large"
+            color="primary"
+            shape="round"
+            checked={state}
+            onClick={handleState}
+            icon={<StepForwardOutlined />}
+          />
+          <Switch
+            size="xlarge"
+            color="primary"
+            shape="round"
+            checked={state}
+            onClick={handleState}
+            icon={<StepForwardOutlined />}
+          />
+        </div>
+      </Container>
+      <Spacing height="1em" />
+      <Container>
+        <Typography variant="h2">Switch Sizes Primary</Typography>
+        <Spacing height="1em" />
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Switch
+            size="mini"
+            color="primary"
+            shape="rounded"
+            checked={state}
+            onClick={handleState}
+            icon={<StepForwardOutlined />}
+          />
+          <Switch
+            size="small"
+            color="primary"
+            shape="rounded"
+            checked={state}
+            onClick={handleState}
+            icon={<StepForwardOutlined />}
+          />
+          <Switch
+            size="medium"
+            color="primary"
+            shape="rounded"
+            checked={state}
+            onClick={handleState}
+            icon={<StepForwardOutlined />}
+          />
+          <Switch
+            size="large"
+            color="primary"
+            shape="rounded"
+            checked={state}
+            onClick={handleState}
+            icon={<StepForwardOutlined />}
+          />
+          <Switch
+            size="xlarge"
+            color="primary"
+            shape="rounded"
+            checked={state}
+            onClick={handleState}
+            icon={<StepForwardOutlined />}
+          />
+        </div>
+      </Container>
+      <Spacing height="1em" />
+      <Container>
+        <Typography variant="h2">Switch Sizes Primary</Typography>
+        <Spacing height="1em" />
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <Switch
+            size="mini"
+            color="primary"
+            shape="square"
+            checked={state}
+            onClick={handleState}
+            icon={<StepForwardOutlined />}
+          />
+          <Switch
+            size="small"
+            color="primary"
+            shape="square"
+            checked={state}
+            onClick={handleState}
+            icon={<StepForwardOutlined />}
+          />
+          <Switch
+            size="medium"
+            color="primary"
+            shape="square"
+            checked={state}
+            onClick={handleState}
+            icon={<StepForwardOutlined />}
+          />
+          <Switch
+            size="large"
+            color="primary"
+            shape="square"
+            checked={state}
+            onClick={handleState}
+            icon={<StepForwardOutlined />}
+          />
+          <Switch
+            size="xlarge"
+            color="primary"
+            shape="square"
             checked={state}
             onClick={handleState}
             icon={<StepForwardOutlined />}

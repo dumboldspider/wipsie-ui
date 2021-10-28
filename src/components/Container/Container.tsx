@@ -6,7 +6,7 @@ import isThemePalette from "../../utils/isThemePalette";
 import { ContainerProps } from "./Container.types";
 import opacity from "../../utils/opacity";
 
-const Container: React.FC<ContainerProps> = (props) => {
+export const Container: React.FC<ContainerProps> = (props) => {
   const theme = useTheme();
   const {
     children,
@@ -64,12 +64,12 @@ const Container: React.FC<ContainerProps> = (props) => {
 
   return (
     <div
-      data-testid="Container"
-      className={classnames("Container")}
+      data-testid="Wps-Container"
+      className={classnames("Wps-Container")}
       {...otherProps}
     >
       <style jsx>{`
-        .Container {
+        .Wps-Container {
           background: ${handleBackgroundColor()};
           padding: 1em;
           border-radius: 16px;
@@ -85,5 +85,3 @@ const Container: React.FC<ContainerProps> = (props) => {
     </div>
   );
 };
-
-export default Container;

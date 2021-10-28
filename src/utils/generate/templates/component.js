@@ -7,12 +7,13 @@ import classnames from "classnames";
 import { ${componentName}Props } from "./${componentName}.types";
 
 
-const ${componentName}: React.FC<${componentName}Props> = ({ foo }) => (
-    <div data-testid="${componentName}" className={classnames('${componentName}')}>
+export const ${componentName}: React.FC<${componentName}Props> = ({ foo }) => {
+  return (
+    <div data-testid="Wps-${componentName}" className={classnames('Wps-${componentName}')}>
     <style jsx>{` +
     "`" +
     `
-    .${componentName}{
+    .Wps-${componentName}{
       color: black;
     }
     ` +
@@ -21,8 +22,9 @@ const ${componentName}: React.FC<${componentName}Props> = ({ foo }) => (
     {foo}
     </div>
 );
+}
 
-export default ${componentName};
+ 
 
 `,
   extension: `.tsx`,

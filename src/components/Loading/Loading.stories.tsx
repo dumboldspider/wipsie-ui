@@ -1,9 +1,9 @@
 // Generated with util/create-component.js
 import React from "react";
-import Loading from "./Loading";
-import Container from "../Container/Container";
-import Spacing from "../Spacing/Spacing";
-import Typography from "../Typography/Typography";
+import { Loading } from "./Loading";
+import { Container } from "../Container";
+import { Spacing } from "../Spacing";
+import { Typography } from "../Typography";
 
 export default {
   title: "Components/Loading",

@@ -1,3 +1,2 @@
-// Generated with util/create-component.js
-
-export * from './Container'; 
+export * from "./Container";
+export * from "./Container.types";

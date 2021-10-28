@@ -1,7 +1,7 @@
 import Requirement from "./Requirement";
 import React, { useCallback, useEffect } from "react";
 
-const Requirements = (props: any) => {
+export const Requirements = (props: any) => {
   const { value, requirements, onValidChange } = props;
   const validChangeCb = useCallback(onValidChange, []);
 
@@ -18,5 +18,3 @@ const Requirements = (props: any) => {
     />
   ));
 };
-
-export default Requirements;

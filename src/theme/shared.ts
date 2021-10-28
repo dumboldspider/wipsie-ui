@@ -129,7 +129,7 @@ export const defaultFont: WipsieThemesFonts = {
     fontSize: "0.8em",
     fontWeight: 700,
     textTransform: "uppercase",
-    lineHeight: 1.1,
+    lineHeight: 1,
     letterSpacing: "",
   },
 };

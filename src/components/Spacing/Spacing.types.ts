@@ -1,5 +1,4 @@
 import { Modify } from "../../types/modify";
-import { SimpleColors } from "../../config/propTypes";
 
 export type SpacingProps = Modify<
   React.HTMLProps<HTMLDivElement>,

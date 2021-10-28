@@ -3,12 +3,12 @@ import React from "react";
 import classnames from "classnames";
 import isThemePalette from "../../utils/isThemePalette";
 import useTheme from "../../hooks/useTheme";
-import { normalSizes } from "../../config/propTypes";
 import contrast from "../../utils/contrast";
+import brightness from "../../utils/brightness";
 
 import { SwitchProps } from "./Switch.types";
 
-const Switch: React.FC<SwitchProps> = (props) => {
+export const Switch: React.FC<SwitchProps> = (props) => {
   const theme = useTheme();
   const {
     wrapperProps,
@@ -17,6 +17,7 @@ const Switch: React.FC<SwitchProps> = (props) => {
     iconColor = null,
     color = "primary",
     size = "medium",
+    shape = "round",
     ...otherProps
   } = props;
 
@@ -29,21 +30,27 @@ const Switch: React.FC<SwitchProps> = (props) => {
   }
 
   function handleBackgroundColorActive() {
-    return isThemePalette(color) ? theme.palette[color][700] : color;
-  }
-
-  function handleDotColor() {
     return isThemePalette(color) ? theme.palette[color][500] : color;
   }
 
+  function handleDotColor() {
+    return isThemePalette(color)
+      ? theme.palette[color][700]
+      : brightness(color, -20);
+  }
+
   function handleDotColorClick() {
-    return isThemePalette(color) ? theme.palette[color][300] : color;
+    return isThemePalette(color)
+      ? theme.palette[color][300]
+      : brightness(color, 10);
   }
 
   function handleTextColor() {
     if (iconColor) return `${iconColor}`; // if value is defined by props
 
-    return contrast(isThemePalette(color) ? theme.palette[color][500] : color);
+    return contrast(
+      isThemePalette(color) ? theme.palette[color][700] : brightness(color, -20)
+    );
   }
 
   function handleWidth() {
@@ -126,37 +133,55 @@ const Switch: React.FC<SwitchProps> = (props) => {
     }
   }
 
+  function handleShape() {
+    switch (shape) {
+      case "round":
+        return "border-radius: 10em;";
+      case "rounded":
+        return "border-radius: 0.3em;";
+      case "square":
+        return "border-radius: 0em;";
+      default:
+        return "border-radius: 0.7em;";
+    }
+  }
+
   return (
-    <div className="SwitchWrapper" {...wrapperProps}>
+    <div className="Wps-SwitchWrapper" {...wrapperProps}>
       <input
         type="checkbox"
-        id="switch"
-        data-testid="Switch"
-        className={classnames("Switch")}
+        data-testid="Wps-Switch"
+        className={classnames("Wps-Switch")}
         checked={checked}
       />
-      <div className="SwitchExternal" {...otherProps}>
-        <div className="SwitchInternal">{icon && icon}</div>
+      <div className="Wps-SwExternal" {...otherProps}>
+        <div className="Wps-SwInternal">{icon && icon}</div>
       </div>
       <style jsx>{`
-        .SwitchWrapper input[type="checkbox"] {
+        .Wps-SwitchWrapper {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .Wps-SwitchWrapper input[type="checkbox"] {
           height: 0;
           width: 0;
           visibility: hidden;
         }
 
-        .SwitchWrapper .SwitchExternal {
+        .Wps-SwitchWrapper .Wps-SwExternal {
           cursor: pointer;
           width: ${handleWidth()};
           height: ${handleHeight()};
           background: ${handleBackgroundColor()};
           display: block;
-          border-radius: 100px;
+          ${handleShape()};
           position: relative;
           transition: all 0.3s ease;
         }
 
-        .SwitchWrapper .SwitchExternal .SwitchInternal {
+        .Wps-SwitchWrapper .Wps-SwExternal .Wps-SwInternal {
           position: absolute;
           top: ${handleInternalMargin()};
           left: ${handleInternalMargin()};
@@ -166,32 +191,30 @@ const Switch: React.FC<SwitchProps> = (props) => {
           align-items: center;
           justify-content: center;
           background: ${handleDotColor()};
-          border-radius: 50%;
+          ${handleShape()};
           transition: all 0.3s ease;
           font-size: 100%;
           color: ${handleTextColor()};
           box-shadow: 0px 0px 5px ${handleShadowColor()};
         }
 
-        .SwitchWrapper .SwitchExternal .SwitchInternal {
+        .Wps-SwitchWrapper .Wps-SwExternal .Wps-SwInternal {
           font-size: ${handleIconSize()};
         }
 
-        .SwitchWrapper input:checked + .SwitchExternal {
+        .Wps-SwitchWrapper input:checked + .Wps-SwExternal {
           background: ${handleBackgroundColorActive()};
         }
 
-        .SwitchWrapper input:checked + .SwitchExternal .SwitchInternal {
+        .Wps-SwitchWrapper input:checked + .Wps-SwExternal .Wps-SwInternal {
           left: calc(100% - ${handleInternalMargin()});
           transform: translateX(-100%);
         }
 
-        .SwitchWrapper .SwitchExternal:active .SwitchInternal {
+        .Wps-SwitchWrapper .Wps-SwExternal:active .Wps-SwInternal {
           background: ${handleDotColorClick()};
         }
       `}</style>
     </div>
   );
 };
-
-export default Switch;

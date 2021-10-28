@@ -1,7 +1,7 @@
 // Generated with util/create-component.js
 import React from "react";
-import Spacing from "./Spacing";
-import Container from "../Container/Container";
+import { Spacing } from "./Spacing";
+import { Container } from "../Container";
 import responsive from "../../utils/responsive";
 
 export default {

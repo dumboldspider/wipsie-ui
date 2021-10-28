@@ -1,8 +1,8 @@
 // Generated with util/create-component.js
 import React from "react";
-import Container from "./Container";
-import Typography from "../Typography/Typography";
-import Button from "../Button/Button";
+import { Container } from "./Container";
+import { Typography } from "../Typography";
+import { Button } from "../Button";
 
 export default {
   title: "Components/Container",

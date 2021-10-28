@@ -22,5 +22,5 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "include": ["../src/index.ts", "../typings/**/*"]
+  "include": ["../src/index.ts", "../typings/**/*", "examples"]
 }

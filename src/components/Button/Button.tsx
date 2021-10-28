@@ -9,7 +9,7 @@ import { ButtonProps } from "./Button.types";
 /**
  * Primary UI component for user interaction
  */
-const Button: React.FC<ButtonProps> = (props) => {
+export const Button: React.FC<ButtonProps> = (props) => {
   const theme = useTheme();
   const {
     color = null,
@@ -23,6 +23,8 @@ const Button: React.FC<ButtonProps> = (props) => {
     icon = null,
     startIcon = null,
     endIcon = null,
+    fullWidth = false,
+    align = "center",
     ...otherProps
   } = props;
 
@@ -122,7 +124,7 @@ const Button: React.FC<ButtonProps> = (props) => {
             ? hoverBackgroundColor
             : isThemePalette(backgroundColor)
             ? theme.palette[backgroundColor][300]
-            : backgroundColor
+            : opacity(backgroundColor, 80)
         };`;
       case "outlined":
         return `border-color: ${
@@ -210,32 +212,32 @@ const Button: React.FC<ButtonProps> = (props) => {
   function handleFontSize() {
     switch (size) {
       case "xlarge":
-        return "font-size: 1.1em;";
+        return "font-size: 16px;";
       case "large":
-        return "font-size: 1em;";
+        return "font-size: 16px;";
       case "small":
-        return "font-size: 0.7em;";
+        return "font-size: 12px;";
       case "mini":
-        return "font-size: 0.6em;";
+        return "font-size: 10px;";
       case "medium":
       default:
-        return "font-size: 0.9em;";
+        return "font-size: 14px;";
     }
   }
 
   function handlePadding() {
     switch (size) {
       case "xlarge":
-        return "padding: 0.95em;";
+        return "padding: 12px 16px; ";
       case "large":
-        return "padding: 0.8em;";
+        return "padding: 10px 14px;";
       case "small":
-        return "padding: 0.7em;";
+        return "padding: 6px 8px;";
       case "mini":
-        return "padding: 0.6em;";
+        return "padding: 4px 6px;";
       case "medium":
       default:
-        return "padding: 0.7em;";
+        return "padding: 8px 10px;";
     }
   }
 
@@ -252,10 +254,22 @@ const Button: React.FC<ButtonProps> = (props) => {
     }
   }
 
+  function handleAlign() {
+    switch (align) {
+      case "left":
+        return "justify-content: flex-start;";
+      case "right":
+        return "justify-content: flex-end;";
+      case "center":
+      default:
+        return "justify-content: center;";
+    }
+  }
+
   return (
     <button
-      data-testid="Button"
-      className={classnames("Button")}
+      data-testid="Wps-Button"
+      className={classnames("Wps-Button")}
       {...otherProps}
     >
       {startIcon && <span style={{ paddingRight: 5 }}>{startIcon}</span>}
@@ -269,7 +283,7 @@ const Button: React.FC<ButtonProps> = (props) => {
 
       {/* @ STYLES */}
       <style jsx>{`
-        .Button {
+        .Wps-Button {
           ${handleBackgroundColor()}
           ${handleTextColor()}
 
@@ -291,18 +305,20 @@ const Button: React.FC<ButtonProps> = (props) => {
           overflow: hidden;
           display: flex;
           align-items: center;
+          ${handleAlign()}
           height: fit-content;
+          width: ${fullWidth ? "100%" : "max-content"};
 
           transition: all 250ms ease 0ms;
         }
-        .Button:hover {
+        .Wps-Button:hover {
           ${handleBackgroundColorHover()}
           ${handleTextColorHover()}
           ${handleBorderColorHover()}
         }
 
-        .Button:disabled,
-        .Button[disabled] {
+        .Wps-Button:disabled,
+        .Wps-Button[disabled] {
           ${handleDisabledColors()}
           cursor: not-allowed;
         }
@@ -310,4 +326,3 @@ const Button: React.FC<ButtonProps> = (props) => {
     </button>
   );
 };
-export default Button;

@@ -7,7 +7,7 @@ import { normalSizes } from "../../config/propTypes";
 
 import { LoadingProps } from "./Loading.types";
 
-const Loading: React.FC<LoadingProps> = (props) => {
+export const Loading: React.FC<LoadingProps> = (props) => {
   const theme = useTheme();
   const {
     color = "primary",
@@ -27,9 +27,9 @@ const Loading: React.FC<LoadingProps> = (props) => {
       case "large":
         return "4em";
       case "small":
-        return "2em";
+        return "1.8em";
       case "mini":
-        return "1.5em";
+        return "1em";
       case "medium":
       default:
         return "3em";
@@ -40,8 +40,8 @@ const Loading: React.FC<LoadingProps> = (props) => {
     case "coin":
       return (
         <div
-          data-testid="Loading"
-          className={classnames("Loading")}
+          data-testid="Wps-Loading"
+          className={classnames("Wps-Loading")}
           {...otherProps}
         >
           <div className="box">
@@ -49,15 +49,15 @@ const Loading: React.FC<LoadingProps> = (props) => {
           </div>
 
           <style jsx>{`
-            .Loading .box {
+            .Wps-Loading .box {
               /* perspective: 120px; */
             }
 
-            .Loading .coin {
+            .Wps-Loading .coin {
               width: ${handleSize()};
               height: ${handleSize()};
               border-radius: 50%;
-              border: 4px solid ${handleColor()};
+              border: 3px solid ${handleColor()};
               animation: spin 1.5s ease-in-out infinite;
             }
 
@@ -73,8 +73,8 @@ const Loading: React.FC<LoadingProps> = (props) => {
     case "rings":
       return (
         <div
-          data-testid="Loading"
-          className={classnames("Loading")}
+          data-testid="Wps-Loading"
+          className={classnames("Wps-Loading")}
           {...otherProps}
         >
           <div className="loader">
@@ -83,15 +83,15 @@ const Loading: React.FC<LoadingProps> = (props) => {
             <div className="inner"></div>
           </div>
           <style jsx>{`
-            .Loading .loader {
+            .Wps-Loading .loader {
               position: relative;
               width: ${(normalSizes.indexOf(size) + 1) * 0.95 + "em"};
               height: ${(normalSizes.indexOf(size) + 1) * 0.95 + "em"};
             }
 
-            .Loading .outer,
-            .Loading .middle,
-            .Loading .inner {
+            .Wps-Loading .outer,
+            .Wps-Loading .middle,
+            .Wps-Loading .inner {
               border: 2px solid transparent;
               border-top-color: ${handleColor()};
               border-right-color: ${handleColor()};
@@ -101,7 +101,7 @@ const Loading: React.FC<LoadingProps> = (props) => {
               left: 50%;
             }
 
-            .Loading .outer {
+            .Wps-Loading .outer {
               width: ${(normalSizes.indexOf(size) + 1) * 0.95 + "em"};
               height: ${(normalSizes.indexOf(size) + 1) * 0.95 + "em"};
               margin-left: ${(((normalSizes.indexOf(size) + 1) * 0.95) / 2) *
@@ -113,7 +113,7 @@ const Loading: React.FC<LoadingProps> = (props) => {
               animation: spin 2s linear infinite;
             }
 
-            .Loading .middle {
+            .Wps-Loading .middle {
               width: ${(normalSizes.indexOf(size) + 1) * 0.75 + "em"};
               height: ${(normalSizes.indexOf(size) + 1) * 0.75 + "em"};
               margin-left: ${(((normalSizes.indexOf(size) + 1) * 0.75) / 2) *
@@ -125,7 +125,7 @@ const Loading: React.FC<LoadingProps> = (props) => {
               animation: spin 1.75s linear reverse infinite;
             }
 
-            .Loading .inner {
+            .Wps-Loading .inner {
               width: ${(normalSizes.indexOf(size) + 1) * 0.55 + "em"};
               height: ${(normalSizes.indexOf(size) + 1) * 0.55 + "em"};
               margin-left: ${(((normalSizes.indexOf(size) + 1) * 0.55) / 2) *
@@ -149,8 +149,8 @@ const Loading: React.FC<LoadingProps> = (props) => {
     case "orbit":
       return (
         <div
-          data-testid="Loading"
-          className={classnames("Loading")}
+          data-testid="Wps-Loading"
+          className={classnames("Wps-Loading")}
           {...otherProps}
         >
           <svg viewBox="0 0 50 50">
@@ -158,18 +158,18 @@ const Loading: React.FC<LoadingProps> = (props) => {
             <circle className="ball" cx="25" cy="5" r="3.5"></circle>
           </svg>
           <style jsx>{`
-            .Loading svg {
+            .Wps-Loading svg {
               width: ${handleSize()};
               animation: 1.5s spin ease infinite;
             }
 
-            .Loading .ring {
+            .Wps-Loading .ring {
               fill: none;
               stroke: ${handleColor()};
               stroke-width: 2;
             }
 
-            .Loading .ball {
+            .Wps-Loading .ball {
               fill: ${handleColor()};
               stroke: none;
             }
@@ -186,8 +186,8 @@ const Loading: React.FC<LoadingProps> = (props) => {
     case "circle":
       return (
         <div
-          data-testid="Loading"
-          className={classnames("Loading")}
+          data-testid="Wps-Loading"
+          className={classnames("Wps-Loading")}
           {...otherProps}
         >
           <svg viewBox="25 25 50 50">
@@ -195,13 +195,13 @@ const Loading: React.FC<LoadingProps> = (props) => {
           </svg>
 
           <style jsx>{`
-            .Loading svg {
+            .Wps-Loading svg {
               width: ${handleSize()};
               transform-origin: center;
               animation: rotate 2s linear infinite;
             }
 
-            .Loading circle {
+            .Wps-Loading circle {
               fill: none;
               stroke: ${handleColor()};
               stroke-width: 2;
@@ -237,8 +237,8 @@ const Loading: React.FC<LoadingProps> = (props) => {
     case "dots":
       return (
         <div
-          data-testid="Loading"
-          className={classnames("Loading")}
+          data-testid="Wps-Loading"
+          className={classnames("Wps-Loading")}
           {...otherProps}
         >
           <div></div>
@@ -246,7 +246,7 @@ const Loading: React.FC<LoadingProps> = (props) => {
           <div></div>
 
           <style jsx>{`
-            .Loading {
+            .Wps-Loading {
               width: ${handleSize()};
               display: flex;
               flex-flow: row nowrap;
@@ -256,7 +256,7 @@ const Loading: React.FC<LoadingProps> = (props) => {
               margin: 5px;
             }
 
-            .Loading div {
+            .Wps-Loading div {
               width: ${(normalSizes.indexOf(size) + 1) * 0.3 + "em"};
               height: ${(normalSizes.indexOf(size) + 1) * 0.3 + "em"};
               border-radius: 50%;
@@ -264,11 +264,11 @@ const Loading: React.FC<LoadingProps> = (props) => {
               animation: fade 0.8s ease-in-out alternate infinite;
             }
 
-            .Loading div:nth-of-type(1) {
+            .Wps-Loading div:nth-of-type(1) {
               animation-delay: -0.4s;
             }
 
-            .Loading div:nth-of-type(2) {
+            .Wps-Loading div:nth-of-type(2) {
               animation-delay: -0.2s;
             }
 
@@ -288,12 +288,12 @@ const Loading: React.FC<LoadingProps> = (props) => {
     default:
       return (
         <div
-          data-testid="Loading"
-          className={classnames("Loading")}
+          data-testid="Wps-Loading"
+          className={classnames("Wps-Loading")}
           {...otherProps}
         >
           <style jsx>{`
-            .Loading {
+            .Wps-Loading {
               width: ${handleSize()};
               height: ${handleSize()};
               border: 3px solid transparent;
@@ -318,5 +318,3 @@ const Loading: React.FC<LoadingProps> = (props) => {
       );
   }
 };
-
-export default Loading;

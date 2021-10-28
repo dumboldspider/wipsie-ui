@@ -6,7 +6,7 @@ import isThemePalette from "../../utils/isThemePalette";
 
 import { TypographyProps } from "./Typography.types";
 
-const Typography: React.FC<TypographyProps> = (props) => {
+export const Typography: React.FC<TypographyProps> = (props) => {
   const theme = useTheme();
   const {
     children,
@@ -86,5 +86,3 @@ const Typography: React.FC<TypographyProps> = (props) => {
     </Component>
   );
 };
-
-export default Typography;

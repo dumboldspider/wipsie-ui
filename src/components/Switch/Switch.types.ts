@@ -36,6 +36,10 @@ export type SwitchProps = Modify<
      * Loader size
      */
     iconColor?: string;
+    /**
+     * Switch shape
+     */
+    shape?: "round" | "rounded" | "square" | undefined;
   }
 >;
 

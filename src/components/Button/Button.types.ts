@@ -48,5 +48,13 @@ export type ButtonProps = Modify<
      * Button Icon to add on right
      */
     endIcon?: any | undefined;
+    /**
+     * If the button should max the container width
+     */
+    fullWidth?: boolean;
+    /**
+     * The content alignment
+     */
+    align?: "left" | "center" | "right";
   }
 >;

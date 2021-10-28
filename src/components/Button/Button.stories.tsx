@@ -1,9 +1,9 @@
 import React from "react";
 
-import Button from "./Button";
-import Container from "../Container/Container";
-import Spacing from "../Spacing/Spacing";
-import Typography from "../Typography/Typography";
+import { Button } from "./Button";
+import { Container } from "../Container";
+import { Spacing } from "../Spacing";
+import { Typography } from "../Typography";
 import {
   StepForwardOutlined,
   RightOutlined,
