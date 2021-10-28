@@ -11,9 +11,11 @@ export const Badge: React.FC<BadgeProps> = (props) => {
   const {
     children,
     content,
+    dot = false,
     color = "secondary",
     textColor = null,
     wrapperProps,
+    invisible = false,
     position = "top right",
     ...otherProps
   } = props;
@@ -31,49 +33,62 @@ export const Badge: React.FC<BadgeProps> = (props) => {
     )};`;
   }
 
+  function handleDotSize() {
+    if (dot) {
+      return "min-height: 8px; max-height: 8px; min-width: 8px;";
+    } else {
+      return `min-height: 16px; max-height: 16px; min-width: 16px;`;
+    }
+  }
+
   function handlePosition() {
+    let tolerance = theme.layout.spacingUnit;
+    if (dot) {
+      tolerance = theme.layout.spacingUnit / 4;
+    }
+
     if (position.indexOf(" ") >= 0) {
       const [vertical, horizontal] = position.split(" ");
 
       let verticalCss = "";
       switch (vertical) {
         case "center":
-          verticalCss = `top: calc(50% - 8px); bottom: calc(0% - 8px);`;
+          verticalCss = `top: calc(50% - ${tolerance}px); bottom: calc(0% - ${tolerance}px);`;
           break;
         case "bottom":
-          verticalCss = `bottom: calc(0% - 8px);`;
+          verticalCss = `bottom: calc(0% - ${tolerance}px);`;
           break;
         default:
         case "top":
-          verticalCss = `top: calc(0% - 8px);`;
+          verticalCss = `top: calc(0% - ${tolerance}px);`;
           break;
       }
 
       let horizontalCss = "";
       switch (horizontal) {
         case "left":
-          horizontalCss = `left: calc(0% - 8px);`;
+          horizontalCss = `left: calc(0% - ${tolerance}px);`;
           break;
         default:
         case "right":
-          horizontalCss = `right: calc(0% - 8px);`;
+          horizontalCss = `right: calc(0% - ${tolerance}px);`;
           break;
       }
       return verticalCss + horizontalCss;
     } else {
       switch (position) {
         case "top":
-          return `top: calc(0% - 8px);`;
+          return `top: calc(0% - ${tolerance}px);`;
         case "center":
-          return `top: calc(50% - 8px); bottom: calc(0% - 8px);`;
+          return `top: calc(50% - ${tolerance}px); bottom: calc(0% - ${tolerance}px);`;
         case "bottom":
-          return `bottom: calc(0% - 8px);`;
+          return `bottom: calc(0% - ${tolerance}px);`;
         case "left":
-          return `left: calc(0% - 8px);`;
+          return `left: calc(0% - ${tolerance}px);`;
         case "right":
-          return `right: calc(0% - 8px);`;
+          return `right: calc(0% - ${tolerance}px);`;
         default:
-          return `top: calc(0% - 8px); right: calc(0% - 8px);`;
+          return `top: calc(0% - ${tolerance}px); right: calc(0% - ${tolerance}px);`;
       }
     }
   }
@@ -87,16 +102,15 @@ export const Badge: React.FC<BadgeProps> = (props) => {
       >
         <style jsx>{`
           .Wps-Badge {
-            display: flex;
+            display: ${invisible ? "none" : "flex"};
             align-items: center;
             justify-content: center;
             position: absolute;
             font-size: 10px;
             font-weight: bold;
             padding: 4px 4px;
-            min-height: 16px;
-            max-height: 16px;
-            min-width: 16px;
+            ${handleDotSize()}
+
             border-radius: 16px;
             z-index: 2;
 
