@@ -23,8 +23,11 @@ export const Avatar: React.FC<AvatarProps> = (props) => {
     groupLG = null,
     groupXL = null,
     icon,
-    backgroundColor = randomColor(),
+    bordered,
+    borderColor = theme.palette.background,
+    groupBackgroundColor = null,
     textColor = null,
+    clickable = false,
     className = null,
     ...otherProps
   } = props;
@@ -39,12 +42,29 @@ export const Avatar: React.FC<AvatarProps> = (props) => {
   const lg = props.lg ? props.lg : groupLG ? groupLG : null;
   const xl = props.xl ? props.xl : groupXL ? groupXL : null;
 
+  const backgroundColor = props.backgroundColor
+    ? props.backgroundColor
+    : groupBackgroundColor
+    ? groupBackgroundColor
+    : randomColor();
+
   function handleClickable() {
-    if (href) {
+    if (href || clickable) {
       return `cursor: pointer;`;
     } else {
       return "";
     }
+  }
+
+  function handleBorderColor() {
+    if (!bordered) return "border: none;";
+
+    if (borderColor) return `border: solid 1px ${borderColor};`; // if value is defined by props
+    return `border: solid 1px: ${contrast(
+      isThemePalette(borderColor)
+        ? theme.palette[borderColor][500]
+        : borderColor
+    )};`;
   }
 
   function handleBackgroundColor() {
@@ -68,15 +88,15 @@ export const Avatar: React.FC<AvatarProps> = (props) => {
     if (!breakpoint) return "";
     switch (breakpoint) {
       case "mini":
-        return "width: 20px; height: 20px; font-size: 10px;";
+        return "width: 20px; height: 20px; font-size: 8px;";
       case "small":
-        return "width: 32px; height: 32px; font-size: 16px;";
+        return "width: 32px; height: 32px; font-size: 12px;";
       case "medium":
-        return "width: 48px; height: 48px; font-size: 24px;";
+        return "width: 48px; height: 48px; font-size: 20px;";
       case "large":
-        return "width: 64px; height: 64px; font-size: 30px;";
+        return "width: 64px; height: 64px; font-size: 24px;";
       case "xlarge":
-        return "width: 96px; height: 96px; font-size: 40px;";
+        return "width: 96px; height: 96px; font-size: 36px;";
       default:
         return `width: ${breakpoint}; height: ${breakpoint}; `;
     }
@@ -117,6 +137,7 @@ export const Avatar: React.FC<AvatarProps> = (props) => {
           border-radius: 50%;
           overflow: hidden;
           user-select: none;
+          ${handleBorderColor()}
           ${handleBackgroundColor()}
           ${handleTextColor()}
           ${handleSize(xs)}
@@ -153,7 +174,7 @@ export const Avatar: React.FC<AvatarProps> = (props) => {
       )}
       {!src && !brokenSrc && !icon && !alt && <Broken />}
       {!src && !brokenSrc && !icon && alt && <>{handleAltLetters()}</>}
-      {!src && !brokenSrc && icon && !alt && <>{icon}</>}
+      {!src && !brokenSrc && icon && <>{icon}</>}
       <style jsx>{`
         .Wps-Avatar {
           width: 100%;

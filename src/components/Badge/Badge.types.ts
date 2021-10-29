@@ -5,6 +5,10 @@ export type BadgeProps = React.HTMLProps<HTMLSpanElement> &
 
 interface DefaultBadgeProps {
   /**
+   * Position tolerance number.
+   */
+  tolerance?: number;
+  /**
    * If `true`, the badge will be invisible.
    */
   invisible?: boolean;
@@ -17,6 +21,10 @@ interface DefaultBadgeProps {
    */
   bordered?: boolean;
   /**
+   * Badge content, can be a string or a number or a React component
+   */
+  icon?: any;
+  /**
    * What text color to use
    */
   textColor?: SimpleColors | string | null;
@@ -25,9 +33,13 @@ interface DefaultBadgeProps {
    */
   showZero?: boolean;
   /**
-   * What  color to use on border
+   * Dot Badge style
    */
-  borderColor?: SimpleColors | string | null;
+  dotSize?: string;
+  /**
+   * What color to use on border
+   */
+  borderColor?: SimpleColors | string;
   /**
    * Wrapper div element props
    */
@@ -55,7 +67,7 @@ interface ContentBadgeProps extends DefaultBadgeProps {
   /**
    * Badge content, can be a string or a number or a React component
    */
-  content: any;
+  content?: any;
   /**
    * Dot Badge style
    */

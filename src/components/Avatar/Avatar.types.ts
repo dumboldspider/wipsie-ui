@@ -44,49 +44,53 @@ interface DefaultAvatarProps {
    */
   brokenSrc?: string;
   /**
-   * Default size (in grid units or css width) for the grid item.
+   * Default size (in default sizes or css width) for the grid item.
    */
   xs?: number | boolean | string;
   /**
-   * Size (in grid units or css width) small breakpoint.
+   * Size (in default sizes or css width) small breakpoint.
    */
   sm?: number | boolean | string;
   /**
-   * Size (in grid units or css width) medium breakpoint.
+   * Size (in default sizes or css width) medium breakpoint.
    */
   md?: number | boolean | string;
   /**
-   * Size (in grid units or css width) large breakpoint.
+   * Size (in default sizes or css width) large breakpoint.
    */
   lg?: number | boolean | string;
   /**
-   * Size (in grid units or css width) extra large breakpoint.
+   * Size (in default sizes or css width) extra large breakpoint.
    */
   xl?: number | boolean | string;
   /**
-   * Default size (in grid units or css width) for the grid item.
+   * Default size (in default sizes or css width) for the grid item.
    */
   groupXS?: number | boolean | string;
   /**
-   * Size (in grid units or css width) small breakpoint.
+   * Size (in default sizes or css width) small breakpoint.
    */
   groupSM?: number | boolean | string;
   /**
-   * Size (in grid units or css width) medium breakpoint.
+   * Size (in default sizes or css width) medium breakpoint.
    */
   groupMD?: number | boolean | string;
   /**
-   * Size (in grid units or css width) large breakpoint.
+   * Size (in default sizes or css width) large breakpoint.
    */
   groupLG?: number | boolean | string;
   /**
-   * Size (in grid units or css width) extra large breakpoint.
+   * Size (in default sizes or css width) extra large breakpoint.
    */
   groupXL?: number | boolean | string;
   /**
    * What background color to use
    */
   backgroundColor?: SimpleColors | string;
+  /**
+   * What background avatar to use if inside a avatar group
+   */
+  groupBackgroundColor?: SimpleColors | string;
   /**
    * What text color to use
    */
@@ -99,4 +103,16 @@ interface DefaultAvatarProps {
    * Avatar Icon
    */
   icon?: any | undefined;
+  /**
+   * If should have a border to differ from the background color
+   */
+  bordered?: boolean;
+  /**
+   * If is clickable
+   */
+  clickable?: boolean;
+  /**
+   * What  color to use on border
+   */
+  borderColor?: SimpleColors | string;
 }

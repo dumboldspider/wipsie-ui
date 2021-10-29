@@ -15,12 +15,15 @@ export const Badge: React.FC<BadgeProps> = (props) => {
     bordered = false,
     borderColor = theme.palette.background,
     dot = false,
+    dotSize = "10px",
     color = "secondary",
     textColor = null,
+    tolerance = theme.layout.spacingUnit,
     wrapperProps,
     invisible = false,
     position = "top right",
     className = null,
+    icon = null,
     ...otherProps
   } = props;
 
@@ -35,7 +38,9 @@ export const Badge: React.FC<BadgeProps> = (props) => {
 
     if (borderColor) return `border: solid 1px ${borderColor};`; // if value is defined by props
     return `border: solid 1px: ${contrast(
-      isThemePalette(color) ? theme.palette[color][500] : color
+      isThemePalette(borderColor)
+        ? theme.palette[borderColor][500]
+        : borderColor
     )};`;
   }
 
@@ -48,17 +53,14 @@ export const Badge: React.FC<BadgeProps> = (props) => {
 
   function handleDotSize() {
     if (dot) {
-      return "min-height: 8px; max-height: 8px; min-width: 8px;";
+      return `min-height: ${dotSize}; max-height: ${dotSize}; min-width: ${dotSize};`;
     } else {
       return `min-height: 16px; max-height: 16px; min-width: 16px;`;
     }
   }
 
   function handlePosition() {
-    let tolerance = theme.layout.spacingUnit;
-    if (dot) {
-      tolerance = theme.layout.spacingUnit / 4;
-    }
+    let toleranceUnit = tolerance;
 
     if (position.indexOf(" ") >= 0) {
       const [vertical, horizontal] = position.split(" ");
@@ -66,42 +68,42 @@ export const Badge: React.FC<BadgeProps> = (props) => {
       let verticalCss = "";
       switch (vertical) {
         case "center":
-          verticalCss = `top: calc(50% - ${tolerance}px); bottom: calc(0% - ${tolerance}px);`;
+          verticalCss = `top: calc(50% - ${toleranceUnit}px); bottom: calc(0% - ${toleranceUnit}px);`;
           break;
         case "bottom":
-          verticalCss = `bottom: calc(0% - ${tolerance}px);`;
+          verticalCss = `bottom: calc(0% - ${toleranceUnit}px);`;
           break;
         default:
         case "top":
-          verticalCss = `top: calc(0% - ${tolerance}px);`;
+          verticalCss = `top: calc(0% - ${toleranceUnit}px);`;
           break;
       }
 
       let horizontalCss = "";
       switch (horizontal) {
         case "left":
-          horizontalCss = `left: calc(0% - ${tolerance}px);`;
+          horizontalCss = `left: calc(0% - ${toleranceUnit}px);`;
           break;
         default:
         case "right":
-          horizontalCss = `right: calc(0% - ${tolerance}px);`;
+          horizontalCss = `right: calc(0% - ${toleranceUnit}px);`;
           break;
       }
       return verticalCss + horizontalCss;
     } else {
       switch (position) {
         case "top":
-          return `top: calc(0% - ${tolerance}px);`;
+          return `top: calc(0% - ${toleranceUnit}px);`;
         case "center":
-          return `top: calc(50% - ${tolerance}px); bottom: calc(0% - ${tolerance}px);`;
+          return `top: calc(50% - ${toleranceUnit}px); bottom: calc(0% - ${toleranceUnit}px);`;
         case "bottom":
-          return `bottom: calc(0% - ${tolerance}px);`;
+          return `bottom: calc(0% - ${toleranceUnit}px);`;
         case "left":
-          return `left: calc(0% - ${tolerance}px);`;
+          return `left: calc(0% - ${toleranceUnit}px);`;
         case "right":
-          return `right: calc(0% - ${tolerance}px);`;
+          return `right: calc(0% - ${toleranceUnit}px);`;
         default:
-          return `top: calc(0% - ${tolerance}px); right: calc(0% - ${tolerance}px);`;
+          return `top: calc(0% - ${toleranceUnit}px); right: calc(0% - ${toleranceUnit}px);`;
       }
     }
   }
@@ -121,7 +123,12 @@ export const Badge: React.FC<BadgeProps> = (props) => {
   }
 
   function handleStyles() {
-    if (typeof content === "string" || typeof content === "number" || dot) {
+    if (
+      typeof content === "string" ||
+      typeof content === "number" ||
+      dot ||
+      icon
+    ) {
       return `
         font-size: 10px;
         font-weight: bold;
@@ -156,6 +163,7 @@ export const Badge: React.FC<BadgeProps> = (props) => {
           }
         `}</style>
         {content}
+        {icon}
       </span>
       {children}
     </div>

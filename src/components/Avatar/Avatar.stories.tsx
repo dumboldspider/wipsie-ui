@@ -1,9 +1,15 @@
 // Generated with util/create-component.js
-import React from "react";
+import React, { useState } from "react";
 import { Avatar } from "./Avatar";
 import responsive from "../../utils/responsive";
-import { ShopFilled } from "@ant-design/icons";
-
+import { Badge } from "../Badge";
+import { Spacing } from "../Spacing";
+import {
+  ShopFilled,
+  ClockCircleOutlined,
+  SyncOutlined,
+  CheckOutlined,
+} from "@ant-design/icons";
 export default {
   title: "Prototypes/Avatar",
 };
@@ -72,13 +78,18 @@ export const Responsive = () => (
 export const ContentVariants = () => (
   <>
     <Avatar xs="mini" />
-    <Avatar alt="Daniel Brown" xs="mini" />
+    <Avatar
+      alt="Daniel Brown"
+      xs="xlarge"
+      href="https://google.com"
+      target="_blank"
+    />
     <Avatar icon={<ShopFilled />} xs="mini" />
     <Avatar xs="small" />
     <Avatar alt="Daniel Brown" xs="small" />
     <Avatar icon={<ShopFilled />} xs="small" />
     <Avatar xs="medium" />
-    <Avatar alt="Daniel Brown" xs="medium" />
+    <Avatar alt="Daniel" xs="medium" />
     <Avatar icon={<ShopFilled />} xs="medium" />
     <Avatar xs="large" />
     <Avatar alt="Daniel Brown" xs="large" />
@@ -88,3 +99,88 @@ export const ContentVariants = () => (
     <Avatar icon={<ShopFilled />} xs="xlarge" backgroundColor="primary" />
   </>
 );
+
+export const WithBadge = () => (
+  <>
+    <Badge
+      icon={<ClockCircleOutlined />}
+      bordered
+      tolerance={3}
+      color="info"
+      position="top right"
+    >
+      <Avatar
+        alt="Daniel Brown"
+        xs="medium"
+        href="https://google.com"
+        target="_blank"
+      />
+    </Badge>
+    <Spacing height={20} />
+    <Badge
+      icon={<SyncOutlined spin />}
+      bordered
+      tolerance={3}
+      color="info"
+      position="top right"
+    >
+      <Avatar
+        alt="Daniel Brown"
+        xs="medium"
+        href="https://google.com"
+        target="_blank"
+      />
+    </Badge>
+    <Spacing height={20} />
+    <Badge dot bordered tolerance={-2} color="gray" position="bottom right">
+      <Avatar
+        alt="Daniel Brown"
+        xs="medium"
+        href="https://google.com"
+        target="_blank"
+      />
+    </Badge>
+    <Spacing height={20} />
+    <Badge dot bordered tolerance={-2} color="success" position="bottom right">
+      <Avatar
+        alt="Daniel Brown"
+        xs="medium"
+        href="https://google.com"
+        target="_blank"
+      />
+    </Badge>
+  </>
+);
+
+export const LoadingExample = () => {
+  const [loading, setLoading] = useState(false);
+
+  function handleLoading() {
+    setLoading(true);
+    !loading &&
+      setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+  }
+  return (
+    <Badge
+      icon={loading ? <SyncOutlined spin /> : <CheckOutlined />}
+      bordered
+      tolerance={3}
+      color={loading ? "info" : "success"}
+      position="top right"
+      // invisible={!loading}
+    >
+      <Avatar
+        alt="Daniel Brown"
+        xs="medium"
+        clickable
+        target="_blank"
+        onClick={handleLoading}
+        backgroundColor={loading ? "silver" : "primary"}
+        textColor="white"
+        icon={loading ? <SyncOutlined spin /> : <CheckOutlined />}
+      />
+    </Badge>
+  );
+};
