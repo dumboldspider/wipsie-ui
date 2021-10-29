@@ -11,7 +11,15 @@ export default {
 export const WithBaz = () => (
   <Grid container spacing={1.5}>
     <Grid item xs={100} sm={6} md={4} lg={3} xl={6}>
-      <Container>a</Container>
+      <Container>
+        awdawd
+        <br />
+        awdawdawd
+        <br />
+        awdawdawd
+        <br />
+        awd
+      </Container>
     </Grid>
     <Grid item xs={100} sm={6} md={4} lg={6} xl={6}>
       <Container>a</Container>

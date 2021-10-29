@@ -1,4 +1,3 @@
-import { Modify } from "../../types/modify";
 import { SimpleColors } from "../../config/propTypes";
 
 export type BadgeProps = React.HTMLProps<HTMLSpanElement> &

@@ -122,6 +122,9 @@ const GridItem: React.FC<GridItemProps> = (props) => {
         .Wps-GridItem {
           ${handleXS()}
         }
+        .Wps-GridItem > :global(*) {
+          height: 100%;
+        }
         @media only screen and (min-width: ${theme.breakpoints.sm.min}) {
           .Wps-GridItem {
             ${handleSM()}
