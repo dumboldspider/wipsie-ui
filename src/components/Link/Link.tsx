@@ -8,7 +8,13 @@ import { LinkProps } from "./Link.types";
 
 export const Link: React.FC<LinkProps> = (props) => {
   const theme = useTheme();
-  const { color = "primary", component = "a", children, ...otherProps } = props;
+  const {
+    color = "primary",
+    component = "a",
+    children,
+    className = null,
+    ...otherProps
+  } = props;
 
   const Component = component ? component : "a";
 
@@ -44,7 +50,7 @@ export const Link: React.FC<LinkProps> = (props) => {
   return (
     <Component
       data-testid="Wps-Link"
-      className={classnames("Wps-Link")}
+      className={classnames("Wps-Link", className)}
       {...otherProps}
     >
       <style jsx>{`

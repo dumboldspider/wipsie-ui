@@ -19,12 +19,18 @@ export const Grid: React.FC<GridProps> = (props) => {
 
 const GridContainer: React.FC<GridContainerProps> = (props) => {
   const theme = useTheme();
-  const { children, spacing = 2, noWrap, ...otherProps } = props;
+  const {
+    children,
+    spacing = 2,
+    noWrap,
+    className = null,
+    ...otherProps
+  } = props;
 
   return (
     <div
       data-testid="Wps-GridContainer"
-      className={classnames("Wps-GridContainer")}
+      className={classnames("Wps-GridContainer", className)}
       {...otherProps}
     >
       <style jsx>{`
@@ -55,6 +61,7 @@ const GridItem: React.FC<GridItemProps> = (props) => {
     md = null,
     lg = null,
     xl = null,
+    className = null,
     ...otherProps
   } = props;
 
@@ -115,7 +122,7 @@ const GridItem: React.FC<GridItemProps> = (props) => {
   return (
     <div
       data-testid="Wps-GridItem"
-      className={classnames("Wps-GridItem")}
+      className={classnames("Wps-GridItem", className)}
       {...otherProps}
     >
       <style jsx>{`

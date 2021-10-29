@@ -13,6 +13,7 @@ export const Typography: React.FC<TypographyProps> = (props) => {
     color = theme.palette.text,
     component,
     variant = "body1",
+    className = null,
     ...otherProps
   } = props;
 
@@ -68,7 +69,7 @@ export const Typography: React.FC<TypographyProps> = (props) => {
   return (
     <Component
       data-testid="Typography"
-      className={classnames("Typography")}
+      className={classnames("Typography", className)}
       {...otherProps}
     >
       <style jsx>{`

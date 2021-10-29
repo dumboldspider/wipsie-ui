@@ -34,23 +34,23 @@ export interface DefaultGridItemProps {
   container?: never;
 
   /**
-   * Default size (in grid units) for the grid item.
+   * Default size (in grid units or css) for the grid item.
    */
   xs: number | boolean | string;
   /**
-   * Size (in grid units) small breakpoint.
+   * Size (in grid units or css) small breakpoint.
    */
   sm?: number | boolean | string;
   /**
-   * Size (in grid units) medium breakpoint.
+   * Size (in grid units or css) medium breakpoint.
    */
   md?: number | boolean | string;
   /**
-   * Size (in grid units) large breakpoint.
+   * Size (in grid units or css) large breakpoint.
    */
   lg?: number | boolean | string;
   /**
-   * Size (in grid units) extra large breakpoint.
+   * Size (in grid units or css) extra large breakpoint.
    */
   xl?: number | boolean | string;
 }

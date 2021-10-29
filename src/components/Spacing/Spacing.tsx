@@ -5,7 +5,7 @@ import classnames from "classnames";
 import { SpacingProps } from "./Spacing.types";
 
 export const Spacing: React.FC<SpacingProps> = (props) => {
-  const { height, ...otherProps } = props;
+  const { height, className = null, ...otherProps } = props;
 
   function handleHeight() {
     return height
@@ -18,7 +18,7 @@ export const Spacing: React.FC<SpacingProps> = (props) => {
   return (
     <div
       data-testid="Wps-Spacing"
-      className={classnames("Wps-Spacing")}
+      className={classnames("Wps-Spacing", className)}
       {...otherProps}
     >
       <style jsx>{`

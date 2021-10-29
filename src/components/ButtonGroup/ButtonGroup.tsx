@@ -16,7 +16,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
     backgroundColor = "primary",
     hoverBackgroundColor = null,
     color = null,
-
+    className = null,
     ...otherProps
   } = props;
 
@@ -109,7 +109,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
   return (
     <div
       data-testid="Wps-ButtonGroup"
-      className={classnames("Wps-ButtonGroup")}
+      className={classnames("Wps-ButtonGroup", className)}
       {...otherProps}
     >
       <style jsx>{`

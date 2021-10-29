@@ -17,10 +17,10 @@ export const IconButton: React.FC<IconButtonProps> = (props) => {
     groupHoverBackgroundColor = null,
     groupColor = null,
     color = null,
-
     label = null,
     children,
     icon = null,
+    className = null,
     ...otherProps
   } = props;
 
@@ -283,7 +283,7 @@ export const IconButton: React.FC<IconButtonProps> = (props) => {
   return (
     <button
       data-testid="Wps-IconButton"
-      className={classnames("Wps-IconButton")}
+      className={classnames("Wps-IconButton", className)}
       {...otherProps}
     >
       <style jsx>{`

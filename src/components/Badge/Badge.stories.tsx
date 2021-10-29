@@ -11,11 +11,17 @@ export default {
 
 export const WithBar = () => (
   <>
-    <Badge content={"NEW"} position="bottom right" color="success">
+    <Badge
+      content={0}
+      position="bottom right"
+      color="success"
+      bordered
+      showZero
+    >
       <Button backgroundColor="secondary">Test</Button>
     </Badge>
     <Spacing height={50} />
-    <Badge content={"+99"} position="top right" color="danger">
+    <Badge content={"+99"} position="top right" color="danger" bordered>
       <Button backgroundColor="success">Test</Button>
     </Badge>
     <Spacing height={50} />
@@ -45,6 +51,15 @@ export const WithBar = () => (
     <Spacing height={50} />
     <Badge dot position="top left" color="success">
       <Button backgroundColor="primary" icon={<ShopFilled />} />
+    </Badge>
+    <Spacing height={50} />
+    <Badge
+      content={<Button size="mini">Test</Button>}
+      position="top right"
+      color="danger"
+      bordered
+    >
+      <Button backgroundColor="success">Test</Button>
     </Badge>
   </>
 );

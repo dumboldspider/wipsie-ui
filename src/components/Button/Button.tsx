@@ -13,12 +13,12 @@ export const Button: React.FC<ButtonProps> = (props) => {
   const theme = useTheme();
   const {
     chip = false,
-    groupColor = null,
     groupVariant = null,
     groupSize = null,
     groupShape = null,
     groupBackgroundColor = null,
     groupHoverBackgroundColor = null,
+    groupColor = null,
     label = null,
     children,
     icon = null,
@@ -27,6 +27,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
     fullWidth = false,
     align = "center",
     color = null,
+    className = null,
     ...otherProps
   } = props;
 
@@ -301,7 +302,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
   return (
     <button
       data-testid="Wps-Button"
-      className={classnames("Wps-Button")}
+      className={classnames("Wps-Button", className)}
       {...otherProps}
     >
       {startIcon && <span style={{ paddingRight: 5 }}>{startIcon}</span>}

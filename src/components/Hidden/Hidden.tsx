@@ -13,13 +13,14 @@ export const Hidden: React.FC<HiddenProps> = (props) => {
     lg = null,
     xl = null,
     children,
+    className = null,
     ...otherProps
   } = props;
 
   return (
     <div
       data-testid="Wps-Hidden"
-      className={classnames("Wps-Hidden")}
+      className={classnames("Wps-Hidden", className)}
       {...otherProps}
     >
       <style jsx>{`

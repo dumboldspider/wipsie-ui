@@ -13,9 +13,21 @@ interface DefaultBadgeProps {
    */
   color?: SimpleColors | string;
   /**
+   * If should have a border to differ from the background color
+   */
+  bordered?: boolean;
+  /**
    * What text color to use
    */
   textColor?: SimpleColors | string | null;
+  /**
+   * If should show the content when it is zero
+   */
+  showZero?: boolean;
+  /**
+   * What  color to use on border
+   */
+  borderColor?: SimpleColors | string | null;
   /**
    * Wrapper div element props
    */
@@ -41,7 +53,7 @@ interface DefaultBadgeProps {
 }
 interface ContentBadgeProps extends DefaultBadgeProps {
   /**
-   * Badge content
+   * Badge content, can be a string or a number or a React component
    */
   content: any;
   /**
@@ -51,7 +63,7 @@ interface ContentBadgeProps extends DefaultBadgeProps {
 }
 interface DotBadgeProps extends DefaultBadgeProps {
   /**
-   * Badge content
+   * Badge content, can be a string or a number or a React component
    */
   content?: never;
   /**

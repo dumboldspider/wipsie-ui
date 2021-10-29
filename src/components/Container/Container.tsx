@@ -13,6 +13,7 @@ export const Container: React.FC<ContainerProps> = (props) => {
     backgroundColor = "background",
     hoverBackgroundColor = null,
     clickable = false,
+    className = null,
     ...otherProps
   } = props;
 
@@ -65,7 +66,7 @@ export const Container: React.FC<ContainerProps> = (props) => {
   return (
     <div
       data-testid="Wps-Container"
-      className={classnames("Wps-Container")}
+      className={classnames("Wps-Container", className)}
       {...otherProps}
     >
       <style jsx>{`

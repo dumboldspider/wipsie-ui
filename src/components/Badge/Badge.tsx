@@ -11,12 +11,16 @@ export const Badge: React.FC<BadgeProps> = (props) => {
   const {
     children,
     content,
+    showZero = false,
+    bordered = false,
+    borderColor = theme.palette.background,
     dot = false,
     color = "secondary",
     textColor = null,
     wrapperProps,
     invisible = false,
     position = "top right",
+    className = null,
     ...otherProps
   } = props;
 
@@ -24,6 +28,15 @@ export const Badge: React.FC<BadgeProps> = (props) => {
     return `background: ${
       isThemePalette(color) ? theme.palette[color][500] : color
     };`;
+  }
+
+  function handleBorderColor() {
+    if (!bordered) return "border: none;";
+
+    if (borderColor) return `border: solid 1px ${borderColor};`; // if value is defined by props
+    return `border: solid 1px: ${contrast(
+      isThemePalette(color) ? theme.palette[color][500] : color
+    )};`;
   }
 
   function handleTextColor() {
@@ -93,29 +106,52 @@ export const Badge: React.FC<BadgeProps> = (props) => {
     }
   }
 
+  function handleShowZero() {
+    if (showZero) {
+      return false;
+    } else {
+      if (
+        (typeof content === "string" && content === "0") ||
+        (typeof content === "number" && content === 0)
+      ) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function handleStyles() {
+    if (typeof content === "string" || typeof content === "number" || dot) {
+      return `
+        font-size: 10px;
+        font-weight: bold;
+        padding: 4px 4px;
+        border-radius: 16px;
+        ${handleDotSize()}
+        ${handleColor()}
+        ${handleBorderColor()}
+        ${handleTextColor()}
+      `;
+    } else {
+      return "";
+    }
+  }
+
   return (
     <div style={{ position: "relative" }} {...wrapperProps}>
       <span
         data-testid="Wps-Badge"
-        className={classnames("Wps-Badge")}
+        className={classnames("Wps-Badge", className)}
         {...otherProps}
       >
         <style jsx>{`
           .Wps-Badge {
-            display: ${invisible ? "none" : "flex"};
+            display: ${invisible || handleShowZero() ? "none" : "flex"};
             align-items: center;
             justify-content: center;
             position: absolute;
-            font-size: 10px;
-            font-weight: bold;
-            padding: 4px 4px;
-            ${handleDotSize()}
-
-            border-radius: 16px;
             z-index: 2;
-
-            ${handleColor()}
-            ${handleTextColor()}
+            ${handleStyles()}
             ${handlePosition()}
           }
         `}</style>

@@ -18,6 +18,7 @@ export const Switch: React.FC<SwitchProps> = (props) => {
     color = "primary",
     size = "medium",
     shape = "round",
+    className = null,
     ...otherProps
   } = props;
 
@@ -154,7 +155,7 @@ export const Switch: React.FC<SwitchProps> = (props) => {
         className={classnames("Wps-Switch")}
         checked={checked}
       />
-      <div className="Wps-SwExternal" {...otherProps}>
+      <div className={classnames("Wps-SwExternal", className)} {...otherProps}>
         <div className="Wps-SwInternal">{icon && icon}</div>
       </div>
       <style jsx>{`

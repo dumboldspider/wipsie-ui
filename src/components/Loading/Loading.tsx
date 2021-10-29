@@ -13,6 +13,7 @@ export const Loading: React.FC<LoadingProps> = (props) => {
     color = "primary",
     size = "medium",
     type = "circle",
+    className = null,
     ...otherProps
   } = props;
 
@@ -41,7 +42,7 @@ export const Loading: React.FC<LoadingProps> = (props) => {
       return (
         <div
           data-testid="Wps-Loading"
-          className={classnames("Wps-Loading")}
+          className={classnames("Wps-Loading", className)}
           {...otherProps}
         >
           <div className="box">
@@ -74,7 +75,7 @@ export const Loading: React.FC<LoadingProps> = (props) => {
       return (
         <div
           data-testid="Wps-Loading"
-          className={classnames("Wps-Loading")}
+          className={classnames("Wps-Loading", className)}
           {...otherProps}
         >
           <div className="loader">
@@ -150,7 +151,7 @@ export const Loading: React.FC<LoadingProps> = (props) => {
       return (
         <div
           data-testid="Wps-Loading"
-          className={classnames("Wps-Loading")}
+          className={classnames("Wps-Loading", className)}
           {...otherProps}
         >
           <svg viewBox="0 0 50 50">
@@ -187,7 +188,7 @@ export const Loading: React.FC<LoadingProps> = (props) => {
       return (
         <div
           data-testid="Wps-Loading"
-          className={classnames("Wps-Loading")}
+          className={classnames("Wps-Loading", className)}
           {...otherProps}
         >
           <svg viewBox="25 25 50 50">
@@ -238,7 +239,7 @@ export const Loading: React.FC<LoadingProps> = (props) => {
       return (
         <div
           data-testid="Wps-Loading"
-          className={classnames("Wps-Loading")}
+          className={classnames("Wps-Loading", className)}
           {...otherProps}
         >
           <div></div>
@@ -289,7 +290,7 @@ export const Loading: React.FC<LoadingProps> = (props) => {
       return (
         <div
           data-testid="Wps-Loading"
-          className={classnames("Wps-Loading")}
+          className={classnames("Wps-Loading", className)}
           {...otherProps}
         >
           <style jsx>{`

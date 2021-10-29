@@ -12,6 +12,7 @@ export const Box: React.FC<BoxProps> = (props) => {
     backgroundColor = "background",
     hoverBackgroundColor = null,
     clickable = false,
+    className = null,
     ...otherProps
   } = props;
 
@@ -49,7 +50,7 @@ export const Box: React.FC<BoxProps> = (props) => {
   return (
     <div
       data-testid="Wps-Box"
-      className={classnames("Wps-Box")}
+      className={classnames("Wps-Box", className)}
       {...otherProps}
     >
       <style jsx>{`
