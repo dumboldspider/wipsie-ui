@@ -9,12 +9,12 @@ export type TypographyProps = Modify<
      */
     component?: any;
     /**
+     * Text color to use
+     */
+    color?: SimpleColors | "text" | "subtext" | string;
+    /**
      * Which theme variant to use
      */
     variant?: TypographyVariants;
-    /**
-     * Text color to use
-     */
-    color?: SimpleColors | string;
   }
 >;
