@@ -4,7 +4,6 @@ import classnames from "classnames";
 import useTheme from "../../hooks/useTheme";
 import isThemePalette from "../../utils/isThemePalette";
 import { BoxProps } from "./Box.types";
-import opacity from "../../utils/opacity";
 
 export const Box: React.FC<BoxProps> = (props) => {
   const theme = useTheme();
@@ -44,21 +43,6 @@ export const Box: React.FC<BoxProps> = (props) => {
         return isThemePalette(backgroundColor)
           ? theme.palette[backgroundColor][500]
           : backgroundColor;
-    }
-  }
-
-  function handleShadowColor() {
-    switch (backgroundColor) {
-      case "highlight":
-        return theme.palette.basic.shadow;
-      case "background":
-        return theme.palette.basic.shadow;
-      case "shade":
-        return theme.palette.basic.shadow;
-      default:
-        return isThemePalette(backgroundColor)
-          ? theme.palette[backgroundColor].shadow
-          : opacity(backgroundColor, 24);
     }
   }
 
