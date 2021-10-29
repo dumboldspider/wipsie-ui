@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import { Button } from "./Button";
 import { Container } from "../Container";
 import { Spacing } from "../Spacing";
 import { Typography } from "../Typography";
+import { IconButton } from "../IconButton";
 import {
   StepForwardOutlined,
   RightOutlined,
@@ -12,6 +13,7 @@ import {
   SyncOutlined,
   HeartTwoTone,
   CheckOutlined,
+  CloseOutlined,
 } from "@ant-design/icons";
 
 export default {
@@ -533,9 +535,11 @@ export const ChipButton = () => (
             </div>
           }
           endIcon={
-            <div style={{ width: 16 }}>
-              <button>X</button>
-            </div>
+            <IconButton
+              size="mini"
+              backgroundColor="#000000"
+              icon={<CloseOutlined />}
+            />
           }
           backgroundColor="secondary"
           variant="contained"
@@ -546,3 +550,24 @@ export const ChipButton = () => (
     </Container>
   </Container>
 );
+
+export const LoadingExample = () => {
+  const [loading, setLoading] = useState(false);
+
+  function handleLoading() {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }
+
+  return (
+    <Button
+      onClick={handleLoading}
+      disabled={loading}
+      startIcon={loading ? <SyncOutlined spin /> : <CheckOutlined />}
+    >
+      {loading ? "Loading..." : "Click Me"}
+    </Button>
+  );
+};

@@ -3,14 +3,38 @@ import React from "react";
 import classnames from "classnames";
 
 import { ButtonGroupProps } from "./ButtonGroup.types";
+import { Sizes } from "components/Button/Button.stories";
 
 export const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
   const {
     children,
     shape = "round",
     orientation = "horizontal",
+    variant = "contained",
+    size = "medium",
+    fullWidth = false,
+    backgroundColor = "primary",
+    hoverBackgroundColor = null,
+    color = null,
+
     ...otherProps
   } = props;
+
+  const childrenWithProps = React.Children.map(children, (child) => {
+    // Checking isValidElement is the safe way and avoids a typescript
+    // error too.
+    if (React.isValidElement(child)) {
+      return React.cloneElement(child, {
+        groupVariant: variant,
+        groupShape: shape,
+        groupSize: size,
+        groupBackgroundColor: backgroundColor,
+        groupHoverBackgroundColor: hoverBackgroundColor,
+        groupColor: color,
+      });
+    }
+    return child;
+  });
 
   function handleShapeFirstHorizontal() {
     switch (shape) {
@@ -19,7 +43,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
       case "rounded":
         return "border-radius: 0.7em 0px 0px 0.7em; border-left-width: 2px;";
       case "square":
-        return "border-radius: 0em;";
+        return "border-radius: 0em; border-left-width: 2px;";
       default:
         return "border-radius: 0.7em 0px 0px 0.7em; border-left-width: 2px;";
     }
@@ -31,7 +55,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
       case "rounded":
         return "border-radius: 0px 0.7em 0.7em 0px; border-right-width: 2px;";
       case "square":
-        return "border-radius: 0em;";
+        return "border-radius: 0em; border-right-width: 2px;";
       default:
         return "border-radius: 0px 0.7em 0.7em 0px; border-right-width: 2px;";
     }
@@ -44,7 +68,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
       case "rounded":
         return "border-radius: 0.7em 0.7em 0px 0px; border-top-width: 2px;";
       case "square":
-        return "border-radius: 0em;";
+        return "border-radius: 0em; border-top-width: 2px;";
       default:
         return "border-radius: 0.7em 0.7em 0px 0px; border-top-width: 2px;";
     }
@@ -56,7 +80,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
       case "rounded":
         return "border-radius: 0px 0px 0.7em 0.7em; border-bottom-width: 2px;";
       case "square":
-        return "border-radius: 0em;";
+        return "border-radius: 0em; border-bottom-width: 2px;";
       default:
         return "border-radius: 0px 0px 0.7em 0.7em; border-bottom-width: 2px;";
     }
@@ -91,14 +115,17 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
       <style jsx>{`
         .Wps-ButtonGroup {
           display: flex;
+          width: ${fullWidth ? "100%" : "max-content"};
           ${handleOrientation()};
+          position: relative;
         }
 
         .Wps-ButtonGroup :global(button) {
           border-radius: 0;
-          width: 100%;
+          flex-grow: 1;
           min-width: max-content;
-
+          height: auto;
+          ${orientation === "vertical" ? "width: 100%;" : ""}
           ${handleOrientationBorder()};
         }
 
@@ -113,7 +140,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
             : handleShapeLastVertical()};
         }
       `}</style>
-      {children}
+      {childrenWithProps}
     </div>
   );
 };

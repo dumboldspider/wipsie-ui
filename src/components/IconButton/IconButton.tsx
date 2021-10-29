@@ -1,32 +1,26 @@
+// Generated with util/create-component.js
 import React from "react";
 import classnames from "classnames";
 import useTheme from "../../hooks/useTheme";
 import isThemePalette from "../../utils/isThemePalette";
 import contrast from "../../utils/contrast";
 import opacity from "../../utils/opacity";
-import { ButtonProps } from "./Button.types";
+import { IconButtonProps } from "./IconButton.types";
 
-/**
- * Primary UI component for user interaction
- */
-export const Button: React.FC<ButtonProps> = (props) => {
+export const IconButton: React.FC<IconButtonProps> = (props) => {
   const theme = useTheme();
   const {
-    chip = false,
-    groupColor = null,
     groupVariant = null,
     groupSize = null,
     groupShape = null,
     groupBackgroundColor = null,
     groupHoverBackgroundColor = null,
+    groupColor = null,
+    color = null,
+
     label = null,
     children,
     icon = null,
-    startIcon = null,
-    endIcon = null,
-    fullWidth = false,
-    align = "center",
-    color = null,
     ...otherProps
   } = props;
 
@@ -35,7 +29,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
     ? props.variant
     : groupVariant
     ? groupVariant
-    : "contained";
+    : "ghost";
 
   // size for the button or group of buttons
   const size = props.size ? props.size : groupSize ? groupSize : "medium";
@@ -244,32 +238,32 @@ export const Button: React.FC<ButtonProps> = (props) => {
   function handleFontSize() {
     switch (size) {
       case "xlarge":
-        return "font-size: 16px;";
+        return "font-size: 26px;";
       case "large":
-        return "font-size: 16px;";
+        return "font-size: 22px;";
       case "small":
-        return "font-size: 12px;";
+        return "font-size: 14px;";
       case "mini":
         return "font-size: 10px;";
       case "medium":
       default:
-        return "font-size: 14px;";
+        return "font-size: 18px;";
     }
   }
 
   function handlePadding() {
     switch (size) {
       case "xlarge":
-        return "padding: 12px 16px; ";
+        return "padding: 10px; ";
       case "large":
-        return "padding: 10px 14px;";
+        return "padding: 8px;";
       case "small":
-        return "padding: 6px 8px;";
+        return "padding: 4px;";
       case "mini":
-        return "padding: 4px 6px;";
+        return "padding: 2px;";
       case "medium":
       default:
-        return "padding: 8px 10px;";
+        return "padding: 6px;";
     }
   }
 
@@ -286,35 +280,32 @@ export const Button: React.FC<ButtonProps> = (props) => {
     }
   }
 
-  function handleAlign() {
-    switch (align) {
-      case "left":
-        return "justify-content: flex-start;";
-      case "right":
-        return "justify-content: flex-end;";
-      case "center":
-      default:
-        return "justify-content: center;";
-    }
-  }
-
   return (
     <button
-      data-testid="Wps-Button"
-      className={classnames("Wps-Button")}
+      data-testid="Wps-IconButton"
+      className={classnames("Wps-IconButton")}
       {...otherProps}
     >
-      {startIcon && <span style={{ paddingRight: 5 }}>{startIcon}</span>}
-
-      {icon && <span style={{}}>{icon}</span>}
-      {label}
-      {children}
-
-      {endIcon && <span style={{ paddingLeft: 5 }}>{endIcon}</span>}
-
-      {/* @ STYLES */}
       <style jsx>{`
-        .Wps-Button {
+        .Wps-IconButton {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          box-sizing: border-box;
+          outline: currentcolor none 0px;
+          margin: 0px;
+          cursor: pointer;
+          user-select: none;
+          vertical-align: middle;
+          /* appearance: none; */
+          text-decoration: none;
+          text-align: center;
+          /* flex: 0 0 auto; */
+          border-radius: 50%;
+          overflow: visible;
+          min-width: max-content;
+
           ${handleBackgroundColor()}
           ${handleTextColor()}
           border-style: solid;
@@ -325,35 +316,27 @@ export const Button: React.FC<ButtonProps> = (props) => {
           font-weight: ${theme.font.label.fontWeight};
           line-height: ${theme.font.label.lineHeight};
           text-transform: ${theme.font.label.textTransform};
-
           ${handleFontSize()}
+
           ${handleShape()}
           ${handlePadding()}
-
-          position: relative;
-          ${!chip ? "cursor: pointer;" : ""}
-          overflow: hidden;
-          display: flex;
-          align-items: center;
-          ${handleAlign()}
-
-          height: fit-content;
-          width: ${fullWidth ? "100%" : "max-content"};
-
-          transition: all 250ms ease 0ms;
+        
+          transition: all .5s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .Wps-Button:hover {
-          ${!chip && handleBackgroundColorHover()}
-          ${!chip && handleTextColorHover()}
-          ${!chip && handleBorderColorHover()}
+        .Wps-IconButton:hover {
+          ${handleBackgroundColorHover()}
+          ${handleTextColorHover()}
+          ${handleBorderColorHover()}
         }
 
-        .Wps-Button:disabled,
-        .Wps-Button[disabled] {
+        .Wps-IconButton:disabled,
+        .Wps-IconButton[disabled] {
           ${handleDisabledColors()}
           cursor: not-allowed;
         }
       `}</style>
+      {children}
+      {icon}
     </button>
   );
 };

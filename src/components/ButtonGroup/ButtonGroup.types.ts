@@ -1,6 +1,6 @@
 // Generated with util/create-component.js
 import { Modify } from "../../types/modify";
-import { SimpleColors } from "../../config/propTypes";
+import { SimpleColors, NormalSizes } from "../../config/propTypes";
 
 export type ButtonGroupProps = Modify<
   React.HTMLProps<HTMLDivElement>,
@@ -13,5 +13,29 @@ export type ButtonGroupProps = Modify<
      * Button group orientation
      */
     orientation?: "vertical" | "horizontal" | undefined;
+    /**
+     * Button variant to pass to children
+     */
+    variant?: "contained" | "outlined" | "ghost";
+    /**
+     * If the buttons should max the container width
+     */
+    fullWidth?: boolean;
+    /**
+     * What background color to use
+     */
+    backgroundColor?: SimpleColors | string;
+    /**
+     * What background color to use on hover
+     */
+    hoverBackgroundColor?: SimpleColors | string | null;
+    /**
+     * What text color to use
+     */
+    color?: SimpleColors | string | null;
+    /**
+     * How large should the button be
+     */
+    size?: NormalSizes;
   }
 >;
