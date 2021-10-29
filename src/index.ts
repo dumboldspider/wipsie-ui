@@ -21,5 +21,6 @@ export * from "./components/Badge";
 export * from "./components/Grid";
 export * from "./components/Hidden";
 export * from "./components/Link";
+export * from "./components/Box";
 
 // @ UTILS
