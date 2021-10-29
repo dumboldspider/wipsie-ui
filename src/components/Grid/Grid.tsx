@@ -61,6 +61,8 @@ const GridItem: React.FC<GridItemProps> = (props) => {
   function handleXS() {
     if (typeof xs === "number") {
       return `width: calc(100% / ${COLUMNS_CONSTANT} * ${xs});`;
+    } else if (typeof xs === "string") {
+      return `width: ${xs};`;
     } else {
       return `flex-grow: 1;`;
     }
@@ -70,6 +72,8 @@ const GridItem: React.FC<GridItemProps> = (props) => {
       return `width: calc(100% / ${COLUMNS_CONSTANT} * ${sm});`;
     } else if (typeof sm === "boolean") {
       return `flex-grow: 1;`;
+    } else if (typeof sm === "string") {
+      return `width: ${sm};`;
     } else {
       return "";
     }
@@ -79,6 +83,8 @@ const GridItem: React.FC<GridItemProps> = (props) => {
       return `width: calc(100% / ${COLUMNS_CONSTANT} * ${md});`;
     } else if (typeof md === "boolean") {
       return `flex-grow: 1;`;
+    } else if (typeof md === "string") {
+      return `width: ${md};`;
     } else {
       return "";
     }
@@ -88,6 +94,8 @@ const GridItem: React.FC<GridItemProps> = (props) => {
       return `width: calc(100% / ${COLUMNS_CONSTANT} * ${lg});`;
     } else if (typeof lg === "boolean") {
       return `flex-grow: 1;`;
+    } else if (typeof lg === "string") {
+      return `width: ${lg};`;
     } else {
       return "";
     }
@@ -97,6 +105,8 @@ const GridItem: React.FC<GridItemProps> = (props) => {
       return `width: calc(100% / ${COLUMNS_CONSTANT} * ${xl});`;
     } else if (typeof xl === "boolean") {
       return `flex-grow: 1;`;
+    } else if (typeof xl === "string") {
+      return `width: ${xl};`;
     } else {
       return "";
     }

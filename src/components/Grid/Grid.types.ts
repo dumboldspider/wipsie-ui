@@ -36,23 +36,23 @@ export interface DefaultGridItemProps {
   /**
    * Default size (in grid units) for the grid item.
    */
-  xs: number | boolean;
+  xs: number | boolean | string;
   /**
    * Size (in grid units) small breakpoint.
    */
-  sm?: number | boolean;
+  sm?: number | boolean | string;
   /**
    * Size (in grid units) medium breakpoint.
    */
-  md?: number | boolean;
+  md?: number | boolean | string;
   /**
    * Size (in grid units) large breakpoint.
    */
-  lg?: number | boolean;
+  lg?: number | boolean | string;
   /**
    * Size (in grid units) extra large breakpoint.
    */
-  xl?: number | boolean;
+  xl?: number | boolean | string;
 }
 
 export type GridContainerProps = React.HTMLProps<HTMLDivElement> &

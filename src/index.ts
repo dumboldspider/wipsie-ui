@@ -18,5 +18,7 @@ export * from "./components/Switch";
 export * from "./components/Spacing";
 export * from "./components/Loading";
 export * from "./components/Badge";
+export * from "./components/Grid";
+export * from "./components/Hidden";
 
 // @ UTILS

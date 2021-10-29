@@ -32,6 +32,13 @@ export const WithBaz = () => (
     <Grid item xs={12}>
       <Container>a</Container>
     </Grid>
+
+    <Grid item xs={"300px"}>
+      <Container>fixed 300px width</Container>
+    </Grid>
+    <Grid item xs>
+      <Container>a</Container>
+    </Grid>
   </Grid>
 );
 
