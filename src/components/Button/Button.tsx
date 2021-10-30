@@ -245,7 +245,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
   function handleFontSize() {
     switch (size) {
       case "xlarge":
-        return "font-size: 16px;";
+        return "font-size: 18px;";
       case "large":
         return "font-size: 16px;";
       case "small":
@@ -293,6 +293,8 @@ export const Button: React.FC<ButtonProps> = (props) => {
         return "justify-content: flex-start;";
       case "right":
         return "justify-content: flex-end;";
+      case "spaced":
+        return "justify-content: space-between;";
       case "center":
       default:
         return "justify-content: center;";

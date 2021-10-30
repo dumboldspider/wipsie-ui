@@ -83,6 +83,6 @@ export type ButtonProps = Modify<
     /**
      * The content alignment
      */
-    align?: "left" | "center" | "right";
+    align?: "left" | "center" | "right" | "spaced";
   }
 >;

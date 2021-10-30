@@ -25,5 +25,6 @@ export * from "./components/Box";
 export * from "./components/ButtonGroup";
 export * from "./components/IconButton";
 export * from "./components/Avatar";
+export * from "./components/AvatarGroup";
 
 // @ UTILS
