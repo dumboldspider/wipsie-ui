@@ -26,5 +26,7 @@ export * from "./components/ButtonGroup";
 export * from "./components/IconButton";
 export * from "./components/Avatar";
 export * from "./components/AvatarGroup";
+export * from "./components/Input";
+export * from "./components/TextArea";
 
 // @ UTILS
