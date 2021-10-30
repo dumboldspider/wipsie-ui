@@ -21,5 +21,9 @@ export type BoxProps = Modify<
      * If component has click/touch interations
      */
     clickable?: boolean;
+    /**
+     * Box shape
+     */
+    shape?: "round" | "rounded" | "square" | undefined;
   }
 >;

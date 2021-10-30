@@ -13,6 +13,7 @@ export const Box: React.FC<BoxProps> = (props) => {
     hoverBackgroundColor = null,
     clickable = false,
     className = null,
+    shape = "square",
     ...otherProps
   } = props;
 
@@ -46,6 +47,18 @@ export const Box: React.FC<BoxProps> = (props) => {
           : backgroundColor;
     }
   }
+  function handleShape() {
+    switch (shape) {
+      case "round":
+        return "border-radius: 1.5em;";
+      case "rounded":
+        return "border-radius: 0.7em;";
+      case "square":
+        return "border-radius: 0em;";
+      default:
+        return "border-radius: 0.7em;";
+    }
+  }
 
   return (
     <div
@@ -57,7 +70,7 @@ export const Box: React.FC<BoxProps> = (props) => {
         .Wps-Box {
           background: ${handleBackgroundColor()};
           padding: ${theme.layout.padding};
-          border-radius: ${theme.layout.radius};
+          ${handleShape()}
           ${clickable ? "cursor: pointer;" : ""}
           transition: all 250ms ease 0ms;
         }

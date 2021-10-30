@@ -14,6 +14,7 @@ export const Container: React.FC<ContainerProps> = (props) => {
     hoverBackgroundColor = null,
     clickable = false,
     className = null,
+    shape = "round",
     ...otherProps
   } = props;
 
@@ -29,6 +30,19 @@ export const Container: React.FC<ContainerProps> = (props) => {
         return isThemePalette(backgroundColor)
           ? theme.palette[backgroundColor][500]
           : backgroundColor;
+    }
+  }
+
+  function handleShape() {
+    switch (shape) {
+      case "round":
+        return "border-radius: 1.5em;";
+      case "rounded":
+        return "border-radius: 0.7em;";
+      case "square":
+        return "border-radius: 0em;";
+      default:
+        return "border-radius: 0.7em;";
     }
   }
 
@@ -73,7 +87,7 @@ export const Container: React.FC<ContainerProps> = (props) => {
         .Wps-Container {
           background: ${handleBackgroundColor()};
           padding: ${theme.layout.padding};
-          border-radius: ${theme.layout.radius};
+          ${handleShape()}
           box-shadow: 0px 16px 32px ${handleShadowColor()};
           ${clickable ? "cursor: pointer;" : ""}
           transition: all 250ms ease 0ms;

@@ -21,5 +21,9 @@ export type ContainerProps = Modify<
      * If component has click/touch interations
      */
     clickable?: boolean;
+    /**
+     * Container shape
+     */
+    shape?: "round" | "rounded" | "square" | undefined;
   }
 >;
