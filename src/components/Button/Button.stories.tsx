@@ -556,6 +556,8 @@ export const LoadingExample = () => {
 
   function handleLoading() {
     setLoading(true);
+    console.log("loading", loading);
+
     !loading &&
       setTimeout(() => {
         setLoading(false);

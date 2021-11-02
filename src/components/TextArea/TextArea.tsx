@@ -135,6 +135,7 @@ export const TextArea: React.FC<TextAreaProps> = (props) => {
   }
 
   function handlePlaceholderColor() {
+    if (textColor) return `color: ${opacity(textColor, 80)};`; // if value is defined by props
     if (color === "basic" || disabled)
       return `color: ${theme.palette.subtext};`; // if value is basic
 

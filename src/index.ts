@@ -7,6 +7,7 @@ export { default as ThemeProvider } from "./theme/themeProvider";
 
 // @ HOOKS
 export { default as useTheme } from "./hooks/useTheme";
+export { default as useScrollBlock } from "./hooks/useScrollBlock";
 
 // @ COMPONENTS
 export * from "./components/CssBaseline";
@@ -28,5 +29,10 @@ export * from "./components/Avatar";
 export * from "./components/AvatarGroup";
 export * from "./components/Input";
 export * from "./components/TextArea";
+export * from "./components/Fixed";
+// export * from "./components/Radio";
+// export * from "./components/RadioGroup";
+// export * from "./components/CheckBox";
+// export * from "./components/CheckBoxGroup";
 
 // @ UTILS

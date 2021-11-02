@@ -145,7 +145,7 @@ export const Badge: React.FC<BadgeProps> = (props) => {
   }
 
   return (
-    <div style={{ position: "relative" }} {...wrapperProps}>
+    <span style={{ position: "relative" }} {...wrapperProps}>
       <span
         data-testid="Wps-Badge"
         className={classnames("Wps-Badge", className)}
@@ -166,6 +166,6 @@ export const Badge: React.FC<BadgeProps> = (props) => {
         {icon}
       </span>
       {children}
-    </div>
+    </span>
   );
 };

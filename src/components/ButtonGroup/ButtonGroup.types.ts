@@ -22,6 +22,10 @@ export type ButtonGroupProps = Modify<
      */
     fullWidth?: boolean;
     /**
+     * If the buttons should max the container height
+     */
+    fullHeight?: boolean;
+    /**
      * What background color to use
      */
     backgroundColor?: SimpleColors | string;

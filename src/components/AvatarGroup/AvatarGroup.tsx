@@ -1,12 +1,10 @@
 // Generated with util/create-component.js
 import React from "react";
 import classnames from "classnames";
-import useTheme from "../../hooks/useTheme";
 import { Avatar } from "../Avatar";
 import { AvatarGroupProps } from "./AvatarGroup.types";
 
 export const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
-  const theme = useTheme();
   const {
     max = 10,
     xs = "medium",

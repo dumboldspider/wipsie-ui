@@ -83,7 +83,7 @@ export const WithBar = () => (
         <Button>3</Button>
       </ButtonGroup>
       <Spacing height={20} />
-      <ButtonGroup shape="round" orientation="vertical">
+      <ButtonGroup shape="round" orientation="vertical" fullHeight>
         <Button variant="outlined">1</Button>
         <Button variant="outlined">2</Button>
         <Button variant="outlined">3</Button>
@@ -93,6 +93,33 @@ export const WithBar = () => (
         <Button variant="ghost">1</Button>
         <Button variant="ghost">2</Button>
         <Button variant="ghost">3</Button>
+      </ButtonGroup>
+    </Container>
+
+    <Container style={{ height: 500 }}>
+      <ButtonGroup shape="round" orientation="vertical" fullHeight>
+        <Button variant="outlined">1</Button>
+        <Button variant="outlined">2</Button>
+        <IconButton size="mini">|</IconButton>
+        <Button variant="outlined">3</Button>
+      </ButtonGroup>
+    </Container>
+
+    <Container style={{ height: 500 }}>
+      <ButtonGroup shape="square" orientation="horizontal" variant="contained">
+        <Button>Test</Button>
+        <Button>Test</Button>
+        <Button size="mini" chip>
+          |
+        </Button>
+        <Button>Test</Button>
+        <Button>Test</Button>
+        <IconButton variant="outlined" icon={<RightOutlined />} />
+        <IconButton variant="outlined" icon={<LeftOutlined />} />
+        <IconButton variant="outlined" icon={<CheckCircleFilled />} />
+
+        <Button>Test</Button>
+        <Button>Test</Button>
       </ButtonGroup>
     </Container>
   </>

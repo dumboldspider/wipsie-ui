@@ -3,25 +3,19 @@ import React, { useState } from "react";
 import { Input } from "./Input";
 import { Spacing } from "../Spacing";
 import { IconButton } from "../IconButton";
+import { Container } from "../Container";
 import {
-  StepForwardOutlined,
-  RightOutlined,
-  LeftOutlined,
-  StepBackwardOutlined,
-  SyncOutlined,
-  HeartTwoTone,
-  CheckOutlined,
-  CloseOutlined,
   EyeFilled,
   LockFilled,
   EyeInvisibleFilled,
+  SearchOutlined,
 } from "@ant-design/icons";
 export default {
   title: "Prototypes/Input",
 };
 
 export const WithBar = () => (
-  <>
+  <Container>
     <Input placeholder="placeholder" size="mini" variant="contained" />
     <Spacing height={30} />
     <Input success placeholder="placeholder" size="small" variant="contained" />
@@ -118,7 +112,7 @@ export const WithBar = () => (
     />
     <Spacing height={50} />
     <Input placeholder="placeholder" disabled size="xlarge" variant="ghost" />
-  </>
+  </Container>
 );
 
 export const FullFunctional = () => {
@@ -153,7 +147,7 @@ export const FullFunctional = () => {
   }
 
   return (
-    <>
+    <Container>
       <Input
         placeholder="placeholder"
         size="large"
@@ -173,6 +167,44 @@ export const FullFunctional = () => {
           </IconButton>
         }
       />
-    </>
+    </Container>
+  );
+};
+
+export const SearchBar = () => {
+  const defaltHelperText = "type 'test' to sucess";
+  const [value, setValue] = useState("");
+
+  function handleChange(e) {
+    setValue(e.target.value);
+  }
+
+  function handleSearch() {
+    alert("search for: " + value);
+  }
+
+  return (
+    <Container>
+      <Input
+        placeholder="search..."
+        size="large"
+        variant="ghost"
+        color="primary"
+        shape="square"
+        onChange={handleChange}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") {
+            handleSearch();
+          }
+        }}
+        type={"text"}
+        value={value}
+        endAdornment={
+          <IconButton onClick={handleSearch}>
+            <SearchOutlined />
+          </IconButton>
+        }
+      />
+    </Container>
   );
 };

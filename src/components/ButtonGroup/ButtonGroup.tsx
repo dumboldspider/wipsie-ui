@@ -3,7 +3,6 @@ import React from "react";
 import classnames from "classnames";
 
 import { ButtonGroupProps } from "./ButtonGroup.types";
-import { Sizes } from "components/Button/Button.stories";
 
 export const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
   const {
@@ -13,6 +12,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
     variant = "contained",
     size = "medium",
     fullWidth = false,
+    fullHeight = false,
     backgroundColor = "primary",
     hoverBackgroundColor = null,
     color = null,
@@ -116,6 +116,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
         .Wps-ButtonGroup {
           display: flex;
           width: ${fullWidth ? "100%" : "max-content"};
+          height: ${fullHeight ? "100%" : "max-content"};
           ${handleOrientation()};
           position: relative;
         }

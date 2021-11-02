@@ -34,28 +34,28 @@ export const Variants = () => {
             color="primary"
             checked={state}
             onClick={handleState}
-            icon={<StepForwardOutlined />}
+            icon={"✅"}
           />
           <Switch
             size="small"
             color="primary"
             checked={state}
             onClick={handleState}
-            icon={<StepForwardOutlined />}
+            icon={"✅"}
           />
           <Switch
             size="medium"
             color="primary"
             checked={state}
             onClick={handleState}
-            icon={<StepForwardOutlined />}
+            icon={"✅"}
           />
           <Switch
             size="large"
             color="primary"
             checked={state}
             onClick={handleState}
-            icon={<StepForwardOutlined />}
+            icon={"✅"}
           />
           <Switch
             size="xlarge"
@@ -63,7 +63,7 @@ export const Variants = () => {
             // color="#91CAFA"
             checked={state}
             onClick={handleState}
-            icon={<StepForwardOutlined />}
+            icon={"✅"}
           />
         </div>
       </Container>

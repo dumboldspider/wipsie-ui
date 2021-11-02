@@ -1,6 +1,5 @@
 // Generated with util/create-component.js
-import { Modify } from "../../types/modify";
-import { SimpleColors, NormalSizes } from "../../config/propTypes";
+import { SimpleColors } from "../../config/propTypes";
 
 export type AvatarProps = DefaultAvatarProps &
   (AvatarDivProps | AvatarLinkProps);

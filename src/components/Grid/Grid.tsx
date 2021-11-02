@@ -42,7 +42,7 @@ const GridContainer: React.FC<GridContainerProps> = (props) => {
           margin-left: -${spacing * theme.layout.spacingUnit}px;
         }
 
-        .Wps-GridContainer > :global(*) {
+        .Wps-GridContainer > :global(.Wps-GridItem) {
           padding-left: ${spacing * theme.layout.spacingUnit}px;
           padding-top: ${spacing * theme.layout.spacingUnit}px;
         }
@@ -129,7 +129,7 @@ const GridItem: React.FC<GridItemProps> = (props) => {
         .Wps-GridItem {
           ${handleXS()}
         }
-        .Wps-GridItem > :global(*) {
+        .Wps-GridItem > :global(.Wps-Container) {
           height: 100%;
         }
         @media only screen and (min-width: ${theme.breakpoints.sm.min}) {
