@@ -2,20 +2,19 @@
 import React from "react";
 import classnames from "classnames";
 import useTheme from "../../hooks/useTheme";
-import isThemePalette from "../../utils/isThemePalette";
-import { getBreakpoints, getAlign, getJustify } from "../Flex/Flex.functions";
-import { BoxProps } from "./Box.types";
+import { FlexProps } from "./Flex.types";
+import { getBreakpoints, getAlign, getJustify } from "./Flex.functions";
 
-export const Box: React.FC<BoxProps> = (props) => {
+export const Flex: React.FC<FlexProps> = (props) => {
   const theme = useTheme();
   const {
     // Flex props
-    display = "block",
     align = "start",
-    direction = "column",
+    direction = "row",
     justify = "start",
     wrap = "wrap",
     alignContent = "start",
+    display = "flex",
 
     // Box Props
     m = 0,
@@ -41,56 +40,9 @@ export const Box: React.FC<BoxProps> = (props) => {
 
     // Default props
     children,
-    backgroundColor = "background",
-    hoverBackgroundColor = null,
-    clickable = false,
-    className = null,
-    shape = "square",
+    className,
     ...otherProps
   } = props;
-
-  function handleBackgroundColor() {
-    switch (backgroundColor) {
-      case "highlight":
-        return theme.palette.highlight;
-      case "background":
-        return theme.palette.background;
-      case "shade":
-        return theme.palette.shade;
-      default:
-        return isThemePalette(backgroundColor)
-          ? theme.palette[backgroundColor][500]
-          : backgroundColor;
-    }
-  }
-
-  function handleHoverBackgroundColor() {
-    if (!hoverBackgroundColor) return handleBackgroundColor();
-    switch (hoverBackgroundColor) {
-      case "highlight":
-        return theme.palette.highlight;
-      case "background":
-        return theme.palette.background;
-      case "shade":
-        return theme.palette.shade;
-      default:
-        return isThemePalette(backgroundColor)
-          ? theme.palette[backgroundColor][500]
-          : backgroundColor;
-    }
-  }
-  function handleShape() {
-    switch (shape) {
-      case "round":
-        return "border-radius: 1.5em;";
-      case "rounded":
-        return "border-radius: 0.7em;";
-      case "square":
-        return "border-radius: 0em;";
-      default:
-        return "border-radius: 0.7em;";
-    }
-  }
 
   function handleValue(value) {
     if (!value) return "";
@@ -103,25 +55,12 @@ export const Box: React.FC<BoxProps> = (props) => {
 
   return (
     <div
-      data-testid="Wps-Box"
-      className={classnames("Wps-Box", className)}
+      data-testid="Wps-Flex"
+      className={classnames("Wps-Flex", className)}
       {...otherProps}
     >
       <style jsx>{`
-        .Wps-Box {
-          background: ${handleBackgroundColor()};
-          padding: ${theme.layout.padding};
-          ${handleShape()}
-          ${clickable ? "cursor: pointer;" : ""}
-          transition: all 250ms ease 0ms;
-        }
-        .Box:hover {
-          background: ${handleHoverBackgroundColor()};
-        }
-      `}</style>
-
-      <style jsx>{`
-        .Wps-Box {
+        .Wps-Flex {
           display: ${getBreakpoints(display, "xs", (d) => d)};
           flex-direction: ${getBreakpoints(direction, "xs", (d) => d)};
           flex-wrap: ${getBreakpoints(wrap, "xs", (w) => w)};
@@ -153,7 +92,7 @@ export const Box: React.FC<BoxProps> = (props) => {
         }
 
         @media only screen and (min-width: ${theme.breakpoints.sm.min}) {
-          .Wps-Box {
+          .Wps-Flex {
             display: ${getBreakpoints(display, "sm", (d) => d)};
             flex-direction: ${getBreakpoints(direction, "sm", (d) => d)};
             flex-wrap: ${getBreakpoints(wrap, "sm", (w) => w)};
@@ -185,7 +124,7 @@ export const Box: React.FC<BoxProps> = (props) => {
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.md.min}) {
-          .Wps-Box {
+          .Wps-Flex {
             display: ${getBreakpoints(display, "md", (d) => d)};
             flex-direction: ${getBreakpoints(direction, "md", (d) => d)};
             flex-wrap: ${getBreakpoints(wrap, "md", (w) => w)};
@@ -217,7 +156,7 @@ export const Box: React.FC<BoxProps> = (props) => {
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.lg.min}) {
-          .Wps-Box {
+          .Wps-Flex {
             display: ${getBreakpoints(display, "lg", (d) => d)};
             flex-direction: ${getBreakpoints(direction, "lg", (d) => d)};
             flex-wrap: ${getBreakpoints(wrap, "lg", (w) => w)};
@@ -249,7 +188,7 @@ export const Box: React.FC<BoxProps> = (props) => {
           }
         }
         @media only screen and (min-width: ${theme.breakpoints.xl.min}) {
-          .Wps-Box {
+          .Wps-Flex {
             display: ${getBreakpoints(display, "xl", (d) => d)};
             flex-direction: ${getBreakpoints(direction, "xl", (d) => d)};
             flex-wrap: ${getBreakpoints(wrap, "xl", (w) => w)};
@@ -285,4 +224,8 @@ export const Box: React.FC<BoxProps> = (props) => {
       {children}
     </div>
   );
+};
+
+export const FlexBase: React.FC<FlexProps> = (props) => {
+  return <div></div>;
 };

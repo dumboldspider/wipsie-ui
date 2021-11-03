@@ -17,7 +17,7 @@ export const WithBar = () => (
         <IconButton icon={<EyeFilled />} />
       </Container>
     </Fixed>
-    <Fixed type="fixed" position="top">
+    <Fixed type="fixed" position="top center">
       <Container>
         <IconButton icon={<EyeFilled />} />
       </Container>

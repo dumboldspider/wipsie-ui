@@ -22,6 +22,7 @@ export type FixedProps = Modify<
       | "left"
       | "right"
       | "top left"
+      | "top center"
       | "top right"
       | "center left"
       | "center center"

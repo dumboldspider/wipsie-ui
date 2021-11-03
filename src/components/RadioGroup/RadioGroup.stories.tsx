@@ -20,10 +20,10 @@ export const WithBar = () => {
         <Radio label="Checkbox 4" />
         <Radio label="Checkbox 5" size="large" />
       </RadioGroup>
-      <Spacing height={50} />
+      <Spacing height={10} />
       select
       <RadioGroup
-        size="large"
+        size="medium"
         direction="column"
         color="info"
         spacing={2}

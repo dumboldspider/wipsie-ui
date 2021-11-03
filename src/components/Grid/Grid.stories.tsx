@@ -9,6 +9,7 @@ import { CheckBox } from "../CheckBox";
 import { Spacing } from "../Spacing";
 import { Typography } from "../Typography";
 import { Link } from "../Link";
+import { ThemeProvider } from "../../index";
 
 export default {
   title: "Prototypes/Grid",
@@ -69,12 +70,33 @@ export const WithBaz2 = () => (
     </Grid>
   </Grid>
 );
+
 export const WithBaz3 = () => (
-  <Container style={{ width: "400px", padding: 30 }}>
+  <Grid container spacing={1}>
+    <Grid item xs={12} md={4}>
+      <ThemeProvider theme="dark">
+        <Form />
+      </ThemeProvider>
+    </Grid>
+    <Grid item xs={12} md={4}>
+      <ThemeProvider theme="light">
+        <Form />
+      </ThemeProvider>
+    </Grid>
+    <Grid item xs={12} md={4}>
+      <ThemeProvider theme="cosmic">
+        <Form />
+      </ThemeProvider>
+    </Grid>
+  </Grid>
+);
+
+const Form = () => (
+  <Container maxWidth="390px" p="30px">
     <Typography variant="h2">
       This is a complete Form made using only <Link>Wipsie UI</Link>
     </Typography>
-    <Spacing height={20} />
+    <Spacing height={2} />
 
     <Grid container spacing={1}>
       <Grid item xs={12} md={6}>
@@ -96,17 +118,17 @@ export const WithBaz3 = () => (
         <TextArea rows={4} fullWidth placeholder="Leave your message" />
       </Grid>
       <Grid item xs={12}>
-        <Spacing height={10} />
+        <Spacing height={1} />
         <CheckBox
           label={
             <>
               By clicking the button below, I agree to the{" "}
-              <a href="#">Terms of Service</a> and{" "}
-              <a href="#">Privacy Policy</a>
+              <Link href="#">Terms of Service</Link> and{" "}
+              <Link href="#">Privacy Policy</Link>
             </>
           }
         />
-        <Spacing height={10} />
+        <Spacing height={1} />
       </Grid>
       <Grid item xs={8}>
         <Link style={{ fontSize: 12, textAlign: "center" }}>
@@ -117,8 +139,10 @@ export const WithBaz3 = () => (
         <Link style={{ fontSize: 12 }}> Forgot Password?</Link>
       </Grid>
       <Grid item xs={12}>
-        <Spacing height={10} />
-        <Button fullWidth>Submit</Button>
+        <Spacing height={1} />
+        <Button type="submit" fullWidth>
+          Submit
+        </Button>
       </Grid>
     </Grid>
   </Container>
