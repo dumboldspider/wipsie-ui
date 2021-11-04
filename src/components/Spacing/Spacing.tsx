@@ -3,7 +3,7 @@ import React from "react";
 import classnames from "classnames";
 import useTheme from "../../hooks/useTheme";
 import { SpacingProps } from "./Spacing.types";
-import { getBreakpoints, getAlign, getJustify } from "../Flex/Flex.functions";
+import { getBreakpoints } from "../Flex/Flex.functions";
 
 export const Spacing: React.FC<SpacingProps> = (props) => {
   const theme = useTheme();

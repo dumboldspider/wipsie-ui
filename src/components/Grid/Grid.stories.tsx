@@ -9,6 +9,7 @@ import { CheckBox } from "../CheckBox";
 import { Spacing } from "../Spacing";
 import { Typography } from "../Typography";
 import { Link } from "../Link";
+import { Flex } from "../Flex";
 import { ThemeProvider } from "../../index";
 
 export default {
@@ -130,14 +131,19 @@ const Form = () => (
         />
         <Spacing height={1} />
       </Grid>
-      <Grid item xs={8}>
-        <Link style={{ fontSize: 12, textAlign: "center" }}>
-          New here? Create a new account{" "}
-        </Link>
+      <Grid item xs={12}>
+        <Flex
+          justify="between"
+          align={{ xs: "center", md: "start" }}
+          direction={{ xs: "column", md: "row" }}
+        >
+          <Link style={{ fontSize: 12, textAlign: "center" }}>
+            New here? Create a new account{" "}
+          </Link>
+          <Link style={{ fontSize: 12 }}> Forgot Password?</Link>
+        </Flex>
       </Grid>
-      <Grid item xs={4}>
-        <Link style={{ fontSize: 12 }}> Forgot Password?</Link>
-      </Grid>
+
       <Grid item xs={12}>
         <Spacing height={1} />
         <Button type="submit" fullWidth>
