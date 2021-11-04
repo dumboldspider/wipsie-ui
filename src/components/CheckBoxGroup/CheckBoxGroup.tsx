@@ -100,7 +100,7 @@ export const CheckBoxGroup: React.FC<CheckBoxGroupProps> = (props) => {
         groupColor: color,
         groupTextColor: textColor,
         checked: selectedIndex.includes(index),
-        onClick: (e) => {
+        onClick: () => {
           handleSelectedIndex(index, !selectedIndex.includes(index));
         },
       });

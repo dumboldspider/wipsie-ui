@@ -86,7 +86,7 @@ export const RadioGroup: React.FC<RadioGroupProps> = (props) => {
         groupColor: color,
         groupTextColor: textColor,
         checked: selectedIndex === index,
-        onClick: (e) => {
+        onClick: () => {
           handleSelectedIndex(index);
         },
       });

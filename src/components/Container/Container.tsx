@@ -1,7 +1,6 @@
 // Generated with util/create-component.js
 import React from "react";
 import classnames from "classnames";
-import { Flex } from "../Flex";
 import useTheme from "../../hooks/useTheme";
 import isThemePalette from "../../utils/isThemePalette";
 import { ContainerProps } from "./Container.types";

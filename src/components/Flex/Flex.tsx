@@ -225,7 +225,3 @@ export const Flex: React.FC<FlexProps> = (props) => {
     </div>
   );
 };
-
-export const FlexBase: React.FC<FlexProps> = (props) => {
-  return <div></div>;
-};
