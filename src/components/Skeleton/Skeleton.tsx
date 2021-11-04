@@ -77,6 +77,10 @@ export const Skeleton: React.FC<SkeletonProps> = (props) => {
       : "auto";
   }
 
+  if (!visible) {
+    return <>{children}</>;
+  }
+
   return (
     <div
       data-testid="Wps-Skeleton"
@@ -288,8 +292,6 @@ export const Skeleton: React.FC<SkeletonProps> = (props) => {
           }
         }
       `}</style>
-
-      {children}
     </div>
   );
 };

@@ -10,6 +10,8 @@ import { Spacing } from "../Spacing";
 import { Typography } from "../Typography";
 import { Link } from "../Link";
 import { Flex } from "../Flex";
+import { Box } from "../Box";
+import { Fixed } from "../Fixed";
 import { ThemeProvider } from "../../index";
 
 export default {
@@ -152,4 +154,26 @@ const Form = () => (
       </Grid>
     </Grid>
   </Container>
+);
+
+export const WithBaz4 = () => (
+  <Grid container spacing={2}>
+    <Grid item xs={"300px"}>
+      <Container>fixed 300px width</Container>
+    </Grid>
+    <Grid item xs>
+      <Container minHeight="100vh"></Container>
+    </Grid>
+    <Grid item xs={"300px"}>
+      <Fixed type="sticky">
+        <Flex p={2} direction="column">
+          <Link>Aloas</Link>
+          <Link>Aloas</Link>
+          <Link>Aloas</Link>
+          <Link>Aloas</Link>
+          <Link>Aloas</Link>
+        </Flex>
+      </Fixed>
+    </Grid>
+  </Grid>
 );
