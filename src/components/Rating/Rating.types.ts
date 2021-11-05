@@ -1,6 +1,6 @@
 // Generated with util/create-component.js
 import { Modify } from "../../types/modify";
-import { SimpleColors, NormalSizes } from "../../config/propTypes";
+import { NormalSizes } from "../../config/propTypes";
 
 export type RatingProps = Modify<
   React.HTMLProps<HTMLDivElement>,
@@ -9,5 +9,9 @@ export type RatingProps = Modify<
      * Star Size
      */
     size?: NormalSizes;
+    /**
+     *  Change event handler, take selected value as argument
+     * */
+    onChange?: (selectedIndex: number) => void;
   }
 >;

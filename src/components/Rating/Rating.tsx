@@ -1,11 +1,10 @@
 // Generated with util/create-component.js
 import React, { useState } from "react";
 import classnames from "classnames";
-import useTheme from "../../hooks/useTheme";
+// import useTheme from "../../hooks/useTheme";
 import { RatingProps } from "./Rating.types";
 
 export const Rating: React.FC<RatingProps> = (props) => {
-  const theme = useTheme();
   const {
     children,
     className,
@@ -16,7 +15,7 @@ export const Rating: React.FC<RatingProps> = (props) => {
 
   const [value, setValue] = useState(0);
 
-  const handleClick = (e, value) => {
+  const handleClick = (value) => {
     setValue(value);
     onChange(value);
   };
@@ -85,7 +84,7 @@ export const Rating: React.FC<RatingProps> = (props) => {
         />
         <label
           className="ratingControl-stars ratingControl-stars--5"
-          onClick={(e) => handleClick(e, 5)}
+          onClick={() => handleClick(5)}
         >
           5
         </label>
@@ -98,7 +97,7 @@ export const Rating: React.FC<RatingProps> = (props) => {
         />
         <label
           className="ratingControl-stars ratingControl-stars--45 ratingControl-stars--half"
-          onClick={(e) => handleClick(e, 4.5)}
+          onClick={() => handleClick(4.5)}
         >
           45
         </label>
@@ -111,7 +110,7 @@ export const Rating: React.FC<RatingProps> = (props) => {
         />
         <label
           className="ratingControl-stars ratingControl-stars--4"
-          onClick={(e) => handleClick(e, 4)}
+          onClick={() => handleClick(4)}
         >
           4
         </label>
@@ -124,7 +123,7 @@ export const Rating: React.FC<RatingProps> = (props) => {
         />
         <label
           className="ratingControl-stars ratingControl-stars--35 ratingControl-stars--half"
-          onClick={(e) => handleClick(e, 3.5)}
+          onClick={() => handleClick(3.5)}
         >
           35
         </label>
@@ -137,7 +136,7 @@ export const Rating: React.FC<RatingProps> = (props) => {
         />
         <label
           className="ratingControl-stars ratingControl-stars--3"
-          onClick={(e) => handleClick(e, 3)}
+          onClick={() => handleClick(3)}
         >
           3
         </label>
@@ -150,7 +149,7 @@ export const Rating: React.FC<RatingProps> = (props) => {
         />
         <label
           className="ratingControl-stars ratingControl-stars--25 ratingControl-stars--half"
-          onClick={(e) => handleClick(e, 2.5)}
+          onClick={() => handleClick(2.5)}
         >
           2.5
         </label>
@@ -163,7 +162,7 @@ export const Rating: React.FC<RatingProps> = (props) => {
         />
         <label
           className="ratingControl-stars ratingControl-stars--2"
-          onClick={(e) => handleClick(e, 2)}
+          onClick={() => handleClick(2)}
         >
           2
         </label>
@@ -176,7 +175,7 @@ export const Rating: React.FC<RatingProps> = (props) => {
         />
         <label
           className="ratingControl-stars ratingControl-stars--15 ratingControl-stars--half"
-          onClick={(e) => handleClick(e, 1.5)}
+          onClick={() => handleClick(1.5)}
         >
           1.5
         </label>
@@ -189,7 +188,7 @@ export const Rating: React.FC<RatingProps> = (props) => {
         />
         <label
           className="ratingControl-stars ratingControl-stars--1"
-          onClick={(e) => handleClick(e, 1)}
+          onClick={() => handleClick(1)}
         >
           1
         </label>

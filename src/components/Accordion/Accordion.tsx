@@ -5,10 +5,10 @@ import useTheme from "../../hooks/useTheme";
 import { AccordionProps } from "./Accordion.types";
 import isThemePalette from "../../utils/isThemePalette";
 import contrast from "../../utils/contrast";
-import opacity from "../../utils/opacity";
+// import opacity from "../../utils/opacity";
 
 export const Accordion: React.FC<AccordionProps> = (props) => {
-  const theme = useTheme();
+  // const theme = useTheme();
   const {
     children,
     className,
