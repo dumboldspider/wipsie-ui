@@ -8,6 +8,7 @@ import { Avatar } from "../Avatar";
 import { Container } from "../Container";
 import { Typography } from "../Typography";
 import { Spacing } from "../Spacing";
+import { Accordion } from "../Accordion";
 
 export default {
   title: "Prototypes/Skeleton",
@@ -29,7 +30,7 @@ export const WithBar2 = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setVisible(false);
-    }, 2000);
+    }, 4000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -125,6 +126,23 @@ export const WithBar4 = () => {
         </Grid>
         <Grid item xs={6}>
           <WithBar2 />
+        </Grid>
+      </Grid>
+    </>
+  );
+};
+export const WithBar5 = () => {
+  return (
+    <>
+      <Grid container>
+        <Grid item xs={12}>
+          <Accordion
+            panels={[
+              { label: "ahoy", content: <WithBar2 /> },
+              { label: "ahoy", content: <WithBar2 /> },
+              { label: "ahoy", content: <WithBar2 /> },
+            ]}
+          />
         </Grid>
       </Grid>
     </>

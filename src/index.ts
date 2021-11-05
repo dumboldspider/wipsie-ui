@@ -36,5 +36,8 @@ export * from "./components/RadioGroup";
 export * from "./components/CheckBox";
 export * from "./components/CheckBoxGroup";
 export * from "./components/Skeleton";
+export * from "./components/Page";
+export * from "./components/Rating";
+export * from "./components/Accordion";
 
 // @ UTILS
