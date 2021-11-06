@@ -42,13 +42,35 @@ export const Container: React.FC<ContainerProps> = (props) => {
 
     // Default props
     children,
+    variant = "neumorphic",
     backgroundColor = "background",
+    backgroundImage = "",
+    backgroundProps = {
+      repeat: "no-repeat",
+      size: "initial",
+      position: "center",
+    },
     hoverBackgroundColor = null,
     clickable = false,
+    hoverable = false,
     className = null,
+    blur = 5,
+    elevation = 10,
     shape = "round",
     ...otherProps
-  } = props;
+  } = props as any;
+
+  function handleBackgroundImage() {
+    if (backgroundImage) {
+      return `
+      background-image: url(${backgroundImage});
+      background-repeat: ${backgroundProps.repeat};
+      background-size: ${backgroundProps.size};
+      background-position: ${backgroundProps.position};
+      `;
+    }
+    return "";
+  }
 
   function handleBackgroundColor() {
     switch (backgroundColor) {
@@ -95,6 +117,9 @@ export const Container: React.FC<ContainerProps> = (props) => {
   }
 
   function handleShadowColor() {
+    if (variant === "frosted") {
+      return opacity("#ffffff", 20);
+    }
     switch (backgroundColor) {
       case "highlight":
         return theme.palette.basic.shadow;
@@ -106,6 +131,118 @@ export const Container: React.FC<ContainerProps> = (props) => {
         return isThemePalette(backgroundColor)
           ? theme.palette[backgroundColor].shadow
           : opacity(backgroundColor, 24);
+    }
+  }
+
+  function handleVariantsStyle() {
+    switch (variant) {
+      case "flat":
+        return `
+          background-color: ${handleBackgroundColor()};
+        `;
+      case "neumorphic":
+        return `
+          background-color: ${handleBackgroundColor()};
+          box-shadow: 0px ${elevation}px 
+          ${elevation * 2}px ${handleShadowColor()};
+        `;
+      case "outlined":
+        return `
+          background-color: transparent;
+          border: 1px solid ${handleBackgroundColor()};
+        `;
+      case "ghost":
+        return `
+          background-color: ${opacity(handleBackgroundColor(), 20)};
+        `;
+      case "glassmorphic":
+        return `
+          background: inherit;
+          overflow: hidden;
+          z-index: 1;
+          box-shadow: 0px ${elevation}px 
+          ${elevation * 2}px ${handleShadowColor()};
+        `;
+      case "frosted":
+        return `
+          background: inherit;
+          overflow: hidden;
+          z-index: 1;
+          box-shadow: 0px ${elevation}px 
+          ${elevation * 2}px ${handleShadowColor()};
+          `;
+
+      default:
+        return "";
+    }
+  }
+
+  function handleVariantsHover() {
+    if (hoverable || clickable) {
+      switch (variant) {
+        case "neumorphic":
+          return `
+          background-color: ${handleHoverBackgroundColor()};
+          box-shadow: 0px ${elevation * 1.5}px 
+          ${elevation * 2 * 1.5}px ${handleShadowColor()};
+        `;
+        case "outlined":
+          return `
+          background-color: ${opacity(handleHoverBackgroundColor(), 10)};
+          border: 1px solid ${handleHoverBackgroundColor()};
+        `;
+        case "ghost":
+          return `
+          background-color: ${opacity(handleHoverBackgroundColor(), 10)};
+        `;
+        case "glassmorphic":
+          return `
+          box-shadow: 0px ${elevation * 1.5}px 
+          ${elevation * 2 * 1.5}px ${handleShadowColor()};
+        `;
+        case "frosted":
+          return `
+          box-shadow: 0px ${elevation * 1.5}px 
+          ${elevation * 2 * 1.5}px ${handleShadowColor()};
+        `;
+        default:
+          return "";
+      }
+    }
+    return "";
+  }
+
+  function handleVariantsBefore() {
+    switch (variant) {
+      case "glassmorphic":
+        return `
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: calc(100%);
+          height: calc(100%);
+
+          background: inherit;
+          filter: blur(${blur}px);
+          z-index: -1;
+        `;
+      case "frosted":
+        return `
+          content: "";
+          position: absolute;
+          top: 0px;
+          left: 0px;
+          width: calc(100%);
+          height: calc(100%);
+          
+          background: inherit;
+          box-shadow: inset 0 0 0 200px ${opacity(handleBackgroundColor(), 20)};
+          filter: blur(${blur}px);
+          z-index: -1;
+        `;
+      default:
+        return "";
     }
   }
 
@@ -130,14 +267,18 @@ export const Container: React.FC<ContainerProps> = (props) => {
 
       <style jsx>{`
         .Wps-Container {
-          background: ${handleBackgroundColor()};
           ${handleShape()}
-          box-shadow: 0px 16px 32px ${handleShadowColor()};
+          ${handleVariantsStyle()}
+          ${handleBackgroundImage()}
           ${clickable ? "cursor: pointer;" : ""}
+          position: relative;
           transition: all 250ms ease 0ms;
         }
+        .Wps-Container::before {
+          ${handleVariantsBefore()}
+        }
         .Wps-Container:hover {
-          background: ${handleHoverBackgroundColor()};
+          ${handleVariantsHover()}
         }
       `}</style>
 

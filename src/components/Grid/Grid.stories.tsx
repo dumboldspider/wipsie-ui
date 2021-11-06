@@ -32,14 +32,14 @@ export const WithBaz = () => (
       </Container>
     </Grid>
     <Grid item xs={100} sm={6} md={4} lg={6} xl={6}>
-      <Container>a</Container>
+      <Container elevation={2}>a</Container>
     </Grid>
     <Grid item xs={100} sm={12} md={4} lg={3} xl={12}>
-      <Container>a</Container>
+      <Container elevation={2}>a</Container>
     </Grid>
 
     <Grid item xs={2}>
-      <Container>a</Container>
+      <Container elevation={0.5}>a</Container>
     </Grid>
     <Grid item xs>
       <Container>a</Container>

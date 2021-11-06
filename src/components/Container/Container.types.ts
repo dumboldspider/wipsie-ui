@@ -7,6 +7,18 @@ export type ContainerProps = Modify<
   BoxContainerProps &
     FlexContainerProps & {
       /**
+       * What background image to use
+       */
+      backgroundImage?: string;
+      /**
+       * Background image properties
+       */
+      backgroundProps?: {
+        repeat?: "no-repeat" | "repeat" | "repeat-x" | "repeat-y";
+        position?: "center" | "top" | "bottom" | "left" | "right";
+        size?: "cover" | "contain" | "auto";
+      };
+      /**
        * What background color to use
        */
       backgroundColor?:
@@ -24,8 +36,33 @@ export type ContainerProps = Modify<
        */
       clickable?: boolean;
       /**
+       * If component has hover interations
+       */
+      hoverable?: boolean;
+      /**
        * Container shape
        */
       shape?: "round" | "rounded" | "square" | undefined;
-    }
+    } & (
+      | ContainerBlurProps
+      | ContainerDefaultVariants
+      | ContainerNeumorphicProps
+    )
 >;
+
+type ContainerDefaultVariants = {
+  /**
+   * Container shape
+   */
+  variant?: "flat" | "outlined" | "ghost" | undefined;
+};
+
+type ContainerBlurProps = {
+  variant?: "frosted" | "glassmorphic";
+  blur?: number;
+};
+
+type ContainerNeumorphicProps = {
+  variant?: "neumorphic";
+  elevation?: number;
+};
