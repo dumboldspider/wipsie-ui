@@ -4,6 +4,7 @@ import { Container } from "./Container";
 import { Typography } from "../Typography";
 import { Button } from "../Button";
 import { Spacing } from "../Spacing";
+import { Flex } from "../Flex";
 
 export default {
   title: "Components/Container",
@@ -201,5 +202,29 @@ export const Miopia = () => {
         MIOPIA
       </Typography>
     </Container>
+  );
+};
+
+export const Partners = () => {
+  return (
+    <Flex direction="column" justify="between" align="center">
+      <Container variant="outlined" backgroundColor="primary" hoverable>
+        <Typography variant="h1" style={{ filter: "blur(4px)" }}>
+          MIOPIA
+        </Typography>
+      </Container>
+      <Spacing height={2} />
+      <Container variant="outlined" backgroundColor="primary" clickable>
+        <Typography variant="h1" style={{ filter: "blur(4px)" }}>
+          MIOPIA
+        </Typography>
+      </Container>
+      <Spacing height={2} />
+      <Container clickable elevation={3}>
+        <Typography variant="h1" style={{ filter: "blur(4px)" }}>
+          MIOPIA
+        </Typography>
+      </Container>
+    </Flex>
   );
 };

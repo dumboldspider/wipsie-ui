@@ -92,38 +92,7 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
         li {
           font-size: 1em;
         }
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-          color: inherit;
-        }
-        h1 {
-          font-size: 3rem;
-          font-weight: 700;
-        }
-        h2 {
-          font-size: 2.25rem;
-          font-weight: 600;
-        }
-        h3 {
-          font-size: 1.5rem;
-          font-weight: 600;
-        }
-        h4 {
-          font-size: 1.25rem;
-          font-weight: 600;
-        }
-        h5 {
-          font-size: 1rem;
-          font-weight: 600;
-        }
-        h6 {
-          font-size: 0.875rem;
-          font-weight: 600;
-        }
+
         button,
         input,
         select,

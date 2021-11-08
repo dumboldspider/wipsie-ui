@@ -39,5 +39,11 @@ export * from "./components/Skeleton";
 export * from "./components/Page";
 export * from "./components/Rating";
 export * from "./components/Accordion";
+export * from "./utils/responsive";
 
 // @ UTILS
+export { default as responsive } from "./utils/responsive";
+export { default as opacity } from "./utils/opacity";
+export { default as contrast } from "./utils/contrast";
+export { default as brightness } from "./utils/brightness";
+export * from "./utils/responsive";

@@ -56,6 +56,7 @@ export const Container: React.FC<ContainerProps> = (props) => {
     className = null,
     blur = 5,
     elevation = 10,
+    elevationHover = 20,
     shape = "round",
     ...otherProps
   } = props as any;
@@ -183,8 +184,8 @@ export const Container: React.FC<ContainerProps> = (props) => {
         case "neumorphic":
           return `
           background-color: ${handleHoverBackgroundColor()};
-          box-shadow: 0px ${elevation * 1.5}px 
-          ${elevation * 2 * 1.5}px ${handleShadowColor()};
+          box-shadow: 0px ${elevationHover}px 
+          ${elevationHover * 2}px ${handleShadowColor()};
         `;
         case "outlined":
           return `
@@ -197,13 +198,13 @@ export const Container: React.FC<ContainerProps> = (props) => {
         `;
         case "glassmorphic":
           return `
-          box-shadow: 0px ${elevation * 1.5}px 
-          ${elevation * 2 * 1.5}px ${handleShadowColor()};
+          box-shadow: 0px ${elevationHover}px 
+          ${elevationHover * 2}px ${handleShadowColor()};
         `;
         case "frosted":
           return `
-          box-shadow: 0px ${elevation * 1.5}px 
-          ${elevation * 2 * 1.5}px ${handleShadowColor()};
+          box-shadow: 0px ${elevationHover}px 
+          ${elevationHover * 2}px ${handleShadowColor()};
         `;
         default:
           return "";

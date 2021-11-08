@@ -60,9 +60,12 @@ type ContainerDefaultVariants = {
 type ContainerBlurProps = {
   variant?: "frosted" | "glassmorphic";
   blur?: number;
+  elevation?: number;
+  elevationHover?: number;
 };
 
 type ContainerNeumorphicProps = {
   variant?: "neumorphic";
   elevation?: number;
+  elevationHover?: number;
 };
