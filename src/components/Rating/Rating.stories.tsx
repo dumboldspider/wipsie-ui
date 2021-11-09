@@ -12,6 +12,6 @@ export const WithBar = () => (
     <Rating size="small" />
     <Rating size="medium" />
     <Rating size="large" />
-    <Rating size="xlarge" />
+    <Rating size="xlarge" initialValue={2} readOnly />
   </>
 );

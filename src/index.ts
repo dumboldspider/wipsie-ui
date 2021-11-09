@@ -39,7 +39,7 @@ export * from "./components/Skeleton";
 export * from "./components/Page";
 export * from "./components/Rating";
 export * from "./components/Accordion";
-export * from "./utils/responsive";
+export * from "./components/Portal";
 
 // @ UTILS
 export { default as responsive } from "./utils/responsive";

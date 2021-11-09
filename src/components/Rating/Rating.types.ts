@@ -13,5 +13,13 @@ export type RatingProps = Modify<
      *  Change event handler, take selected value as argument
      * */
     onChange?: (selectedIndex: number) => void;
+    /**
+     * Read only
+     */
+    readOnly?: boolean;
+    /**
+     * Selected initial value
+     * */
+    initialValue?: number;
   }
 >;
