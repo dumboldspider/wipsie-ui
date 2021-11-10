@@ -40,6 +40,7 @@ export * from "./components/Page";
 export * from "./components/Rating";
 export * from "./components/Accordion";
 export * from "./components/Portal";
+export * from "./components/NprogressBaseline";
 
 // @ UTILS
 export { default as responsive } from "./utils/responsive";
