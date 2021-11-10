@@ -24,7 +24,7 @@ interface NprogressDefaultProps {
   color?: SimpleColors | "highlight" | "background" | "shade" | string;
 }
 
-const NprogressBaseline: React.FC<NprogressBaselineProps> = (props) => {
+const BaseNprogressBaseline: React.FC<NprogressBaselineProps> = (props) => {
   const theme = useTheme();
   const {
     color = "primary",
@@ -137,10 +137,6 @@ const NprogressBaseline: React.FC<NprogressBaselineProps> = (props) => {
   );
 };
 
-type MemoNprogressBaselineComponent<P = {}> = React.NamedExoticComponent<P>;
-
-const MemoNprogressBaseline = React.memo(
-  NprogressBaseline
-) as MemoNprogressBaselineComponent<React.PropsWithChildren<{}>>;
-
-export default MemoNprogressBaseline;
+export const NprogressBaseline = React.memo(
+  BaseNprogressBaseline
+) as React.NamedExoticComponent<NprogressBaselineProps>;
