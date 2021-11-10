@@ -88,13 +88,13 @@ const NprogressBaseline: React.FC<NprogressBaselineProps> = (props) => {
           display: ${type === "spinner" || type === "both" ? "block" : "none"};
           position: fixed;
           z-index: 1031;
-          top: ${radius};
-          right: ${radius};
+          top: 15px;
+          right: 15px;
         }
 
         #nprogress .spinner-icon {
-          width: 18px;
-          height: 18px;
+          width: ${radius};
+          height: ${radius};
           box-sizing: border-box;
 
           border: solid 2px transparent;
