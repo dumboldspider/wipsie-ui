@@ -13,18 +13,18 @@ import {
 export const palette: WipsieThemesPalette = {
   ...commonPalette,
 
-  highlight: "#4F4F4F",
-  background: "#363636",
-  shade: "#292929",
+  highlight: "#363636",
+  background: "#292929",
+  shade: "#202020",
   subtext: "#C5C5C5",
   text: "#FFFFFF",
 
   basic: {
     100: "#363636",
     300: "#292929",
-    500: "#292929",
-    700: "#111111",
-    900: "#000000",
+    500: "#202020",
+    700: "#151515",
+    900: "#0F0F0F",
     shadow: "#0000003D",
   },
   primary: {
