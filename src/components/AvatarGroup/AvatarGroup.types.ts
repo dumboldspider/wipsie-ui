@@ -32,6 +32,10 @@ export type AvatarGroupProps = Modify<
     /**
      * Size (in default sizes or css width) extra large breakpoint.
      */
-    xl?: number | boolean | string;
+    xl?: number | boolean | string
+    /**
+     * Shape of the avatar
+     */;
+    shape?: "round" | "rounded" | "square" | undefined;
   }
 >;

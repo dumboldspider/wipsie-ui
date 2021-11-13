@@ -63,6 +63,10 @@ interface DefaultAvatarProps {
    */
   xl?: number | boolean | string;
   /**
+   * Shape of the avatar in a group
+   */
+  groupShape?: "round" | "rounded" | "square" | undefined;
+  /**
    * Default size (in default sizes or css width) for the grid item.
    */
   groupXS?: number | boolean | string;
@@ -114,4 +118,8 @@ interface DefaultAvatarProps {
    * What  color to use on border
    */
   borderColor?: SimpleColors | string;
+  /**
+   * Shape of the avatar
+   */
+  shape?: "round" | "rounded" | "square" | undefined;
 }

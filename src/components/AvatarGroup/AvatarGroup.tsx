@@ -8,6 +8,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
   const {
     max = 10,
     xs = "medium",
+    shape = null,
     sm = null,
     md = null,
     lg = null,
@@ -42,6 +43,7 @@ export const AvatarGroup: React.FC<AvatarGroupProps> = (props) => {
           groupMD: md,
           groupLG: lg,
           groupXL: xl,
+          groupShape: shape,
           bordered: true,
           groupBackgroundColor: backgroundColor,
         });

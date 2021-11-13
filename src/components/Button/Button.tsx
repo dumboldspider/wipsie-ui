@@ -19,6 +19,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
     groupBackgroundColor = null,
     groupHoverBackgroundColor = null,
     groupColor = null,
+    groupHoverColor = null,
     label = null,
     children,
     icon = null,
@@ -27,6 +28,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
     fullWidth = false,
     align = "center",
     color = null,
+    hoverColor = null,
     className = null,
     ...otherProps
   } = props;
@@ -60,6 +62,13 @@ export const Button: React.FC<ButtonProps> = (props) => {
 
   // color for the button or group of buttons
   const textColor = props.color ? props.color : groupColor ? groupColor : null;
+
+  // color for the button or group of buttons on hover
+  const hoverTextColor = props.hoverColor
+    ? props.hoverColor
+    : groupHoverColor
+    ? groupHoverColor
+    : null;
 
   function handleBackgroundColor() {
     switch (variant) {
@@ -175,38 +184,62 @@ export const Button: React.FC<ButtonProps> = (props) => {
   }
 
   function handleTextColor() {
-    if (textColor) return `color: ${textColor};`; // if value is defined by props
-
     switch (variant) {
       case "contained":
-        return `color: ${contrast(
-          isThemePalette(backgroundColor)
-            ? theme.palette[backgroundColor][500]
-            : backgroundColor
-        )};`;
+        return textColor
+          ? `color: ${
+              isThemePalette(textColor)
+                ? theme.palette[textColor][500]
+                : textColor
+            };`
+          : `color: ${contrast(
+              isThemePalette(backgroundColor)
+                ? theme.palette[backgroundColor][500]
+                : backgroundColor
+            )};`;
       case "outlined":
-        return `color: ${
-          isThemePalette(backgroundColor)
-            ? theme.palette[backgroundColor][500]
-            : backgroundColor
-        };`;
+        return textColor
+          ? `color: ${
+              isThemePalette(textColor)
+                ? theme.palette[textColor][500]
+                : textColor
+            };`
+          : `color: ${
+              isThemePalette(backgroundColor)
+                ? theme.palette[backgroundColor][500]
+                : backgroundColor
+            };`;
       case "ghost":
-        return `color: ${
-          isThemePalette(backgroundColor)
-            ? theme.palette[backgroundColor][500]
-            : backgroundColor
-        };`;
+        return textColor
+          ? `color: ${
+              isThemePalette(textColor)
+                ? theme.palette[textColor][500]
+                : textColor
+            };`
+          : `color: ${
+              isThemePalette(backgroundColor)
+                ? theme.palette[backgroundColor][500]
+                : backgroundColor
+            };`;
       default:
         return "";
     }
   }
 
   function handleTextColorHover() {
+    if (hoverTextColor) return `color: ${hoverTextColor};`; // if value is defined by props
+
     switch (variant) {
       case "contained":
         return `color: ${
-          textColor
-            ? textColor
+          hoverTextColor
+            ? isThemePalette(hoverTextColor)
+              ? theme.palette[hoverTextColor][500]
+              : hoverTextColor
+            : textColor
+            ? isThemePalette(textColor)
+              ? theme.palette[textColor][500]
+              : textColor
             : hoverBackgroundColor
             ? contrast(
                 isThemePalette(hoverBackgroundColor)
@@ -221,8 +254,14 @@ export const Button: React.FC<ButtonProps> = (props) => {
         };`;
       case "outlined":
         return `color: ${
-          textColor
-            ? textColor
+          hoverTextColor
+            ? isThemePalette(hoverTextColor)
+              ? theme.palette[hoverTextColor][500]
+              : hoverTextColor
+            : textColor
+            ? isThemePalette(textColor)
+              ? theme.palette[textColor][500]
+              : textColor
             : hoverBackgroundColor
             ? hoverBackgroundColor
             : isThemePalette(backgroundColor)
@@ -231,8 +270,17 @@ export const Button: React.FC<ButtonProps> = (props) => {
         };`;
       case "ghost":
         return `color: ${
-          textColor
-            ? opacity(textColor, 90)
+          hoverTextColor
+            ? isThemePalette(hoverTextColor)
+              ? theme.palette[hoverTextColor][500]
+              : hoverTextColor
+            : textColor
+            ? opacity(
+                isThemePalette(textColor)
+                  ? theme.palette[textColor][500]
+                  : textColor,
+                90
+              )
             : isThemePalette(backgroundColor)
             ? opacity(theme.palette[backgroundColor][500], 90)
             : opacity(backgroundColor, 90)

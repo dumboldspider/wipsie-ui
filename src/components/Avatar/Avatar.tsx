@@ -13,6 +13,7 @@ export const Avatar: React.FC<AvatarProps> = (props) => {
   const {
     src,
     alt,
+    groupShape = null,
     brokenSrc = null,
     imageProps = null as any,
     wrapperProps = null as any,
@@ -31,6 +32,9 @@ export const Avatar: React.FC<AvatarProps> = (props) => {
     className = null,
     ...otherProps
   } = props;
+
+  // shape for the button or group of buttons
+  const shape = props.shape ? props.shape : groupShape ? groupShape : "round";
 
   // Component definition
   const Component = href ? "a" : "div";
@@ -53,6 +57,19 @@ export const Avatar: React.FC<AvatarProps> = (props) => {
       return `cursor: pointer;`;
     } else {
       return "";
+    }
+  }
+
+  function handleShape() {
+    switch (shape) {
+      case "round":
+        return "border-radius: 50%;";
+      case "rounded":
+        return "border-radius: 0.7em;";
+      case "square":
+        return "border-radius: 0em;";
+      default:
+        return "border-radius: 0.7em;";
     }
   }
 
@@ -134,7 +151,7 @@ export const Avatar: React.FC<AvatarProps> = (props) => {
           font-size: 1.25rem;
           line-height: 1;
           font-weight: 500;
-          border-radius: 50%;
+          ${handleShape()}
           overflow: hidden;
           user-select: none;
           ${handleBorderColor()}

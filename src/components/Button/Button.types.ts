@@ -21,6 +21,10 @@ export type ButtonProps = Modify<
      */
     color?: SimpleColors | string | null;
     /**
+     * What text color to use on hover
+     */
+    hoverColor?: SimpleColors | string | null;
+    /**
      * How large should the button be
      */
     size?: NormalSizes;
@@ -48,6 +52,10 @@ export type ButtonProps = Modify<
      * What text color to use if inside a button group
      */
     groupColor?: SimpleColors | string | null;
+    /**
+     * What text color to use if inside a button group on hover
+     */
+    groupHoverColor?: SimpleColors | string | null;
     /**
      * How large should the button be if inside a button group
      */
