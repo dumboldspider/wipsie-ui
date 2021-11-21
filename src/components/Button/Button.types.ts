@@ -92,5 +92,9 @@ export type ButtonProps = Modify<
      * The content alignment
      */
     align?: "left" | "center" | "right" | "spaced";
+    /**
+     * If the button should be disabled
+     */
+    active?: boolean;
   }
 >;

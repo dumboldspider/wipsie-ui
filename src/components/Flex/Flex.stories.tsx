@@ -1,6 +1,6 @@
 // Generated with util/create-component.js
 import React from "react";
-import { Flex, FlexBase } from "./Flex";
+import { Flex } from "./Flex";
 
 export default {
   title: "Prototypes/Flex",
@@ -23,6 +23,5 @@ export const WithBar = () => (
       <p>a</p>
       <p>a</p>
     </Flex>
-    <FlexBase />
   </>
 );

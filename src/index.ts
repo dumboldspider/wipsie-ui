@@ -41,6 +41,8 @@ export * from "./components/Rating";
 export * from "./components/Accordion";
 export * from "./components/Portal";
 export * from "./components/NprogressBaseline";
+export * from "./components/Divider";
+export * from "./components/Popover";
 
 // @ UTILS
 export { default as responsive } from "./utils/responsive";

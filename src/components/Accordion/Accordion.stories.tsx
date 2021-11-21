@@ -52,7 +52,7 @@ const panels = [
 
 export const WithBar = () => (
   <>
-    <Accordion panels={panels} size="mini" backgroundColor="primary" />
+    <Accordion panels={panels} size="mini" />
     <Spacing height={3} />
     <Accordion panels={panels} size="small" labelColor="primary" />
     <Spacing height={3} />

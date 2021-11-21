@@ -13,6 +13,8 @@ export const Button: React.FC<ButtonProps> = (props) => {
   const theme = useTheme();
   const {
     chip = false,
+    active = null,
+    disabled = false,
     groupVariant = null,
     groupSize = null,
     groupShape = null,
@@ -352,7 +354,12 @@ export const Button: React.FC<ButtonProps> = (props) => {
   return (
     <button
       data-testid="Wps-Button"
-      className={classnames("Wps-Button", className)}
+      className={classnames(
+        "Wps-Button",
+        active !== null ? (active ? "active" : "disabled") : "",
+        className
+      )}
+      disabled={disabled}
       {...otherProps}
     >
       {startIcon && <span style={{ paddingRight: 5 }}>{startIcon}</span>}
@@ -393,16 +400,18 @@ export const Button: React.FC<ButtonProps> = (props) => {
 
           transition: all 250ms ease 0ms;
         }
-        .Wps-Button:hover {
+        .Wps-Button:hover,
+        .Wps-Button.active {
           ${!chip && handleBackgroundColorHover()}
           ${!chip && handleTextColorHover()}
           ${!chip && handleBorderColorHover()}
         }
 
         .Wps-Button:disabled,
-        .Wps-Button[disabled] {
+        .Wps-Button[disabled],
+        .Wps-Button.disabled {
           ${handleDisabledColors()}
-          cursor: not-allowed;
+          cursor: ${disabled ? "not-allowed" : "pointer"};
         }
       `}</style>
     </button>

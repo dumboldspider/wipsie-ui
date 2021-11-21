@@ -574,3 +574,22 @@ export const LoadingExample = () => {
     </Button>
   );
 };
+
+export const SwitchExample = () => {
+  const [checked, setChecked] = useState(false);
+
+  function handleChange() {
+    setChecked(!checked);
+  }
+
+  return (
+    <Button
+      onClick={handleChange}
+      active={checked}
+      // disabled={!checked}
+      startIcon={checked ? <CheckOutlined /> : <CloseOutlined />}
+    >
+      {checked ? "On" : "Off"}
+    </Button>
+  );
+};

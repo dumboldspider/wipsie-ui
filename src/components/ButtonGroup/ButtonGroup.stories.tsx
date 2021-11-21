@@ -141,3 +141,35 @@ export const AnotherTest = () => {
     </ButtonGroup>
   );
 };
+
+export const TabBar = () => {
+  const [index, setIndex] = React.useState(0);
+
+  function handleChange(value: number) {
+    setIndex(value);
+  }
+
+  return (
+    <ButtonGroup
+      size="small"
+      variant="outlined"
+      backgroundColor="info"
+      shape="rounded"
+    >
+      <IconButton
+        icon={<CheckCircleFilled />}
+        variant="contained"
+        onClick={() => handleChange(0)}
+      />
+      <Button active={index === 1} onClick={() => handleChange(1)}>
+        3
+      </Button>
+      <Button active={index === 2} onClick={() => handleChange(2)}>
+        long label
+      </Button>
+      <Button active={index === 3} onClick={() => handleChange(3)}>
+        3
+      </Button>
+    </ButtonGroup>
+  );
+};
