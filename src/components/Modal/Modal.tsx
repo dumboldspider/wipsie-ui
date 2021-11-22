@@ -1,6 +1,5 @@
 // Generated with util/create-component.js
 import React, { useState, useEffect } from "react";
-import classnames from "classnames";
 import useTheme from "../../hooks/useTheme";
 import { ModalProps } from "./Modal.types";
 
@@ -19,6 +18,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
     open = false,
     duration = 200,
     animation = "fadeInScale",
+    transition = "ease-in-out",
     onCloseEnd = () => {},
     onCloseStart = () => {},
     onOpenEnd = () => {},
@@ -72,6 +72,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
         duration={duration}
         color={backdropColor}
         onClick={onBackdropClick}
+        transition={transition}
         noPortal
       />
 
@@ -91,6 +92,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
           visible={animationTrigger}
           animation={animation as any}
           duration={duration}
+          transition={transition}
           style={{ pointerEvents: "all" }}
         >
           {children}

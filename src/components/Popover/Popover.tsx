@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import classnames from "classnames";
 import useTheme from "../../hooks/useTheme";
 import isThemePalette from "../../utils/isThemePalette";
@@ -6,7 +6,6 @@ import contrast from "../../utils/contrast";
 import { PopoverProps } from "./Popover.types";
 
 import { Backdrop } from "../Backdrop";
-import { Portal } from "../Portal";
 
 export const Popover: React.FC<PopoverProps> = (props) => {
   const theme = useTheme();

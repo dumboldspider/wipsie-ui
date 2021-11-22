@@ -1,6 +1,5 @@
 // Generated with util/create-component.js
 import { Modify } from "../../types/modify";
-import { SimpleColors } from "../../config/propTypes";
 import { ContainerProps } from "../Container";
 
 export type CollapsibleProps = Modify<

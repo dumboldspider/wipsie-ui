@@ -5,7 +5,6 @@ import useTheme from "../../hooks/useTheme";
 import { BreadcrumbsProps } from "./Breadcrumbs.types";
 import { Typography } from "../Typography";
 import { Link } from "../Link";
-import { getBreakpoints } from "../Flex/Flex.functions";
 
 export const Breadcrumbs: React.FC<BreadcrumbsProps> = (props) => {
   const theme = useTheme();

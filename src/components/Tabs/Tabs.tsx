@@ -1,7 +1,5 @@
 // Generated with util/create-component.js
 import React from "react";
-import classnames from "classnames";
-import useTheme from "../../hooks/useTheme";
 import { TabsProps } from "./Tabs.types";
 
 import { HorizontalList } from "../HorizontalList";
@@ -11,7 +9,7 @@ export const Tabs: React.FC<TabsProps> = (props) => {
   const {
     items = [],
     value = -1,
-    onChange = (value: number) => {},
+    onChange = () => {},
     size = "medium",
     variant = "ghost",
     shape = "square",

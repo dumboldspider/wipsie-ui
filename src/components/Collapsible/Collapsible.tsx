@@ -1,13 +1,9 @@
 // Generated with util/create-component.js
 import React, { useEffect, useRef, useState } from "react";
 import classnames from "classnames";
-import useTheme from "../../hooks/useTheme";
 import { CollapsibleProps } from "./Collapsible.types";
-import { Container } from "../Container";
-import { Flex } from "../Flex";
 
 export const Collapsible: React.FC<CollapsibleProps> = (props) => {
-  const theme = useTheme();
   const {
     open,
     as = null,

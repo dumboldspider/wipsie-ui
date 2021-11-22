@@ -1,11 +1,9 @@
 // Generated with util/create-component.js
 import React from "react";
 import classnames from "classnames";
-import useTheme from "../../hooks/useTheme";
 import { AnimatedProps } from "./Animated.types";
 
 export const Animated: React.FC<AnimatedProps> = (props) => {
-  const theme = useTheme();
   const {
     animation = "fadeInScale",
     duration = 500,
@@ -122,6 +120,38 @@ export const Animated: React.FC<AnimatedProps> = (props) => {
         }
         .Wps-Animated.fadeInRight.visible {
           opacity: 1;
+          transform: translateX(0);
+        }
+
+        /* slideInTop */
+        .Wps-Animated.slideInTop.hidden {
+          transform: translateY(-100%);
+        }
+        .Wps-Animated.slideInTop.visible {
+          transform: translateY(0);
+        }
+
+        /* slideInBottom */
+        .Wps-Animated.slideInBottom.hidden {
+          transform: translateY(100%);
+        }
+        .Wps-Animated.slideInBottom.visible {
+          transform: translateY(0);
+        }
+
+        /* slideInLeft */
+        .Wps-Animated.slideInLeft.hidden {
+          transform: translateX(-100%);
+        }
+        .Wps-Animated.slideInLeft.visible {
+          transform: translateX(0);
+        }
+
+        /* slideInRight */
+        .Wps-Animated.slideInRight.hidden {
+          transform: translateX(100%);
+        }
+        .Wps-Animated.slideInRight.visible {
           transform: translateX(0);
         }
       `}</style>

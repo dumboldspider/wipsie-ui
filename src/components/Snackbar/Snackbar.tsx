@@ -1,6 +1,5 @@
 // Generated with util/create-component.js
 import React, { useEffect, useState } from "react";
-import classnames from "classnames";
 import useTheme from "../../hooks/useTheme";
 import { SnackbarProps } from "./Snackbar.types";
 
@@ -9,8 +8,6 @@ import { Portal } from "../Portal";
 import { Fixed } from "../Fixed";
 import { Animated } from "../Animated";
 import { Backdrop } from "../Backdrop";
-import useScrollBlock from "../../hooks/useScrollBlock";
-import useKeyPress from "../../hooks/useKeyPress";
 
 export const Snackbar: React.FC<SnackbarProps> = (props) => {
   const theme = useTheme();

@@ -10,6 +10,7 @@ export type ModalProps = Modify<
     open: boolean;
     duration?: number;
     animation?: AnimationVariants;
+    transition?: AnimationTransitions;
     onCloseEnd?: () => void;
     onCloseStart?: () => void;
     onOpenEnd?: () => void;

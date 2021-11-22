@@ -1,7 +1,7 @@
 // Generated with util/create-component.js
 import { Modify } from "../../types/modify";
 import { SimpleColors } from "../../config/propTypes";
-import { AnimationVariants, AnimationTransitions } from "../Animated";
+import { AnimationVariants } from "../Animated";
 import { FixedTypes, FixedPositions } from "../Fixed";
 import { BackdropProps } from "../Backdrop";
 

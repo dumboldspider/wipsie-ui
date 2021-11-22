@@ -1,6 +1,5 @@
 // Generated with util/create-component.js
 import { Modify } from "../../types/modify";
-import { SimpleColors } from "../../config/propTypes";
 
 export type AnimatedProps = Modify<
   React.HTMLProps<HTMLDivElement>,
@@ -23,7 +22,11 @@ export type AnimationVariants =
   | "fadeInTop"
   | "fadeInBottom"
   | "fadeInLeft"
-  | "fadeInRight";
+  | "fadeInRight"
+  | "slideInTop"
+  | "slideInBottom"
+  | "slideInLeft"
+  | "slideInRight";
 export type AnimationTransitions =
   | "ease"
   | "ease-in"

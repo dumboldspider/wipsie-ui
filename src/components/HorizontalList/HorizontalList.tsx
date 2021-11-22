@@ -5,7 +5,6 @@ import useTheme from "../../hooks/useTheme";
 import { HorizontalListProps } from "./HorizontalList.types";
 
 import isThemePalette from "../../utils/isThemePalette";
-import opacity from "../../utils/opacity";
 import contrast from "../../utils/contrast";
 import useScrollBlock from "../../hooks/useScrollBlock";
 
