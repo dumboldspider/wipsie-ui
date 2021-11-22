@@ -52,6 +52,7 @@ export * from "./components/Animated";
 export * from "./components/Backdrop";
 export * from "./components/Modal";
 export * from "./components/Breadcrumbs";
+export * from "./components/Snackbar";
 
 // @ UTILS
 export { default as responsive } from "./utils/responsive";

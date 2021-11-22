@@ -7,7 +7,7 @@ export type FixedProps = Modify<
     /**
      * Use 'absolute', 'fixed' or 'sticky' to position the component.
      */
-    type: "fixed" | "absolute" | "sticky";
+    type: FixedTypes;
     /**
      * margin spacing
      */
@@ -15,20 +15,24 @@ export type FixedProps = Modify<
     /**
      * Fixed positioning
      */
-    position?:
-      | "top"
-      | "bottom"
-      | "center"
-      | "left"
-      | "right"
-      | "top left"
-      | "top center"
-      | "top right"
-      | "center left"
-      | "center center"
-      | "center right"
-      | "bottom left"
-      | "bottom center"
-      | "bottom right";
+    position?: FixedPositions;
   }
 >;
+
+export type FixedTypes = "fixed" | "absolute" | "sticky";
+
+export type FixedPositions =
+  | "top"
+  | "bottom"
+  | "center"
+  | "left"
+  | "right"
+  | "top left"
+  | "top center"
+  | "top right"
+  | "center left"
+  | "center center"
+  | "center right"
+  | "bottom left"
+  | "bottom center"
+  | "bottom right";

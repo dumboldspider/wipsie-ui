@@ -13,6 +13,7 @@ import useScrollBlock from "../../hooks/useScrollBlock";
 import useKeyPress from "../../hooks/useKeyPress";
 
 export const Modal: React.FC<ModalProps> = (props) => {
+  const theme = useTheme();
   const {
     id = "modal",
     open = false,
@@ -61,7 +62,11 @@ export const Modal: React.FC<ModalProps> = (props) => {
   }, [escapePress]);
 
   return (
-    <Portal id={id} visible={isOpen}>
+    <Portal
+      id={id}
+      visible={isOpen}
+      style={{ zIndex: theme.layout.modalIndex }}
+    >
       <Backdrop
         visible={animationTrigger}
         duration={duration}
