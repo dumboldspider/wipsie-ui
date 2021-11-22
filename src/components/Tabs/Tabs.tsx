@@ -4,21 +4,47 @@ import classnames from "classnames";
 import useTheme from "../../hooks/useTheme";
 import { TabsProps } from "./Tabs.types";
 
+import { HorizontalList } from "../HorizontalList";
+import { Button } from "../Button";
 
 export const Tabs: React.FC<TabsProps> = (props) => {
-  const theme = useTheme();
-  const { children, className, ...otherProps } = props;
+  const {
+    items = [],
+    value = -1,
+    onChange = (value: number) => {},
+    size = "medium",
+    variant = "ghost",
+    shape = "square",
+    backgroundColor = "primary",
+    hoverBackgroundColor = null,
+    tabColor = null,
+    hoverTabColor = null,
+    align = "left",
+
+    children,
+    className,
+    ...otherProps
+  } = props;
+
   return (
-    <div data-testid="Wps-Tabs" className={classnames('Wps-Tabs', className)}>
-    <style jsx>{`
-    .Wps-Tabs{
-      color: black;
-    }
-    `}</style>
-    {children}
-    </div>
-);
-}
-
- 
-
+    <HorizontalList {...otherProps}>
+      {items.map((item, index) => (
+        <Button
+          key={index}
+          startIcon={item.icon}
+          label={item.label}
+          active={index === value}
+          shape={shape}
+          size={size}
+          variant={variant}
+          backgroundColor={backgroundColor}
+          hoverBackgroundColor={hoverBackgroundColor}
+          color={tabColor}
+          hoverColor={hoverTabColor}
+          align={align}
+          onClick={() => onChange(index)}
+        />
+      ))}
+    </HorizontalList>
+  );
+};

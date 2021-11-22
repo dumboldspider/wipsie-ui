@@ -7,6 +7,7 @@ import { HorizontalListProps } from "./HorizontalList.types";
 import isThemePalette from "../../utils/isThemePalette";
 import opacity from "../../utils/opacity";
 import contrast from "../../utils/contrast";
+import useScrollBlock from "../../hooks/useScrollBlock";
 
 export const HorizontalList: React.FC<HorizontalListProps> = (props) => {
   const theme = useTheme();
@@ -29,6 +30,7 @@ export const HorizontalList: React.FC<HorizontalListProps> = (props) => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isStart, setIsStart] = useState(true);
   const [isEnd, setIsEnd] = useState(true);
+  const [, setLocked] = useScrollBlock();
 
   useEffect(() => {
     handleScroll({ deltaY: 1, deltaX: 1 });
@@ -62,17 +64,6 @@ export const HorizontalList: React.FC<HorizontalListProps> = (props) => {
 
     scrollEl.current.scrollLeft = prevScrollPos;
   };
-
-  function disableBodyScroll() {
-    const body = document.querySelector("body");
-    // body?.addEventListener("scroll", (e) => e.preventDefault());
-    if (body) body.style.overflow = "hidden";
-  }
-
-  function enableBodyScroll() {
-    const body = document.querySelector("body");
-    if (body) body.style.overflow = "auto";
-  }
 
   function scrollPage(scrollDistance: number) {
     let scrollLeftMax =
@@ -142,8 +133,8 @@ export const HorizontalList: React.FC<HorizontalListProps> = (props) => {
         ref={scrollEl}
         onScroll={handleScroll}
         onWheel={handleScroll}
-        onMouseEnter={disableBodyScroll}
-        onMouseLeave={enableBodyScroll}
+        onMouseEnter={() => setLocked(true)}
+        onMouseLeave={() => setLocked(false)}
       >
         <div
           ref={scrollInEl}

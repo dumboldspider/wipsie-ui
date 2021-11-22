@@ -53,6 +53,7 @@ export * from "./components/Backdrop";
 export * from "./components/Modal";
 export * from "./components/Breadcrumbs";
 export * from "./components/Snackbar";
+export * from "./components/Tabs";
 
 // @ UTILS
 export { default as responsive } from "./utils/responsive";
