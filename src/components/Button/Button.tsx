@@ -408,8 +408,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
         }
 
         .Wps-Button:disabled,
-        .Wps-Button[disabled],
-        .Wps-Button.disabled {
+        .Wps-Button[disabled] {
           ${handleDisabledColors()}
           cursor: ${disabled ? "not-allowed" : "pointer"};
         }
