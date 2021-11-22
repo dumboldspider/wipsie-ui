@@ -376,7 +376,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
           ${handleBackgroundColor()}
           ${handleTextColor()}
           border-style: solid;
-          border-width: 2px;
+          border-width: 1px;
           ${handleBorderColor()}
 
           font-family: ${theme.font.label.fontFamily};

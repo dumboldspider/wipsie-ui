@@ -39,50 +39,50 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
   function handleShapeFirstHorizontal() {
     switch (shape) {
       case "round":
-        return "border-radius: 10em 0px 0px 10em; border-left-width: 2px;";
+        return "border-radius: 10em 0px 0px 10em; border-left-width: 1px;";
       case "rounded":
-        return "border-radius: 0.7em 0px 0px 0.7em; border-left-width: 2px;";
+        return "border-radius: 0.7em 0px 0px 0.7em; border-left-width: 1px;";
       case "square":
-        return "border-radius: 0em; border-left-width: 2px;";
+        return "border-radius: 0em; border-left-width: 1px;";
       default:
-        return "border-radius: 0.7em 0px 0px 0.7em; border-left-width: 2px;";
+        return "border-radius: 0.7em 0px 0px 0.7em; border-left-width: 1px;";
     }
   }
   function handleShapeLastHorizontal() {
     switch (shape) {
       case "round":
-        return "border-radius: 0px 10em 10em 0px; border-right-width: 2px;";
+        return "border-radius: 0px 10em 10em 0px; border-right-width: 1px;";
       case "rounded":
-        return "border-radius: 0px 0.7em 0.7em 0px; border-right-width: 2px;";
+        return "border-radius: 0px 0.7em 0.7em 0px; border-right-width: 1px;";
       case "square":
-        return "border-radius: 0em; border-right-width: 2px;";
+        return "border-radius: 0em; border-right-width: 1px;";
       default:
-        return "border-radius: 0px 0.7em 0.7em 0px; border-right-width: 2px;";
+        return "border-radius: 0px 0.7em 0.7em 0px; border-right-width: 1px;";
     }
   }
 
   function handleShapeFirstVertical() {
     switch (shape) {
       case "round":
-        return "border-radius: 10em 10em 0px 0px; border-top-width: 2px;";
+        return "border-radius: 10em 10em 0px 0px; border-top-width: 1px;";
       case "rounded":
-        return "border-radius: 0.7em 0.7em 0px 0px; border-top-width: 2px;";
+        return "border-radius: 0.7em 0.7em 0px 0px; border-top-width: 1px;";
       case "square":
-        return "border-radius: 0em; border-top-width: 2px;";
+        return "border-radius: 0em; border-top-width: 1px;";
       default:
-        return "border-radius: 0.7em 0.7em 0px 0px; border-top-width: 2px;";
+        return "border-radius: 0.7em 0.7em 0px 0px; border-top-width: 1px;";
     }
   }
   function handleShapeLastVertical() {
     switch (shape) {
       case "round":
-        return "border-radius: 0px 0px 10em 10em; border-bottom-width: 2px;";
+        return "border-radius: 0px 0px 10em 10em; border-bottom-width: 1px;";
       case "rounded":
-        return "border-radius: 0px 0px 0.7em 0.7em; border-bottom-width: 2px;";
+        return "border-radius: 0px 0px 0.7em 0.7em; border-bottom-width: 1px;";
       case "square":
-        return "border-radius: 0em; border-bottom-width: 2px;";
+        return "border-radius: 0em; border-bottom-width: 1px;";
       default:
-        return "border-radius: 0px 0px 0.7em 0.7em; border-bottom-width: 2px;";
+        return "border-radius: 0px 0px 0.7em 0.7em; border-bottom-width: 1px;";
     }
   }
 
@@ -99,10 +99,10 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
   function handleOrientationBorder() {
     switch (orientation) {
       case "vertical":
-        return "border-top-width: 1px; border-bottom-width: 1px;";
+        return "border-top-width: 0.5px; border-bottom-width: 0.5px;";
       case "horizontal":
       default:
-        return "border-left-width: 1px; border-right-width: 1px;";
+        return "border-left-width: 0.5px; border-right-width: 0.5px;";
     }
   }
 
