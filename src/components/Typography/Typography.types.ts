@@ -1,5 +1,9 @@
 import { Modify } from "../../types/modify";
-import { TypographyVariants, SimpleColors } from "../../config/propTypes";
+import {
+  TypographyVariants,
+  SimpleColors,
+  NormalWeights,
+} from "../../config/propTypes";
 
 export type TypographyProps = Modify<
   React.HTMLProps<HTMLButtonElement>,
@@ -16,5 +20,9 @@ export type TypographyProps = Modify<
      * Which theme variant to use
      */
     variant?: TypographyVariants;
+    /**
+     * Font weight
+     */
+    weight?: NormalWeights | null;
   }
 >;

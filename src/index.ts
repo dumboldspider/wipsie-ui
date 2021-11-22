@@ -51,6 +51,7 @@ export * from "./components/Collapsible";
 export * from "./components/Animated";
 export * from "./components/Backdrop";
 export * from "./components/Modal";
+export * from "./components/Breadcrumbs";
 
 // @ UTILS
 export { default as responsive } from "./utils/responsive";

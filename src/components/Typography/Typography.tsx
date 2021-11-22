@@ -14,6 +14,7 @@ export const Typography: React.FC<TypographyProps> = (props) => {
     component,
     variant = "body1",
     className = null,
+    weight = null,
     ...otherProps
   } = props;
 
@@ -76,7 +77,7 @@ export const Typography: React.FC<TypographyProps> = (props) => {
         .Typography {
           font-size: ${theme.font[variant].fontSize};
           font-family: ${theme.font[variant].fontFamily};
-          font-weight: ${theme.font[variant].fontWeight};
+          font-weight: ${weight ? weight : theme.font[variant].fontWeight};
           line-height: ${theme.font[variant].lineHeight};
           text-transform: ${theme.font[variant].textTransform};
           letter-spacing: ${theme.font[variant].letterSpacing};

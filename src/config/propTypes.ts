@@ -57,7 +57,20 @@ export const normalLoaders = tuple(
   "spinner"
 );
 
-export const normalWeights = tuple("light", "normal", "bold");
+export const normalWeights = tuple(
+  "100",
+  "200",
+  "300",
+  "400",
+  "500",
+  "600",
+  "700",
+  "800",
+  "900",
+  "light",
+  "normal",
+  "bold"
+);
 
 const themeTypes = tuple("dark", "light", "cosmic");
 
