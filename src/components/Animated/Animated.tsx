@@ -46,6 +46,27 @@ export const Animated: React.FC<AnimatedProps> = (props) => {
           opacity: 1;
         }
 
+        /* rotate */
+        .Wps-Animated.rotate {
+          animation: Wps-Animated-rotate ${duration}ms ${transition} infinite;
+        }
+        @keyframes Wps-Animated-rotate {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg);
+          }
+        }
+
+        /* scale */
+        .Wps-Animated.scale.hidden {
+          transform: scale(0.7);
+        }
+        .Wps-Animated.scale.visible {
+          transform: scale(1);
+        }
+
         /* fadeIn */
         .Wps-Animated.fadeIn.hidden {
           opacity: 0;

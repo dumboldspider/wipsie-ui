@@ -16,6 +16,8 @@ export type AnimatedProps = Modify<
 >;
 export type AnimationVariants =
   | "opacity"
+  | "rotate"
+  | "scale"
   | "fadeIn"
   | "fadeInScale"
   | "fadeInTop"
