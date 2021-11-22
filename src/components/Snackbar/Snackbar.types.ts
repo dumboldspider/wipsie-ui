@@ -3,10 +3,23 @@ import { Modify } from "../../types/modify";
 import { SimpleColors } from "../../config/propTypes";
 import { AnimationVariants, AnimationTransitions } from "../Animated";
 import { FixedTypes, FixedPositions } from "../Fixed";
+import { BackdropProps } from "../Backdrop";
 
 export type SnackbarProps = Modify<
   React.HTMLProps<HTMLDivElement>,
-  {
+  (
+    | {
+        backdrop: true;
+        onBackdropClick: React.MouseEventHandler<HTMLElement>;
+      }
+    | {
+        backdrop?: false;
+        onBackdropClick?: React.MouseEventHandler<HTMLElement>;
+      }
+  ) & {
+    backdropColor?: SimpleColors;
+    onBackdropClick?: () => void;
+    backdropProps?: Omit<BackdropProps, "visible">;
     id: string;
     open: boolean;
     duration?: number;

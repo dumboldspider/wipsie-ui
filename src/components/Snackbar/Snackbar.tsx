@@ -22,6 +22,9 @@ export const Snackbar: React.FC<SnackbarProps> = (props) => {
     open = false,
     duration = 200,
     animation = "fadeInBottom",
+    backdrop = false,
+    backdropColor = "basic",
+    onBackdropClick = () => {},
     style = {},
     fullWidth,
     fullHeight,
@@ -49,11 +52,20 @@ export const Snackbar: React.FC<SnackbarProps> = (props) => {
       ? typeof value === "number"
         ? `${value * theme.layout.spacingUnit}px`
         : value
-      : "10px";
+      : "0px";
   }
 
   return (
     <Portal id={id} visible={isOpen}>
+      {backdrop && (
+        <Backdrop
+          visible={animationTrigger}
+          duration={duration}
+          color={backdropColor}
+          onClick={onBackdropClick}
+          noPortal
+        />
+      )}
       <Fixed
         type={type}
         position={position}

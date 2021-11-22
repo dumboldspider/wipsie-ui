@@ -24,7 +24,7 @@ export const Divider: React.FC<DividerProps> = (props) => {
       ? typeof value === "number"
         ? `${value * theme.layout.spacingUnit}px`
         : value
-      : "10px";
+      : "0px";
   }
 
   function handleShape() {

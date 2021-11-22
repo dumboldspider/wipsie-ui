@@ -14,7 +14,7 @@ export const Spacing: React.FC<SpacingProps> = (props) => {
       ? typeof value === "number"
         ? `${value * theme.layout.spacingUnit}px`
         : value
-      : "10px";
+      : "0px";
   }
 
   return (
