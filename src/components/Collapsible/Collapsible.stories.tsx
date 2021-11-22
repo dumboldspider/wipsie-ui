@@ -48,7 +48,17 @@ export const WithBar2 = () => {
     <>
       <Collapsible
         as={Flex}
+        p={0}
+        direction="column"
+        align="center"
+        justify="center"
+        style={{ overflow: "hidden" }}
+        contentStyle={{
+          paddingTop: 10,
+        }}
         open={open === 1}
+        icon={false}
+        onClick={() => handleClick(1)}
         header={
           <Button
             startIcon={<CheckOutlined />}
@@ -59,59 +69,65 @@ export const WithBar2 = () => {
             title here
           </Button>
         }
-        //   header={"titleee"}
-        icon={false}
-        onClick={() => handleClick(1)}
-        p={0}
-        direction="column"
-        align="center"
-        justify="center"
-        style={{ overflow: "hidden" }}
-        contentStyle={{
-          paddingTop: 10,
-        }}
       >
         <Flex direction="column" fullWidth>
-          <Menuitem label="awdawd" />
-          <Menuitem label="awdawd" />
-          <Menuitem label="awdawd" />
-          <Menuitem label="awdawd" />
-        </Flex>
-      </Collapsible>
-      <Collapsible
-        as={Flex}
-        open={open === 2}
-        header={
-          <Button startIcon={<CheckOutlined />} shape="square" fullWidth>
-            title here
-          </Button>
-        }
-        //   header={"titleee"}
-        icon={false}
-        onClick={() => handleClick(2)}
-        p={0}
-        direction="column"
-        align="center"
-        justify="center"
-        style={{ overflow: "hidden" }}
-        contentStyle={{
-          paddingTop: 10,
-        }}
-        fullWidth
-      >
-        <Flex direction="column" fullWidth>
-          <Menuitem label="awdawd" />
-          <Menuitem label="awdawd" />
-          <Menuitem label="awdawd" />
-          <Menuitem label="awdawd" />
+          <SubMenuitem icon={<RightOutlined />} label="awdawd" link="#" />
+          <SubMenuitem icon={<RightOutlined />} label="awdawd" link="#" />
+          <SubMenuitem icon={<RightOutlined />} label="awdawd" link="#" />
+          <SubMenuitem icon={<RightOutlined />} label="awdawd" link="#" />
         </Flex>
       </Collapsible>
     </>
   );
 };
 
-const Menuitem = ({ label }) => (
-  <a href="#" style={{ width: "100%" }}>
+const MenuGroup = ({ ref, label, link, icon, items }) => {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <Collapsible
+      as={Flex}
+      p={0}
+      ref={ref}
+      direction="column"
+      align="center"
+      justify="center"
+      style={{ overflow: "hidden" }}
+      contentStyle={
+        {
+          // paddingTop: 10,
+        }
+      }
+      open={open}
+      icon={false}
+      onClick={() => setOpen(!open)}
+      fullWidth
+      header={
+        <Button
+          endIcon={open ? <DownOutlined /> : <RightOutlined />}
+          shape="square"
+          align="spaced"
+          fullWidth
+        >
+          <span>
+            <span style={{ paddingRight: 5 }}>{icon}</span>
+            {label}
+          </span>
+        </Button>
+      }
+    >
+      <Flex direction="column" fullWidth>
+        {items.map((item) => {
+          return (
+            <SubMenuitem label={item.label} link={item.link} icon={item.icon} />
+          );
+        })}
+      </Flex>
+    </Collapsible>
+  );
+};
+
+const SubMenuitem = ({ label, link, icon }) => (
+  <a href={link} style={{ width: "100%" }}>
     <Button
       size="small"
       fullWidth
@@ -119,8 +135,86 @@ const Menuitem = ({ label }) => (
       align="left"
       variant="ghost"
       label={label}
-      startIcon={<RightOutlined />}
+      startIcon={icon}
       style={{ fontWeight: 500 }}
     />
   </a>
 );
+const Menuitem = ({ label, link, icon }) => (
+  <a href={link} style={{ width: "100%" }}>
+    <Button
+      fullWidth
+      align="left"
+      shape="square"
+      label={label}
+      startIcon={icon}
+    />
+  </a>
+);
+
+const menu = [
+  {
+    label: "Home",
+    icon: <HeartTwoTone />,
+    link: "",
+    items: [
+      {
+        label: "Second",
+        icon: <SyncOutlined />,
+        link: "/second",
+      },
+      {
+        label: "Third",
+        icon: <SyncOutlined />,
+        link: "/third",
+      },
+    ],
+  },
+  {
+    label: "Second",
+    icon: <SyncOutlined />,
+    link: "/second",
+  },
+  {
+    label: "Third",
+    icon: <SyncOutlined />,
+    link: "/third",
+  },
+  {
+    label: "Fourth",
+    icon: <SyncOutlined />,
+    link: "",
+    items: [
+      {
+        label: "Second",
+        icon: <SyncOutlined />,
+        link: "/second",
+      },
+      {
+        label: "Third",
+        icon: <SyncOutlined />,
+        link: "/third",
+      },
+    ],
+  },
+];
+
+export const MenuTest = () => {
+  return (
+    <Flex direction="column" width="300px">
+      {menu.map((item, index) => {
+        return item.items ? (
+          <MenuGroup
+            ref={React.createRef()}
+            label={item.label}
+            link={item.link}
+            icon={item.icon}
+            items={item.items}
+          />
+        ) : (
+          <Menuitem label={item.label} link={item.link} icon={item.icon} />
+        );
+      })}
+    </Flex>
+  );
+};
