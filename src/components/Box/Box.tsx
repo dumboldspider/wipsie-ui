@@ -41,7 +41,7 @@ export const Box: React.FC<BoxProps> = (props) => {
 
     // Default props
     children,
-    backgroundColor = "background",
+    backgroundColor = "transparent",
     hoverBackgroundColor = null,
     clickable = false,
     className = null,

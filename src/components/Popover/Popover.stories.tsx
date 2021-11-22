@@ -1,5 +1,5 @@
 // Generated with util/create-component.js
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Popover } from "./Popover";
 import { Button } from "../Button";
 import { Spacing } from "../Spacing";
@@ -21,6 +21,7 @@ import {
   CheckOutlined,
   CloseOutlined,
 } from "@ant-design/icons";
+import useOnClickOutside from "../../hooks/useOnClickOutside";
 
 export default {
   title: "Prototypes/Popover",
@@ -201,6 +202,13 @@ export const WithWidth = () => {
 
 export const Toggle = () => {
   const [visible, setVisible] = useState(true);
+
+  // Create a ref that we add to the element for which we want to detect outside clicks
+  const ref = useRef(null);
+
+  // Call hook passing in the ref and a function to call on outside click
+  useOnClickOutside(ref, () => setVisible(false));
+
   return (
     <>
       click to toggle
@@ -215,7 +223,7 @@ export const Toggle = () => {
         spacing={0.2}
         arrow
       >
-        <IconButton onClick={() => setVisible(!visible)}>
+        <IconButton ref={ref} onClick={() => setVisible(!visible)}>
           <InfoCircleOutlined />
         </IconButton>
       </Popover>

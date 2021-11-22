@@ -173,6 +173,7 @@ export const defaultLayout: WipsieThemesLayout = {
   breakpointMobile: defaultBreakpoints.xs.max,
   breakpointTablet: defaultBreakpoints.sm.max,
   stroke: "2px",
+  modalIndex: 1000,
 };
 
 export const commonPalette: WipsieThemesCommonPalette = {

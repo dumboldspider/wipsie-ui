@@ -67,6 +67,7 @@ export interface WipsieThemesLayout {
   breakpointMobile: string;
   breakpointTablet: string;
   stroke: string;
+  modalIndex: number;
 }
 
 export interface WipsieThemesFonts {
