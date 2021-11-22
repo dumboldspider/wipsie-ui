@@ -232,6 +232,46 @@ export const Toggle = () => {
   );
 };
 
+export const ToggleWithBackdrop = () => {
+  const [visible, setVisible] = useState(true);
+
+  // Create a ref that we add to the element for which we want to detect outside clicks
+  const ref = useRef(null);
+
+  // Call hook passing in the ref and a function to call on outside click
+  useOnClickOutside(ref, () => setVisible(false));
+
+  return (
+    <>
+      click to toggle
+      <Spacing height={1} />
+      {visible ? "visible" : "hidden"}
+      <Spacing height={2} />
+      <Popover
+        content="This would be a text for the tooltip"
+        width={20}
+        position="right"
+        visible={visible}
+        spacing={0.2}
+        backgroundColor="background"
+        backdrop
+        onBackdropClick={() => {
+          setVisible(!visible);
+        }}
+        backdropProps={{
+          duration: 100,
+        }}
+        arrow
+      >
+        <IconButton ref={ref} onClick={() => setVisible(!visible)}>
+          <InfoCircleOutlined />
+        </IconButton>
+      </Popover>
+      <Spacing height={4} />
+    </>
+  );
+};
+
 export const Menu = () => {
   const [visible, setVisible] = useState(true);
   return (

@@ -1,10 +1,21 @@
 // Generated with util/create-component.js
 import { Modify } from "../../types/modify";
 import { SimpleColors } from "../../config/propTypes";
+import { BackdropProps } from "../Backdrop";
 
 export type PopoverProps = Modify<
   React.HTMLProps<HTMLDivElement>,
-  {
+  (
+    | {
+        backdrop: true;
+        onBackdropClick: React.MouseEventHandler<HTMLElement>;
+      }
+    | {
+        backdrop?: false;
+        onBackdropClick?: React.MouseEventHandler<HTMLElement>;
+      }
+  ) & {
+    backdropProps?: Omit<BackdropProps, "visible">;
     /**
      * Prop description
      */

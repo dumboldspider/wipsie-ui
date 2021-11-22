@@ -72,6 +72,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
         duration={duration}
         color={backdropColor}
         onClick={onBackdropClick}
+        noPortal
       />
 
       <Flex

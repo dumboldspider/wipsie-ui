@@ -2,9 +2,9 @@
 import React from "react";
 import classnames from "classnames";
 import useTheme from "../../hooks/useTheme";
-import isThemePalette from "../../utils/isThemePalette";
 import { ContainerProps } from "./Container.types";
 import { getBreakpoints, getAlign, getJustify } from "../Flex/Flex.functions";
+import isThemePalette from "../../utils/isThemePalette";
 import opacity from "../../utils/opacity";
 
 export const Container: React.FC<ContainerProps> = (props) => {

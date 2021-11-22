@@ -9,5 +9,6 @@ export type BackdropProps = Modify<
     duration?: number;
     visible: boolean;
     transition?: AnimationTransitions;
+    noPortal?: boolean;
   }
 >;

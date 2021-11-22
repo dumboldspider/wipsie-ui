@@ -5,6 +5,9 @@ import isThemePalette from "../../utils/isThemePalette";
 import contrast from "../../utils/contrast";
 import { PopoverProps } from "./Popover.types";
 
+import { Backdrop } from "../Backdrop";
+import { Portal } from "../Portal";
+
 export const Popover: React.FC<PopoverProps> = (props) => {
   const theme = useTheme();
   const {
@@ -20,6 +23,9 @@ export const Popover: React.FC<PopoverProps> = (props) => {
     arrowSize = 1,
     backgroundColor = theme.palette.text,
     textColor = null,
+    backdrop = false,
+    onBackdropClick = () => {},
+    backdropProps = null,
 
     width = null,
     height = null,
@@ -28,7 +34,6 @@ export const Popover: React.FC<PopoverProps> = (props) => {
     minHeight = null,
     maxHeight = null,
   } = props;
-  const [isVisible, setIsVisible] = useState(visible || true);
 
   function handleBackgroundColor() {
     switch (backgroundColor) {
@@ -234,7 +239,16 @@ export const Popover: React.FC<PopoverProps> = (props) => {
       data-testid="Wps-Popover"
       className={classnames("Wps-PopoverWrapper", className)}
     >
+      {backdrop && (
+        <Backdrop
+          visible={visible !== null ? (visible ? true : false) : false}
+          duration={backdropProps?.duration || 300}
+          color={backdropProps?.color || "basic"}
+          onClick={onBackdropClick}
+        />
+      )}
       {children}
+
       <div className="Wps-Popover">{content}</div>
       <style jsx>{`
         .Wps-PopoverWrapper {
