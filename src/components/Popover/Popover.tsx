@@ -243,7 +243,7 @@ export const Popover: React.FC<PopoverProps> = (props) => {
           visible={visible !== null ? (visible ? true : false) : false}
           duration={backdropProps?.duration || 300}
           color={backdropProps?.color || "basic"}
-          onClick={onBackdropClick}
+          onClick={backdropProps?.onClick || onBackdropClick}
         />
       )}
       {children}

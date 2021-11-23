@@ -2,6 +2,7 @@
 import { Modify } from "../../types/modify";
 import { SimpleColors } from "../../config/propTypes";
 import { AnimationVariants, AnimationTransitions } from "../Animated";
+import { BackdropProps } from "../Backdrop";
 
 export type ModalProps = Modify<
   React.HTMLProps<HTMLDivElement>,
@@ -18,6 +19,7 @@ export type ModalProps = Modify<
     onBackdropClick?: () => void;
     onEscapeKeyDown?: () => void;
     backdropColor?: SimpleColors;
+    backdropProps?: Omit<BackdropProps, "visible">;
     disableEscapeKeyDown?: boolean;
     disableBackdropClick?: boolean;
     disableScrollLock?: boolean;

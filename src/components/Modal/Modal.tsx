@@ -28,6 +28,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
     onEscapeKeyDown = () => {},
     disableScrollLock = false,
     closeKey = "Escape",
+    backdropProps = {},
     children,
   } = props;
   const [, setLocked] = useScrollBlock();
@@ -69,11 +70,11 @@ export const Modal: React.FC<ModalProps> = (props) => {
     >
       <Backdrop
         visible={animationTrigger}
-        duration={duration}
-        color={backdropColor}
-        onClick={onBackdropClick}
-        transition={transition}
-        noPortal
+        duration={backdropProps?.duration || duration}
+        color={backdropProps?.color || backdropColor}
+        onClick={backdropProps?.onClick || onBackdropClick}
+        transition={backdropProps?.transition || transition}
+        noPortal={backdropProps?.noPortal || true}
       />
 
       <Flex
