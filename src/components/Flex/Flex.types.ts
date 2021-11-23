@@ -88,6 +88,13 @@ export interface BoxContainerProps {
 }
 
 export type FlexContainerProps = {
+  /**
+   * Component render as
+   * */
+  as?: string | React.ComponentType<any>;
+  /**
+   * Component display
+   * */
   display?: FlexDisplay | BreakpointCombo<FlexDisplay>;
   /**
    * Flex align items

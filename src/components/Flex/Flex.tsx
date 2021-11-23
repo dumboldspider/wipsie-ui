@@ -15,6 +15,7 @@ export const Flex: React.FC<FlexProps> = (props) => {
     wrap = "wrap",
     alignContent = "start",
     display = "flex",
+    as = null,
 
     // Box Props
     m = 0,
@@ -44,6 +45,9 @@ export const Flex: React.FC<FlexProps> = (props) => {
     ...otherProps
   } = props;
 
+  // as Component render
+  const Component = as || "div";
+
   function handleValue(value) {
     if (!value) return "";
     return value
@@ -54,7 +58,7 @@ export const Flex: React.FC<FlexProps> = (props) => {
   }
 
   return (
-    <div
+    <Component
       data-testid="Wps-Flex"
       className={classnames("Wps-Flex", className)}
       {...otherProps}
@@ -222,6 +226,6 @@ export const Flex: React.FC<FlexProps> = (props) => {
       `}</style>
 
       {children}
-    </div>
+    </Component>
   );
 };

@@ -17,6 +17,7 @@ export const Container: React.FC<ContainerProps> = (props) => {
     justify = "start",
     wrap = "wrap",
     alignContent = "start",
+    as = null,
 
     // Box Props
     m = 0,
@@ -60,6 +61,9 @@ export const Container: React.FC<ContainerProps> = (props) => {
     shape = "round",
     ...otherProps
   } = props as any;
+
+  // as Component render
+  const Component = as || "div";
 
   function handleBackgroundImage() {
     if (backgroundImage) {
@@ -258,13 +262,13 @@ export const Container: React.FC<ContainerProps> = (props) => {
 
   return (
     <>
-      <div
+      <Component
         data-testid="Wps-Container"
         className={classnames("Wps-Container", className)}
         {...otherProps}
       >
         {children}
-      </div>
+      </Component>
 
       <style jsx>{`
         .Wps-Container {

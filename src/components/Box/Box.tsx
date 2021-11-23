@@ -16,6 +16,7 @@ export const Box: React.FC<BoxProps> = (props) => {
     justify = "start",
     wrap = "wrap",
     alignContent = "start",
+    as = null,
 
     // Box Props
     m = 0,
@@ -48,6 +49,9 @@ export const Box: React.FC<BoxProps> = (props) => {
     shape = "square",
     ...otherProps
   } = props;
+
+  // as Component render
+  const Component = as || "div";
 
   function handleBackgroundColor() {
     switch (backgroundColor) {
@@ -102,7 +106,7 @@ export const Box: React.FC<BoxProps> = (props) => {
   }
 
   return (
-    <div
+    <Component
       data-testid="Wps-Box"
       className={classnames("Wps-Box", className)}
       {...otherProps}
@@ -282,6 +286,6 @@ export const Box: React.FC<BoxProps> = (props) => {
       `}</style>
 
       {children}
-    </div>
+    </Component>
   );
 };
