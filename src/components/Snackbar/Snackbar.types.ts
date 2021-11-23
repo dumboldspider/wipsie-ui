@@ -4,6 +4,7 @@ import { SimpleColors } from "../../config/propTypes";
 import { AnimationVariants } from "../Animated";
 import { FixedTypes, FixedPositions } from "../Fixed";
 import { BackdropProps } from "../Backdrop";
+import { PortalProps } from "../Portal";
 
 export type SnackbarProps = Modify<
   React.HTMLProps<HTMLDivElement>,
@@ -20,6 +21,9 @@ export type SnackbarProps = Modify<
     backdropColor?: SimpleColors;
     onBackdropClick?: () => void;
     backdropProps?: Omit<BackdropProps, "visible">;
+
+    portalProps?: PortalProps;
+
     id: string;
     open: boolean;
     duration?: number;

@@ -1,3 +1,4 @@
+import { PortalProps } from "../Portal";
 import { FixedTypes } from "../Fixed";
 // Generated with util/create-component.js
 import { Modify } from "../../types/modify";
@@ -11,5 +12,6 @@ export type BackdropProps = Modify<
     visible: boolean;
     transition?: AnimationTransitions;
     noPortal?: boolean;
+    portalProps?: PortalProps;
   }
 >;

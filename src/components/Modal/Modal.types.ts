@@ -3,10 +3,13 @@ import { Modify } from "../../types/modify";
 import { SimpleColors } from "../../config/propTypes";
 import { AnimationVariants, AnimationTransitions } from "../Animated";
 import { BackdropProps } from "../Backdrop";
+import { PortalProps } from "../Portal";
 
 export type ModalProps = Modify<
   React.HTMLProps<HTMLDivElement>,
   {
+    portalProps?: PortalProps;
+
     id: string;
     open: boolean;
     duration?: number;

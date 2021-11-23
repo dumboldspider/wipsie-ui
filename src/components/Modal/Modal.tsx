@@ -29,6 +29,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
     disableScrollLock = false,
     closeKey = "Escape",
     backdropProps = {},
+    portalProps = { style: {} },
     children,
     ...otherProps
   } = props;
@@ -67,8 +68,8 @@ export const Modal: React.FC<ModalProps> = (props) => {
     <Portal
       id={id}
       visible={isOpen}
-      style={{ zIndex: theme.layout.modalIndex, ...otherProps.style }}
-      {...otherProps}
+      style={{ zIndex: theme.layout.modalIndex, ...portalProps.style }}
+      {...portalProps}
     >
       <Backdrop
         visible={animationTrigger}
@@ -98,7 +99,8 @@ export const Modal: React.FC<ModalProps> = (props) => {
           animation={animation as any}
           duration={duration}
           transition={transition}
-          style={{ pointerEvents: "all" }}
+          style={{ pointerEvents: "all", ...otherProps.style }}
+          {...otherProps}
         >
           {children}
         </Animated>

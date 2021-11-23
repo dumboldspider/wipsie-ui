@@ -17,6 +17,7 @@ export const Backdrop: React.FC<BackdropProps> = (props) => {
     color = "basic",
     noPortal = false,
     type = "absolute",
+    portalProps = {},
     className,
     ...otherProps
   } = props;
@@ -95,7 +96,11 @@ export const Backdrop: React.FC<BackdropProps> = (props) => {
     return Component;
   } else {
     return (
-      <Portal id={otherProps.id || "backdrop"} visible={isOpen}>
+      <Portal
+        id={otherProps.id || "backdrop"}
+        visible={isOpen}
+        {...portalProps}
+      >
         {Component}
       </Portal>
     );
