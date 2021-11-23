@@ -12,6 +12,6 @@ export type BackdropProps = Modify<
     visible: boolean;
     transition?: AnimationTransitions;
     noPortal?: boolean;
-    portalProps?: PortalProps;
+    portalProps?: Omit<PortalProps, "children" | "id" | "visible">;
   }
 >;

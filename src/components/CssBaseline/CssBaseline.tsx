@@ -15,6 +15,7 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           margin: 0;
           padding: 0;
         }
+
         html,
         body {
           background-color: ${theme.palette.background};

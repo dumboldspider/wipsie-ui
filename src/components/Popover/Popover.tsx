@@ -32,6 +32,8 @@ export const Popover: React.FC<PopoverProps> = (props) => {
     maxWidth = null,
     minHeight = null,
     maxHeight = null,
+
+    wrapperProps = {},
     ...otherProps
   } = props;
 
@@ -238,6 +240,7 @@ export const Popover: React.FC<PopoverProps> = (props) => {
     <div
       data-testid="Wps-Popover"
       className={classnames("Wps-PopoverWrapper", className)}
+      {...wrapperProps}
     >
       {backdrop && (
         <Backdrop

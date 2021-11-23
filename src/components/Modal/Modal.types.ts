@@ -8,7 +8,7 @@ import { PortalProps } from "../Portal";
 export type ModalProps = Modify<
   React.HTMLProps<HTMLDivElement>,
   {
-    portalProps?: PortalProps;
+    portalProps?: Omit<PortalProps, "children" | "id" | "visible">;
 
     id: string;
     open: boolean;

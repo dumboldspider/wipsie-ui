@@ -16,6 +16,7 @@ export type PopoverProps = Modify<
       }
   ) & {
     backdropProps?: Omit<BackdropProps, "visible">;
+    wrapperProps?: React.HTMLAttributes<HTMLDivElement>;
     /**
      * Prop description
      */

@@ -106,6 +106,7 @@ const MenuGroup = ({ ref, label, link, icon, items }) => {
           endIcon={open ? <DownOutlined /> : <RightOutlined />}
           shape="square"
           align="spaced"
+          variant="ghost"
           fullWidth
         >
           <span>
@@ -146,6 +147,7 @@ const Menuitem = ({ label, link, icon }) => (
       fullWidth
       align="left"
       shape="square"
+      variant="ghost"
       label={label}
       startIcon={icon}
     />

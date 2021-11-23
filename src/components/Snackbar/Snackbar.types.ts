@@ -22,7 +22,7 @@ export type SnackbarProps = Modify<
     onBackdropClick?: () => void;
     backdropProps?: Omit<BackdropProps, "visible">;
 
-    portalProps?: PortalProps;
+    portalProps?: Omit<PortalProps, "children" | "id" | "visible">;
 
     id: string;
     open: boolean;
