@@ -14,20 +14,24 @@ export const Snackbar: React.FC<SnackbarProps> = (props) => {
   const {
     id = "modal",
     type = "fixed",
-    position = "bottom center",
-    spacing = 2,
     open = false,
+    spacing = 2,
+    position = "bottom center",
     duration = 200,
     animation = "fadeInBottom",
+    fullWidth,
+    fullHeight,
+
     backdrop = false,
     backdropColor = "basic",
     onBackdropClick = () => {},
     backdropProps = {},
-    style = {},
-    fullWidth,
-    fullHeight,
-    children,
+
     portalProps = {},
+    noPortal = false,
+
+    style = {},
+    children,
     ...otherProps
   } = props;
   const [animationTrigger, setAnimationTrigger] = useState(open);
@@ -55,8 +59,8 @@ export const Snackbar: React.FC<SnackbarProps> = (props) => {
       : "0px";
   }
 
-  return (
-    <Portal id={id} visible={isOpen} {...portalProps}>
+  const Component = (
+    <>
       {backdrop && (
         <Backdrop
           visible={animationTrigger}
@@ -94,6 +98,16 @@ export const Snackbar: React.FC<SnackbarProps> = (props) => {
           {children}
         </Animated>
       </Fixed>
-    </Portal>
+    </>
   );
+
+  if (noPortal) {
+    return Component;
+  } else {
+    return (
+      <Portal id={id} visible={isOpen} {...portalProps}>
+        {Component}
+      </Portal>
+    );
+  }
 };

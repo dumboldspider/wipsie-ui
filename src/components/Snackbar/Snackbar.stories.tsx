@@ -24,6 +24,7 @@ export const SideBar = () => {
         backdrop
         fullHeight
         onBackdropClick={() => setOpen(false)}
+        noPortal
       >
         <Container
           shape="square"

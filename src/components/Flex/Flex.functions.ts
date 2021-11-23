@@ -33,6 +33,8 @@ export function getAlign(align) {
       return "flex-end";
     case "start":
       return "flex-start";
+    case "stretch":
+      return "stretch";
     default:
       return "";
   }

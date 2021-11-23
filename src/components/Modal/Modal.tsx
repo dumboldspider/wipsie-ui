@@ -30,6 +30,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
     closeKey = "Escape",
     backdropProps = {},
     portalProps = { style: {} },
+    noPortal = false,
     children,
     ...otherProps
   } = props;
@@ -64,13 +65,8 @@ export const Modal: React.FC<ModalProps> = (props) => {
     }
   }, [escapePress]);
 
-  return (
-    <Portal
-      id={id}
-      visible={isOpen}
-      style={{ zIndex: theme.layout.modalIndex, ...portalProps.style }}
-      {...portalProps}
-    >
+  const Component = (
+    <>
       <Backdrop
         visible={animationTrigger}
         duration={backdropProps?.duration || duration}
@@ -105,6 +101,21 @@ export const Modal: React.FC<ModalProps> = (props) => {
           {children}
         </Animated>
       </Flex>
-    </Portal>
+    </>
   );
+
+  if (noPortal) {
+    return Component;
+  } else {
+    return (
+      <Portal
+        id={id}
+        visible={isOpen}
+        style={{ zIndex: theme.layout.modalIndex, ...portalProps.style }}
+        {...portalProps}
+      >
+        {Component}
+      </Portal>
+    );
+  }
 };
