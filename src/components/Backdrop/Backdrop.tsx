@@ -16,6 +16,7 @@ export const Backdrop: React.FC<BackdropProps> = (props) => {
     visible = true,
     color = "basic",
     noPortal = false,
+    type = "absolute",
     className,
     ...otherProps
   } = props;
@@ -66,7 +67,7 @@ export const Backdrop: React.FC<BackdropProps> = (props) => {
     >
       <style jsx>{`
         .Wps-Backdrop {
-          position: absolute;
+          position: ${type};
           top: 0;
           left: 0;
           width: 100%;

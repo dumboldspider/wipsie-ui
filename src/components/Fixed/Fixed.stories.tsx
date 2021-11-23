@@ -83,6 +83,8 @@ export const Snackbar2 = () => {
         position="top left"
         animation="fadeInLeft"
         spacing={1}
+        backdrop
+        onBackdropClick={() => setVisible(false)}
       >
         <Container fullWidth maxWidth="500px">
           <Typography variant="h2">Hello</Typography>

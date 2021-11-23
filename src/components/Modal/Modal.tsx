@@ -30,6 +30,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
     closeKey = "Escape",
     backdropProps = {},
     children,
+    ...otherProps
   } = props;
   const [, setLocked] = useScrollBlock();
   const escapePress: boolean = useKeyPress(closeKey);
@@ -66,7 +67,8 @@ export const Modal: React.FC<ModalProps> = (props) => {
     <Portal
       id={id}
       visible={isOpen}
-      style={{ zIndex: theme.layout.modalIndex }}
+      style={{ zIndex: theme.layout.modalIndex, ...otherProps.style }}
+      {...otherProps}
     >
       <Backdrop
         visible={animationTrigger}
@@ -75,6 +77,8 @@ export const Modal: React.FC<ModalProps> = (props) => {
         onClick={backdropProps?.onClick || onBackdropClick}
         transition={backdropProps?.transition || transition}
         noPortal={backdropProps?.noPortal || true}
+        type={backdropProps?.type || "fixed"}
+        {...backdropProps}
       />
 
       <Flex

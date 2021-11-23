@@ -27,6 +27,7 @@ export const Snackbar: React.FC<SnackbarProps> = (props) => {
     fullWidth,
     fullHeight,
     children,
+    ...otherProps
   } = props;
   const [animationTrigger, setAnimationTrigger] = useState(open);
   const [isOpen, setIsOpen] = useState(open);
@@ -54,7 +55,7 @@ export const Snackbar: React.FC<SnackbarProps> = (props) => {
   }
 
   return (
-    <Portal id={id} visible={isOpen}>
+    <Portal id={id} visible={isOpen} {...otherProps}>
       {backdrop && (
         <Backdrop
           visible={animationTrigger}
@@ -62,6 +63,7 @@ export const Snackbar: React.FC<SnackbarProps> = (props) => {
           color={backdropProps?.color || backdropColor || "basic"}
           onClick={backdropProps?.onClick || onBackdropClick}
           noPortal={backdropProps?.noPortal || true}
+          type={backdropProps?.type || "fixed"}
           {...backdropProps}
         />
       )}

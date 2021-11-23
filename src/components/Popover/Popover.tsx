@@ -32,6 +32,7 @@ export const Popover: React.FC<PopoverProps> = (props) => {
     maxWidth = null,
     minHeight = null,
     maxHeight = null,
+    ...otherProps
   } = props;
 
   function handleBackgroundColor() {
@@ -244,11 +245,15 @@ export const Popover: React.FC<PopoverProps> = (props) => {
           duration={backdropProps?.duration || 300}
           color={backdropProps?.color || "basic"}
           onClick={backdropProps?.onClick || onBackdropClick}
+          type={backdropProps?.type || "fixed"}
+          {...backdropProps}
         />
       )}
       {children}
 
-      <div className="Wps-Popover">{content}</div>
+      <div className="Wps-Popover" {...otherProps}>
+        {content}
+      </div>
       <style jsx>{`
         .Wps-PopoverWrapper {
           position: relative;
