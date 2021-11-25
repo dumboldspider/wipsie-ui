@@ -54,6 +54,7 @@ export * from "./components/Modal";
 export * from "./components/Breadcrumbs";
 export * from "./components/Snackbar";
 export * from "./components/Tabs";
+export * from "./components/HorizontalList";
 
 // @ UTILS
 export { default as responsive } from "./utils/responsive";
