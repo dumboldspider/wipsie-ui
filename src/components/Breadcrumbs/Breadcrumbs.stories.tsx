@@ -1,11 +1,45 @@
 // Generated with util/create-component.js
 import React from "react";
-import {Breadcrumbs} from "./Breadcrumbs";
+import { Breadcrumbs } from "./Breadcrumbs";
+import {
+  HomeOutlined,
+  InfoCircleOutlined,
+  PhoneOutlined,
+} from "@ant-design/icons";
+import { Link } from "../Link";
 
 export default {
-    title: "Prototypes/Breadcrumbs"
+  title: "Prototypes/Breadcrumbs",
 };
 
-export const WithBar = () => <Breadcrumbs foo="bar" />;
+export const WithBreadcrumbs = () => {
+  const breadcrumbs = [
+    {
+      label: "Home",
+      href: "/",
+      icon: <HomeOutlined />,
+    },
+    {
+      label: "About",
+      href: "/about",
+      icon: <InfoCircleOutlined />,
+      inactive: false,
+    },
+    {
+      label: "Contact",
+      href: "/contact",
+      icon: <PhoneOutlined />,
+      inactive: true,
+    },
+  ];
 
-export const WithBaz = () => <Breadcrumbs foo="baz" />;
+  return (
+    <>
+      <Breadcrumbs
+        items={breadcrumbs}
+        linkComponent={Link}
+        activeColor="secondary"
+      />
+    </>
+  );
+};

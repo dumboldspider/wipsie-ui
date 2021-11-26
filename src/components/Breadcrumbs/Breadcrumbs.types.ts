@@ -22,6 +22,7 @@ export type BreadcrumbsProps = Modify<
      * Spacing
      */
     spacing?: string | number | BreakpointCombo<string | number>;
+    linkComponent?: React.ElementType | string;
   }
 >;
 

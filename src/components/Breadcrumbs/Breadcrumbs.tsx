@@ -17,11 +17,14 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = (props) => {
     dividerWeight = "500",
     variant = "body1",
     dividerVariant = "body1",
+    linkComponent = null,
     spacing = 1,
     children,
     className,
     ...otherProps
   } = props;
+
+  const Component = linkComponent || Link;
 
   function handleValue(value) {
     return value
@@ -63,7 +66,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = (props) => {
                 {item.label}
               </Typography>
             ) : (
-              <Link
+              <Component
                 href={item.href}
                 color={activeColor}
                 style={{
@@ -72,7 +75,7 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = (props) => {
               >
                 <span style={{ paddingRight: 5 }}>{item.icon}</span>
                 {item.label}
-              </Link>
+              </Component>
             )}
             {index !== items.length - 1 && (
               <Typography
