@@ -62,7 +62,9 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = (props) => {
                       }
                 }
               >
-                <span style={{ paddingRight: 5 }}>{item.icon}</span>
+                {item.icon && (
+                  <span style={{ paddingRight: 5 }}>{item.icon}</span>
+                )}
                 {item.label}
               </Typography>
             ) : (
