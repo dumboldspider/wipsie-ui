@@ -17,18 +17,15 @@ export const WithBreadcrumbs = () => {
     {
       label: "Home",
       href: "/",
-      icon: <HomeOutlined />,
     },
     {
       label: "About",
       href: "/about",
-      icon: <InfoCircleOutlined />,
       inactive: false,
     },
     {
       label: "Contact",
       href: "/contact",
-      icon: <PhoneOutlined />,
       inactive: true,
     },
   ];
@@ -38,7 +35,7 @@ export const WithBreadcrumbs = () => {
       <Breadcrumbs
         items={breadcrumbs}
         linkComponent={Link}
-        activeColor="secondary"
+        activeColor="info"
       />
     </>
   );

@@ -71,9 +71,13 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = (props) => {
               <Component
                 href={item.href}
                 color={activeColor}
-                style={{
-                  paddingRight: handleValue(spacing),
-                }}
+                style={
+                  index === items.length - 1
+                    ? { paddingRight: 0 }
+                    : {
+                        paddingRight: handleValue(spacing),
+                      }
+                }
               >
                 {item.icon && (
                   <span style={{ paddingRight: 5 }}>{item.icon}</span>
@@ -87,9 +91,13 @@ export const Breadcrumbs: React.FC<BreadcrumbsProps> = (props) => {
                 color={inactiveColor}
                 weight={dividerWeight}
                 variant={dividerVariant}
-                style={{
-                  paddingRight: handleValue(spacing),
-                }}
+                style={
+                  index === items.length - 1
+                    ? { paddingRight: 0 }
+                    : {
+                        paddingRight: handleValue(spacing),
+                      }
+                }
               >
                 {divider}
               </Typography>
