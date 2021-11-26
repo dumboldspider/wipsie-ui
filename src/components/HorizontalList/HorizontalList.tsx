@@ -21,6 +21,7 @@ export const HorizontalList: React.FC<HorizontalListProps> = (props) => {
     arrowScrollDistance = 200,
     children,
     className,
+    internalProps = {},
     ...otherProps
   } = props;
 
@@ -114,7 +115,7 @@ export const HorizontalList: React.FC<HorizontalListProps> = (props) => {
   }
 
   return (
-    <div style={{ position: "relative", width, ...style }}>
+    <div style={{ position: "relative", width, ...style }} {...otherProps}>
       {showArrows && !isStart && (
         <div
           className={classnames("Wps-HorizontalListStartIcon")}
@@ -138,7 +139,7 @@ export const HorizontalList: React.FC<HorizontalListProps> = (props) => {
         <div
           ref={scrollInEl}
           className={classnames("Wps-HorizontalList", className)}
-          {...otherProps}
+          {...internalProps}
         >
           {children}
         </div>

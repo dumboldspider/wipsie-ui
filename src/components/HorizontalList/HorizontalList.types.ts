@@ -29,5 +29,6 @@ export type HorizontalListProps = Modify<
     arrowScrollDistance?: number;
     color?: string;
     textColor?: string;
+    internalProps?: React.HTMLProps<HTMLDivElement>;
   }
 >;
