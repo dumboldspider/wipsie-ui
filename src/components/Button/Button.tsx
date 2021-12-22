@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import classnames from "classnames";
 import useTheme from "../../hooks/useTheme";
 import isThemePalette from "../../utils/isThemePalette";
@@ -9,7 +9,7 @@ import { ButtonProps } from "./Button.types";
 /**
  * Primary UI component for user interaction
  */
-export const Button: React.FC<ButtonProps> = (props) => {
+const WuiButton: React.FC<ButtonProps> = (props) => {
   const theme = useTheme();
   const {
     chip = false,
@@ -72,7 +72,23 @@ export const Button: React.FC<ButtonProps> = (props) => {
     ? groupHoverColor
     : null;
 
-  function handleBackgroundColor() {
+  // function handleBackgroundColor() {
+  //   switch (variant) {
+  //     case "contained":
+  //       return `background: ${
+  //         isThemePalette(backgroundColor)
+  //           ? theme.palette[backgroundColor][500]
+  //           : backgroundColor
+  //       };`;
+  //     case "outlined":
+  //       return `background: ${"transparent"};`;
+  //     case "ghost":
+  //       return "background: transparent;";
+  //     default:
+  //       return "";
+  //   }
+  // }
+  const handleBackgroundColor = useMemo(() => {
     switch (variant) {
       case "contained":
         return `background: ${
@@ -87,7 +103,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
       default:
         return "";
     }
-  }
+  }, [variant, backgroundColor, theme.palette]);
 
   function handleBackgroundColorHover() {
     switch (variant) {
@@ -308,7 +324,22 @@ export const Button: React.FC<ButtonProps> = (props) => {
     }
   }
 
-  function handlePadding() {
+  // function handlePadding() {
+  //   switch (size) {
+  //     case "xlarge":
+  //       return "padding: 12px 16px; ";
+  //     case "large":
+  //       return "padding: 10px 14px;";
+  //     case "small":
+  //       return "padding: 6px 8px;";
+  //     case "mini":
+  //       return "padding: 4px 6px;";
+  //     case "medium":
+  //     default:
+  //       return "padding: 8px 10px;";
+  //   }
+  // }
+  const handlePadding = useMemo(() => {
     switch (size) {
       case "xlarge":
         return "padding: 12px 16px; ";
@@ -322,7 +353,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
       default:
         return "padding: 8px 10px;";
     }
-  }
+  }, [size]);
 
   function handleShape() {
     switch (shape) {
@@ -373,7 +404,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
       {/* @ STYLES */}
       <style jsx>{`
         .Wps-Button {
-          ${handleBackgroundColor()}
+          ${handleBackgroundColor}
           ${handleTextColor()}
           border-style: solid;
           border-width: 1px;
@@ -386,7 +417,7 @@ export const Button: React.FC<ButtonProps> = (props) => {
 
           ${handleFontSize()}
           ${handleShape()}
-          ${handlePadding()}
+          ${handlePadding}
 
           position: relative;
           ${!chip ? "cursor: pointer;" : ""}
@@ -416,3 +447,5 @@ export const Button: React.FC<ButtonProps> = (props) => {
     </button>
   );
 };
+
+export const Button = React.memo(WuiButton);
