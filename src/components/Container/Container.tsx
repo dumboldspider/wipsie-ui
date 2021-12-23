@@ -115,9 +115,9 @@ export const Container: React.FC<ContainerProps> = (props) => {
       case "shade":
         return theme.palette.shade;
       default:
-        return isThemePalette(backgroundColor)
-          ? theme.palette[backgroundColor][500]
-          : backgroundColor;
+        return isThemePalette(hoverBackgroundColor)
+          ? theme.palette[hoverBackgroundColor][500]
+          : hoverBackgroundColor;
     }
   }
 

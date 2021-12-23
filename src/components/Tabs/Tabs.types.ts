@@ -31,6 +31,10 @@ export type TabsProps = Modify<
      */
     tabColor?: SimpleColors | string | null;
     /**
+     * Color of the text when selected
+     */
+    activeColor?: SimpleColors | string;
+    /**
      * How large should the button be
      */
     size?: NormalSizes;

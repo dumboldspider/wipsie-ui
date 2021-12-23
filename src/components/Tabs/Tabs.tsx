@@ -17,6 +17,7 @@ export const Tabs: React.FC<TabsProps> = (props) => {
     hoverBackgroundColor = null,
     tabColor = null,
     hoverTabColor = null,
+    activeColor = null,
     align = "left",
 
     children,
@@ -35,7 +36,13 @@ export const Tabs: React.FC<TabsProps> = (props) => {
           shape={shape}
           size={size}
           variant={variant}
-          backgroundColor={backgroundColor}
+          backgroundColor={
+            index === value
+              ? activeColor
+                ? activeColor
+                : backgroundColor
+              : backgroundColor
+          }
           hoverBackgroundColor={hoverBackgroundColor}
           color={tabColor}
           hoverColor={hoverTabColor}
