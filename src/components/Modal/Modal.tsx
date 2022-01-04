@@ -17,6 +17,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
     id = "modal",
     open = false,
     duration = 200,
+    position = "fixed",
     animation = "fadeInScale",
     transition = "ease-in-out",
     onCloseEnd = () => {},
@@ -30,6 +31,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
     closeKey = "Escape",
     backdropProps = {},
     portalProps = { style: {} },
+    containerProps = {},
     noPortal = false,
     children,
     ...otherProps
@@ -84,11 +86,12 @@ export const Modal: React.FC<ModalProps> = (props) => {
         fullHeight
         fullWidth
         style={{
-          position: "fixed",
+          position: position,
           top: 0,
           left: 0,
           pointerEvents: "none",
         }}
+        {...containerProps}
       >
         <Animated
           visible={animationTrigger}

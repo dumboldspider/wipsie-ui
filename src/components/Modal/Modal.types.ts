@@ -4,6 +4,7 @@ import { SimpleColors } from "../../config/propTypes";
 import { AnimationVariants, AnimationTransitions } from "../Animated";
 import { BackdropProps } from "../Backdrop";
 import { PortalProps } from "../Portal";
+import { FlexProps } from "../Flex";
 
 export type ModalProps = Modify<
   React.HTMLProps<HTMLDivElement>,
@@ -28,5 +29,7 @@ export type ModalProps = Modify<
     disableBackdropClick?: boolean;
     disableScrollLock?: boolean;
     closeKey?: string;
+    position?: "fixed" | "absolute" | "sticky" | "relative";
+    containerProps?: FlexProps;
   }
 >;
