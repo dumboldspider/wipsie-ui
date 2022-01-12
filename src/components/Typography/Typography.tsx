@@ -15,8 +15,13 @@ export const Typography: React.FC<TypographyProps> = (props) => {
     variant = "body1",
     className = null,
     weight = null,
+    align = "left",
     ...otherProps
   } = props;
+
+  function handleTextAlign() {
+    return align;
+  }
 
   function handleVariantComponent() {
     switch (variant) {
@@ -58,6 +63,12 @@ export const Typography: React.FC<TypographyProps> = (props) => {
         return `color: ${theme.palette.text};`;
       case "subtext":
         return `color: ${theme.palette.subtext};`;
+      case "background":
+        return `color: ${theme.palette.background};`;
+      case "highlight":
+        return `color: ${theme.palette.highlight};`;
+      case "shade":
+        return `color: ${theme.palette.shade};`;
       default:
         return `color: ${
           isThemePalette(color) ? theme.palette[color][500] : color
@@ -81,6 +92,7 @@ export const Typography: React.FC<TypographyProps> = (props) => {
           line-height: ${theme.font[variant].lineHeight};
           text-transform: ${theme.font[variant].textTransform};
           letter-spacing: ${theme.font[variant].letterSpacing};
+          text-align: ${handleTextAlign()};
           ${handleColor()}
         }
       `}</style>

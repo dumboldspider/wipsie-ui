@@ -24,5 +24,9 @@ export type TypographyProps = Modify<
      * Font weight
      */
     weight?: NormalWeights | null;
+    /**
+     * Text align
+     */
+    align?: "left" | "center" | "right" | "justify";
   }
 >;

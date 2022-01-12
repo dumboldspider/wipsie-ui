@@ -8,7 +8,7 @@ import {
 export const defaultFont: WipsieThemesFonts = {
   h1: {
     fontFamily:
-      '"Open Sans", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+      '"Montserrat", "Open Sans", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
     fontSize: "2em",
     fontWeight: 700,
     textTransform: "none",
@@ -17,7 +17,7 @@ export const defaultFont: WipsieThemesFonts = {
   },
   h2: {
     fontFamily:
-      '"Open Sans", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+      '"Montserrat", "Open Sans", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
     fontSize: "1.5em",
     fontWeight: 700,
     textTransform: "none",
@@ -26,7 +26,7 @@ export const defaultFont: WipsieThemesFonts = {
   },
   h3: {
     fontFamily:
-      '"Open Sans", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+      '"Montserrat", "Open Sans", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
     fontSize: "1.17em",
     fontWeight: 700,
     textTransform: "none",
@@ -35,7 +35,7 @@ export const defaultFont: WipsieThemesFonts = {
   },
   h4: {
     fontFamily:
-      '"Open Sans", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+      '"Montserrat", "Open Sans", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
     fontSize: "1em",
     fontWeight: 700,
     textTransform: "none",
@@ -44,7 +44,7 @@ export const defaultFont: WipsieThemesFonts = {
   },
   h5: {
     fontFamily:
-      '"Open Sans", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+      '"Montserrat", "Open Sans", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
     fontSize: "0.85em",
     fontWeight: 700,
     textTransform: "none",
@@ -53,7 +53,7 @@ export const defaultFont: WipsieThemesFonts = {
   },
   h6: {
     fontFamily:
-      '"Open Sans", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+      '"Montserrat", "Open Sans", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
     fontSize: "0.75em",
     fontWeight: 700,
     textTransform: "none",
@@ -62,7 +62,7 @@ export const defaultFont: WipsieThemesFonts = {
   },
   subtitle1: {
     fontFamily:
-      '"Open Sans", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+      '"Montserrat", "Open Sans", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
     fontSize: "1em",
     fontWeight: 700,
     textTransform: "none",
@@ -71,7 +71,7 @@ export const defaultFont: WipsieThemesFonts = {
   },
   subtitle2: {
     fontFamily:
-      '"Open Sans", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
+      '"Montserrat", "Open Sans", "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif',
     fontSize: "1em",
     fontWeight: 500,
     textTransform: "none",

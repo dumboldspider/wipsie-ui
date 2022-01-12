@@ -2,7 +2,7 @@ import React from "react";
 import useTheme from "../../hooks/useTheme";
 import flush from "styled-jsx/server";
 import flushToReact from "styled-jsx/server";
-import opacity from "../../utils/opacity";
+import "../../styles/base.css";
 
 const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   const theme = useTheme();
@@ -115,14 +115,10 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           padding: calc(${theme.layout.gapQuarter} * 0.5)
             ${theme.layout.gapQuarter};
           border-radius: 0.375rem;
-          background-color: ${opacity(theme.palette.primary[500], 20)};
           font-family: ${theme.font.code.fontFamily};
           font-size: 0.8rem;
           white-space: pre-wrap;
           transition: background-color 0.25s ease;
-        }
-        code:hover {
-          background-color: ${opacity(theme.palette.primary[500], 30)};
         }
         pre {
           border-radius: ${theme.layout.radius};
@@ -215,3 +211,121 @@ const MemoCssBaseline = React.memo(CssBaseline) as MemoCssBaselineComponent<
 MemoCssBaseline.flush = flush;
 
 export default MemoCssBaseline;
+
+// <style jsx global>{`
+// /* montserrat-300 - latin-ext_latin */
+// @font-face {
+//   font-family: "Montserrat";
+//   font-style: normal;
+//   font-weight: 300;
+//   font-display: swap;
+//   src: url("/fonts/montserrat-v18-latin-ext_latin-300.eot"); /* IE9 Compat Modes */
+//   src: local(""),
+//     url("/fonts/montserrat-v18-latin-ext_latin-300.eot?#iefix")
+//       format("embedded-opentype"),
+//     /* IE6-IE8 */ url("/fonts/montserrat-v18-latin-ext_latin-300.woff2")
+//       format("woff2"),
+//     /* Super Modern Browsers */
+//       url("/fonts/montserrat-v18-latin-ext_latin-300.woff")
+//       format("woff"),
+//     /* Modern Browsers */
+//       url("/fonts/montserrat-v18-latin-ext_latin-300.ttf")
+//       format("truetype"),
+//     /* Safari, Android, iOS */
+//       url("/fonts/montserrat-v18-latin-ext_latin-300.svg#Montserrat")
+//       format("svg"); /* Legacy iOS */
+// }
+
+// /* montserrat-regular - latin-ext_latin */
+// @font-face {
+//   font-family: "Montserrat";
+//   font-style: normal;
+//   font-weight: 400;
+//   font-display: swap;
+//   src: url("/fonts/montserrat-v18-latin-ext_latin-regular.eot"); /* IE9 Compat Modes */
+//   src: local(""),
+//     url("/fonts/montserrat-v18-latin-ext_latin-regular.eot?#iefix")
+//       format("embedded-opentype"),
+//     /* IE6-IE8 */
+//       url("/fonts/montserrat-v18-latin-ext_latin-regular.woff2")
+//       format("woff2"),
+//     /* Super Modern Browsers */
+//       url("/fonts/montserrat-v18-latin-ext_latin-regular.woff")
+//       format("woff"),
+//     /* Modern Browsers */
+//       url("/fonts/montserrat-v18-latin-ext_latin-regular.ttf")
+//       format("truetype"),
+//     /* Safari, Android, iOS */
+//       url("/fonts/montserrat-v18-latin-ext_latin-regular.svg#Montserrat")
+//       format("svg"); /* Legacy iOS */
+// }
+
+// /* montserrat-500 - latin-ext_latin */
+// @font-face {
+//   font-family: "Montserrat";
+//   font-style: normal;
+//   font-weight: 500;
+//   font-display: swap;
+//   src: url("/fonts/montserrat-v18-latin-ext_latin-500.eot"); /* IE9 Compat Modes */
+//   src: local(""),
+//     url("/fonts/montserrat-v18-latin-ext_latin-500.eot?#iefix")
+//       format("embedded-opentype"),
+//     /* IE6-IE8 */ url("/fonts/montserrat-v18-latin-ext_latin-500.woff2")
+//       format("woff2"),
+//     /* Super Modern Browsers */
+//       url("/fonts/montserrat-v18-latin-ext_latin-500.woff")
+//       format("woff"),
+//     /* Modern Browsers */
+//       url("/fonts/montserrat-v18-latin-ext_latin-500.ttf")
+//       format("truetype"),
+//     /* Safari, Android, iOS */
+//       url("/fonts/montserrat-v18-latin-ext_latin-500.svg#Montserrat")
+//       format("svg"); /* Legacy iOS */
+// }
+
+// /* montserrat-700 - latin-ext_latin */
+// @font-face {
+//   font-family: "Montserrat";
+//   font-style: normal;
+//   font-weight: 700;
+//   font-display: swap;
+//   src: url("/fonts/montserrat-v18-latin-ext_latin-700.eot"); /* IE9 Compat Modes */
+//   src: local(""),
+//     url("/fonts/montserrat-v18-latin-ext_latin-700.eot?#iefix")
+//       format("embedded-opentype"),
+//     /* IE6-IE8 */ url("/fonts/montserrat-v18-latin-ext_latin-700.woff2")
+//       format("woff2"),
+//     /* Super Modern Browsers */
+//       url("/fonts/montserrat-v18-latin-ext_latin-700.woff")
+//       format("woff"),
+//     /* Modern Browsers */
+//       url("/fonts/montserrat-v18-latin-ext_latin-700.ttf")
+//       format("truetype"),
+//     /* Safari, Android, iOS */
+//       url("/fonts/montserrat-v18-latin-ext_latin-700.svg#Montserrat")
+//       format("svg"); /* Legacy iOS */
+// }
+
+// /* montserrat-900 - latin-ext_latin */
+// @font-face {
+//   font-family: "Montserrat";
+//   font-style: normal;
+//   font-weight: 900;
+//   font-display: swap;
+//   src: url("/fonts/montserrat-v18-latin-ext_latin-900.eot"); /* IE9 Compat Modes */
+//   src: local(""),
+//     url("/fonts/montserrat-v18-latin-ext_latin-900.eot?#iefix")
+//       format("embedded-opentype"),
+//     /* IE6-IE8 */ url("/fonts/montserrat-v18-latin-ext_latin-900.woff2")
+//       format("woff2"),
+//     /* Super Modern Browsers */
+//       url("/fonts/montserrat-v18-latin-ext_latin-900.woff")
+//       format("woff"),
+//     /* Modern Browsers */
+//       url("/fonts/montserrat-v18-latin-ext_latin-900.ttf")
+//       format("truetype"),
+//     /* Safari, Android, iOS */
+//       url("/fonts/montserrat-v18-latin-ext_latin-900.svg#Montserrat")
+//       format("svg"); /* Legacy iOS */
+// }
+// `}</style>

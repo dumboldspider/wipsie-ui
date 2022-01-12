@@ -1,5 +1,6 @@
 import React from "react";
 import CssBaseline from "../src/components/CssBaseline/CssBaseline";
+import "../src/styles/base.css";
 
 export const decorators = [
   (Story) => {

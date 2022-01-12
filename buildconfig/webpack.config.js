@@ -1,3 +1,5 @@
+const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 module.exports = (distRoot, optimize) => ({
   mode: "production",
   optimization: {
@@ -21,6 +23,17 @@ module.exports = (distRoot, optimize) => ({
             envName: `dist-${optimize ? "prod" : "dev"}`,
           },
         },
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+          },
+        ],
       },
     ],
   },
