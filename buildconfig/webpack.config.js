@@ -1,4 +1,6 @@
+const path = require("path");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = (distRoot, optimize) => ({
   mode: "production",
@@ -25,18 +27,29 @@ module.exports = (distRoot, optimize) => ({
         },
       },
       {
-        test: /\.css$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
-          {
-            loader: "style-loader",
-          },
+          "style-loader",
           {
             loader: "css-loader",
+            options: {
+              importLoaders: 1,
+              modules: {
+                localIdentName: "[name]__[local]--[hash:base64:5]",
+              },
+            },
           },
+          "sass-loader",
         ],
+        include: path.resolve(__dirname, "../src"),
       },
     ],
   },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "src/css/[name].min.css",
+    }),
+  ],
   resolve: {
     extensions: [".js", ".jsx", ".ts", ".tsx"],
   },

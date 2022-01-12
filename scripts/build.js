@@ -11,6 +11,7 @@ const targets = process.argv.slice(2);
 
 const srcRoot = path.join(__dirname, "../src");
 const typesRoot = path.join(__dirname, "../types");
+const staticRoot = path.join(__dirname, "../src/static");
 const rootDir = path.join(__dirname, ".");
 
 const libRoot = path.join(__dirname, "../dist");
@@ -30,6 +31,9 @@ const buildTypes = step("generating .d.ts", () => shell(`yarn build:types`));
 
 const copyTypes = (dest) => fse.copySync(typesRoot, dest, { overwrite: true });
 
+const copyStatic = (dest) =>
+  fse.copySync(staticRoot, dest, { overwrite: true });
+
 const babel = (outDir, envName) => {
   shell(
     `yarn babel ${srcRoot} -x .js,.jsx,.ts,.tsx --out-dir ${outDir} --env-name "${envName}"`
@@ -43,6 +47,7 @@ const babel = (outDir, envName) => {
 const buildLib = step("commonjs modules", async () => {
   await babel(cjsRoot, "cjs");
   await copyTypes(cjsRoot);
+  await copyStatic(`${cjsRoot}/static`);
 });
 
 /**
@@ -52,6 +57,7 @@ const buildLib = step("commonjs modules", async () => {
 const buildEsm = step("es modules", async () => {
   await babel(esRoot, "esm");
   await copyTypes(esRoot);
+  await copyStatic(`${esRoot}/static`);
 });
 
 /**

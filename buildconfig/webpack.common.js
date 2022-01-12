@@ -1,10 +1,13 @@
 const path = require("path");
 const sourcePath = path.join(__dirname, "../src");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: "none",
   entry: path.join(sourcePath, "index.ts"),
+  context: sourcePath,
   output: {
     filename: "[name].js",
     path: path.resolve(__dirname, "../lib/esm"),
@@ -54,15 +57,21 @@ module.exports = {
         },
       },
       {
-        test: /\.css$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
-          {
-            loader: "style-loader",
-          },
+          "style-loader",
           {
             loader: "css-loader",
+            options: {
+              importLoaders: 1,
+              modules: {
+                localIdentName: "[name]__[local]--[hash:base64:5]",
+              },
+            },
           },
+          "sass-loader",
         ],
+        include: path.resolve(__dirname, "../src"),
       },
     ],
   },

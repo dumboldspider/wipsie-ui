@@ -26,5 +26,6 @@ Promise.resolve(true)
     printPkg();
     copyFromRoot("README.md");
     copyFromRoot("LICENSE");
+    // copyFromRoot("src/static");
   })
   .catch(error);

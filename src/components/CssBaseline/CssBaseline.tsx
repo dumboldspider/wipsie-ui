@@ -2,7 +2,7 @@ import React from "react";
 import useTheme from "../../hooks/useTheme";
 import flush from "styled-jsx/server";
 import flushToReact from "styled-jsx/server";
-import "../../styles/base.css";
+// import "../../static/styles/base.css";
 
 const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   const theme = useTheme();
