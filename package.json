@@ -1,10 +1,10 @@
 {
   "name": "@wipsie/ui",
-  "version": "1.0.178",
+  "version": "1.0.179",
   "description": "A React UI components library",
   "license": "MIT",
   "homepage": "https://github.com/dumboldspider/wipsie-ui#readme",
-  "author": "Daniel Brown (danielbrown.com.br)",
+  "author": "Daniel Brown (dannbrown.com)",
   "bugs": {
     "url": "https://github.com/dumboldspider/wipsie-ui/issues"
   },

@@ -1,5 +1,5 @@
 // Generated with util/create-component.js
-import React from "react";
+import React, { useMemo } from "react";
 import classnames from "classnames";
 import useTheme from "../../hooks/useTheme";
 import { AvatarProps } from "./Avatar.types";
@@ -8,7 +8,7 @@ import isThemePalette from "../../utils/isThemePalette";
 import contrast from "../../utils/contrast";
 import randomColor from "../../utils/randomColor";
 
-export const Avatar: React.FC<AvatarProps> = (props) => {
+const WuiAvatar: React.FC<AvatarProps> = (props) => {
   const theme = useTheme();
   const {
     src,
@@ -46,11 +46,21 @@ export const Avatar: React.FC<AvatarProps> = (props) => {
   const lg = props.lg ? props.lg : groupLG ? groupLG : null;
   const xl = props.xl ? props.xl : groupXL ? groupXL : null;
 
-  const backgroundColor = props.backgroundColor
-    ? props.backgroundColor
-    : groupBackgroundColor
-    ? groupBackgroundColor
-    : randomColor();
+  const backgroundColor = useMemo(() => {
+    return props.backgroundColor
+      ? props.backgroundColor
+      : groupBackgroundColor
+      ? groupBackgroundColor
+      : randomColor();
+  }, [props.backgroundColor, groupBackgroundColor]);
+
+  const handleBackgroundColor = useMemo(() => {
+    return `background: ${
+      isThemePalette(backgroundColor)
+        ? theme.palette[backgroundColor][500]
+        : backgroundColor
+    };`;
+  }, [backgroundColor, backgroundColor, theme.palette]);
 
   function handleClickable() {
     if (href || clickable) {
@@ -82,14 +92,6 @@ export const Avatar: React.FC<AvatarProps> = (props) => {
         ? theme.palette[borderColor][500]
         : borderColor
     )};`;
-  }
-
-  function handleBackgroundColor() {
-    return `background: ${
-      isThemePalette(backgroundColor)
-        ? theme.palette[backgroundColor][500]
-        : backgroundColor
-    };`;
   }
 
   function handleTextColor() {
@@ -155,7 +157,7 @@ export const Avatar: React.FC<AvatarProps> = (props) => {
           overflow: hidden;
           user-select: none;
           ${handleBorderColor()}
-          ${handleBackgroundColor()}
+          ${handleBackgroundColor}
           ${handleTextColor()}
           ${handleSize(xs)}
         }
@@ -206,3 +208,5 @@ export const Avatar: React.FC<AvatarProps> = (props) => {
     </Component>
   );
 };
+
+export const Avatar = React.memo(WuiAvatar);

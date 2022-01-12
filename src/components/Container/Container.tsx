@@ -43,7 +43,7 @@ export const Container: React.FC<ContainerProps> = (props) => {
 
     // Default props
     children,
-    variant = "neumorphic",
+    variant = "flat",
     backgroundColor = "background",
     backgroundImage = "",
     backgroundProps = {
