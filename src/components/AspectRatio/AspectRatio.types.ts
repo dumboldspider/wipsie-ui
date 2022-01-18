@@ -1,6 +1,5 @@
 // Generated with util/create-component.js
 import { Modify } from "../../types/modify";
-import { SimpleColors } from "../../config/propTypes";
 
 export type AspectRatioProps = Modify<
   React.HTMLProps<HTMLDivElement>,
@@ -12,10 +11,10 @@ export type AspectRatioProps = Modify<
     /**
      * Prop description
      */
-    wrapperProps: React.HTMLProps<HTMLDivElement>;
+    wrapperProps?: React.HTMLProps<HTMLDivElement>;
     /**
      * Prop description
      */
-    internalProps: React.HTMLProps<HTMLDivElement>;
+    internalProps?: React.HTMLProps<HTMLDivElement>;
   }
 >;

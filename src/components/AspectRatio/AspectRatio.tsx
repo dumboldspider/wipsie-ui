@@ -1,7 +1,6 @@
 // Generated with util/create-component.js
 import React, { useMemo } from "react";
 import classnames from "classnames";
-import useTheme from "../../hooks/useTheme";
 import { AspectRatioProps } from "./AspectRatio.types";
 
 export const AspectRatio: React.FC<AspectRatioProps> = (props) => {
