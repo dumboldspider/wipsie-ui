@@ -124,7 +124,7 @@ const QuillBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
         }
 
         .ql-snow .ql-editor blockquote {
-          border-left: 4px solid ${theme.palette.background} !important;
+          border-left: 4px solid ${theme.palette.subtext} !important;
           margin-bottom: 5px;
           margin-top: 5px;
           padding-left: 16px;
@@ -142,31 +142,31 @@ const QuillBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
         }
 
         .ql-snow .ql-picker.ql-expanded .ql-picker-label {
-          color: ${theme.palette.background} !important;
+          color: ${theme.palette.subtext} !important;
           z-index: 2;
         }
         .ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-fill {
-          fill: ${theme.palette.background} !important;
+          fill: ${theme.palette.subtext} !important;
         }
         .ql-snow .ql-picker.ql-expanded .ql-picker-label .ql-stroke {
-          stroke: ${theme.palette.background} !important;
+          stroke: ${theme.palette.subtext} !important;
         }
 
         .ql-toolbar.ql-snow {
-          border: 1px solid ${theme.palette.background} !important;
+          border: 1px solid ${theme.palette.subtext} !important;
           box-sizing: border-box;
           font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
           padding: 8px;
         }
         .ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-label {
-          border-color: ${theme.palette.background} !important;
+          border-color: ${theme.palette.subtext} !important;
         }
         .ql-toolbar.ql-snow .ql-picker.ql-expanded .ql-picker-options {
-          border-color: ${theme.palette.background} !important;
+          border-color: ${theme.palette.subtext} !important;
         }
         .ql-snow .ql-tooltip {
           background-color: #fff;
-          border: 1px solid ${theme.palette.background} !important;
+          border: 1px solid ${theme.palette.subtext} !important;
           box-shadow: 0px 0px 5px #ddd;
           color: ${theme.palette.text} !important;
           padding: 5px 12px;
@@ -174,7 +174,7 @@ const QuillBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
         }
         .ql-snow .ql-tooltip input[type="text"] {
           display: none;
-          border: 1px solid ${theme.palette.background} !important;
+          border: 1px solid ${theme.palette.subtext} !important;
           font-size: 13px;
           height: 26px;
           margin: 0px;
@@ -182,7 +182,7 @@ const QuillBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           width: 170px;
         }
         .ql-snow .ql-tooltip a.ql-action::after {
-          border-right: 1px solid ${theme.palette.background} !important;
+          border-right: 1px solid ${theme.palette.subtext} !important;
           content: "Edit";
           margin-left: 16px;
           padding-right: 8px;
@@ -191,7 +191,7 @@ const QuillBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
           color: ${theme.palette.primary[500]} !important;
         }
         .ql-container.ql-snow {
-          border: 1px solid ${theme.palette.background} !important;
+          border: 1px solid ${theme.palette.subtext} !important;
         }
       `}</style>
     </React.Fragment>
