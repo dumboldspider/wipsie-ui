@@ -56,6 +56,7 @@ export * from "./components/Snackbar";
 export * from "./components/Tabs";
 export * from "./components/HorizontalList";
 export * from "./components/AspectRatio";
+export * from "./components/QuillBaseline";
 
 // @ UTILS
 export { default as responsive } from "./utils/responsive";

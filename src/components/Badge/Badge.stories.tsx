@@ -56,8 +56,8 @@ export const WithBar = () => (
     <Badge
       content={<Button size="mini">Test</Button>}
       position="top right"
-      color="danger"
       tolerance={16}
+      color="danger"
     >
       <Button backgroundColor="success">Test</Button>
     </Badge>

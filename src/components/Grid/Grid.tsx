@@ -6,12 +6,12 @@ import useTheme from "../../hooks/useTheme";
 import { GridProps, GridContainerProps, GridItemProps } from "./Grid.types";
 
 export const Grid: React.FC<GridProps> = (props) => {
-  const { item = false, container = false } = props;
+  const { item = false, container = false, ...otherProps } = props;
 
   if (container) {
-    return <GridContainer {...(props as any)} />;
+    return <GridContainer {...(otherProps as any)} />;
   } else if (item) {
-    return <GridItem {...(props as any)} />;
+    return <GridItem {...(otherProps as any)} />;
   } else {
     return <div>container or item prop missing</div>;
   }
