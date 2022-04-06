@@ -3,3 +3,5 @@ example-delete
 storybook-static
 dist
 types
+
+wipsie-shared-*.tgz

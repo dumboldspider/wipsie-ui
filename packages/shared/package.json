@@ -23,8 +23,10 @@
     "url": "https://github.com/dumboldspider/wipsie-shared/issues"
   },
   "homepage": "https://github.com/dumboldspider/wipsie-shared#readme",
-  "dependencies": {
-    "@wipsie/ui": "latest"
+  "peerDependencies": {
+    "@wipsie/ui": "latest",
+    "react": "latest",
+    "react-dom": "latest"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
@@ -44,8 +46,6 @@
     "babel-preset-react-app": "^10.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.6.3",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0",
     "rimraf": "^3.0.2",
     "rollup": "^2.56.3",
     "rollup-plugin-babel": "^4.4.0",

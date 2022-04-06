@@ -54,4 +54,5 @@ export default {
     resolve(),
     terser(),
   ],
+  external: ["react", "react-dom", "@wipsie/ui"],
 };
