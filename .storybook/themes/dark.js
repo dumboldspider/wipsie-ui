@@ -1,5 +1,5 @@
 import { create } from "@storybook/theming";
-import darkDefault from "../../src/theme/variants/dark";
+import darkDefault from "../../packages/wipsie-ui/src/theme/variants/dark";
 
 export default create({
   base: "dark",

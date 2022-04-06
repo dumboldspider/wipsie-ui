@@ -1,6 +1,6 @@
 import React from "react";
-import CssBaseline from "../src/components/CssBaseline/CssBaseline";
-import "../src/styles/base.css";
+import CssBaseline from "../packages/wipsie-ui/src/components/CssBaseline/CssBaseline";
+import "../packages/wipsie-ui/src/static/styles/base.css";
 
 export const decorators = [
   (Story) => {

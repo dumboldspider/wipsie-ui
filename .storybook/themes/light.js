@@ -1,5 +1,5 @@
 import { create } from "@storybook/theming";
-import lightDefault from "../../src/theme/variants/light";
+import lightDefault from "../../packages/wipsie-ui/src/theme/variants/light";
 
 export default create({
   base: "light",
