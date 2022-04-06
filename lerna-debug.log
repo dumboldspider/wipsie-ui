@@ -24,11 +24,11 @@
 15 verbose updated @wipsie/shared
 16 verbose updated @wipsie/ui
 17 info version rooted leaf detected, skipping synthetic root lifecycles
-18 verbose git-describe undefined => "575d977"
-19 silly git-describe parsed => {"refCount":"97","sha":"575d977","isDirty":false}
-20 error TypeError: Invalid Version: 0.0.001
+18 verbose git-describe undefined => "f15f423"
+19 silly git-describe parsed => {"refCount":"98","sha":"f15f423","isDirty":false}
+20 error TypeError: Invalid Version: 0.0.000
 20 error     at new SemVer (/Users/danbrown/Workbench/CodeJobs/wipsie/PACKAGES/wipsie-ui/node_modules/semver/classes/semver.js:38:13)
-20 error     at compare (/Users/danbrown/Workbench/CodeJobs/wipsie/PACKAGES/wipsie-ui/node_modules/semver/functions/compare.js:3:3)
+20 error     at compare (/Users/danbrown/Workbench/CodeJobs/wipsie/PACKAGES/wipsie-ui/node_modules/semver/functions/compare.js:3:32)
 20 error     at Object.lt (/Users/danbrown/Workbench/CodeJobs/wipsie/PACKAGES/wipsie-ui/node_modules/semver/functions/lt.js:2:29)
 20 error     at VersionCommand.setGlobalVersionFloor (/Users/danbrown/Workbench/CodeJobs/wipsie/PACKAGES/wipsie-ui/node_modules/@lerna/version/index.js:413:18)
 20 error     at /Users/danbrown/Workbench/CodeJobs/wipsie/PACKAGES/wipsie-ui/node_modules/@lerna/version/index.js:384:37
