@@ -1,6 +1,5 @@
 {
   "name": "@wipsie/ui",
-  "version": "1.0.189",
   "description": "A React UI components library",
   "license": "MIT",
   "homepage": "https://github.com/dumboldspider/wipsie-ui#readme",
@@ -12,11 +11,6 @@
     "type": "git",
     "url": "git+https://github.com/dumboldspider/wipsie-ui.git"
   },
-  "files": [
-    "lib",
-    "dist",
-    "es"
-  ],
   "workspaces": [
     "packages/*"
   ],
