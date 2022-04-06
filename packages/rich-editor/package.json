@@ -11,12 +11,14 @@
     "README.md"
   ],
   "scripts": {
-    "storybook": "start-storybook -p 6006 -c storybook -s ./storybook/public",
-    "build-storybook": "build-storybook -c storybook -s ./storybook/public -o storybook-static ",
-    "build": "npm run clean && rollup -c",
+    "build": "npm run clear && rollup -c",
     "generate": "node ./src/utils/generate/create-component.js",
-    "clean": "rimraf dist/*",
-    "test": "echo \"testing $0\""
+    "clear": "rimraf ./dist",
+    "test": "echo \"testing $0\"",
+    "build:types": "tsc -d --outDir types",
+    "build:dev-types": "tsc -d --outDir dist/esm",
+    "pack": "yarn run clear && yarn run build:types && yarn run build  && npm pack",
+    "publish": "yarn run pack && npm publish --access public"
   },
   "bugs": {
     "url": "https://github.com/dumboldspider/wipsie-rich-editor/issues"

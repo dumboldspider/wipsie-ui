@@ -34,6 +34,7 @@
     "build:webpack": "webpack --config ./buildconfig/webpack.common.js",
     "build:watch": "webpack ---config ./buildconfig/webpack.dev.js",
     "pack": "yarn run clear && yarn run build && yarn run pre-publish && npm pack",
+    "publish": "yarn run pack && npm publish --access public",
     "storybook": "start-storybook -p 6006 -s ./.storybook/public",
     "storybook:build": "build-storybook -s ./.storybook/public -o storybook-static ",
     "storybook:start": "yarn run storybook:build && serve storybook-static",

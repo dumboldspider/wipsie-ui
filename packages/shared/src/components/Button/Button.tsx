@@ -1,6 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
-import { Flex, Button } from "@wipsie/ui";
+import { Flex, Button, Typography } from "@wipsie/ui";
 
 /**
  * Primary UI component for user interaction
@@ -11,8 +10,11 @@ export const Button2 = ({
   ...props
 }) => {
   return (
-    <Button backgroundColor={backgroundColor} {...props}>
-      {label}
-    </Button>
+    <Flex direction="column" fullWidth align="center">
+      <Typography>{label}</Typography>
+      <Button backgroundColor={backgroundColor} {...props}>
+        {label}
+      </Button>
+    </Flex>
   );
 };

@@ -14,10 +14,12 @@
   "workspaces": [
     "packages/*"
   ],
-  "private": true,
   "sideEffects": false,
   "scripts": {
     "test": "lerna run test",
+    "pack": "lerna run pack",
+    "publish": "lerna run publish",
+    "publish:new": "yarn run new-version && yarn run publish",
     "new-version": "lerna version --conventional-commits --yes",
     "diff": "lerna diff",
     "storybook": "start-storybook -p 6006 -s ./.storybook/public",
