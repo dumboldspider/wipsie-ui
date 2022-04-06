@@ -15,10 +15,9 @@
     "generate": "node ./src/utils/generate/create-component.js",
     "clear": "rimraf ./dist",
     "test": "echo \"testing $0\"",
-    "build:types": "tsc -d --outDir types",
+    "build:types": "tsc -p ./buildconfig -d --emitDeclarationOnly --outDir types && cp -r ./types/ ./dist",
     "build:dev-types": "tsc -d --outDir dist/esm",
-    "pack": "yarn run clear && yarn run build:types && yarn run build  && npm pack",
-    "publish": "yarn run pack && npm publish --access public"
+    "pack": "yarn run clear && yarn run build && yarn run build:types && npm pack"
   },
   "bugs": {
     "url": "https://github.com/dumboldspider/wipsie-shared/issues"

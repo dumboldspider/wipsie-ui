@@ -10,7 +10,7 @@ export default {
   },
 };
 
-export const WithBar = () => (
+export const Default = () => (
   <>
     <Button2>teste</Button2>
     <Button2 backgroundColor="warning">teste</Button2>
