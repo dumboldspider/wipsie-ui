@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/dumboldspider/wipsie-ui#readme",
   "peerDependencies": {
-    "@wipsie/ui": "latest",
+    "@wipsie/ui": "^1.0.190",
     "react": "latest",
     "react-dom": "latest"
   },

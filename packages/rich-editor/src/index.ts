@@ -1,6 +1,6 @@
 // @ HOOKS
 
 // @ COMPONENTS
-export * from "./components/QuillEditor";
+export * from "./components/Sample";
 
 // @ UTILS

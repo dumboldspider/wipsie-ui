@@ -11,9 +11,6 @@
     "type": "git",
     "url": "git+https://github.com/dumboldspider/wipsie-ui.git"
   },
-  "workspaces": [
-    "packages/*"
-  ],
   "private": true,
   "sideEffects": false,
   "scripts": {
@@ -28,9 +25,6 @@
     "coverage": "yarn test --coverage",
     "coverage-update": "yarn test-update --coverage",
     "coverage:codecov": "yarn test --coverage && codecov"
-  },
-  "publishConfig": {
-    "directory": "dist"
   },
   "dependencies": {
     "classnames": "^2.3.1",
