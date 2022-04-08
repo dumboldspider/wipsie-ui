@@ -1,7 +1,7 @@
 {
   "name": "@wipsie/shared",
   "version": "1.0.195",
-  "repository": "https://github.com/dumboldspider/wipsie-shared.git",
+  "repository": "https://github.com/dumboldspider/wipsie-ui.git",
   "author": "Daniel Brown <dannbrown.com>",
   "license": "MIT",
   "main": "dist/index.js",
@@ -12,7 +12,6 @@
   ],
   "scripts": {
     "build": "npm run clear && rollup -c",
-    "generate": "node ./src/utils/generate/create-component.js",
     "clear": "rimraf ./dist",
     "test": "echo \"testing $0\"",
     "build:types": "tsc -p ./buildconfig -d --emitDeclarationOnly --outDir types && cp -r ./types/ ./dist",
@@ -20,9 +19,9 @@
     "pack": "yarn run clear && yarn run build && yarn run build:types && npm pack"
   },
   "bugs": {
-    "url": "https://github.com/dumboldspider/wipsie-shared/issues"
+    "url": "https://github.com/dumboldspider/wipsie-ui/issues"
   },
-  "homepage": "https://github.com/dumboldspider/wipsie-shared#readme",
+  "homepage": "https://github.com/dumboldspider/wipsie-ui#readme",
   "peerDependencies": {
     "@wipsie/ui": "latest",
     "react": "latest",
