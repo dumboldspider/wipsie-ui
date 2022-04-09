@@ -30,7 +30,9 @@
     "classnames": "^2.3.1",
     "lodash.throttle": "^4.1.1",
     "styled-components": "^5.3.5",
-    "styled-jsx": "^4.0.1"
+    "styled-jsx": "^4.0.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "peerDependencies": {},
   "devDependencies": {

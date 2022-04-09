@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button2, Editor } from ".";
+import { Button2 } from ".";
 
 export default {
   title: "Rich Editor/SAMPLE",
@@ -13,6 +13,5 @@ export default {
 export const WithBar = () => (
   <>
     <Button2>teste</Button2>
-    <Editor />
   </>
 );

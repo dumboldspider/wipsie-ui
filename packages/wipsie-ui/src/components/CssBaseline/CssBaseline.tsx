@@ -10,6 +10,57 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
     <React.Fragment>
       {children}
       <style global jsx>{`
+        /* root */
+        :root {
+          --wipsie-primary-100: ${theme.palette.primary[100]};
+          --wipsie-primary-300: ${theme.palette.primary[300]};
+          --wipsie-primary-500: ${theme.palette.primary[500]};
+          --wipsie-primary-700: ${theme.palette.primary[700]};
+          --wipsie-primary-900: ${theme.palette.primary[900]};
+
+          --wipsie-secondary-100: ${theme.palette.secondary[100]};
+          --wipsie-secondary-300: ${theme.palette.secondary[300]};
+          --wipsie-secondary-500: ${theme.palette.secondary[500]};
+          --wipsie-secondary-700: ${theme.palette.secondary[700]};
+          --wipsie-secondary-900: ${theme.palette.secondary[900]};
+
+          --wipsie-danger-100: ${theme.palette.danger[100]};
+          --wipsie-danger-300: ${theme.palette.danger[300]};
+          --wipsie-danger-500: ${theme.palette.danger[500]};
+          --wipsie-danger-700: ${theme.palette.danger[700]};
+          --wipsie-danger-900: ${theme.palette.danger[900]};
+
+          --wipsie-warning-100: ${theme.palette.warning[100]};
+          --wipsie-warning-300: ${theme.palette.warning[300]};
+          --wipsie-warning-500: ${theme.palette.warning[500]};
+          --wipsie-warning-700: ${theme.palette.warning[700]};
+          --wipsie-warning-900: ${theme.palette.warning[900]};
+
+          --wipsie-info-100: ${theme.palette.info[100]};
+          --wipsie-info-300: ${theme.palette.info[300]};
+          --wipsie-info-500: ${theme.palette.info[500]};
+          --wipsie-info-700: ${theme.palette.info[700]};
+          --wipsie-info-900: ${theme.palette.info[900]};
+
+          --wipsie-success-100: ${theme.palette.success[100]};
+          --wipsie-success-300: ${theme.palette.success[300]};
+          --wipsie-success-500: ${theme.palette.success[500]};
+          --wipsie-success-700: ${theme.palette.success[700]};
+          --wipsie-success-900: ${theme.palette.success[900]};
+
+          --wipsie-basic-100: ${theme.palette.basic[100]};
+          --wipsie-basic-300: ${theme.palette.basic[300]};
+          --wipsie-basic-500: ${theme.palette.basic[500]};
+          --wipsie-basic-700: ${theme.palette.basic[700]};
+          --wipsie-basic-900: ${theme.palette.basic[900]};
+
+          --wipsie-background: ${theme.palette.background};
+          --wipsie-shade: ${theme.palette.shade};
+          --wipsie-highlight: ${theme.palette.highlight};
+          --wipsie-text: ${theme.palette.text};
+          --wipsie-subtext: ${theme.palette.subtext};
+        }
+
         * {
           box-sizing: border-box;
           margin: 0;
