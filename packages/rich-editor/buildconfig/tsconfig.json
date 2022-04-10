@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "baseUrl": "../",
+    "jsx": "react",
     "skipLibCheck": true,
     "moduleResolution": "node",
     "allowJs": true,
@@ -16,7 +17,7 @@
     "strictNullChecks": false,
     "target": "es6",
     "module": "esnext",
-    "typeRoots": ["../../node_modules/@types", "./typings"]
+    "typeRoots": ["../../../node_modules/@types", "../typings"]
   },
   "include": ["../src/index.ts", "../typings/**/*", "examples"]
 }
