@@ -15,6 +15,25 @@ import {
   underlineTool,
   OutputContainer,
   WipsieEditor,
+  headingsTool,
+  fontsTool,
+  fontSizesTool,
+  unorderedListTool,
+  orderedListTool,
+  alignRightTool,
+  alignCenterTool,
+  alignLeftTool,
+  codeTool,
+  quoteTool,
+  imageTool,
+  undoTool,
+  redoTool,
+  clearTool,
+  backColorTool,
+  emojiTool,
+  rgbTool,
+  spoilerTool,
+  foreColorTool,
 } from "../index";
 
 export default {
@@ -50,30 +69,42 @@ export const WithBar = () => {
     });
   };
 
-  const toolbar = [[boldTool, italicTool, underlineTool]];
+  const toolbar = [
+    [boldTool, italicTool, underlineTool],
+    [headingsTool],
+    [fontsTool],
+    [fontSizesTool],
+    [unorderedListTool, orderedListTool],
+    [alignLeftTool, alignCenterTool, alignRightTool],
+    [quoteTool, codeTool],
+    [imageTool],
+    [undoTool, redoTool, clearTool],
+    [foreColorTool, backColorTool],
+    [spoilerTool, rgbTool, emojiTool],
+  ];
 
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Page
         className="App"
-        backgroundColor="primary"
+        backgroundColor="shade"
         display="flex"
         direction="column"
         align="center"
         justify="center"
         p={2}
       >
-        <Button backgroundColor="secondary" onClick={handleThemeChange}>
+        <Button backgroundColor="primary" onClick={handleThemeChange}>
           {theme}
         </Button>
 
         <Flex fullWidth maxWidth="700px">
           <Spacing height={5} />
 
-          <Typography variant="h2" color="white">
+          <Typography variant="h2" color="text">
             Editor
-            <Typography variant="body1" color="white">
+            <Typography variant="body1" color="text">
               (What you See is What you Get)
             </Typography>
           </Typography>
@@ -89,7 +120,7 @@ export const WithBar = () => {
 
           <Spacing height={5} />
 
-          <Typography variant="h2" color="white">
+          <Typography variant="h2" color="text">
             Output HTML
           </Typography>
           <Spacing height={1} />
@@ -99,9 +130,9 @@ export const WithBar = () => {
 
           <Spacing height={5} />
 
-          <Typography variant="h2" color="white">
+          <Typography variant="h2" color="text">
             Output Render
-            <Typography variant="body1" color="white">
+            <Typography variant="body1" color="text">
               (intended to be the same as you see in the editor)
             </Typography>
           </Typography>
@@ -111,7 +142,7 @@ export const WithBar = () => {
           </Container>
           <Spacing height={5} />
 
-          <Typography variant="h2" color="white">
+          <Typography variant="h2" color="text">
             Commands
           </Typography>
           <Spacing height={1} />
