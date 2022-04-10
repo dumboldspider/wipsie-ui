@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.198](https://github.com/dumboldspider/wipsie-ui/compare/v1.0.197...v1.0.198) (2022-04-10)
+
+**Note:** Version bump only for package @wipsie/ui
+
+
+
+
+
 ## [1.0.197](https://github.com/dumboldspider/wipsie-ui/compare/v1.0.196...v1.0.197) (2022-04-08)
 
 **Note:** Version bump only for package @wipsie/ui

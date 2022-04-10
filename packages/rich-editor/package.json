@@ -1,6 +1,6 @@
 {
   "name": "@wipsie/rich-editor",
-  "version": "1.0.197",
+  "version": "1.0.198",
   "repository": "https://github.com/dumboldspider/wipsie-ui.git",
   "author": "Daniel Brown <dannbrown.com>",
   "license": "MIT",
@@ -25,7 +25,7 @@
   "homepage": "https://github.com/dumboldspider/wipsie-ui#readme",
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
-    "@wipsie/ui": "^1.0.197"
+    "@wipsie/ui": "^1.0.198"
   },
   "peerDependencies": {
     "@wipsie/ui": "^1.0.190",
