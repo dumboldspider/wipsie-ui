@@ -24,11 +24,10 @@
   },
   "homepage": "https://github.com/dumboldspider/wipsie-ui#readme",
   "dependencies": {
-    "@ant-design/icons": "^4.7.0",
-    "@wipsie/ui": "^1.0.198"
+    "@ant-design/icons": "^4.7.0"
   },
   "peerDependencies": {
-    "@wipsie/ui": "^1.0.190",
+    "@wipsie/ui": "^1.0.198",
     "react": "latest",
     "react-dom": "latest"
   },

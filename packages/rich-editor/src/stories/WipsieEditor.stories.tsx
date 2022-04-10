@@ -35,6 +35,7 @@ import {
   spoilerTool,
   foreColorTool,
 } from "../index";
+import "../components/wipsie-editor.css";
 
 export default {
   title: "Rich Editor/SAMPLE",

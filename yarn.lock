@@ -4177,10 +4177,23 @@
     "@webassemblyjs/wast-parser" "1.9.0"
     "@xtuc/long" "4.2.2"
 
-"@wipsie/ui@^1.0.197":
-  version "1.0.197"
-  resolved "https://registry.yarnpkg.com/@wipsie/ui/-/ui-1.0.197.tgz#4766a7c7c317b1c7868a7b5d4a8f7d9a2719a57a"
-  integrity sha512-GT26olgxeBrtnlrL4JiDjtIHUadN1rBZ4csFe9SskrWYcYR12zgeMvZWlZRRufBhGyd7x7uO7gF2RddC0+P53A==
+"@wipsie/rich-editor@^1.0.198":
+  version "1.0.198"
+  resolved "https://registry.yarnpkg.com/@wipsie/rich-editor/-/rich-editor-1.0.198.tgz#736173b7ee6fdff7d1182a0629bcc899b0cf136f"
+  integrity sha512-AqjLDp7DaLJNlegu61lmvUOwEKk1VsZV8nV3dTNFoAKY4e69zaWGL1O8up4GcO9i+2XpEIjZ2xw7WgmGCCCTww==
+  dependencies:
+    "@ant-design/icons" "^4.7.0"
+    "@wipsie/ui" "^1.0.198"
+
+"@wipsie/shared@^1.0.195":
+  version "1.0.195"
+  resolved "https://registry.yarnpkg.com/@wipsie/shared/-/shared-1.0.195.tgz#fa4b2a8fa216edd46145809270540c0d13f9b22c"
+  integrity sha512-dSxm/73HM023GXl4ZX5jms8LS6p0VIHjMXGAA3Rmsv2jUOocLQqtQyby/0uJTtsJCPItIY0eqoT3tCTrPGl30g==
+
+"@wipsie/ui@^1.0.197", "@wipsie/ui@^1.0.198":
+  version "1.0.198"
+  resolved "https://registry.yarnpkg.com/@wipsie/ui/-/ui-1.0.198.tgz#80ddcc36df9f09f62931ef957d09d7632431ea52"
+  integrity sha512-ND5RJuptYpy+HzLtWJ5dh+Km1UzITlJUxAvEYzZ3clTzODwFPPFphg8D1CswGgF/Nwlp2Z62R19EWUr8d8cinA==
   dependencies:
     classnames "^2.3.1"
     lodash.throttle "^4.1.1"
