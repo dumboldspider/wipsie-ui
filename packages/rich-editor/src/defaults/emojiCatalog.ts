@@ -37,5 +37,8 @@ export const emojiCatalog = {
     "<img src='https://static-cdn.jtvnw.net/emoticons/v2/301056197/default/light/1.0' />",
     "<img src='https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_18d8acf3364041edb8b4038d9d0f224f/default/light/1.0' />",
     "<img src='https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_86f72f735a2f495e8ee20b5e6ed4898d/default/light/1.0' />",
+    "<img src='https://static-cdn.jtvnw.net/emoticons/v2/302158926/default/light/1.0' />",
+    "<img src='https://static-cdn.jtvnw.net/emoticons/v2/302158924/default/light/1.0' />",
+    "<img src='https://static-cdn.jtvnw.net/emoticons/v2/emotesv2_e74aa5881a4442d488bfd07b1516701c/default/light/1.0' />",
   ],
 };
