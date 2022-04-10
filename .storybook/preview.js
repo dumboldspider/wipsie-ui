@@ -1,5 +1,5 @@
 import React from "react";
-import CssBaseline from "../packages/wipsie-ui/src/components/CssBaseline/CssBaseline";
+import { CssBaseline, ThemeProvider } from "../packages/wipsie-ui/src/index";
 import "../packages/wipsie-ui/src/static/styles/base.css";
 
 export const decorators = [
@@ -17,8 +17,10 @@ export const decorators = [
           minHeight: "100vh",
         }}
       >
-        <CssBaseline />
-        <Story />
+        <ThemeProvider theme="light">
+          <CssBaseline />
+          <Story />
+        </ThemeProvider>
       </div>
     );
   },

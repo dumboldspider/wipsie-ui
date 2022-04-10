@@ -13,9 +13,6 @@
   },
   "private": true,
   "sideEffects": false,
-  "workspaces": [
-    "packages/*"
-  ],
   "scripts": {
     "test": "lerna run test",
     "pack": "lerna run pack",
@@ -31,6 +28,8 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
+    "@wipsie/rich-editor": "^1.0.198",
+    "@wipsie/shared": "^1.0.195",
     "@wipsie/ui": "^1.0.197",
     "classnames": "^2.3.1",
     "lodash.throttle": "^4.1.1",

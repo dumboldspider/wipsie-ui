@@ -38,3 +38,4 @@ examples/**/yarn.lock
 examples/**/out
 examples/**/.next
 
+/storybook-static
