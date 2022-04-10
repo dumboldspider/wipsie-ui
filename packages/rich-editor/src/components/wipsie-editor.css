@@ -1,0 +1,208 @@
+/* BASIC TOOLBAR START */
+.wuire-editor-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+.wuire-editor-toolbar .wuire-editor-toolbar-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin-right: 0.5em;
+}
+.wuire-editor-toolbar
+  .wuire-editor-toolbar-group
+  .wuire-editor-toolbar-group-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  margin-right: 0.25em;
+}
+/* BASIC TOOLBAR END */
+
+/* EDITOR FIELD START */
+.wuire-editor-field {
+  background-color: var(--wipsie-shade);
+  padding: 5px;
+  border-radius: 10px;
+  transition: all 250ms ease 0ms;
+}
+/* EDITOR FIELD END */
+
+/* LINK START */
+.wuire-content a {
+  text-decoration: underline;
+}
+/* LINK END */
+
+/* LISTS START */
+.wuire-content ul {
+  list-style: disc;
+  padding: 0;
+  margin: 0;
+  padding-left: 1.5em;
+}
+
+.wuire-content ul li {
+  margin: 0;
+  margin-bottom: 0.2em;
+  padding: 0;
+}
+
+.wuire-content ul li:last-child {
+  margin-bottom: 0;
+}
+
+.wuire-content ol {
+  list-style: decimal;
+  padding: 0;
+  margin: 0;
+  padding-left: 1.5em;
+}
+
+.wuire-content ol li {
+  margin: 0;
+  margin-bottom: 0.2em;
+  padding: 0;
+}
+
+.wuire-content ol li:last-child {
+  margin-bottom: 0;
+}
+/* LISTS END */
+
+/* EMOJI START */
+.wuire-content .wuire-emoji img {
+  vertical-align: middle;
+  width: 1.5em;
+  height: 1.5em;
+  object-fit: contain;
+  object-position: center;
+}
+/* EMOJI END */
+
+/* SPOILER START */
+.wuire-content .wuire-spoiler {
+  background-color: var(--wipsie-text);
+  border-radius: 0.25em;
+  padding: 0.1em;
+  margin: 0.1em 0;
+  color: var(--wipsie-text);
+  cursor: pointer;
+  transition: 1s ease;
+}
+.wuire-content .wuire-spoiler.wuire-spoiler-open {
+  color: var(--wipsie-background);
+}
+/* SPOILER END */
+
+/* COLOR CHOOSE START */
+.wuire-content .wuire-danger {
+  color: var(--wipsie-danger-500);
+}
+.wuire-content .wuire-warning {
+  color: var(--wipsie-warning-500);
+}
+.wuire-content .wuire-success {
+  color: var(--wipsie-success-500);
+}
+.wuire-content .wuire-info {
+  color: var(--wipsie-info-500);
+}
+.wuire-content .wuire-primary {
+  color: var(--wipsie-primary-500);
+}
+.wuire-content .wuire-secondary {
+  color: var(--wipsie-secondary-500);
+}
+.wuire-content .wuire-text {
+  color: var(--wipsie-text);
+}
+.wuire-content .wuire-subtext {
+  color: var(--wipsie-subtext);
+}
+.wuire-content .wuire-shade {
+  color: var(--wipsie-shade);
+}
+.wuire-content .wuire-highlight {
+  color: var(--wipsie-highlight);
+}
+.wuire-content .wuire-background {
+  color: var(--wipsie-background);
+}
+/* COLOR CHOOSE END */
+
+/* BACK COLOR CHOOSE START */
+.wuire-content .wuire-danger-bg {
+  background-color: var(--wipsie-danger-500);
+  border-radius: 0.25em;
+}
+.wuire-content .wuire-warning-bg {
+  background-color: var(--wipsie-warning-500);
+  border-radius: 0.25em;
+}
+.wuire-content .wuire-success-bg {
+  background-color: var(--wipsie-success-500);
+  border-radius: 0.25em;
+}
+.wuire-content .wuire-info-bg {
+  background-color: var(--wipsie-info-500);
+  border-radius: 0.25em;
+}
+.wuire-content .wuire-primary-bg {
+  background-color: var(--wipsie-primary-500);
+  border-radius: 0.25em;
+}
+.wuire-content .wuire-secondary-bg {
+  background-color: var(--wipsie-secondary-500);
+  border-radius: 0.25em;
+}
+.wuire-content .wuire-text-bg {
+  background-color: var(--wipsie-text);
+  border-radius: 0.25em;
+}
+.wuire-content .wuire-subtext-bg {
+  background-color: var(--wipsie-subtext);
+  border-radius: 0.25em;
+}
+.wuire-content .wuire-shade-bg {
+  background-color: var(--wipsie-shade);
+  border-radius: 0.25em;
+}
+.wuire-content .wuire-highlight-bg {
+  background-color: var(--wipsie-highlight);
+  border-radius: 0.25em;
+}
+.wuire-content .wuire-background-bg {
+  background-color: var(--wipsie-background);
+  border-radius: 0.25em;
+}
+/* BACK COLOR CHOOSE END */
+
+/* RGB START */
+.wuire-content .wuire-rgb {
+  animation: wuire-animation-rgb 1s infinite;
+  transition: all 1s ease;
+}
+
+@keyframes wuire-animation-rgb {
+  0% {
+    color: var(--wipsie-danger-500);
+  }
+  33% {
+    color: var(--wipsie-warning-500);
+  }
+  66% {
+    color: var(--wipsie-success-500);
+  }
+  100% {
+    color: var(--wipsie-info-500);
+  }
+}
+/* RGB END */

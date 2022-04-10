@@ -1,7 +1,7 @@
-# Wipsie Ui
+# Wipsie Packages
+This repo contain packages that are used to build Wipsie Apps.
+## Wipsie UI
 Ui components library to be used on Wipsie Apps
 
-# 🚧 WARNING 🚧
-This package is a BETA package, any component here is elegible to change at any time. So DON'T use it unless you want to try.
+## Wipsie Rich Editor
 
-# 🚧 DON'T USE IT IN PRODUCTION 🚧

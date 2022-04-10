@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "baseUrl": "../",
+    "skipLibCheck": true,
+    "moduleResolution": "node",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "types": ["node", "jest"],
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": false,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noImplicitAny": false,
+    "noUnusedParameters": false,
+    "strictNullChecks": false,
+    "target": "es6",
+    "module": "esnext",
+    "typeRoots": ["../../node_modules/@types", "./typings"]
+  },
+  "include": ["../src/index.ts", "../typings/**/*", "examples"]
+}
