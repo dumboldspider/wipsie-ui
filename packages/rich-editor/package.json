@@ -28,7 +28,6 @@
     "@wipsie/ui": "^1.0.198"
   },
   "peerDependencies": {
-    "@wipsie/ui": "^1.0.190",
     "react": "latest",
     "react-dom": "latest"
   },
