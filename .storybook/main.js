@@ -2,9 +2,7 @@ const path = require("path");
 
 module.exports = {
   stories: [
-    "../packages/wipsie-ui/src/**/*.stories.@(js|jsx|ts|tsx|mdx)",
-    "../packages/rich-editor/src/**/*.stories.@(js|jsx|ts|tsx|mdx)",
-    "../packages/shared/src/**/*.stories.@(js|jsx|ts|tsx|mdx)",
+    "../packages/**/**/*.stories.@(js|jsx|ts|tsx|mdx)", //fix #1, previous: "../stories/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   addons: [
     "@storybook/addon-links",

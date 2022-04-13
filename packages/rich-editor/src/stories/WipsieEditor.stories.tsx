@@ -34,6 +34,9 @@ import {
   rgbTool,
   spoilerTool,
   foreColorTool,
+  linkTool,
+  defaultToolbar,
+  basicToolbar,
 } from "../index";
 import "../components/wipsie-editor.css";
 
@@ -70,20 +73,6 @@ export const WithBar = () => {
     });
   };
 
-  const toolbar = [
-    [boldTool, italicTool, underlineTool],
-    [headingsTool],
-    [fontsTool],
-    [fontSizesTool],
-    [unorderedListTool, orderedListTool],
-    [alignLeftTool, alignCenterTool, alignRightTool],
-    [quoteTool, codeTool],
-    [imageTool],
-    [undoTool, redoTool, clearTool],
-    [foreColorTool, backColorTool],
-    [spoilerTool, rgbTool, emojiTool],
-  ];
-
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
@@ -110,13 +99,25 @@ export const WithBar = () => {
             </Typography>
           </Typography>
           <Spacing height={1} />
+
           <WipsieEditor
             id="editor-test"
             initialValue={initialValue}
             value={value}
             onChange={onChange}
             debug={false}
-            toolbar={toolbar}
+            toolbar={defaultToolbar}
+          />
+
+          <Spacing height={1} />
+
+          <WipsieEditor
+            id="editor-test-2"
+            initialValue={initialValue}
+            value={value}
+            onChange={onChange}
+            debug={false}
+            toolbar={basicToolbar}
           />
 
           <Spacing height={5} />

@@ -11,7 +11,8 @@
   justify-content: flex-start;
   align-items: center;
   align-content: center;
-  margin-right: 0.5em;
+  margin: 0.1em;
+  margin-right: 1em;
 }
 .wuire-editor-toolbar
   .wuire-editor-toolbar-group
@@ -22,7 +23,6 @@
   justify-content: flex-start;
   align-items: center;
   align-content: center;
-  margin-right: 0.25em;
 }
 /* BASIC TOOLBAR END */
 

@@ -6,24 +6,25 @@
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
     "README.md"
   ],
   "scripts": {
-    "build": "npm run clear && rollup -c",
+    "dist": "npm run clear && rollup -c",
     "clear": "rimraf ./dist",
     "test": "echo \"testing $0\"",
     "build:types": "tsc -p ./buildconfig -d --emitDeclarationOnly --outDir types && cp -r ./types/ ./dist",
     "build:dev-types": "tsc -d --outDir dist/esm",
-    "pack": "yarn run clear && yarn run build && yarn run build:types && npm pack"
+    "pack": "yarn run clear && yarn run dist && yarn run build:types && npm pack"
   },
   "bugs": {
     "url": "https://github.com/dumboldspider/wipsie-ui/issues"
   },
   "homepage": "https://github.com/dumboldspider/wipsie-ui#readme",
   "peerDependencies": {
-    "@wipsie/ui": "^1.0.198",
+    "@wipsie/ui": "*",
     "react": "latest",
     "react-dom": "latest"
   },

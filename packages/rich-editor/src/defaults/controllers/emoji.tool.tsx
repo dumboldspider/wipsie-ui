@@ -1,3 +1,4 @@
+import { SmileOutlined } from "@ant-design/icons";
 import React from "react";
 import { ToolbarItemProps } from "../../components/Toolbar.types";
 import { EmojiSelector } from "../../components/Tools/EmojiSelector";
@@ -8,7 +9,7 @@ export const emojiTool: ToolbarItemProps = {
   command: "insertHTML",
   format: "custom",
   value: null,
-  icon: <b>emoji</b>,
+  icon: <SmileOutlined />,
   component: EmojiSelector,
   metadata: {
     emojiCatalog: emojiCatalog,

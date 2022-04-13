@@ -1,3 +1,4 @@
+import { FontColorsOutlined } from "@ant-design/icons";
 import React from "react";
 import { ToolbarItemProps } from "../../components/Toolbar.types";
 import { ColorSelector } from "../../components/Tools/ColorSelector";
@@ -7,6 +8,6 @@ export const foreColorTool: ToolbarItemProps = {
   command: "insertHTML",
   format: "custom",
   value: null,
-  icon: <b>Color</b>,
+  icon: <FontColorsOutlined />,
   component: ColorSelector,
 };

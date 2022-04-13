@@ -1,3 +1,4 @@
+import { LinkOutlined } from "@ant-design/icons";
 import React from "react";
 import { ToolbarItemProps } from "../../components/Toolbar.types";
 import { LinkModal } from "../../components/Tools/LinkModal";
@@ -7,6 +8,6 @@ export const linkTool: ToolbarItemProps = {
   command: "createLink",
   format: "custom",
   value: null,
-  icon: <b>Link</b>,
+  icon: <LinkOutlined />,
   component: LinkModal,
 };

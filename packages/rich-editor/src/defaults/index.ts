@@ -1,2 +1,2 @@
 export * from "./emojiCatalog";
-export * from "./defaultToolbar";
+export * from "./defaultToolbars";

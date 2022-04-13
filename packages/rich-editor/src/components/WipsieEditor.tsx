@@ -6,6 +6,7 @@ import { executeEditorCommand } from "../utils/executeEditorCommand";
 import { getStringSizeInKB } from "../utils/getStringSizeInKB";
 import { BaseActionButton } from "./BaseActionButton";
 import { ToolBarType } from "./Toolbar.types";
+import sanitizeHtml from "sanitize-html";
 import "./wipsie-editor.css";
 
 export type EditorProps = {
@@ -24,7 +25,7 @@ export type EditorProps = {
 export const WipsieEditor: React.FC<EditorProps> = ({
   id,
   initialValue,
-  // value,
+  value,
   onChange,
   width = "100%",
   debug = false,
@@ -47,10 +48,21 @@ export const WipsieEditor: React.FC<EditorProps> = ({
 
   // content change handler (callback from parent)
   const onChangeHandler = () => {
-    const value = editorRef.current.innerHTML;
-    setInternalValue(value);
-    onChange(value);
+    const newValue = editorRef.current.innerHTML;
+    setInternalValue(newValue);
+    onChange(newValue);
   };
+
+  // content change handler (value from parent)
+  useEffect(() => {
+    if (editorRef.current) {
+      setInternalValue(value);
+
+      if (!isEditing) {
+        editorRef.current.innerHTML = value;
+      }
+    }
+  }, [value]);
 
   return (
     <Container

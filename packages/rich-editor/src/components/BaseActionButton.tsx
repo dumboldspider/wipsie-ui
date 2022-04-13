@@ -36,7 +36,7 @@ export const BaseActionButton: React.FC<ToolbarItemProps> = (props) => {
       <Select
         id={id}
         startAdornment={icon}
-        size="small"
+        size="mini"
         onChange={(e) => {
           action && action(e.currentTarget.value);
         }}

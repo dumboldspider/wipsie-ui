@@ -11,6 +11,7 @@ export * from "./fontSizes.tool";
 export * from "./foreColor.tool";
 export * from "./headings.tool";
 export * from "./image.tool";
+export * from "./link.tool";
 export * from "./italic.tool";
 export * from "./orderedList.tool";
 export * from "./quote.tool";

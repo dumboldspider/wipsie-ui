@@ -1,3 +1,4 @@
+import { OrderedListOutlined } from "@ant-design/icons";
 import React from "react";
 import { ToolbarItemProps } from "../../components/Toolbar.types";
 
@@ -6,5 +7,5 @@ export const orderedListTool: ToolbarItemProps = {
   command: "insertOrderedList",
   format: "button",
   value: "",
-  icon: <b>Olist</b>,
+  icon: <OrderedListOutlined />,
 };

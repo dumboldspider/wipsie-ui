@@ -15,5 +15,5 @@ export const headingsTool: ToolbarItemProps = {
     p: "Paragraph",
     pre: "Preformatted",
   },
-  icon: <b>Head</b>,
+  icon: <b>H</b>,
 };

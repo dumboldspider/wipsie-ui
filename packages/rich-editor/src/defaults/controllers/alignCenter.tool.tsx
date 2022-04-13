@@ -1,3 +1,4 @@
+import { AlignCenterOutlined } from "@ant-design/icons";
 import React from "react";
 import { ToolbarItemProps } from "../../components/Toolbar.types";
 
@@ -6,5 +7,5 @@ export const alignCenterTool: ToolbarItemProps = {
   command: "justifyCenter",
   format: "button",
   value: "",
-  icon: <b>AL Center</b>,
+  icon: <AlignCenterOutlined />,
 };

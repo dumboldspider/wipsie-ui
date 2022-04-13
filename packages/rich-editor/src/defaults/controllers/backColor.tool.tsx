@@ -1,3 +1,4 @@
+import { BgColorsOutlined } from "@ant-design/icons";
 import React from "react";
 import { ToolbarItemProps } from "../../components/Toolbar.types";
 import { BackColorSelector } from "../../components/Tools/BackColorSelector";
@@ -7,6 +8,6 @@ export const backColorTool: ToolbarItemProps = {
   command: "insertHTML",
   format: "custom",
   value: null,
-  icon: <b>BG Color</b>,
+  icon: <BgColorsOutlined />,
   component: BackColorSelector,
 };

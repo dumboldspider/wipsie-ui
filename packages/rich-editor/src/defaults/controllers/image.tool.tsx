@@ -1,3 +1,4 @@
+import { PictureOutlined } from "@ant-design/icons";
 import React from "react";
 import { ToolbarItemProps } from "../../components/Toolbar.types";
 
@@ -9,5 +10,5 @@ export const imageTool: ToolbarItemProps = {
     const vv = prompt("Enter URL", "https://");
     return vv;
   },
-  icon: <b>Image</b>,
+  icon: <PictureOutlined />,
 };

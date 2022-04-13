@@ -1,3 +1,4 @@
+import { UnorderedListOutlined } from "@ant-design/icons";
 import React from "react";
 import { ToolbarItemProps } from "../../components/Toolbar.types";
 
@@ -6,5 +7,5 @@ export const unorderedListTool: ToolbarItemProps = {
   command: "insertUnorderedList",
   format: "button",
   value: "",
-  icon: <b>Ulist</b>,
+  icon: <UnorderedListOutlined />,
 };

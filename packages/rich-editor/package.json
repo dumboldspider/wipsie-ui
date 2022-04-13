@@ -6,17 +6,18 @@
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
     "README.md"
   ],
   "scripts": {
-    "build": "npm run clear && rollup -c",
+    "dist": "npm run clear && rollup -c",
     "clear": "rimraf ./dist",
     "test": "echo \"testing $0\"",
     "build:types": "tsc -p ./buildconfig -d --emitDeclarationOnly --outDir types && cp -r ./types/ ./dist",
     "build:dev-types": "tsc -d --outDir dist/esm",
-    "pack": "yarn run clear && yarn run build && yarn run build:types && npm pack",
+    "pack": "yarn run clear && yarn run dist && yarn run build:types && npm pack",
     "publish": "yarn run pack && npm publish --access public"
   },
   "bugs": {
@@ -24,10 +25,11 @@
   },
   "homepage": "https://github.com/dumboldspider/wipsie-ui#readme",
   "dependencies": {
-    "@ant-design/icons": "^4.7.0"
+    "@ant-design/icons": "^4.7.0",
+    "sanitize-html": "^2.7.0"
   },
   "peerDependencies": {
-    "@wipsie/ui": "^1.0.198",
+    "@wipsie/ui": "*",
     "react": "latest",
     "react-dom": "latest"
   },
@@ -45,6 +47,7 @@
     "@types/jest": "^24.9.1",
     "@types/react": "^16.14.14",
     "@types/react-dom": "^16.9.14",
+    "@types/sanitize-html": "^2.6.2",
     "babel-loader": "^8.2.2",
     "babel-preset-react-app": "^10.0.0",
     "identity-obj-proxy": "^3.0.0",
