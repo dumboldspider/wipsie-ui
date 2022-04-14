@@ -46,7 +46,6 @@ export * from "./components/Portal";
 export * from "./components/NprogressBaseline";
 export * from "./components/Divider";
 export * from "./components/Popover";
-export * from "./components/Select";
 export * from "./components/Collapsible";
 export * from "./components/Animated";
 export * from "./components/Backdrop";
@@ -56,7 +55,9 @@ export * from "./components/Snackbar";
 export * from "./components/Tabs";
 export * from "./components/HorizontalList";
 export * from "./components/AspectRatio";
+export * from "./components/Select";
 export * from "./components/QuillBaseline";
+export * from "./components/SelectWithFilter";
 
 // @ UTILS
 export { default as responsive } from "./utils/responsive";
