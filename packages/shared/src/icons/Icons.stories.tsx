@@ -10,7 +10,7 @@ import {
   RightCircleIcon,
   ShopIcon,
   NoUserIcon,
-} from ".";
+} from "../";
 
 export default {
   title: "Shared Components/Icons",
