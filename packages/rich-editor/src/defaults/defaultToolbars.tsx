@@ -27,7 +27,6 @@ export const defaultToolbar = [
   [headingsTool],
   [unorderedListTool, orderedListTool],
   [alignLeftTool, alignCenterTool, alignRightTool],
-  [quoteTool, codeTool],
   [foreColorTool, backColorTool],
   [imageTool, linkTool],
   [undoTool, redoTool, clearTool],

@@ -2,7 +2,6 @@
 .wuire-editor-toolbar {
   position: sticky;
   top: 0;
-  z-index: 1;
 }
 .wuire-editor-toolbar .wuire-editor-toolbar-group {
   display: flex;
@@ -34,6 +33,13 @@
   transition: all 250ms ease 0ms;
 }
 /* EDITOR FIELD END */
+
+/* IMAGE START */
+.wuire-content img {
+  width: 100%;
+  height: auto;
+}
+/* IMAGE END */
 
 /* LINK START */
 .wuire-content a {
@@ -78,6 +84,9 @@
 /* LISTS END */
 
 /* EMOJI START */
+.wuire-content .wuire-emoji {
+  display: inline;
+}
 .wuire-content .wuire-emoji img {
   vertical-align: middle;
   width: 1.5em;

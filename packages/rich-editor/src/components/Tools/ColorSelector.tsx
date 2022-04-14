@@ -79,7 +79,7 @@ export const ColorSelector: React.FC<any> = ({ metadata, icon }) => {
   return (
     <Popover
       content={
-        <Container p={1} tabIndex={-1}>
+        <Container variant="neumorphic" p={1} tabIndex={-1}>
           {wipsieColorClasses.map((option) => {
             return (
               <Popover content={option.name} arrow position="top" spacing={0.3}>
@@ -113,6 +113,7 @@ export const ColorSelector: React.FC<any> = ({ metadata, icon }) => {
       onBackdropClick={handleVisible}
       backdropProps={{
         duration: 100,
+        noPortal: true,
       }}
       arrow
     >

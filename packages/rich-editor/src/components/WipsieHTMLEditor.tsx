@@ -22,7 +22,7 @@ export type EditorProps = {
   toolbarBackgroundColor?: string;
 };
 
-export const WipsieEditor: React.FC<EditorProps> = ({
+export const WipsieHTMLEditor: React.FC<EditorProps> = ({
   id,
   initialValue,
   value,
@@ -54,15 +54,15 @@ export const WipsieEditor: React.FC<EditorProps> = ({
   };
 
   // content change handler (value from parent)
-  useEffect(() => {
-    if (editorRef.current) {
-      setInternalValue(value);
+  // useEffect(() => {
+  //   if (editorRef.current) {
+  //     setInternalValue(value);
 
-      if (!isEditing) {
-        editorRef.current.innerHTML = value;
-      }
-    }
-  }, [value]);
+  //     if (!isEditing) {
+  //       editorRef.current.innerHTML = value;
+  //     }
+  //   }
+  // }, [value]);
 
   return (
     <Container
@@ -88,7 +88,6 @@ export const WipsieEditor: React.FC<EditorProps> = ({
         style={{
           position: "sticky",
           top: 0,
-          zIndex: 1,
         }}
       >
         {toolbar.map((toolbarGroup, i) => {
@@ -101,6 +100,7 @@ export const WipsieEditor: React.FC<EditorProps> = ({
                     className="wuire-editor-toolbar-group-item"
                   >
                     <BaseActionButton
+                      {...toolbarItem}
                       key={toolbarItem.id}
                       action={(value) => {
                         executeEditorCommand(
@@ -114,7 +114,6 @@ export const WipsieEditor: React.FC<EditorProps> = ({
                         editorId: id,
                         ...toolbarItem.metadata,
                       }}
-                      {...toolbarItem}
                     />
                   </div>
                 );

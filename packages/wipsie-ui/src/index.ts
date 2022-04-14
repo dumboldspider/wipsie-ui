@@ -64,3 +64,4 @@ export { default as opacity } from "./utils/opacity";
 export { default as contrast } from "./utils/contrast";
 export { default as brightness } from "./utils/brightness";
 export * from "./utils/responsive";
+export * from "./utils/environment";

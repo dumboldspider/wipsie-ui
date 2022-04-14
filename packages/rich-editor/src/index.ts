@@ -1,8 +1,8 @@
 // @ COMPONENTS
-export * from "./components/WipsieEditor";
+export * from "./components/WipsieHTMLEditor";
 export * from "./components/Toolbar.types";
 export * from "./components/BaseActionButton";
-export * from "./components/OutputContainer";
+export * from "./components/HTMLOutputContainer";
 export * from "./components/Tools/BackColorSelector";
 export * from "./components/Tools/ColorSelector";
 export * from "./components/Tools/EmojiSelector";

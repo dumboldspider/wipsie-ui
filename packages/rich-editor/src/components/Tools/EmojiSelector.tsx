@@ -1,4 +1,11 @@
-import { Box, Button, IconButton, Popover, Typography } from "@wipsie/ui";
+import {
+  Box,
+  Button,
+  Container,
+  IconButton,
+  Popover,
+  Typography,
+} from "@wipsie/ui";
 import React, { useState } from "react";
 import { useWipsieEditor } from "../../hooks/useWipsieEditor";
 import { executeEditorCommand } from "../../utils/executeEditorCommand";
@@ -30,7 +37,7 @@ export const EmojiSelector: React.FC<any> = ({ metadata, icon }) => {
           {Object.keys(emojiCatalog).map((key) => {
             const emojis = emojiCatalog[key];
             return (
-              <Box key={key} tabIndex={-1}>
+              <Container variant="neumorphic" key={key} tabIndex={-1}>
                 <Typography variant="h5" color="primary" tabIndex={-1}>
                   {key}
                 </Typography>
@@ -48,7 +55,7 @@ export const EmojiSelector: React.FC<any> = ({ metadata, icon }) => {
                     </IconButton>
                   );
                 })}
-              </Box>
+              </Container>
             );
           })}
         </div>
@@ -62,6 +69,7 @@ export const EmojiSelector: React.FC<any> = ({ metadata, icon }) => {
       onBackdropClick={handleVisible}
       backdropProps={{
         duration: 100,
+        noPortal: true,
       }}
       arrow
     >

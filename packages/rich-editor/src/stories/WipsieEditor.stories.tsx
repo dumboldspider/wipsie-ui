@@ -13,8 +13,8 @@ import {
   boldTool,
   italicTool,
   underlineTool,
-  OutputContainer,
-  WipsieEditor,
+  HTMLOutputContainer,
+  WipsieHTMLEditor,
   headingsTool,
   fontsTool,
   fontSizesTool,
@@ -37,18 +37,19 @@ import {
   linkTool,
   defaultToolbar,
   basicToolbar,
+  fullToolbar,
 } from "../index";
 import "../components/wipsie-editor.css";
 
 export default {
-  title: "Rich Editor/SAMPLE",
-  component: WipsieEditor,
+  title: "Rich Editor/HTML Editor",
+  component: WipsieHTMLEditor,
   argTypes: {
     backgroundColor: { control: "color" },
   },
 };
 
-export const WithBar = () => {
+export const HTMLEditorWithToolbar = () => {
   const initialValue = `
   <h1 align="center">Hello World</h1>
   <p>This is a simple <span class="wuire-rgb">example</span><b></b> of a React component.</p><p><br></p>
@@ -100,7 +101,10 @@ export const WithBar = () => {
           </Typography>
           <Spacing height={1} />
 
-          <WipsieEditor
+          <Typography variant="h4" color="text">
+            Default Toolbar
+          </Typography>
+          <WipsieHTMLEditor
             id="editor-test"
             initialValue={initialValue}
             value={value}
@@ -111,7 +115,24 @@ export const WithBar = () => {
 
           <Spacing height={1} />
 
-          <WipsieEditor
+          <Typography variant="h4" color="text">
+            Full Toolbar
+          </Typography>
+          <WipsieHTMLEditor
+            id="editor-test-2"
+            initialValue={initialValue}
+            value={value}
+            onChange={onChange}
+            debug={false}
+            toolbar={fullToolbar}
+          />
+
+          <Spacing height={1} />
+
+          <Typography variant="h4" color="text">
+            Basic Toolbar
+          </Typography>
+          <WipsieHTMLEditor
             id="editor-test-2"
             initialValue={initialValue}
             value={value}
@@ -140,7 +161,7 @@ export const WithBar = () => {
           </Typography>
           <Spacing height={1} />
           <Container fullWidth>
-            <OutputContainer dangerouslySetInnerHTML={{ __html: value }} />
+            <HTMLOutputContainer dangerouslySetInnerHTML={{ __html: value }} />
           </Container>
           <Spacing height={5} />
 

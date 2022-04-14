@@ -1,6 +1,6 @@
 import React from "react";
 
-export const OutputContainer: React.FC<
+export const HTMLOutputContainer: React.FC<
   React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 > = ({ children, ...props }) => {
   return (
