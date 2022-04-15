@@ -24,7 +24,6 @@ export const SelectWithFilter: React.FC<SelectWithFilterProps> = (props) => {
     error = false,
     success = false,
     helperText = null,
-    wrapperProps = null,
     children,
     className,
     list,
@@ -231,21 +230,21 @@ export const SelectWithFilter: React.FC<SelectWithFilterProps> = (props) => {
     }
   }
 
-  function handlePadding() {
-    switch (size) {
-      case "xlarge":
-        return "padding: 12px 0px;";
-      case "large":
-        return "padding: 10px 0px;";
-      case "small":
-        return "padding: 6px 0px;";
-      case "mini":
-        return "padding: 4px 0px;";
-      case "medium":
-      default:
-        return "padding: 8px 0px;";
-    }
-  }
+  // function handlePadding() {
+  //   switch (size) {
+  //     case "xlarge":
+  //       return "padding: 12px 0px;";
+  //     case "large":
+  //       return "padding: 10px 0px;";
+  //     case "small":
+  //       return "padding: 6px 0px;";
+  //     case "mini":
+  //       return "padding: 4px 0px;";
+  //     case "medium":
+  //     default:
+  //       return "padding: 8px 0px;";
+  //   }
+  // }
   function handlePaddingWrapper() {
     switch (size) {
       case "xlarge":
@@ -285,7 +284,7 @@ export const SelectWithFilter: React.FC<SelectWithFilterProps> = (props) => {
           setShow(true);
         }
       }}
-      {...wrapperProps}
+      {...otherProps}
     >
       <style jsx>{`
         .Wps-SelectWithFilterWrapper {

@@ -28,12 +28,12 @@
     "watch": "yarn clear && yarn build:dev-types && yarn build:watch",
     "generate": "node ./src/utils/generate/create-component.js",
     "pre:publish": "node ./scripts/pre-publish.js",
-    "pre:build": "node ./scripts/build.js",
+    "build": "node ./scripts/build.js",
     "build:types": "tsc -p ./buildconfig -d --emitDeclarationOnly --outDir types",
     "build:dev-types": "tsc -p ./buildconfig -d --emitDeclarationOnly --outDir dist/esm",
     "build:webpack": "webpack --config ./buildconfig/webpack.common.js",
     "build:watch": "webpack ---config ./buildconfig/webpack.dev.js",
-    "pack": "yarn run clear && yarn run pre:build && yarn run pre:publish && npm pack",
+    "pack": "yarn run clear && yarn run build && yarn run pre:publish && npm pack",
     "publish": "yarn run pack && npm publish --access public"
   },
   "publishConfig": {

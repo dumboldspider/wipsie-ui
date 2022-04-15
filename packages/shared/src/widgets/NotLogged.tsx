@@ -1,12 +1,5 @@
-import React, { useState, useEffect } from "react";
-import {
-  useTheme,
-  Box,
-  Spacing,
-  Typography,
-  Link,
-  responsive,
-} from "@wipsie/ui";
+import React from "react";
+import { useTheme, Spacing, Typography, Link, responsive } from "@wipsie/ui";
 import { serviceLinks, NoUserIcon } from "../";
 
 export function NotLogged({ LinkComponent = Link, color = null }) {

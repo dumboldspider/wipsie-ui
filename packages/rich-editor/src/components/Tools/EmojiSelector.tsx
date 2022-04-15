@@ -1,11 +1,4 @@
-import {
-  Box,
-  Button,
-  Container,
-  IconButton,
-  Popover,
-  Typography,
-} from "@wipsie/ui";
+import { Button, Container, IconButton, Popover, Typography } from "@wipsie/ui";
 import React, { useState } from "react";
 import { useWipsieEditor } from "../../hooks/useWipsieEditor";
 import { executeEditorCommand } from "../../utils/executeEditorCommand";

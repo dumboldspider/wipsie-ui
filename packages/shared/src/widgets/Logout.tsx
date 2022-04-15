@@ -1,4 +1,4 @@
-import { Button, Link, useTheme } from "@wipsie/ui";
+import { Button, Link } from "@wipsie/ui";
 import { serviceLinks } from "../";
 import React from "react";
 

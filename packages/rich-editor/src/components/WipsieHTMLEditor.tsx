@@ -6,7 +6,6 @@ import { executeEditorCommand } from "../utils/executeEditorCommand";
 import { getStringSizeInKB } from "../utils/getStringSizeInKB";
 import { BaseActionButton } from "./BaseActionButton";
 import { ToolBarType } from "./Toolbar.types";
-import sanitizeHtml from "sanitize-html";
 import "./wipsie-editor.css";
 
 export type EditorProps = {

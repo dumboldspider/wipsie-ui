@@ -8,6 +8,8 @@
     "skipLibCheck": true,
     "strict": true,
     "noImplicitAny": false,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,

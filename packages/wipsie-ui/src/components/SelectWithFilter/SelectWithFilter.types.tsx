@@ -62,11 +62,6 @@ export type SelectWithFilterProps = Modify<
      */
     shape?: "round" | "rounded" | "square" | undefined;
 
-    /**
-     * Props for the wrapper
-     */
-    wrapperProps?: React.HTMLProps<HTMLDivElement>;
-
     list: SelectItemsType[];
     selected?: string;
     onChange?: (value: SelectItemsType | null) => void;

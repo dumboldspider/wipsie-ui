@@ -24,7 +24,10 @@
     "storybook": "start-storybook -p 6006 -s ./.storybook/public",
     "storybook:build": "build-storybook -s ./.storybook/public -o storybook-static ",
     "storybook:start": "yarn run storybook:build && serve storybook-static",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "pack:ui": "yarn run new-version && yarn workspace @wipsie/ui run pack",
+    "pack:shared": "yarn run new-version && yarn workspace @wipsie/shared run pack",
+    "pack:editor": "yarn run new-version && yarn workspace @wipsie/rich-editor run pack"
   },
   "devDependencies": {
     "@babel/cli": "^7.14.5",

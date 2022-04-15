@@ -25,8 +25,7 @@
   },
   "homepage": "https://github.com/dumboldspider/wipsie-ui#readme",
   "dependencies": {
-    "@ant-design/icons": "^4.7.0",
-    "sanitize-html": "^2.7.0"
+    "@ant-design/icons": "^4.7.0"
   },
   "peerDependencies": {
     "@wipsie/ui": "*",
@@ -47,7 +46,6 @@
     "@types/jest": "^24.9.1",
     "@types/react": "^16.14.14",
     "@types/react-dom": "^16.9.14",
-    "@types/sanitize-html": "^2.6.2",
     "babel-loader": "^8.2.2",
     "babel-preset-react-app": "^10.0.0",
     "identity-obj-proxy": "^3.0.0",

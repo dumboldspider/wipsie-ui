@@ -1,6 +1,5 @@
 import {
   Button,
-  CheckBox,
   Container,
   Fixed,
   Grid,
@@ -10,27 +9,18 @@ import {
   Spacing,
   Typography,
 } from "@wipsie/ui";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import saveToServer from "../../utils/saveToServer";
 import { useWipsieEditor } from "../../hooks/useWipsieEditor";
 
 export const ImageUploadModal = ({ metadata, icon }) => {
   const [visible, setVisible] = useState(false);
 
-  const [link, setLink] = useState("https://");
-  const [target, setTarget] = useState("_blank");
-  const [text, setText] = useState("");
   const [currentSelect, setCurrentSelect] = useState<Range>(null);
 
   const { editorId, updateContent, uploadUrl, acceptedFormats, maxFileSize } =
     metadata;
   const { editorField } = useWipsieEditor(editorId);
-
-  useEffect(() => {
-    if (currentSelect) {
-      setText(currentSelect.toString());
-    }
-  }, [currentSelect]);
 
   const handleVisibility = () => {
     setVisible(!visible);
@@ -72,7 +62,7 @@ export const ImageUploadModal = ({ metadata, icon }) => {
           setIsUploading(false);
           setVisible(false);
         })
-        .catch((error) => {
+        .catch(() => {
           const element = document.createElement("span");
           element.textContent = "[Error uploading image]";
 
