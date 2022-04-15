@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.203](https://github.com/dumboldspider/wipsie-ui/compare/v1.0.201...v1.0.203) (2022-04-15)
+
+**Note:** Version bump only for package @wipsie/rich-editor
+
+
+
+
+
 ## [1.0.201](https://github.com/dumboldspider/wipsie-ui/compare/v1.0.200...v1.0.201) (2022-04-15)
 
 **Note:** Version bump only for package @wipsie/rich-editor
