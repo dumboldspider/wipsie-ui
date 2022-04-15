@@ -476,7 +476,7 @@ export const HTMLEditorWithCustomToolbar = () => {
                 editorField={editorField}
                 editorId={editorId}
                 onChange={onChange}
-                tools={[[boldTool, italicTool, rgbTool, clearTool]]}
+                tools={defaultToolbar}
               />
             )}
           </WipsieHTMLEditor>
