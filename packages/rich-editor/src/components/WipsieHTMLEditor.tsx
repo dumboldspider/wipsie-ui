@@ -68,9 +68,16 @@ export const WipsieHTMLEditor: React.FC<EditorProps> = ({
   useEffect(() => {
     if (editorRef.current) {
       setInternalValue(value);
-      onChange(value);
+
+      if (!isEditing) {
+        editorRef.current.innerHTML = value;
+      }
     }
   }, [value]);
+
+  // if (!isEditing) {
+  // editorRef.current.innerHTML = value;
+  // }
 
   return (
     <Container
