@@ -72,10 +72,6 @@ export const WipsieHTMLEditor: React.FC<EditorProps> = ({
     }
   }, [value]);
 
-  // if (!isEditing) {
-  // editorRef.current.innerHTML = value;
-  // }
-
   return (
     <Container
       className="wuire-editor-wrapper"
