@@ -11,6 +11,7 @@ export { default as useScrollBlock } from "./hooks/useScrollBlock";
 export { default as useKeyPress } from "./hooks/useKeyPress";
 export { default as useWidth } from "./hooks/useWidth";
 export { default as useVisibility } from "./hooks/useVisibility";
+export * from "./hooks/useElementOnScreen";
 
 // @ COMPONENTS
 export * from "./components/CssBaseline";
@@ -58,6 +59,7 @@ export * from "./components/AspectRatio";
 export * from "./components/Select";
 export * from "./components/QuillBaseline";
 export * from "./components/SelectWithFilter";
+export * from "./components/InfinityLoader";
 
 // @ UTILS
 export { default as responsive } from "./utils/responsive";
