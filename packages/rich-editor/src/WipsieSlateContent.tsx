@@ -4,7 +4,6 @@ import classNames from "classnames";
 import { Container } from "@wipsie/ui";
 import { RenderElement } from "./renders/RenderElement";
 import { RenderLeaf } from "./renders/RenderLeaf";
-import { Editor } from "slate";
 
 export type SlateContentProps = any;
 

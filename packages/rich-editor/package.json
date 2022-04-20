@@ -1,6 +1,6 @@
 {
   "name": "@wipsie/rich-editor",
-  "version": "1.0.205",
+  "version": "1.0.207",
   "repository": "https://github.com/dumboldspider/wipsie-ui.git",
   "author": "Daniel Brown <dannbrown.com>",
   "license": "MIT",
@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "dist": "npm run clear && rollup -c",
-    "clear": "rimraf ./dist",
+    "clear": "rimraf ./dist ./types",
     "test": "echo \"testing $0\"",
     "build:types": "tsc -p ./buildconfig -d --emitDeclarationOnly --outDir types && cp -r ./types/ ./dist",
     "build:dev-types": "tsc -d --outDir dist/esm",
