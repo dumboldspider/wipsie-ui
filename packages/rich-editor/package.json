@@ -1,6 +1,6 @@
 {
   "name": "@wipsie/rich-editor",
-  "version": "1.0.208",
+  "version": "1.0.209",
   "repository": "https://github.com/dumboldspider/wipsie-ui.git",
   "author": "Daniel Brown <dannbrown.com>",
   "license": "MIT",
@@ -29,7 +29,7 @@
     "classnames": "^2.2.5",
     "lodash": "^4.17.21",
     "slate": "0.62.0",
-    "slate-history": "^0.66.0",
+    "slate-history": "0.62.0",
     "slate-react": "0.62.0"
   },
   "peerDependencies": {
@@ -38,7 +38,8 @@
     "react-dom": "latest",
     "slate": "0.62.0",
     "slate-history": "0.62.0",
-    "slate-react": "0.62.0"
+    "slate-react": "0.62.0",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
