@@ -21,6 +21,7 @@ export const WipsieSlateContent = ({
   placeholder = "Start typing...",
   spellCheck = true,
   autoFocus = true,
+  backgroundColor = "shade",
   ...rest
 }: SlateContentProps) => {
   const renderElement = useCallback(
@@ -33,7 +34,7 @@ export const WipsieSlateContent = ({
     <Container
       className={classNames("editor--content", className)}
       style={wrapperStyle}
-      backgroundColor="shade"
+      backgroundColor={backgroundColor}
       shape="rounded"
       p={1}
     >

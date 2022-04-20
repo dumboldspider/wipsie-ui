@@ -8,12 +8,14 @@ export type SlateToolbarProps = {
   children: React.ReactNode;
   style?: React.CSSProperties;
   className?: string;
+  backgroundColor?: string;
 };
 
 export const WipsieSlateToolbar = ({
   children,
   style,
   className,
+  backgroundColor = "background",
   ...rest
 }: SlateToolbarProps) => {
   return (
@@ -28,6 +30,7 @@ export const WipsieSlateToolbar = ({
         alignItems: "center",
         ...style,
       }}
+      backgroundColor={backgroundColor}
     >
       {cloneElement(children, rest)}
     </Container>
