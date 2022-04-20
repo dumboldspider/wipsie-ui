@@ -3,7 +3,6 @@ export * from "./WipsieSlateEditor";
 export * from "./WipsieSlateToolbar";
 export * from "./WipsieSlateContent";
 export * from "./HoveringToolbar";
-export * from "./RichTextExample";
 export * from "./TypingCompanion";
 
 // @ Hooks
