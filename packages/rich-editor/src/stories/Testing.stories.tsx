@@ -214,9 +214,13 @@ export const WipsieSlateEditorTesting = () => {
         <Typography variant="h3">Render:</Typography>
         <Spacing height={1} />
         <code>{JSON.stringify(value, null, 2)}</code>
-        awdawdawdawd aqui seu idiiota lost deu
+        <Spacing height={1} />
+        <Typography variant="h3">Images:</Typography>
+        <Spacing height={1} />
         <code>{JSON.stringify(images, null, 2)}</code>
-        awdawdawdawd aqui seu idiiota lost deu
+        <Spacing height={1} />
+        <Typography variant="h3">Title:</Typography>
+        <Spacing height={1} />
         <code>{JSON.stringify(title, null, 2)}</code>
       </Container>
     </>

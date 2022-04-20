@@ -8,14 +8,14 @@ export const IndentationPlugin = (...options: any) => ({
     //     allowed = true;
     //   }
     // });
-    // const indentation = "ME AJUDA MEU DEUS AAAA";
+    // const indentation = "";
     // if (event.key === eventKey && !event.shiftKey && allowed) {
     //   event.preventDefault();
     //   Transforms.insertText(editor, indentation);
     // } else if (event.key === eventKey && allowed) {
     //   event.preventDefault();
     //   const currentText = Editor.alert(currentText);
-    //   Transforms.insertText(editor, currentText + "lost viaddo");
+    //   Transforms.insertText(editor, currentText );
     // }
   },
 });
