@@ -11,7 +11,7 @@ export const ImageAttachments = ({ onUpdate }) => {
       match: (n) => (n as any).type === "image",
     });
 
-    onUpdate(imageNodes.next().value);
+    onUpdate(imageNodes);
 
     console.log(imageNodes.return());
   }, [editor]);
