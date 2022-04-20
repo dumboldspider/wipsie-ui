@@ -56,6 +56,11 @@ export const WipsieSlateContent = ({
               plugins[action].onKeyDown(event, editor);
             }
           }
+
+          if (event.key === "Tab") {
+            event.preventDefault();
+            // editor.insertText("  ");
+          }
         }}
         {...rest}
       />

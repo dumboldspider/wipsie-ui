@@ -1,4 +1,4 @@
-import { Popover } from "@wipsie/ui";
+import { Box, Popover } from "@wipsie/ui";
 import React from "react";
 import { BaseElement } from "slate";
 import {
@@ -46,9 +46,12 @@ export const LinkMark = ({
       <Popover
         visible={selected && focused}
         content={
-          <>
-            Link to: <a href={url} target="_blank"></a>
-          </>
+          <Box p={1} contentEditable={false}>
+            Link to:{" "}
+            <a href={url} target="_blank">
+              {url}
+            </a>
+          </Box>
         }
       >
         <Link />

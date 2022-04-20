@@ -1,8 +1,7 @@
-import { Typography } from "@wipsie/ui";
 import React from "react";
+import { HeadingElement } from "../tools/heading/HeadingElement";
 import { ImageElement } from "../tools/image";
 import { LinkMark } from "../tools/link";
-// import { MentionElement } from "../tools/mentions";
 
 export const RenderElement = (props) => {
   const { attributes, children, element } = props;
@@ -17,20 +16,28 @@ export const RenderElement = (props) => {
       );
 
     case "link":
-      return <LinkMark {...props}>{children}</LinkMark>;
+      return (
+        <LinkMark {...props} {...attributes}>
+          {children}
+        </LinkMark>
+      );
 
     case "image":
-      return <ImageElement {...props}>{children}</ImageElement>;
+      return (
+        <ImageElement {...props} {...attributes}>
+          {children}
+        </ImageElement>
+      );
 
     case "heading":
       return (
-        <Typography
-          variant={element.level}
+        <HeadingElement
+          level={element.level}
           align={element.align || "left"}
-          {...attributes}
+          attributes={attributes}
         >
           {children}
-        </Typography>
+        </HeadingElement>
       );
 
     // case "mention":
@@ -38,14 +45,20 @@ export const RenderElement = (props) => {
 
     case "list-item":
       return (
-        <li style={style} {...attributes}>
+        <li
+          style={{
+            listStyle: "disc",
+            ...style,
+          }}
+          {...attributes}
+        >
           {children}
         </li>
       );
 
     case "bulleted-list":
       return (
-        <ul style={style} {...attributes}>
+        <ul style={{ ...style }} {...attributes}>
           {children}
         </ul>
       );
@@ -56,16 +69,17 @@ export const RenderElement = (props) => {
         </ol>
       );
 
+    case "text":
     case "paragraph":
     default:
       return (
-        <Typography
-          variant="body1"
-          align={element.align || "left"}
-          {...attributes}
+        <HeadingElement
+          level="body1"
+          align={element.align}
+          attributes={attributes}
         >
           {children}
-        </Typography>
+        </HeadingElement>
       );
   }
 };

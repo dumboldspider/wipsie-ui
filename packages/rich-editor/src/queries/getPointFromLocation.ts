@@ -1,4 +1,4 @@
-import { Editor, Location, Path, Point, Range } from 'slate';
+import { Editor, Location, Path, Point, Range } from "slate";
 
 export interface GetPointFromLocationOptions {
   /**
@@ -8,7 +8,7 @@ export interface GetPointFromLocationOptions {
   /**
    * @default 'focus'
    */
-  pointTypeOfRange?: 'anchor' | 'focus';
+  pointTypeOfRange?: "anchor" | "focus";
 }
 
 /**
@@ -18,22 +18,28 @@ export interface GetPointFromLocationOptions {
  *
  * If the location is a path, get the point at this path with offset 0.
  */
-export function getPointFromLocation(editor: Editor, options: GetPointFromLocationOptions = {}): Point | undefined {
-  const { at = editor.selection, pointTypeOfRange = 'focus' } = options;
+export function getPointFromLocation(
+  editor: Editor,
+  options: GetPointFromLocationOptions = {}
+): Point | undefined {
+  try {
+    const { at = editor.selection, pointTypeOfRange = "focus" } = options;
 
-  if (!at) {
-    return;
-  }
+    if (!at) {
+      return;
+    }
 
-  if (Range.isRange(at)) {
-    return at[pointTypeOfRange];
-  }
+    if (Range.isRange(at)) {
+      return at[pointTypeOfRange];
+    }
 
-  if (Point.isPoint(at)) {
-    return at;
-  }
+    if (Point.isPoint(at)) {
+      return at;
+    }
 
-  if (Path.isPath(at)) {
-    return { path: at, offset: 0 };
-  }
+    if (Path.isPath(at)) {
+      return { path: at, offset: 0 };
+    }
+    // eslint-disable-next-line no-empty
+  } catch (e) {}
 }

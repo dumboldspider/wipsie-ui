@@ -4,19 +4,22 @@ export function normalizeOnlyInlineOrTextInChildren(
   editor: Editor,
   entry: NodeEntry<Node>
 ): boolean {
-  const [, path] = entry;
+  try {
+    const [, path] = entry;
 
-  for (const [child, childPath] of Node.children(editor, path)) {
-    if (!(Editor.isInline(editor, child) || Text.isText(child))) {
-      if (Editor.isVoid(editor, child)) {
-        Transforms.removeNodes(editor, { at: childPath });
-      } else {
-        Transforms.unwrapNodes(editor, { at: childPath });
+    for (const [child, childPath] of Node.children(editor, path)) {
+      if (!(Editor.isInline(editor, child) || Text.isText(child))) {
+        if (Editor.isVoid(editor, child)) {
+          Transforms.removeNodes(editor, { at: childPath });
+        } else {
+          Transforms.unwrapNodes(editor, { at: childPath });
+        }
+
+        return true;
       }
-
-      return true;
     }
-  }
 
-  return false;
+    return false;
+    // eslint-disable-next-line no-empty
+  } catch (e) {}
 }

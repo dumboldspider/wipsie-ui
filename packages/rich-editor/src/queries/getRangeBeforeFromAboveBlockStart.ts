@@ -1,7 +1,10 @@
-import { Editor, Location, Range } from 'slate';
-import { getAboveBlock, GetAboveBlockOptions } from './getAboveBlock';
+import { Editor, Location, Range } from "slate";
+import { getAboveBlock, GetAboveBlockOptions } from "./getAboveBlock";
 
-export type GetRangeBeforeFromAboveBlockStartOptions = Omit<GetAboveBlockOptions, 'at'>;
+export type GetRangeBeforeFromAboveBlockStartOptions = Omit<
+  GetAboveBlockOptions,
+  "at"
+>;
 
 /**
  * Get the range from the start of the block above location to the start of location.
@@ -11,9 +14,12 @@ export function getRangeBeforeFromAboveBlockStart(
   at: Location,
   options: GetRangeBeforeFromAboveBlockStartOptions = {}
 ): Range {
-  const [, path] = getAboveBlock(editor, { ...options, at });
-  const anchor = Editor.start(editor, path);
-  const focus = Editor.start(editor, at);
+  try {
+    const [, path] = getAboveBlock(editor, { ...options, at });
+    const anchor = Editor.start(editor, path);
+    const focus = Editor.start(editor, at);
 
-  return { anchor, focus };
+    return { anchor, focus };
+    // eslint-disable-next-line no-empty
+  } catch (e) {}
 }

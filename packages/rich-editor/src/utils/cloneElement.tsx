@@ -9,23 +9,27 @@ import React from "react";
  * props added to each child.
  */
 export const cloneElement = (children, props) => {
-  if (children && !children.length) {
-    children = [children];
-  }
+  try {
+    if (children && !children.length) {
+      children = [children];
+    }
 
-  return (
-    children &&
-    children.reduce((result, child, index) => {
-      if (child) {
-        result.push(
-          React.cloneElement(child, {
-            ...props,
-            key: index,
-          })
-        );
-      }
+    return (
+      children &&
+      children.reduce((result, child, index) => {
+        if (child) {
+          result.push(
+            React.cloneElement(child, {
+              ...props,
+              key: index,
+            })
+          );
+        }
 
-      return result;
-    }, [])
-  );
+        return result;
+      }, [])
+    );
+
+    // eslint-disable-next-line no-empty
+  } catch (e) {}
 };

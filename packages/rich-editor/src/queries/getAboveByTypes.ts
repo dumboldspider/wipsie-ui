@@ -11,11 +11,14 @@ export function getAboveByTypes<T extends Ancestor>(
   types: string[],
   options: GetAboveByTypesOptions = {}
 ): NodeEntry<T> | undefined {
-  const { match } = options;
-  return Editor.above<T>(editor, {
-    ...options,
-    match: (node) =>
-      types.includes((node as any).type as string) &&
-      (!match || match(node, null)),
-  });
+  try {
+    const { match } = options;
+    return Editor.above<T>(editor, {
+      ...options,
+      match: (node) =>
+        types.includes((node as any).type as string) &&
+        (!match || match(node, null)),
+    });
+    // eslint-disable-next-line no-empty
+  } catch (e) {}
 }

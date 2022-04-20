@@ -17,9 +17,12 @@ export function unhangRange(
   editor: Editor,
   options: UnhangRangeOptions = {}
 ): void {
-  const { at = editor.selection, voids, hanging = false } = options;
+  try {
+    const { at = editor.selection, voids, hanging = false } = options;
 
-  if (!hanging && Range.isRange(at)) {
-    options.at = Editor.unhangRange(editor, at, { voids });
-  }
+    if (!hanging && Range.isRange(at)) {
+      options.at = Editor.unhangRange(editor, at, { voids });
+    }
+    // eslint-disable-next-line no-empty
+  } catch (e) {}
 }

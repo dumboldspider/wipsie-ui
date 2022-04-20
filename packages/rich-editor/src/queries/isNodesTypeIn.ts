@@ -6,6 +6,9 @@ export function isNodesTypeIn(
   types: string[],
   options = {} as any
 ) {
-  const [match] = getNodesByTypes(editor, types, options);
-  return !!match;
+  try {
+    const [match] = getNodesByTypes(editor, types, options);
+    return !!match;
+    // eslint-disable-next-line no-empty
+  } catch (e) {}
 }

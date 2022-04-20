@@ -17,14 +17,18 @@ export function isNodeMatch(
   entry: NodeEntry<Node>,
   { filter, includeTypes = [], excludeTypes = [] }: IsNodeMatchOptions = {}
 ): boolean {
-  const [node] = entry;
+  try {
+    const [node] = entry;
 
-  return (
-    (!filter || filter(entry)) &&
-    (!includeTypes.length ||
-      includeTypes.includes((node as any).type as string)) &&
-    !(
-      excludeTypes.length && excludeTypes.includes((node as any).type as string)
-    )
-  );
+    return (
+      (!filter || filter(entry)) &&
+      (!includeTypes.length ||
+        includeTypes.includes((node as any).type as string)) &&
+      !(
+        excludeTypes.length &&
+        excludeTypes.includes((node as any).type as string)
+      )
+    );
+    // eslint-disable-next-line no-empty
+  } catch (e) {}
 }

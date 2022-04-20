@@ -7,11 +7,14 @@ import { isMarkActive } from "./isMarkActive";
  * @param {string} format - The name of the mark to toggle.
  */
 export const toggleMark = (editor: BaseEditor, format: string) => {
-  const isActive = isMarkActive(editor, format);
+  try {
+    const isActive = isMarkActive(editor, format);
 
-  if (isActive) {
-    Editor.removeMark(editor, format);
-  } else {
-    Editor.addMark(editor, format, true);
-  }
+    if (isActive) {
+      Editor.removeMark(editor, format);
+    } else {
+      Editor.addMark(editor, format, true);
+    }
+    // eslint-disable-next-line no-empty
+  } catch (e) {}
 };

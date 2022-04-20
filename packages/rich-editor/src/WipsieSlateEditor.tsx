@@ -44,6 +44,7 @@ export const WipsieSlateEditor = (props: SlateEditorProps) => {
     plugins,
     editor,
     onChange,
+    value,
     wrapperStyle: style,
   };
 

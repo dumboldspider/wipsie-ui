@@ -7,6 +7,9 @@ import { BaseEditor, Editor } from "slate";
  * @returns A boolean value.
  */
 export const isMarkActive = (editor: BaseEditor, format: string) => {
-  const marks = Editor.marks(editor);
-  return marks ? marks[format] === true : false;
+  try {
+    const marks = Editor.marks(editor);
+    return marks ? marks[format] === true : false;
+    // eslint-disable-next-line no-empty
+  } catch (e) {}
 };

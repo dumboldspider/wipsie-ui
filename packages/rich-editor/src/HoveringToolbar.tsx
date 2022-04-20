@@ -13,7 +13,7 @@ export const HoveringToolbar = ({ children }) => {
   const [style, setStyle] = React.useState({});
 
   useEffect(() => {
-    const el = ref.current;
+    const el = ref?.current;
 
     if (!el) {
       return;

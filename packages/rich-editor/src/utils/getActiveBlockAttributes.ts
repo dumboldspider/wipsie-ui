@@ -6,11 +6,14 @@ import { Editor, Element as SlateElement, BaseEditor } from "slate";
  * @returns The attributes of the active block.
  */
 export const getActiveBlockAttributes = (editor: BaseEditor) => {
-  const [match] = Array.from(
-    Editor.nodes(editor, {
-      match: (n) => !Editor.isEditor(n) && SlateElement.isElement(n),
-    })
-  );
+  try {
+    const [match] = Array.from(
+      Editor.nodes(editor, {
+        match: (n) => !Editor.isEditor(n) && SlateElement.isElement(n),
+      })
+    );
 
-  return match;
+    return match;
+    // eslint-disable-next-line no-empty
+  } catch (e) {}
 };

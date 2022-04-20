@@ -6,6 +6,9 @@ export * from "./HoveringToolbar";
 export * from "./RichTextExample";
 export * from "./TypingCompanion";
 
+// @ Hooks
+export * from "./hooks/useEditorNodes";
+
 // @ Renderers
 export * from "./renders/RenderElement";
 export * from "./renders/RenderLeaf";
