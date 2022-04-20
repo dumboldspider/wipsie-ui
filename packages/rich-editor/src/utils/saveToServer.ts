@@ -1,5 +1,5 @@
 // Upload Image to Image Server such as AWS S3, Cloudinary, Cloud Storage, etc..
-const saveToServer = async (file, serverUrl) => {
+export const saveToServer = async (file, serverUrl) => {
   return new Promise(async (resolve, reject) => {
     const formData = new FormData();
     formData.append("file", file);
@@ -19,5 +19,3 @@ const saveToServer = async (file, serverUrl) => {
     resolve(bodyResult);
   });
 };
-
-export default saveToServer;

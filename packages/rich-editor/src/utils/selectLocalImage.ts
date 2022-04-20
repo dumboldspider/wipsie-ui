@@ -1,5 +1,5 @@
 // Open Dialog to select Image File
-const selectLocalImage = (callback = null) => {
+export const selectLocalImage = (callback = null) => {
   const input = document.createElement("input");
   input.setAttribute("type", "file");
   input.setAttribute("accept", "image/*");
@@ -12,5 +12,3 @@ const selectLocalImage = (callback = null) => {
     }
   };
 };
-
-export default selectLocalImage;

@@ -25,12 +25,19 @@
   },
   "homepage": "https://github.com/dumboldspider/wipsie-ui#readme",
   "dependencies": {
-    "@ant-design/icons": "^4.7.0"
+    "@ant-design/icons": "^4.7.0",
+    "classnames": "^2.2.5",
+    "slate": "0.62.0",
+    "slate-history": "^0.66.0",
+    "slate-react": "0.62.0"
   },
   "peerDependencies": {
     "@wipsie/ui": "*",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "slate": "0.62.0",
+    "slate-history": "0.62.0",
+    "slate-react": "0.62.0"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
@@ -46,6 +53,8 @@
     "@types/jest": "^24.9.1",
     "@types/react": "^16.14.14",
     "@types/react-dom": "^16.9.14",
+    "@types/slate": "^0.47.11",
+    "@types/slate-react": "^0.50.1",
     "babel-loader": "^8.2.2",
     "babel-preset-react-app": "^10.0.0",
     "identity-obj-proxy": "^3.0.0",
