@@ -16,12 +16,20 @@ import { ListGroup } from "./tools/list";
 import { HoveringToolbar } from "./HoveringToolbar";
 import { LinkButton } from "./tools/link";
 import { ImageButton } from "./tools/image";
+// import { MentionsPlugin } from "./tools/mentions";
+
+import { ImageAttachments } from "./ImageAttachments";
+// import { MentionsRecommendations } from "./tools/mentions";
 // import { TypingCompanion } from "./TypingCompanion";
 
 const initialValue = [
   {
     type: "paragraph",
-    children: [{ text: "" }],
+    children: [
+      {
+        text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, quisquam.",
+      },
+    ],
   },
 ];
 
@@ -55,6 +63,10 @@ export const RichTextExample = () => {
           {/* <TypingCompanion>
             <Loading size="mini" type="rings" />
           </TypingCompanion> */}
+
+          <ImageAttachments onUpdate={() => {}} />
+
+          {/* <MentionsRecommendations /> */}
 
           <WipsieSlateToolbar>
             <BoldButton />

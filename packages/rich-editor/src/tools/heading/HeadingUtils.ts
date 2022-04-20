@@ -29,15 +29,28 @@ export const HEADING_COMPONENTS = {
   label: "Label",
 };
 
-export const getHeadingNodes = (editor, level, options = {}) =>
-  getNodes(editor, {
+export const getHeadingNodes = (editor, level, options = {}) => {
+  return getNodes(editor, {
     ...options,
     match: (node) =>
       node.type === (HEADING_TYPE as any) && node.level === level,
   });
+};
+
+export const getAnyHeadingNodes = (editor, options = {}) => {
+  return getNodes(editor, {
+    ...options,
+    match: (node) => node.type === (HEADING_TYPE as any),
+  });
+};
 
 export const isSelectionInHeading = (editor, level, options = {}) => {
   const [match] = getHeadingNodes(editor, level, options);
+  return !!match;
+};
+
+export const isSelectionAnyInHeading = (editor, options = {}) => {
+  const [match] = getAnyHeadingNodes(editor, options);
   return !!match;
 };
 

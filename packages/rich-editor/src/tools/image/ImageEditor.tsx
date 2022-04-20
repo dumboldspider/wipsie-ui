@@ -34,7 +34,7 @@ export function ImageEditor({
   open = false,
   handleToggle,
   uploadUrl,
-  // accessKey,
+  accessKey,
   acceptedFormats,
   maxFileSize,
 }: ImageEditorProps) {
@@ -48,7 +48,7 @@ export function ImageEditor({
       return;
     }
     setIsUploading(true);
-    saveToServer(file, uploadUrl)
+    saveToServer(file, uploadUrl, accessKey)
       .then((result: any) => {
         const imageUrl = result?.formats?.large?.url; // get large compressed image
 

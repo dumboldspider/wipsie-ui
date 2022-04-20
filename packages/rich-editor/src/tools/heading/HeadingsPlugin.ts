@@ -1,5 +1,5 @@
 import { Transforms } from "slate";
-import { toggleHeadingNodes } from "./HeadingUtils";
+import { isSelectionAnyInHeading, toggleHeadingNodes } from "./HeadingUtils";
 import { isMod } from "../../utils/isMod";
 import { createParagraphNode } from "../../utils/createParagraphNode";
 
@@ -26,7 +26,11 @@ export const HeadingsPlugin = (...options: any) => ({
       : false;
 
     // if current block is a heading and press enter, it will create a new paragraph
-    if (event.key === "Enter" && !event.shiftKey) {
+    if (
+      event.key === "Enter" &&
+      !event.shiftKey &&
+      isSelectionAnyInHeading(editor)
+    ) {
       event.preventDefault();
       Transforms.insertNodes(editor, createParagraphNode());
     }

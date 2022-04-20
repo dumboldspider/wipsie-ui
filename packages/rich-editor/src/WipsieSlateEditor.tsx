@@ -7,6 +7,7 @@ import { withHistory } from "slate-history";
 import { withLinks } from "./plugins/withLinks";
 import { withImages } from "./plugins/withImages";
 import { withKeyCommands } from "./plugins/withKeyCommands";
+// import { withMentions } from "./plugins/withMentions";
 
 export type SlateEditorProps = {
   value: any;
@@ -28,6 +29,7 @@ const createEditorWithPlugins = pipe(
   withLinks,
   withImages,
   withKeyCommands
+  // withMentions
 );
 
 export const WipsieSlateEditor = (props: SlateEditorProps) => {

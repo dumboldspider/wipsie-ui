@@ -20,6 +20,7 @@ export * from "./tools/alignment";
 export * from "./tools/list";
 export * from "./tools/link";
 export * from "./tools/image";
+export * from "./tools/indentation";
 
 // @ Utils
 export * from "./utils/isMarkActive";
@@ -35,6 +36,7 @@ export * from "./utils/getStringSizeInKB";
 export * from "./utils/saveToServer";
 export * from "./utils/selectLocalImage";
 export * from "./utils/selectLocalImage";
+export * from "./utils/isJson";
 
 // @ Plugins
 export * from "./plugins/withImages";

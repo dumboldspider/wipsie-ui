@@ -2,6 +2,7 @@ import { Typography } from "@wipsie/ui";
 import React from "react";
 import { ImageElement } from "../tools/image";
 import { LinkMark } from "../tools/link";
+// import { MentionElement } from "../tools/mentions";
 
 export const RenderElement = (props) => {
   const { attributes, children, element } = props;
@@ -14,32 +15,26 @@ export const RenderElement = (props) => {
           {children}
         </blockquote>
       );
-    case "bulleted-list":
-      return (
-        <ul style={style} {...attributes}>
-          {children}
-        </ul>
-      );
 
     case "link":
-      return <LinkMark {...props} />;
+      return <LinkMark {...props}>{children}</LinkMark>;
 
     case "image":
-      return <ImageElement {...props} />;
+      return <ImageElement {...props}>{children}</ImageElement>;
 
     case "heading":
       return (
-        <Typography variant={element.level} {...attributes}>
+        <Typography
+          variant={element.level}
+          align={element.align || "left"}
+          {...attributes}
+        >
           {children}
         </Typography>
       );
 
-    case "paragraph":
-      return (
-        <Typography variant="body1" {...attributes}>
-          {children}
-        </Typography>
-      );
+    // case "mention":
+    //   return <MentionElement {...props}>{children}</MentionElement>;
 
     case "list-item":
       return (
@@ -47,17 +42,30 @@ export const RenderElement = (props) => {
           {children}
         </li>
       );
+
+    case "bulleted-list":
+      return (
+        <ul style={style} {...attributes}>
+          {children}
+        </ul>
+      );
     case "numbered-list":
       return (
         <ol style={style} {...attributes}>
           {children}
         </ol>
       );
+
+    case "paragraph":
     default:
       return (
-        <p style={style} {...attributes}>
+        <Typography
+          variant="body1"
+          align={element.align || "left"}
+          {...attributes}
+        >
           {children}
-        </p>
+        </Typography>
       );
   }
 };

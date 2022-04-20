@@ -11,7 +11,12 @@ export const withKeyCommands = (editor) => {
       editor.selection.focus.path
     );
 
-    if (isVoid(parentNode) || !Node.string(parentNode).length) {
+    if (
+      (isVoid(parentNode) || !Node.string(parentNode).length) &&
+      // if parentPath is 0, it means it's the first node, so we can't delete it because it's the root node
+      // without this check, it will delete the whole document making it uneditable
+      parentPath.toString().substring(0, 1) !== "0"
+    ) {
       Transforms.removeNodes(editor, { at: parentPath });
     } else {
       deleteBackward(...args);
