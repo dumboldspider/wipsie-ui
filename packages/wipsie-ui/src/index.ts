@@ -60,6 +60,8 @@ export * from "./components/Select";
 export * from "./components/QuillBaseline";
 export * from "./components/SelectWithFilter";
 export * from "./components/InfinityLoader";
+export * from "./components/DatePicker";
+export * from "./components/TextEditable";
 
 // @ UTILS
 export { default as responsive } from "./utils/responsive";
