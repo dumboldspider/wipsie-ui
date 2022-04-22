@@ -3,7 +3,9 @@ import { Avatar, IconButton, useScrollBlock, useTheme, Link } from "@wipsie/ui";
 import { AccountSnackSideBar } from "./AccountSnackSideBar";
 import { NotLogged } from "../../";
 
-export default function AccountSnackMenu({
+export type AccountSnackMenuProps = any;
+
+export function AccountSnackMenu({
   color = null,
   authenticated = false,
   user = null,
@@ -12,7 +14,7 @@ export default function AccountSnackMenu({
   setThemeCallback,
   LinkComponent = Link,
   menuItems = null,
-}) {
+}: AccountSnackMenuProps) {
   const wipsieTheme = useTheme();
   const [, setLocked] = useScrollBlock();
 
@@ -24,7 +26,7 @@ export default function AccountSnackMenu({
   };
 
   if (!authenticated) {
-    return <NotLogged color={color} />;
+    return <NotLogged textColor={color} />;
   }
 
   return (

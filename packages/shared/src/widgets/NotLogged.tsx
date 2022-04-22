@@ -1,15 +1,41 @@
 import React from "react";
 import { useTheme, Spacing, Typography, Link, responsive } from "@wipsie/ui";
-import { serviceLinks, NoUserIcon } from "../";
+import { linkPattern } from "../configs/linkPattern";
+import { NoUserIcon } from "../icons/NoUserIcon";
 
-export function NotLogged({ LinkComponent = Link, color = null }) {
+export type NotLoggedProps = {
+  linkComponent?: any;
+  textColor?: string;
+  iconColor?: string;
+  iconAccentColor?: string;
+  redirectTo?: string;
+  label?: string;
+  iconSize?: string;
+};
+
+export function NotLogged({
+  linkComponent = Link,
+  textColor = null,
+  iconAccentColor,
+  iconColor,
+  redirectTo,
+  label = "Sign In",
+  iconSize = responsive(20, 30),
+}: NotLoggedProps) {
   const theme = useTheme();
+
+  const LinkComponent = linkComponent;
 
   return (
     <Typography variant="h5">
       <LinkComponent
-        href={serviceLinks.auth}
-        color={color || theme.palette.text}
+        href={linkPattern({
+          type: "loginPageRedirect",
+          data: {
+            redirectTo: redirectTo || window?.location?.href,
+          },
+        })}
+        color={textColor || theme.palette.text}
         style={{
           display: "flex",
           alignItems: "center",
@@ -17,12 +43,12 @@ export function NotLogged({ LinkComponent = Link, color = null }) {
         }}
       >
         <NoUserIcon
-          color={theme.palette.primary[500]}
-          accent={theme.palette.primary[700]}
-          width={responsive(20, 30)}
+          color={iconColor || theme.palette.primary[500]}
+          accent={iconAccentColor || theme.palette.primary[700]}
+          width={iconSize}
         />
         <Spacing width={1} />
-        Sign In
+        {label}
       </LinkComponent>
     </Typography>
   );

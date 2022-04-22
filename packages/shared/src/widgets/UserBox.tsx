@@ -7,12 +7,36 @@ import {
   Avatar,
   useTheme,
   Link,
+  ContainerProps,
 } from "@wipsie/ui";
 
-import { serviceLinks } from "../";
+import { serviceLinks } from "../configs/serviceLinks";
+import { User } from "../types/User.types";
 
-export function UserBox({ LinkComponent = Link, user }) {
+export type UserBoxProps = {
+  user: User;
+  linkComponent?: any;
+  elevation?: number;
+  elevationHover?: number;
+  p?: number | string;
+  shape?: "round" | "rounded" | "square";
+  variant?: ContainerProps["variant"];
+  backgroundColor?: ContainerProps["backgroundColor"];
+};
+
+export function UserBox({
+  linkComponent = Link,
+  user = null,
+  elevation = 2,
+  elevationHover = 10,
+  p = 1,
+  shape = "rounded",
+  variant = "neumorphic",
+  backgroundColor = "highlight",
+}: UserBoxProps) {
   const theme = useTheme();
+
+  const LinkComponent = linkComponent;
 
   return (
     <LinkComponent href={`${serviceLinks.main}/u/${user?.username}`}>
@@ -21,15 +45,15 @@ export function UserBox({ LinkComponent = Link, user }) {
         direction="row"
         align="center"
         justify="start"
-        backgroundColor="highlight"
-        shape="rounded"
-        variant="neumorphic"
+        backgroundColor={backgroundColor}
+        shape={shape}
+        variant={variant}
         height="fit-content"
         clickable
-        elevation={2}
-        elevationHover={10}
+        elevation={elevation}
+        elevationHover={elevationHover}
         wrap="nowrap"
-        p={1}
+        p={p}
       >
         <Avatar
           src={user?.profile?.avatar}

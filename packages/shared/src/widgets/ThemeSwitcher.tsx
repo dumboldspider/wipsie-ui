@@ -1,16 +1,23 @@
 import React from "react";
 import { ButtonGroup, Typography, IconButton, Spacing } from "@wipsie/ui";
+import { WipsieBaseThemes } from "../types/Theme.types";
+
+export type ThemeSwitcherProps = {
+  title?: string;
+  theme: WipsieBaseThemes;
+  setThemeCallback: (theme: string) => void;
+};
 
 export function ThemeSwitcher({
-  title = true,
+  title = "Theme Color",
   theme = "light",
   setThemeCallback,
-}) {
+}: ThemeSwitcherProps) {
   return (
     <>
       {title && (
         <>
-          <Typography variant="h4">Theme Color</Typography>
+          <Typography variant="h4">{title}</Typography>
           <Spacing height={1} />
         </>
       )}

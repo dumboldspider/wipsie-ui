@@ -28,8 +28,10 @@ export type AccountSnackMenuItemType = {
   external?: boolean;
 };
 
+export type AccountSnackSideBarProps = any;
+
 export const AccountSnackSideBar = ({
-  LinkComponent = Link,
+  linkComponent = Link,
   visible,
   handleChange,
   user,
@@ -37,8 +39,10 @@ export const AccountSnackSideBar = ({
   themeTitle = true,
   theme = "light",
   setThemeCallback,
-}) => {
+}: AccountSnackSideBarProps) => {
   const wipsieTheme = useTheme();
+
+  const LinkComponent = linkComponent;
 
   const MENU_OPTIONS = [
     {
@@ -109,7 +113,7 @@ export const AccountSnackSideBar = ({
         <Spacing height={4} />
 
         <Box>
-          <UserBox user={user} LinkComponent={LinkComponent} />
+          <UserBox user={user} linkComponent={LinkComponent} />
           <Spacing height={1} />
         </Box>
 

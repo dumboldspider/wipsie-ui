@@ -1,21 +1,33 @@
-import { Box, useTheme, Button, Link } from "@wipsie/ui";
-import { serviceLinks } from "../";
+import { Box, Button, ButtonProps, Link } from "@wipsie/ui";
+import { linkPattern } from "../";
 import React from "react";
 
-export const LogoutBox = () => {
-  const theme = useTheme();
+export type LogoutBoxProps = {
+  backgroundColor?: string;
+  label?: string;
+  variant?: ButtonProps["variant"];
+  shape?: ButtonProps["shape"];
+  size?: ButtonProps["size"];
+};
 
+export const LogoutBox = ({
+  backgroundColor = "danger",
+  label = "Logout",
+  variant = "outlined",
+  shape = "rounded",
+  size = "medium",
+}: LogoutBoxProps) => {
   return (
     <Box p={2}>
-      <Link href={`${serviceLinks.auth}/logout?to=${window.location.href}`}>
+      <Link href={linkPattern({ type: "loginPage" })}>
         <Button
           fullWidth
           align="center"
-          shape="rounded"
-          variant="outlined"
-          size="medium"
-          backgroundColor={theme.palette.danger[500]}
-          label="Logout"
+          shape={shape}
+          variant={variant}
+          size={size}
+          backgroundColor={backgroundColor}
+          label={label}
         />
       </Link>
     </Box>

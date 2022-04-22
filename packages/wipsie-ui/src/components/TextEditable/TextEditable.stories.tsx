@@ -1,7 +1,6 @@
 // Generated with util/create-component.js
 import React, { useState } from "react";
 import { TextEditable } from "./TextEditable";
-import { Button } from "../Button";
 
 import useEditing from "./useEditing";
 
