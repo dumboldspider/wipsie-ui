@@ -245,7 +245,6 @@ export function DatePicker({
       onBackdropClick={() => handleTogglePopover()}
       width={width}
       style={{
-        width: fullWidth ? "100%" : "auto",
         ...wrapperProps?.style,
       }}
       {...wrapperProps}
