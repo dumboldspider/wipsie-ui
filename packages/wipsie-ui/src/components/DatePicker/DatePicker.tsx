@@ -25,6 +25,20 @@ export function DatePicker({
   inputColor = "basic",
   maxYears = 200,
   inputProps = {},
+  wrapperProps,
+  disabled,
+  endAdornment,
+  error,
+  fullWidth,
+  helperText,
+  label,
+  name,
+  placeholder,
+  required,
+  startAdornment,
+  value,
+  onChange,
+  onBlur,
 }: DatePickerProps) {
   const [referenceCalendar, setReferenceCalendar] = useState<any>(null);
   const currentDate = new Date();
@@ -201,7 +215,7 @@ export function DatePicker({
 
   const [selectedComponentDate, setSelectedComponentDate] = useState<any>(null);
   const [componentDate, setComponentDate] = useState(
-    new Date(todayYear - 10, 0, 1)
+    value || new Date(todayYear - 10, 0, 1)
   );
 
   const handleTogglePopover = () => {
@@ -230,6 +244,11 @@ export function DatePicker({
       backdrop
       onBackdropClick={() => handleTogglePopover()}
       width={width}
+      style={{
+        width: fullWidth ? "100%" : "auto",
+        ...wrapperProps?.style,
+      }}
+      {...wrapperProps}
       content={
         <Container
           ref={(el) => setReferenceCalendar(el)}
@@ -470,6 +489,18 @@ export function DatePicker({
         size={inputSize}
         color={inputColor}
         value={componentDate.toISOString().split("T")[0]}
+        name={name}
+        placeholder={placeholder}
+        label={label}
+        startAdornment={startAdornment}
+        endAdornment={endAdornment}
+        disabled={disabled}
+        error={error}
+        helperText={helperText}
+        required={required}
+        fullWidth={fullWidth}
+        onChange={onChange}
+        onBlur={onBlur}
         onClick={(e) => {
           e.preventDefault();
           handleTogglePopover();
