@@ -16,4 +16,8 @@ export const footerLinks = [
     href: `${serviceLinks.status}`,
     text: "Servers Status",
   },
+  {
+    href: `${serviceLinks.help}`,
+    text: "Contact Us",
+  },
 ];
