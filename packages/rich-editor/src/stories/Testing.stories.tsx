@@ -6,7 +6,18 @@ import {
   StrikethroughButton,
   StrikethroughPlugin,
 } from "../tools/strikethrough";
-import { Container, Spacing, Typography } from "@wipsie/ui";
+import {
+  Button,
+  Container,
+  Spacing,
+  Typography,
+  Popover,
+  ThemeProvider,
+  Page,
+  Flex,
+  Grid,
+  useTheme,
+} from "@wipsie/ui";
 import { WipsieSlateEditor } from "../WipsieSlateEditor";
 import { WipsieSlateToolbar } from "../WipsieSlateToolbar";
 import { WipsieSlateContent } from "../WipsieSlateContent";
@@ -153,76 +164,121 @@ export const WipsieSlateEditorTesting = () => {
     setValue(value);
   };
 
+  const [activeTheme, setActiveTheme] =
+    React.useState<ThemeVariantsType>("light");
+
+  type ThemeVariantsType = "dark" | "light" | "cosmic";
+
+  const wipsieTheme = useTheme();
+
+  const handleThemeChange = () => {
+    switch (activeTheme) {
+      case "light":
+        setActiveTheme("dark");
+        break;
+      case "dark":
+        setActiveTheme("cosmic");
+        break;
+      case "cosmic":
+        setActiveTheme("light");
+        break;
+    }
+  };
+
   return (
-    <>
-      <Container maxWidth="900px" fullWidth>
-        <Typography variant="h3">Editor:</Typography>
-        <Spacing height={1} />
-        <WipsieSlateEditor value={value} onChange={onChange} plugins={plugins}>
-          <HoveringToolbar>
-            <BoldButton />
-            <ItalicButton />
-            <UnderlineButton />
-          </HoveringToolbar>
+    <ThemeProvider theme={activeTheme}>
+      <Page backgroundColor="shade">
+        <Flex fullWidth>
+          <Grid container>
+            <Grid item xs={12}>
+              <Popover
+                position="top"
+                content={
+                  <Typography variant="body1" color="subtext">
+                    {activeTheme}
+                  </Typography>
+                }
+              >
+                <Button
+                  variant="contained"
+                  backgroundColor="primary"
+                  onClick={handleThemeChange}
+                >
+                  Theme
+                </Button>
+              </Popover>
+            </Grid>
+            <Grid item xs={6}>
+              <Container maxWidth="900px" fullWidth>
+                <Typography variant="h3">Editor:</Typography>
+                <Spacing height={1} />
+                <WipsieSlateEditor
+                  value={value}
+                  onChange={onChange}
+                  plugins={plugins}
+                >
+                  <HoveringToolbar>
+                    <BoldButton />
+                    <ItalicButton />
+                    <UnderlineButton />
+                  </HoveringToolbar>
 
-          {/* <TypingCompanion>
-          <Loading size="mini" type="rings" />
-        </TypingCompanion> */}
+                  <WipsieSlateToolbar>
+                    <BoldButton />
+                    <ItalicButton />
+                    <UnderlineButton />
+                    <StrikethroughButton />
+                    {/* <HeadingsDropdown /> */}
+                    <HeadingDropdown icon={"H"} />
 
-          {/* <MentionsRecommendations /> */}
+                    <ListGroup />
+                    <AlignmentGroup />
 
-          <WipsieSlateToolbar>
-            <BoldButton />
-            <ItalicButton />
-            <UnderlineButton />
-            <StrikethroughButton />
-            {/* <HeadingsDropdown /> */}
-            <HeadingDropdown icon={"H"} />
+                    <LinkButton />
+                    <ImageButton
+                      uploadUrl="https://env.staging.api.wipsie.com/posts/upload"
+                      accessKey=""
+                    />
+                  </WipsieSlateToolbar>
 
-            <ListGroup />
-            <AlignmentGroup />
-
-            <LinkButton />
-            <ImageButton
-              uploadUrl="https://env.staging.api.wipsie.com/posts/upload"
-              accessKey=""
-            />
-          </WipsieSlateToolbar>
-
-          <WipsieSlateContent
-            placeholder="Enter some amazing text..."
-            spellCheck
-            autoFocus
-            readOnly={false}
-          />
-        </WipsieSlateEditor>
-      </Container>
-
-      <Spacing height={4} />
-
-      <Container maxWidth="900px" fullWidth>
-        <Typography variant="h3">Render:</Typography>
-        <Spacing height={1} />
-        <WipsieSlateEditor value={value}>
-          <WipsieSlateContent readOnly />
-        </WipsieSlateEditor>
-      </Container>
-
-      <Spacing height={4} />
-
-      <Container maxWidth="900px" fullWidth>
-        <Typography variant="h3">Render:</Typography>
-        <Spacing height={1} />
-        <code>{JSON.stringify(value, null, 2)}</code>
-        <Spacing height={1} />
-        <Typography variant="h3">Images:</Typography>
-        <Spacing height={1} />
-        <code>{JSON.stringify(images, null, 2)}</code>
-        <Spacing height={1} />
-        <Typography variant="h3">Title:</Typography>
-        <Spacing height={1} />
-        <code>{JSON.stringify(title, null, 2)}</code>
-      </Container>
-    </>
+                  <WipsieSlateContent
+                    placeholder="Enter some amazing text..."
+                    spellCheck
+                    autoFocus
+                    readOnly={false}
+                  />
+                </WipsieSlateEditor>
+              </Container>
+            </Grid>
+            <Grid item xs={6}>
+              <Container maxWidth="900px" fullWidth>
+                <Typography variant="h3">Render:</Typography>
+                <Spacing height={1} />
+                <WipsieSlateEditor value={value}>
+                  <WipsieSlateContent readOnly />
+                </WipsieSlateEditor>
+              </Container>
+            </Grid>
+            <Grid item xs={12}>
+              <Container maxWidth="900px" fullWidth>
+                <Typography variant="h3">Render:</Typography>
+                <Spacing height={1} />
+                <code style={{ color: wipsieTheme.palette.basic[900] }}>
+                  {JSON.stringify(value, null, 2)}
+                </code>
+                <Spacing height={1} />
+                <Typography variant="h3">Images:</Typography>
+                <Spacing height={1} />
+                <code>{JSON.stringify(images, null, 2)}</code>
+                <Spacing height={1} />
+                <Typography variant="h3">Title:</Typography>
+                <Spacing height={1} />
+                <code>{JSON.stringify(title, null, 2)}</code>
+              </Container>
+            </Grid>
+          </Grid>
+        </Flex>
+      </Page>
+    </ThemeProvider>
   );
 };
