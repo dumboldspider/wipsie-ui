@@ -119,27 +119,6 @@ export const WipsieSlateEditorTesting = () => {
         },
       ],
     },
-    {
-      type: "paragraph",
-      children: [
-        {
-          text: "",
-        },
-        {
-          type: "link",
-          url: "https://lamparinas.com.br",
-          openInNewTab: true,
-          children: [
-            {
-              text: "https://lamparinas.com.br",
-            },
-          ],
-        },
-        {
-          text: "",
-        },
-      ],
-    },
   ];
 
   const plugins = [
@@ -160,8 +139,8 @@ export const WipsieSlateEditorTesting = () => {
     level: "h1",
   });
 
-  const onChange = (value) => {
-    setValue(value);
+  const onChange = (newValue: any[]) => {
+    setValue(newValue);
   };
 
   const [activeTheme, setActiveTheme] =
