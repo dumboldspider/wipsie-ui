@@ -1,35 +1,44 @@
 {
   "name": "@wipsie/rich-editor",
-  "version": "1.0.198",
+  "version": "1.0.211",
   "repository": "https://github.com/dumboldspider/wipsie-ui.git",
   "author": "Daniel Brown <dannbrown.com>",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist",
     "README.md"
   ],
   "scripts": {
-    "build": "npm run clear && rollup -c",
-    "clear": "rimraf ./dist",
+    "dist": "npm run clear && rollup -c",
+    "clear": "rimraf ./dist ./types",
     "test": "echo \"testing $0\"",
     "build:types": "tsc -p ./buildconfig -d --emitDeclarationOnly --outDir types && cp -r ./types/ ./dist",
     "build:dev-types": "tsc -d --outDir dist/esm",
-    "pack": "yarn run clear && yarn run build && yarn run build:types && npm pack",
-    "publish": "yarn run pack && npm publish --access public"
+    "pack": "yarn run clear && yarn run dist && yarn run build:types && npm pack"
   },
   "bugs": {
     "url": "https://github.com/dumboldspider/wipsie-ui/issues"
   },
   "homepage": "https://github.com/dumboldspider/wipsie-ui#readme",
   "dependencies": {
-    "@ant-design/icons": "^4.7.0"
+    "@ant-design/icons": "^4.7.0",
+    "classnames": "^2.2.5",
+    "lodash": "^4.17.21",
+    "slate": "0.62.0",
+    "slate-history": "0.62.0",
+    "slate-react": "0.62.0"
   },
   "peerDependencies": {
-    "@wipsie/ui": "^1.0.198",
+    "@wipsie/ui": "*",
     "react": "latest",
-    "react-dom": "latest"
+    "react-dom": "latest",
+    "slate": "0.62.0",
+    "slate-history": "0.62.0",
+    "slate-react": "0.62.0",
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
@@ -45,6 +54,8 @@
     "@types/jest": "^24.9.1",
     "@types/react": "^16.14.14",
     "@types/react-dom": "^16.9.14",
+    "@types/slate": "^0.47.11",
+    "@types/slate-react": "^0.50.1",
     "babel-loader": "^8.2.2",
     "babel-preset-react-app": "^10.0.0",
     "identity-obj-proxy": "^3.0.0",

@@ -4,6 +4,11 @@ import flush from "styled-jsx/server";
 import flushToReact from "styled-jsx/server";
 // import "../../static/styles/base.css";
 
+/**
+ * It renders the children, and then adds some global styles to the page
+ * @returns A React Fragment with the global styles for the Quill editor.
+ * @deprecated This is a temporary solution until we can get the Quill editor to work with styled-jsx.
+ */
 const QuillBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
   const theme = useTheme();
   return (

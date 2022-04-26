@@ -1,16 +1,12 @@
 // Generated with util/create-component.js
 import React, { useState, useEffect } from "react";
 import classnames from "classnames";
-import useTheme from "../../hooks/useTheme";
 import { TextEditableProps } from "./TextEditable.types";
 
 // ATOMS COMPONENTS START
-import { Button } from "../Button/Button";
 import { IconButton } from "../IconButton/IconButton";
 import { ButtonGroup } from "../ButtonGroup/ButtonGroup";
-import { Link } from "../Link/Link";
 import { Input } from "../Input/Input";
-import { Spacing } from "../Spacing/Spacing";
 import { Typography } from "../Typography/Typography";
 // ATOMS COMOPONENTS END
 
@@ -24,19 +20,15 @@ export const useValue = () => {
 // HOOKS END
 
 export const TextEditable: React.FC<TextEditableProps> = (props) => {
-  const theme = useTheme();
-
   const {
     isLarge,
     content,
     setStore,
-    index,
     setParent,
     isFocus,
     maxLength = 100,
     children,
     className,
-    ...otherProps
   } = props;
   const { isEditing, setIsEditing } = useEditing();
   const { value, setValue } = useValue();
@@ -118,7 +110,7 @@ function AddForm(props) {
       handleSave();
     }
   };
-  const handleClick = (e) => {
+  const handleClick = () => {
     handleSave();
   };
 

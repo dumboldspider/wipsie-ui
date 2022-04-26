@@ -8,7 +8,7 @@ export default {
 };
 
 export const WithBar = () => (
-  <AvatarGroup max={5} xs="large" backgroundColor="info" shape="round">
+  <AvatarGroup max={5} xs="large" backgroundColor="info" shape="rounded">
     <Avatar src="https://i.pinimg.com/originals/d1/3b/37/d13b37bdbbfef22627692e4425cd1328.gif" />
     <Avatar src="https://cdn.ome.lt/yIcBAegu7jk3YThuobVAzAf2ZA8=/770x0/smart/uploads/conteudo/fotos/giphy_F7ZaYMf.gif" />
     <Avatar src="https://www.hypeness.com.br/1/2018/08/tenor.gif" />

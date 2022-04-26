@@ -1,6 +1,8 @@
 node_modules
 example-delete
 storybook-static
-dist
+/dist
+
+/types
 
 wipsie-rich-editor-*.tgz

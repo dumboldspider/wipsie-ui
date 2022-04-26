@@ -1,6 +1,6 @@
 {
   "name": "@wipsie/ui",
-  "version": "1.0.198",
+  "version": "1.0.206",
   "description": "A React UI components library",
   "license": "MIT",
   "homepage": "https://github.com/dumboldspider/wipsie-ui#readme",
@@ -24,26 +24,16 @@
   "types": "dist/esm/index.d.ts",
   "sideEffects": false,
   "scripts": {
-    "clear": "rimraf ./lib ./dist ./esm ./storybook-static",
+    "clear": "rimraf ./lib ./dist ./esm ./types ./storybook-static",
     "watch": "yarn clear && yarn build:dev-types && yarn build:watch",
     "generate": "node ./src/utils/generate/create-component.js",
-    "pre-publish": "node ./scripts/pre-publish.js",
+    "pre:publish": "node ./scripts/pre-publish.js",
     "build": "node ./scripts/build.js",
     "build:types": "tsc -p ./buildconfig -d --emitDeclarationOnly --outDir types",
     "build:dev-types": "tsc -p ./buildconfig -d --emitDeclarationOnly --outDir dist/esm",
     "build:webpack": "webpack --config ./buildconfig/webpack.common.js",
     "build:watch": "webpack ---config ./buildconfig/webpack.dev.js",
-    "pack": "yarn run clear && yarn run build && yarn run pre-publish && npm pack",
-    "publish": "yarn run pack && npm publish --access public",
-    "storybook": "start-storybook -p 6006 -s ./.storybook/public",
-    "storybook:build": "build-storybook -s ./.storybook/public -o storybook-static ",
-    "storybook:start": "yarn run storybook:build && serve storybook-static",
-    "test": "echo \"testing $0\"",
-    "test:jest": "jest --config .jest.config.js --no-cache",
-    "test-update": "jest --config .jest.config.js --no-cache --update-snapshot",
-    "coverage": "yarn test --coverage",
-    "coverage-update": "yarn test-update --coverage",
-    "coverage:codecov": "yarn test --coverage && codecov"
+    "pack": "yarn run clear && yarn run build && yarn run pre:publish && npm pack"
   },
   "publishConfig": {
     "directory": "dist"

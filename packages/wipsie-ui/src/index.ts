@@ -11,6 +11,7 @@ export { default as useScrollBlock } from "./hooks/useScrollBlock";
 export { default as useKeyPress } from "./hooks/useKeyPress";
 export { default as useWidth } from "./hooks/useWidth";
 export { default as useVisibility } from "./hooks/useVisibility";
+export * from "./hooks/useElementOnScreen";
 
 // @ COMPONENTS
 export * from "./components/CssBaseline";
@@ -46,7 +47,6 @@ export * from "./components/Portal";
 export * from "./components/NprogressBaseline";
 export * from "./components/Divider";
 export * from "./components/Popover";
-export * from "./components/Select";
 export * from "./components/Collapsible";
 export * from "./components/Animated";
 export * from "./components/Backdrop";
@@ -56,11 +56,18 @@ export * from "./components/Snackbar";
 export * from "./components/Tabs";
 export * from "./components/HorizontalList";
 export * from "./components/AspectRatio";
+export * from "./components/Select";
 export * from "./components/QuillBaseline";
+export * from "./components/SelectWithFilter";
+export * from "./components/InfinityLoader";
+export * from "./components/DatePicker";
+export * from "./components/TextEditable";
 
 // @ UTILS
 export { default as responsive } from "./utils/responsive";
 export { default as opacity } from "./utils/opacity";
 export { default as contrast } from "./utils/contrast";
 export { default as brightness } from "./utils/brightness";
+export * from "./utils/colorWithSeed";
 export * from "./utils/responsive";
+export * from "./utils/environment";
