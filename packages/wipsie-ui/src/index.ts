@@ -11,6 +11,7 @@ export { default as useScrollBlock } from "./hooks/useScrollBlock";
 export { default as useKeyPress } from "./hooks/useKeyPress";
 export { default as useWidth } from "./hooks/useWidth";
 export { default as useVisibility } from "./hooks/useVisibility";
+export { default as useKeyboard } from "./hooks/useKeyboard";
 export * from "./hooks/useElementOnScreen";
 
 // @ COMPONENTS
