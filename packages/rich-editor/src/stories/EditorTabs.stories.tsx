@@ -13,10 +13,11 @@ import {
   Typography,
   Popover,
   ThemeProvider,
-  Page,
-  Flex,
+  TabPanel,
+  Tabs,
   Grid,
   useTheme,
+  Box,
 } from "@wipsie/ui";
 import { WipsieSlateEditor } from "../WipsieSlateEditor";
 import { WipsieSlateToolbar } from "../WipsieSlateToolbar";
@@ -25,12 +26,15 @@ import { HeadingsPlugin, HeadingDropdown } from "../tools/heading";
 import { AlignmentGroup } from "../tools/alignment";
 import { ListGroup } from "../tools/list";
 import { HoveringToolbar } from "../HoveringToolbar";
-import { LinkButton } from "../tools/link";
-import { ImageButton } from "../tools/image";
+import { LinkButton, LinkPlugin } from "../tools/link";
+import { ImageButton, ImagePlugin } from "../tools/image";
 import { useEditorFirstNode, useEditorNodes } from "../hooks/useEditorNodes";
+import { MentionsPlugin } from "../tools/mentions";
+import { useMemo } from "react";
+import { SpoilerPlugin, SpoilerButton } from "../tools/spoiler";
 
 export default {
-  title: "Rich Editor/HTML Editor",
+  title: "Rich Editor/Editor Preview Tab",
   component: WipsieSlateEditor,
   argTypes: {
     backgroundColor: { control: "color" },
@@ -43,7 +47,33 @@ export const WipsieSlateEditorTesting = () => {
       type: "paragraph",
       children: [
         {
-          text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, quisquam.",
+          text: "lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, quisquam. ",
+        },
+        {
+          type: "mention",
+          key: "danbrown",
+          id: "49dd78a4-4ed2-4686-8482-6ad2b4ba1dac",
+          children: [
+            {
+              text: "",
+            },
+          ],
+        },
+        {
+          text: ", ",
+        },
+        {
+          type: "mention",
+          key: "notdanbrown",
+          id: "fdc17e3b-256b-4b5c-a76b-3f5b52c6ab30",
+          children: [
+            {
+              text: "",
+            },
+          ],
+        },
+        {
+          text: " ",
         },
       ],
     },
@@ -52,6 +82,49 @@ export const WipsieSlateEditorTesting = () => {
       children: [
         {
           text: "awdawddwawdawdawdawd",
+          bold: true,
+        },
+      ],
+      align: "center",
+    },
+    {
+      type: "paragraph",
+      align: "center",
+      children: [
+        {
+          text: "",
+        },
+        {
+          type: "link",
+          url: "https://danielbrown.com.br",
+          openInNewTab: true,
+          children: [
+            {
+              text: "https://danielbrown.com.br",
+            },
+          ],
+        },
+        {
+          text: "",
+        },
+      ],
+    },
+    {
+      type: "paragraph",
+      align: "center",
+      children: [
+        {
+          text: "",
+        },
+      ],
+    },
+    {
+      type: "image",
+      url: "https://env.staging.files.library.wipsie.com/other/6619d443-2193-4160-9f30-4b0d6a1d44a3_7ca9307b-4c95-40e1-b9ea-8ecf0730e8e8-large.jpg",
+      alt: "",
+      children: [
+        {
+          text: "",
         },
       ],
     },
@@ -77,7 +150,7 @@ export const WipsieSlateEditorTesting = () => {
       type: "paragraph",
       children: [
         {
-          text: "awdawdaw",
+          text: "awdawdaw ",
           bold: true,
         },
       ],
@@ -86,8 +159,8 @@ export const WipsieSlateEditorTesting = () => {
       type: "paragraph",
       children: [
         {
-          bold: true,
-          text: "",
+          spoiler: true,
+          text: "this is hidden because is a spoiler",
         },
       ],
     },
@@ -121,13 +194,25 @@ export const WipsieSlateEditorTesting = () => {
     },
   ];
 
-  const plugins = [
-    BoldPlugin(),
-    ItalicPlugin(),
-    UnderlinePlugin(),
-    StrikethroughPlugin(),
-    HeadingsPlugin(),
-  ];
+  const plugins = useMemo(
+    () => [
+      new BoldPlugin(),
+      new ItalicPlugin(),
+      new UnderlinePlugin(),
+      new StrikethroughPlugin(),
+      new HeadingsPlugin(),
+      new SpoilerPlugin(),
+      new LinkPlugin(),
+      new ImagePlugin(),
+      new MentionsPlugin({
+        getUserUrl: "https://env.staging.api.wipsie.com/auth/users/",
+        searchUrl:
+          "https://env.staging.api.wipsie.com/auth/users/search?limit=5&terms=",
+      }),
+    ],
+    []
+  );
+
   const [value, setValue] = React.useState(initialValue);
 
   const images = useEditorNodes(value, {
@@ -137,6 +222,10 @@ export const WipsieSlateEditorTesting = () => {
   const title = useEditorFirstNode(value, {
     type: "heading",
     level: "h1",
+  });
+
+  const mentions = useEditorNodes(value, {
+    type: "mention",
   });
 
   const onChange = (newValue: any[]) => {
@@ -164,33 +253,51 @@ export const WipsieSlateEditorTesting = () => {
     }
   };
 
+  // Tab management
+  const tabs = [
+    {
+      label: "Editor",
+      icon: "",
+    },
+    {
+      label: "Preview",
+      icon: "",
+    },
+    {
+      label: "Output",
+      icon: "",
+    },
+  ];
+  const [activeTabIndex, setActiveTabIndex] = React.useState<number>(0);
+  const handleTabChange = (newValue: number) => {
+    setActiveTabIndex(newValue);
+  };
+
   return (
     <ThemeProvider theme={activeTheme}>
-      <Page backgroundColor="shade">
-        <Flex fullWidth>
-          <Grid container>
-            <Grid item xs={12}>
-              <Popover
-                position="top"
-                content={
-                  <Typography variant="body1" color="subtext">
-                    {activeTheme}
-                  </Typography>
-                }
+      <Box fullWidth m={2} backgroundColor="shade">
+        <Grid container>
+          <Grid item xs={12}>
+            <Popover position="right" content={activeTheme} arrow>
+              <Button
+                variant="contained"
+                backgroundColor="primary"
+                onClick={handleThemeChange}
               >
-                <Button
-                  variant="contained"
-                  backgroundColor="primary"
-                  onClick={handleThemeChange}
-                >
-                  Theme
-                </Button>
-              </Popover>
-            </Grid>
-            <Grid item xs={6}>
-              <Container maxWidth="900px" fullWidth>
-                <Typography variant="h3">Editor:</Typography>
-                <Spacing height={1} />
+                Theme
+              </Button>
+            </Popover>
+          </Grid>
+          <Grid item xs={12}>
+            <Tabs
+              value={activeTabIndex}
+              onChange={handleTabChange}
+              items={tabs}
+            />
+
+            {/* EditorPanel */}
+            <Container fullWidth maxWidth="500px">
+              <TabPanel value={activeTabIndex} index={0}>
                 <WipsieSlateEditor
                   value={value}
                   onChange={onChange}
@@ -200,6 +307,7 @@ export const WipsieSlateEditorTesting = () => {
                     <BoldButton />
                     <ItalicButton />
                     <UnderlineButton />
+                    <SpoilerButton />
                   </HoveringToolbar>
 
                   <WipsieSlateToolbar>
@@ -207,7 +315,7 @@ export const WipsieSlateEditorTesting = () => {
                     <ItalicButton />
                     <UnderlineButton />
                     <StrikethroughButton />
-                    {/* <HeadingsDropdown /> */}
+                    <SpoilerButton />
                     <HeadingDropdown icon={"H"} />
 
                     <ListGroup />
@@ -227,21 +335,17 @@ export const WipsieSlateEditorTesting = () => {
                     readOnly={false}
                   />
                 </WipsieSlateEditor>
-              </Container>
-            </Grid>
-            <Grid item xs={6}>
-              <Container maxWidth="900px" fullWidth>
-                <Typography variant="h3">Render:</Typography>
-                <Spacing height={1} />
-                <WipsieSlateEditor value={value}>
+              </TabPanel>
+
+              {/* Preview Panel */}
+              <TabPanel value={activeTabIndex} index={1}>
+                <WipsieSlateEditor value={value} plugins={plugins}>
                   <WipsieSlateContent readOnly />
                 </WipsieSlateEditor>
-              </Container>
-            </Grid>
-            <Grid item xs={12}>
-              <Container maxWidth="900px" fullWidth>
-                <Typography variant="h3">Render:</Typography>
-                <Spacing height={1} />
+              </TabPanel>
+
+              {/* Output Panel */}
+              <TabPanel value={activeTabIndex} index={2}>
                 <code style={{ color: wipsieTheme.palette.basic[900] }}>
                   {JSON.stringify(value, null, 2)}
                 </code>
@@ -253,11 +357,16 @@ export const WipsieSlateEditorTesting = () => {
                 <Typography variant="h3">Title:</Typography>
                 <Spacing height={1} />
                 <code>{JSON.stringify(title, null, 2)}</code>
-              </Container>
-            </Grid>
+                <Typography variant="h3">Mentions:</Typography>
+                <Spacing height={1} />
+                <code>{JSON.stringify(mentions, null, 2)}</code>
+              </TabPanel>
+            </Container>
           </Grid>
-        </Flex>
-      </Page>
+        </Grid>
+
+        <Spacing height={5} />
+      </Box>
     </ThemeProvider>
   );
 };

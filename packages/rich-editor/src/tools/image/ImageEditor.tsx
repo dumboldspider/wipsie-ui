@@ -14,9 +14,8 @@ import React, { useEffect, useState } from "react";
 import { saveToServer } from "../../utils/saveToServer";
 import { Transforms } from "slate";
 import { ReactEditor, useSlate } from "slate-react";
-import { ImageState } from "./ImageState";
-import { getImage } from "./getImage";
-import { insertImage, updateImage } from "./insertImage";
+import { getImage, insertImage, updateImage } from "./ImageUtils";
+import { ImageState } from "./Image.types";
 
 // const invalidUrlMessage =
 //   'Please enter a valid URL, e.g., "http://example.com/test.png".';

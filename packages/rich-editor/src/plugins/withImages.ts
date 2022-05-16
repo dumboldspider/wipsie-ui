@@ -1,6 +1,6 @@
 import { isValidHttpUrl } from "../utils/isValidHttpUrl";
 import { ReactEditor } from "slate-react";
-import { insertImage } from "../tools/image/insertImage";
+import { insertImage } from "../tools/image/ImageUtils";
 
 const imageExtensions = ["jpg", "jpeg", "png", "gif"];
 

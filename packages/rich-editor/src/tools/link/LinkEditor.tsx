@@ -16,8 +16,8 @@ import {
 import React, { useState } from "react";
 import { useSlate } from "slate-react";
 import { isValidHttpUrl } from "../../utils/isValidHttpUrl";
-import { isLinkActive } from "./isLinkActive";
-import { LinkState } from "./LinkState";
+import { LinkState } from "./Link.types";
+import { isLinkActive } from "./LinkUtils";
 
 const invalidUrlMessage =
   'Please enter a valid URL, e.g., "http://google.com".';

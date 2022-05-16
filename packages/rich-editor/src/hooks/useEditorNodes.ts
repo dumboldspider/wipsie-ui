@@ -15,8 +15,9 @@ import _ from "lodash";
  * @param {object} match - object - The object to match.
  * @returns An array of objects that match the match object.
  */
-const getEditorNodes = (value: any, match: object) => {
-  return _.filter(value, _.matches(match));
+export const getEditorNodes = (value: any, match: object) => {
+  let nodes = [...value, ...value.map((data) => data?.children).flat()];
+  return _.filter(nodes, _.matches(match));
 };
 
 /**
@@ -25,7 +26,7 @@ const getEditorNodes = (value: any, match: object) => {
  * @param {object} match - object
  * @returns The first node that matches the match object.
  */
-const getEditorFirstNode = (value: any, match: object) => {
+export const getEditorFirstNode = (value: any, match: object) => {
   return _.find(value, _.matches(match));
 };
 

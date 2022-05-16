@@ -1,7 +1,24 @@
-import { Editor, Transforms, Path, Range, Element } from "slate";
-import { ReactEditor } from "slate-react";
+import { Editor, Transforms, Element, Range } from "slate";
+import { LinkElementType } from "./Link.types";
 
-import { createParagraphNode } from "../../utils/createParagraphNode";
+export const isLinkActive = (editor: Editor) => {
+  const linkEntries = Array.from(
+    Editor.nodes(editor, { match: (n) => (n as any).type === "link" })
+  );
+  return linkEntries.length > 0;
+};
+
+export const getLink = (editor: Editor): LinkElementType | undefined => {
+  const linkEntries = Array.from(
+    Editor.nodes(editor, { match: (n) => (n as any).type === "link" })
+  );
+  if (linkEntries.length === 0) {
+    return undefined;
+  }
+
+  const node = linkEntries[0][0];
+  return Element.isElement(node) ? (node as LinkElementType) : undefined;
+};
 
 export const createLinkNode = (href, text) => ({
   type: "link",
@@ -9,44 +26,43 @@ export const createLinkNode = (href, text) => ({
   children: [{ text }],
 });
 
-export const insertLink = (editor, url) => {
-  if (!url) return;
+export const unwrapLink = (editor: Editor) => {
+  Transforms.unwrapNodes(editor, { match: (n) => (n as any).type === "link" });
+};
+
+export const wrapLink = (
+  editor: Editor,
+  url: string,
+  openInNewTab: boolean
+) => {
+  if (isLinkActive(editor)) {
+    unwrapLink(editor);
+  }
 
   const { selection } = editor;
-  const link = createLinkNode(url, "New Link");
+  const isCollapsed = selection && Range.isCollapsed(selection);
+  const link = {
+    type: "link",
+    url,
+    openInNewTab,
+    children: isCollapsed ? [{ text: url }] : [],
+  };
 
-  ReactEditor.focus(editor);
-
-  if (!!selection) {
-    const [parentNode, parentPath] = Editor.parent(
-      editor,
-      selection.focus?.path
-    );
-
-    // Remove the Link node if we're inserting a new link node inside of another
-    // link.
-    if ((parentNode as any).type === "link") {
-      removeLink(editor);
-    }
-
-    if (editor.isVoid(parentNode)) {
-      // Insert the new link after the void node
-      Transforms.insertNodes(editor, createParagraphNode([link as any]), {
-        at: Path.next(parentPath),
-        select: true,
-      });
-    } else if (Range.isCollapsed(selection)) {
-      // Insert the new link in our last known locatio
-      Transforms.insertNodes(editor, link, { select: true });
-    } else {
-      // Wrap the currently selected range of text into a Link
-      Transforms.wrapNodes(editor, link, { split: true });
-      Transforms.collapse(editor, { edge: "end" });
-    }
+  if (isCollapsed) {
+    Transforms.insertNodes(editor, link);
   } else {
-    // Insert the new link node at the bottom of the Editor when selection
-    // is falsey
-    Transforms.insertNodes(editor, createParagraphNode([link as any]));
+    Transforms.wrapNodes(editor, link, { split: true });
+    Transforms.collapse(editor, { edge: "end" });
+  }
+};
+
+export const insertLink = (
+  editor: Editor,
+  url: string,
+  openInNewTab: boolean
+) => {
+  if (editor.selection) {
+    wrapLink(editor, url, openInNewTab);
   }
 };
 

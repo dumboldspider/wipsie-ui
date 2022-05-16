@@ -1,7 +1,12 @@
-export * from "./ImageEditor";
-export * from "./ImageElement";
+// @ Plugin
+export * from "./ImagePlugin";
+
+// @ Components
 export * from "./ImageButton";
-export * from "./ImageState";
-export * from "./getImage";
-export * from "./insertImage";
-export * from "../../plugins/withImages";
+
+// @ Types
+export * from "./Image.types";
+
+// @ Utils
+import * as utils from "./ImageUtils";
+export const ImageUtils = utils;

@@ -1,11 +1,15 @@
+import React from "react";
 import { Transforms } from "slate";
 import { isSelectionAnyInHeading, toggleHeadingNodes } from "./HeadingUtils";
 import { isMod } from "../../utils/isMod";
 import { createParagraphNode } from "../../utils/createParagraphNode";
+import { Typography } from "@wipsie/ui";
 
-export const HeadingsPlugin = (...options: any) => ({
-  onKeyDown(event, editor) {
+export class HeadingsPlugin {
+  public onKeyDown = (event, { editor }) => {
     const modShift = isMod(event);
+
+    if (!editor) return;
 
     const variantType = modShift
       ? event.key === "1"
@@ -39,5 +43,18 @@ export const HeadingsPlugin = (...options: any) => ({
       event.preventDefault();
       toggleHeadingNodes(editor, variantType);
     }
-  },
-});
+  };
+
+  public elementType = "heading";
+
+  public renderElement = ({ element, children, attributes }) => {
+    return (
+      <Typography
+        variant={element?.level || "body1"}
+        align={element?.align || "left"}
+      >
+        <span {...attributes}>{children}</span>
+      </Typography>
+    );
+  };
+}

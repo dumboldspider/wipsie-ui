@@ -7,7 +7,7 @@ import { withHistory } from "slate-history";
 import { withLinks } from "./plugins/withLinks";
 import { withImages } from "./plugins/withImages";
 import { withKeyCommands } from "./plugins/withKeyCommands";
-// import { withMentions } from "./plugins/withMentions";
+import { withMentions } from "./plugins/withMentions";
 
 export type SlateEditorProps = {
   value: any;
@@ -16,6 +16,7 @@ export type SlateEditorProps = {
   style?: React.CSSProperties;
   plugins?: any[];
   children?: React.ReactNode;
+  onKeyDown?: (event: React.KeyboardEvent) => void;
 };
 
 export type SlateEditorChildProps = {
@@ -28,17 +29,43 @@ const createEditorWithPlugins = pipe(
   withHistory,
   withLinks,
   withImages,
-  withKeyCommands
-  // withMentions
+  withKeyCommands,
+  withMentions
 );
 
 export const WipsieSlateEditor = (props: SlateEditorProps) => {
-  const { value, onChange, className, style, children, plugins } = props;
+  const {
+    value,
+    onChange,
+    className,
+    style,
+    children,
+    plugins = [],
+    onKeyDown,
+  } = props;
 
   const editor = useMemo(
     () => createEditorWithPlugins(createEditor() as ReactEditor),
     []
   );
+
+  // Plugins Start
+  const pluginVars = plugins.map((plugin) => {
+    if (plugin.usePlugin) {
+      return plugin.usePlugin();
+    }
+    return {}; // There is no start variables to return
+  });
+
+  const pluginKeyDown = (event: React.KeyboardEvent) => {
+    onKeyDown && onKeyDown(event);
+    plugins.forEach((plugin, i) => {
+      if (plugin.onKeyDown) {
+        plugin.onKeyDown(event, { editor, ...pluginVars[i] });
+      }
+    });
+  };
+  // Plugins End
 
   const childProps = {
     plugins,
@@ -46,7 +73,20 @@ export const WipsieSlateEditor = (props: SlateEditorProps) => {
     onChange,
     value,
     wrapperStyle: style,
+    onKeyDown: pluginKeyDown,
+    pluginVars: pluginVars,
   };
+
+  // get plugin renders
+  const pluginsWithChildren =
+    plugins &&
+    plugins.length > 0 &&
+    plugins.map((Plugin, i) => {
+      if (Plugin.renderComponent) {
+        return <Plugin.renderComponent {...childProps} {...pluginVars[i]} />;
+      }
+      return null;
+    });
 
   return (
     <div className={className} style={style}>
@@ -55,8 +95,17 @@ export const WipsieSlateEditor = (props: SlateEditorProps) => {
         value={value}
         onChange={(value) => {
           onChange && onChange(value);
+
+          // internal plugins test
+          plugins.forEach((plugin, i) => {
+            if (plugin.onChange) {
+              plugin.onChange({ editor, value, ...pluginVars[i] });
+            }
+          });
         }}
       >
+        {pluginsWithChildren}
+
         {cloneElement(children, childProps)}
       </Slate>
     </div>

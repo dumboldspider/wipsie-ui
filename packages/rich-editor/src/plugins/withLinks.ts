@@ -1,6 +1,6 @@
 import { isValidHttpUrl } from "../utils/isValidHttpUrl";
 import { ReactEditor } from "slate-react";
-import { wrapLink } from "../tools/link/insertLink";
+import { wrapLink } from "../tools/link/LinkUtils";
 
 export const withLinks = (editor: ReactEditor): ReactEditor => {
   try {
