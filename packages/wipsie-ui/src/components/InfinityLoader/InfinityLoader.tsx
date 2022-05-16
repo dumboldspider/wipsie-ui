@@ -11,7 +11,7 @@ export function InfinityLoader(props: InfinityLoaderProps) {
   };
 
   const {
-    totalPages = 9999,
+    totalPages = -1,
     observerOptions,
     children,
     loadingComponent,
@@ -39,7 +39,9 @@ export function InfinityLoader(props: InfinityLoaderProps) {
   }, [isVisible]);
 
   function loadData(newPage: number) {
-    if (newPage > totalPages) return;
+    // if the new page to load is bigger than the total pages, do nothing
+    // ignore when total pages is infinite
+    if (newPage > totalPages && totalPages !== -1) return;
 
     setLoading(true);
 
