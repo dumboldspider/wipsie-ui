@@ -12,6 +12,9 @@ export const BaseToggleButton = ({ format, icon }) => {
       size="small"
       variant="ghost"
       active={isMarkActive(editor, format)}
+      onMouseDown={(e) => {
+        e.preventDefault(); // prevent toolbar from taking focus away from editor
+      }}
       onClick={(event) => {
         event.preventDefault();
         toggleMark(editor, format);
