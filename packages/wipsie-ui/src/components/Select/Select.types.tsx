@@ -6,6 +6,18 @@ export type SelectProps = Modify<
   React.HTMLProps<HTMLSelectElement>,
   {
     /**
+     * Select change
+     */
+    onChange?: (value: any) => void;
+    /**
+     * Select value
+     */
+    value?: any;
+    /**
+     * Select placeholder text
+     */
+    placeholder?: string;
+    /**
      * Input Adornment to add on left
      */
     startAdornment?: any | undefined;

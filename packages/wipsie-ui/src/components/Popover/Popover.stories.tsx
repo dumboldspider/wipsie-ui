@@ -3,61 +3,16 @@ import React, { useState, useRef } from "react";
 import { Popover } from "./Popover";
 import { Button } from "../Button";
 import { Spacing } from "../Spacing";
-import { Fixed } from "../Fixed";
 import { IconButton } from "../IconButton";
-import { Container } from "../Container";
 import { Page } from "../Page";
 import { Grid } from "../Grid";
-import { Accordion } from "../Accordion";
 import { Flex } from "../Flex";
-import {
-  InfoCircleOutlined,
-  StepForwardOutlined,
-  RightOutlined,
-  LeftOutlined,
-  StepBackwardOutlined,
-  SyncOutlined,
-  HeartTwoTone,
-  CheckOutlined,
-  CloseOutlined,
-} from "@ant-design/icons";
+import { InfoCircleOutlined, RightOutlined } from "@ant-design/icons";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 
 export default {
   title: "Prototypes/Popover",
 };
-
-const panels = [
-  {
-    icon: <StepForwardOutlined />,
-    label: "Seriously, Don't Use Icon Fonts",
-    content:
-      'Icons are everywhere. These "little miracle workers" (as John Hicks described them) help us reinforce meaning in the interfaces we design and build. Their popularity in web design has never been greater; the conciseness and versatility of pictograms in particular make them a lovely fit for displays large and small. But icons on the web have had their fair share of challenges.',
-  },
-  {
-    icon: <SyncOutlined />,
-    label: "Screen Readers Actually Read That Stuff",
-    content:
-      'Most assistive devices will read aloud text inserted via CSS, and many of the Unicode characters icon fonts depend on are no exception. Best-case scenario, your "favorite" icon gets read aloud as "black favorite star." Worse-case scenario, it\'s read as "unpronounceable" or skipped entirely.',
-  },
-  {
-    icon: <CheckOutlined />,
-    label: "They Fail Poorly and Often",
-    content:
-      'When your icon font fails, the browser treats it like any other font and replaces it with a fallback. Best-case scenario, you\'ve chosen your fallback characters carefully and something weird-looking but communicative still loads. Worse-case scenario (and far more often), the user sees something completely incongruous, usually the dreaded "missing character" glyph.',
-  },
-  {
-    icon: <RightOutlined />,
-    label: "They're a Nightmare if You're Dyslexic",
-    content:
-      "Many dyslexic people find it helpful to swap out a website's typeface for something like OpenDyslexic. But icon fonts get replaced as well, which makes for a frustratingly broken experience.",
-  },
-  {
-    label: "There's Already a Better Way",
-    content:
-      "SVG is awesome for icons! It's a vector image format with optional support for CSS, JavaScript, reusability, accessibility and a bunch more. It was made for this sort of thing.",
-  },
-];
 
 export const WithBar = () => {
   return (
