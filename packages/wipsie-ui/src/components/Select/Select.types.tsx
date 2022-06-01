@@ -8,6 +8,10 @@ export type SelectProps = Modify<
     /**
      * Select change
      */
+    maxHeight?: number | string;
+    /**
+     * Select change
+     */
     onChange?: (value: any) => void;
     /**
      * Select value

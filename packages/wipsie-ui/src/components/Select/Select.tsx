@@ -33,8 +33,9 @@ export const Select: React.FC<SelectProps> = (props) => {
     onChange = null,
     children,
     className,
-    name,
-    id,
+    name = "select",
+    id = "",
+    maxHeight = 200,
     ...otherProps
   } = props;
 
@@ -50,6 +51,10 @@ export const Select: React.FC<SelectProps> = (props) => {
     selectedOption ? selectedOption.value : null
   );
   const selectRef = useRef(null);
+
+  function handleValue(value: any) {
+    return value ? (typeof value === "number" ? `${value}px` : value) : "0px";
+  }
 
   function handleBackgroundColor() {
     if (error) {
@@ -382,6 +387,8 @@ export const Select: React.FC<SelectProps> = (props) => {
           ${handleOptionsBackground()}
           ${handleOptionsBorderColor()}
           ${handleOptionsShape()}
+          max-height: ${handleValue(maxHeight)};
+          overflow-y: auto;
           z-index: 1;
         }
 
