@@ -1,6 +1,15 @@
 // from https://gist.github.com/renancouto/4675192
 export default function brightness(color, percent) {
-  var num = parseInt(color.replace("#", ""), 16),
+  color = color.replace("#", "");
+  color =
+    color.split("").length === 3
+      ? color
+          .split("")
+          .map((c) => c + c)
+          .join("")
+      : color;
+
+  var num = parseInt(color, 16),
     amt = Math.round(2.55 * percent),
     R = (num >> 16) + amt,
     B = ((num >> 8) & 0x00ff) + amt,

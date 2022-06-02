@@ -64,6 +64,7 @@ export * from "./components/SelectWithFilter";
 export * from "./components/InfinityLoader";
 export * from "./components/DatePicker";
 export * from "./components/TextEditable";
+export * from "./components/Blueprint";
 
 // @ UTILS
 export { default as responsive } from "./utils/responsive";
