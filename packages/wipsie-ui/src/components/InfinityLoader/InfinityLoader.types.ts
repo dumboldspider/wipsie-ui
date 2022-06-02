@@ -19,5 +19,7 @@ export type InfiniteLoaderType = {
   wrapperStyles?: React.CSSProperties;
   loadingStyles?: React.CSSProperties;
   listStyles?: React.CSSProperties;
-  renderItem?: (item: any) => React.ReactElement;
+  renderItem?: (item: any, index: number) => React.ReactElement;
+  renderParent?: (props: any) => React.ReactElement;
+  dependencies?: React.DependencyList | undefined;
 };
