@@ -61,10 +61,14 @@ export function InfinityLoader(props: InfinityLoaderProps) {
 
     getData(newPage)
       .then((res) => {
-        if (action === "add") {
-          setData([...data, ...res]);
-        } else if (action === "set") {
-          setData(res);
+        switch (action) {
+          case "add":
+            setData([...data, ...res]);
+            break;
+          default:
+          case "set":
+            setData(res);
+            break;
         }
 
         setLoading(false);
