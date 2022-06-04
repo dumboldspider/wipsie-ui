@@ -8,10 +8,6 @@ export * from "./TypingCompanion";
 // @ Hooks
 export * from "./hooks/useEditorNodes";
 
-// @ Renderers
-export * from "./renders/RenderElement";
-export * from "./renders/RenderLeaf";
-
 // @ Tools
 export * from "./tools/bold";
 export * from "./tools/italic";
@@ -23,6 +19,8 @@ export * from "./tools/list";
 export * from "./tools/link";
 export * from "./tools/image";
 export * from "./tools/indentation";
+export * from "./tools/mentions";
+export * from "./tools/spoiler";
 
 // @ Utils
 export * from "./utils/isMarkActive";
@@ -44,6 +42,7 @@ export * from "./utils/isJson";
 export * from "./plugins/withImages";
 export * from "./plugins/withLinks";
 export * from "./plugins/withKeyCommands";
+export * from "./plugins/withMentions";
 
 // @ Constants
 export * from "./base/constants";

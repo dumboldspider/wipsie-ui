@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@wipsie/ui";
 import { LinkOutlined } from "@ant-design/icons";
-import { insertLink, unwrapLink } from "./insertLink";
 import { LinkEditor } from "./LinkEditor";
 import { ReactEditor, useSlate } from "slate-react";
-import { LinkState } from "./LinkState";
-import { getLink } from "./getLink";
 import { Transforms } from "slate";
-import { isLinkActive } from "./isLinkActive";
+import { getLink, insertLink, isLinkActive, unwrapLink } from "./LinkUtils";
+import { LinkState } from "./Link.types";
 
 export const LinkButton = () => {
   const editor = useSlate();

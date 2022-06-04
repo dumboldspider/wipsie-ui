@@ -1,6 +1,3 @@
-// @ Rendering
-export * from "./BoldMark";
-
 // @ Component
 export * from "./BoldButton";
 

@@ -1,5 +1,5 @@
 // Generated with util/create-component.js
-import React from "react";
+import React, { Children, useRef, useState } from "react";
 import classnames from "classnames";
 import useTheme from "../../hooks/useTheme";
 import isThemePalette from "../../utils/isThemePalette";
@@ -9,6 +9,7 @@ import { SelectProps } from "./Select.types";
 
 export const Select: React.FC<SelectProps> = (props) => {
   const theme = useTheme();
+
   const {
     startAdornment = null,
     endAdornment = "▾",
@@ -22,15 +23,38 @@ export const Select: React.FC<SelectProps> = (props) => {
     align = "spaced",
     required = false,
     disabled = false,
+    placeholder = "Select...",
     error = false,
     success = false,
     helperText = null,
     wrapperProps = null,
     inputProps = null,
+    value = null,
+    onChange = null,
     children,
     className,
+    name = "select",
+    id = "",
+    maxHeight = 200,
     ...otherProps
   } = props;
+
+  const options = Children.toArray(children)
+    .filter((child: any) => child.type === "option")
+    .map((child: any) => child.props);
+
+  const [visible, setVisible] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(
+    options.find((option) => option.value == value) || null
+  );
+  const [selectedValue, setSelectedValue] = useState(
+    selectedOption ? selectedOption.value : null
+  );
+  const selectRef = useRef(null);
+
+  function handleValue(value: any) {
+    return value ? (typeof value === "number" ? `${value}px` : value) : "0px";
+  }
 
   function handleBackgroundColor() {
     if (error) {
@@ -61,6 +85,31 @@ export const Select: React.FC<SelectProps> = (props) => {
         };`;
       default:
         return "";
+    }
+  }
+
+  function handleOptionsBackground() {
+    return `background: ${theme.palette.highlight};`;
+  }
+
+  function handleOptionsTextColor() {
+    return `color: ${theme.palette.text};`;
+  }
+
+  function handleOptionsBorderColor() {
+    return `border-color: ${theme.palette.shade};`;
+  }
+
+  function handleOptionsShape() {
+    switch (shape) {
+      case "round":
+        return "border-radius: 1em;";
+      case "rounded":
+        return "border-radius: 0.7em;";
+      case "square":
+        return "border-radius: 0em;";
+      default:
+        return "border-radius: 0.7em;";
     }
   }
 
@@ -144,9 +193,9 @@ export const Select: React.FC<SelectProps> = (props) => {
 
     switch (variant) {
       case "contained":
-        return `color: ${contrast(
-          isThemePalette(color) ? theme.palette[color][500] : color
-        )};`;
+        return `color: ${
+          isThemePalette(color) ? theme.palette[color][100] : color
+        };`;
       case "outlined":
       case "ghost":
       default:
@@ -161,9 +210,9 @@ export const Select: React.FC<SelectProps> = (props) => {
     if (color === "basic") return `color: ${theme.palette.subtext};`; // if value is basic
     switch (variant) {
       case "contained":
-        return `color: ${contrast(
+        return `color: ${
           isThemePalette(color) ? theme.palette[color][500] : color
-        )};`;
+        };`;
       case "outlined":
       case "ghost":
       default:
@@ -192,38 +241,23 @@ export const Select: React.FC<SelectProps> = (props) => {
   function handlePadding() {
     switch (size) {
       case "xlarge":
-        return "padding: 12px 0px;";
+        return "padding: 12px 16px;";
       case "large":
-        return "padding: 10px 0px;";
+        return "padding: 10px 14px;";
       case "small":
-        return "padding: 6px 0px;";
+        return "padding: 6px 8px;";
       case "mini":
-        return "padding: 4px 0px;";
+        return "padding: 4px 6px;";
       case "medium":
       default:
-        return "padding: 8px 0px;";
-    }
-  }
-  function handlePaddingWrapper() {
-    switch (size) {
-      case "xlarge":
-        return "padding: 0px 16px;";
-      case "large":
-        return "padding: 0px 14px;";
-      case "small":
-        return "padding: 0px 8px;";
-      case "mini":
-        return "padding: 0px 6px;";
-      case "medium":
-      default:
-        return "padding: 0px 10px;";
+        return "padding: 8px 10px;";
     }
   }
 
   function handleShape() {
     switch (shape) {
       case "round":
-        return "border-radius: 10em;";
+        return "border-radius: 2em;";
       case "rounded":
         return "border-radius: 0.7em;";
       case "square":
@@ -252,64 +286,136 @@ export const Select: React.FC<SelectProps> = (props) => {
       data-testid="Wps-SelectWrapper"
       className={classnames("Wps-SelectWrapper")}
       {...wrapperProps}
+      onClick={() => {
+        if (!disabled) {
+          setVisible(!visible);
+        }
+      }}
     >
       <style jsx>{`
         .Wps-SelectWrapper {
-          ${handleBorderColor()}
-          ${handleShape()}
-          ${handlePaddingWrapper()}
-          ${handleBackgroundColor()}
-          border-style: solid;
-          border-width: 2px;
           position: relative;
-          /* overflow: hidden; */
-          display: flex;
-          flex-wrap: nowrap;
-          align-items: center;
-          ${handleAlign()}
+          display: inline-block;
           height: fit-content;
           width: ${fullWidth ? "100%" : "max-content"};
           transition: all 250ms ease 0ms;
-          ${handleTextColor()}
+        }
+      `}</style>
+
+      <div className="Wps-SelectedValue">
+        {startAdornment && (
+          <span style={{ paddingRight: 5 }}>{startAdornment}</span>
+        )}
+
+        {selectedOption?.children || placeholder}
+
+        {endAdornment && <span style={{ paddingLeft: 5 }}>{endAdornment}</span>}
+      </div>
+
+      <style jsx>{`
+        .Wps-SelectedValue {
+          width: 100%;
+          height: 100%;
+          cursor: ${disabled ? "not-allowed" : "pointer"};
+          transition: all 250ms ease 0ms;
+          border-style: solid;
+          border-width: 2px;
+          display: flex;
+          flex-wrap: nowrap;
+          align-items: center;
+          ${handleBorderColor()}
+          ${handleShape()}
+          ${handleBackgroundColor()}
+          ${handleFontSize()}
+          ${handleAlign()}
+          ${handlePadding()}
+          ${selectedValue ? handleTextColor() : handlePlaceholderColor()}
           ${handleDisabledColors()}
         }
       `}</style>
-      {startAdornment && (
-        <span style={{ paddingRight: 5 }}>{startAdornment}</span>
-      )}
+
       <select
+        name={name}
+        id={id}
+        className="Wps-Select"
         data-testid="Wps-Select"
-        className={classnames("Wps-Select", className)}
+        ref={selectRef}
+        value={selectedValue}
         disabled={disabled}
         required={required}
         {...inputProps}
         {...otherProps}
       >
-        {children}
+        {options.map((option) => (
+          <option key={option.value} {...option} />
+        ))}
       </select>
+
       <style jsx>{`
         .Wps-Select {
-          transition: all 250ms ease 0ms;
-          background: transparent;
-          border: none;
-          width: 100%;
-          -webkit-appearance: none;
-          ${handleFontSize()};
-          ${handlePadding()}
-        }
-
-        .Wps-Select::placeholder {
-          ${handlePlaceholderColor()}
-        }
-
-        .Wps-Select:disabled,
-        .Wps-Select[disabled] {
-          cursor: not-allowed;
+          display: none;
         }
       `}</style>
-      {endAdornment && <span style={{ paddingLeft: 5 }}>{endAdornment}</span>}
 
-      {helperText && <div className="Wps-Helper">{helperText}</div>}
+      {visible && (
+        <div className="Wps-SelectItems">
+          {options.map((option) => (
+            <div
+              key={option.value}
+              className="Wps-SelectItem"
+              onClick={() => {
+                if (!disabled) {
+                  setSelectedOption(option);
+                  setSelectedValue(option.value);
+                  onChange && onChange(option.value);
+                }
+                setVisible(false);
+              }}
+              {...option}
+            />
+          ))}
+        </div>
+      )}
+
+      <style jsx>{`
+        .Wps-SelectItems {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          border-width: 1px;
+          border-style: solid;
+          ${handleOptionsBackground()}
+          ${handleOptionsBorderColor()}
+          ${handleOptionsShape()}
+          max-height: ${handleValue(maxHeight)};
+          overflow-y: auto;
+          z-index: 1;
+        }
+
+        .Wps-SelectItem {
+          width: 100%;
+          height: 100%;
+          padding: 10px;
+          border-bottom-width: 1px;
+          border-bottom-style: solid;
+          ${handleFontSize()}
+          ${handlePadding()}
+          ${handleOptionsTextColor()}
+          ${handleOptionsBorderColor()}
+          cursor: pointer;
+        }
+
+        .Wps-SelectItem:last-child {
+          border-bottom-width: 0px;
+          border-bottom-style: none;
+        }
+
+        .Wps-Wps-SelectItem:hover {
+          background-color: rgba(0, 0, 0, 0.1);
+        }
+      `}</style>
+
+      <div className="Wps-Helper">{helperText}</div>
       <style jsx>{`
         .Wps-Helper {
           position: absolute;
@@ -317,8 +423,7 @@ export const Select: React.FC<SelectProps> = (props) => {
           left: 0;
           font-size: 12px;
           margin-top: 4px;
-          z-index: 1;
-          ${handleHelperColor()}s
+          ${handleHelperColor()}
         }
       `}</style>
     </div>

@@ -1,6 +1,3 @@
-// @ Rendering
-export * from "./StrikethroughMark";
-
 // @ Component
 export * from "./StrikethroughButton";
 

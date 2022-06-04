@@ -2,9 +2,9 @@
 import React from "react";
 import classnames from "classnames";
 import useTheme from "../../hooks/useTheme";
-import { TabProps } from "./Tabs.types";
+import { TabsProps } from "./Tabs.types";
 
-export const Tab: React.FC<TabProps> = (props) => {
+export const Tab: React.FC<TabsProps> = (props) => {
   const theme = useTheme();
   const { children, className, ...otherProps } = props;
   return (

@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { useElementOnScreen } from "../../hooks/useElementOnScreen";
 import { InfinityLoaderProps } from "./InfinityLoader.types";
 
+type ActionVariants = "add" | "set";
+
 export function InfinityLoader(props: InfinityLoaderProps) {
   var initialObserverOptions = {
     root: null,
@@ -11,7 +13,7 @@ export function InfinityLoader(props: InfinityLoaderProps) {
   };
 
   const {
-    totalPages = 9999,
+    totalPages = -1,
     observerOptions,
     children,
     loadingComponent,
@@ -24,6 +26,8 @@ export function InfinityLoader(props: InfinityLoaderProps) {
     loadingStyles = {},
     listStyles = {},
     renderItem = null,
+    renderParent = "div",
+    dependencies = [],
   } = props;
 
   const { containerRef, isVisible } = useElementOnScreen(
@@ -34,12 +38,22 @@ export function InfinityLoader(props: InfinityLoaderProps) {
   const [loading, setLoading] = useState(false);
   const [page, setPage] = useState(0);
 
+  // Data fetch effect
   useEffect(() => {
-    loadData(page);
+    loadData(page, "add");
   }, [isVisible]);
 
-  function loadData(newPage: number) {
-    if (newPage > totalPages) return;
+  // Reload dependencies Effect
+  useEffect(() => {
+    setData([]);
+    setPage(0);
+    loadData(0, "set");
+  }, [...dependencies]);
+
+  function loadData(newPage: number, action: ActionVariants = "add") {
+    // if the new page to load is bigger than the total pages, do nothing
+    // ignore when total pages is infinite
+    if (newPage > totalPages && totalPages !== -1) return;
 
     setLoading(true);
 
@@ -47,7 +61,16 @@ export function InfinityLoader(props: InfinityLoaderProps) {
 
     getData(newPage)
       .then((res) => {
-        setData([...data, ...res]);
+        switch (action) {
+          case "add":
+            setData([...data, ...res]);
+            break;
+          default:
+          case "set":
+            setData(res);
+            break;
+        }
+
         setLoading(false);
         setPage(newPage + 1);
         onSuccess && onSuccess(res);
@@ -58,22 +81,37 @@ export function InfinityLoader(props: InfinityLoaderProps) {
       });
   }
 
+  const baseParentStyles: React.CSSProperties = {
+    display: "flex",
+    flexDirection: "column",
+  };
+
+  const ParentComponent = renderParent || "div";
+
   return (
     <div style={wrapperStyles}>
-      <div style={{ display: "flex", flexDirection: "column", ...listStyles }}>
+      <ParentComponent
+        style={
+          renderParent === "div" ? { ...baseParentStyles, ...listStyles } : {}
+        }
+      >
         {children}
-        {data.map((value) => {
+        {data.map((value, index) => {
           return renderItem ? (
-            renderItem(value)
+            renderItem(value, index)
           ) : (
             <div>{JSON.stringify(value)}</div>
           );
         })}
-      </div>
 
-      <div ref={containerRef} style={{ width: "100%", ...loadingStyles }}>
+        {!loading && (
+          <div
+            ref={containerRef}
+            style={{ width: "100%", ...loadingStyles }}
+          ></div>
+        )}
         {loading && showLoading && loadingComponent}
-      </div>
+      </ParentComponent>
     </div>
   );
 }

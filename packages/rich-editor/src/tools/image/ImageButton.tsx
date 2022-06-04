@@ -2,22 +2,8 @@ import React, { useState } from "react";
 
 import { ImageEditor } from "./ImageEditor";
 import { PictureOutlined } from "@ant-design/icons";
-import { Button, ButtonProps } from "@wipsie/ui";
-
-export interface ImageButtonProps {
-  uploadUrl: string;
-  accessKey: string;
-  acceptedFormats?: string;
-  maxFileSize?: number;
-  content?: string | Element;
-  startIcon?: ButtonProps["startIcon"];
-  endIcon?: ButtonProps["endIcon"];
-  shape?: ButtonProps["shape"];
-  size?: ButtonProps["size"];
-  backgroundColor?: ButtonProps["backgroundColor"];
-  variant?: ButtonProps["variant"];
-  color?: ButtonProps["color"];
-}
+import { Button } from "@wipsie/ui";
+import { ImageButtonProps } from "./Image.types";
 
 export function ImageButton({
   accessKey = null,

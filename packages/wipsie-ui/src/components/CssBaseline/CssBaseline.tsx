@@ -243,9 +243,33 @@ const CssBaseline: React.FC<React.PropsWithChildren<{}>> = ({ children }) => {
         blockquote :global(*:last-child) {
           margin-bottom: 0;
         }
+
+        /* Selection */
         ::selection {
           background-color: ${theme.palette.primary[500]};
           color: ${theme.palette.background};
+        }
+
+        /* ScrollBars */
+        /* Works on Firefox */
+        * {
+          scrollbar-width: thin;
+          scrollbar-color: ${theme.palette.basic[900]}
+            ${theme.palette.basic.shadow};
+        }
+
+        /* Works on Chrome, Edge, and Safari */
+        *::-webkit-scrollbar {
+          width: 6px;
+        }
+
+        *::-webkit-scrollbar-track {
+          background: ${theme.palette.basic.shadow};
+        }
+
+        *::-webkit-scrollbar-thumb {
+          background-color: ${theme.palette.basic[900]};
+          border-radius: 20px;
         }
       `}</style>
     </React.Fragment>

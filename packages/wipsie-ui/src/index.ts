@@ -11,6 +11,8 @@ export { default as useScrollBlock } from "./hooks/useScrollBlock";
 export { default as useKeyPress } from "./hooks/useKeyPress";
 export { default as useWidth } from "./hooks/useWidth";
 export { default as useVisibility } from "./hooks/useVisibility";
+export { default as useKeyboard } from "./hooks/useKeyboard";
+export { default as useOnClickOutside } from "./hooks/useOnClickOutside";
 export * from "./hooks/useElementOnScreen";
 
 // @ COMPONENTS
@@ -62,6 +64,7 @@ export * from "./components/SelectWithFilter";
 export * from "./components/InfinityLoader";
 export * from "./components/DatePicker";
 export * from "./components/TextEditable";
+export * from "./components/Blueprint";
 
 // @ UTILS
 export { default as responsive } from "./utils/responsive";
