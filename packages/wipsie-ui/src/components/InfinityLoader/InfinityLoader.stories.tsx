@@ -57,20 +57,22 @@ export const CustomGrid = () => {
 
       <InfinityLoader
         totalPages={999}
-        renderParent={(props) => {
-          return <Grid container {...props} />;
-        }}
+        renderParent={(props) => (
+          <Grid container style={{ backgroundColor: "red" }}>
+            {props.children}
+          </Grid>
+        )}
         renderItem={(item, index) => (
           <Grid item xs={6}>
             <Container backgroundColor={variable ? "primary" : "shade"} mb={2}>
-              {/* {item.title} */}
+              {item.title}
               {index}
             </Container>
           </Grid>
         )}
         dependencies={[variable]}
         loadingComponent={<Loading />}
-        loadingStyles={{ backgroundColor: "red", padding: 20 }}
+        loadingStyles={{ backgroundColor: "green", padding: 20 }}
         getData={(nextPage) => {
           return new Promise(async (resolve, reject) => {
             try {
