@@ -20,6 +20,6 @@ export type InfiniteLoaderType = {
   loadingStyles?: React.CSSProperties;
   listStyles?: React.CSSProperties;
   renderItem?: (item: any, index: number) => JSX.Element;
-  renderParent?: (props: React.HTMLProps<HTMLDivElement>) => JSX.Element;
+  renderParent?: (props: any) => JSX.Element;
   dependencies?: React.DependencyList | undefined;
 };
