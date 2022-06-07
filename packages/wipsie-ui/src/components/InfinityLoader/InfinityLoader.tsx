@@ -26,7 +26,9 @@ export function InfinityLoader(props: InfinityLoaderProps) {
     loadingStyles = {},
     listStyles = {},
     renderItem = null,
-    renderParent = "div",
+    renderParent = (props: React.HTMLProps<HTMLDivElement>) => (
+      <div {...props} />
+    ),
     dependencies = [],
   } = props;
 
@@ -86,32 +88,36 @@ export function InfinityLoader(props: InfinityLoaderProps) {
     flexDirection: "column",
   };
 
-  const ParentComponent = renderParent || "div";
+  const parentChild = (
+    <>
+      {children}
+      {data.map((value, index) => {
+        return renderItem ? (
+          renderItem(value, index)
+        ) : (
+          <div>{JSON.stringify(value)}</div>
+        );
+      })}
+
+      {!loading && (
+        <div
+          ref={containerRef}
+          style={{ width: "100%", ...loadingStyles }}
+        ></div>
+      )}
+      {loading && showLoading && loadingComponent}
+    </>
+  );
 
   return (
     <div style={wrapperStyles}>
-      <ParentComponent
-        style={
-          renderParent === "div" ? { ...baseParentStyles, ...listStyles } : {}
-        }
-      >
-        {children}
-        {data.map((value, index) => {
-          return renderItem ? (
-            renderItem(value, index)
-          ) : (
-            <div>{JSON.stringify(value)}</div>
-          );
-        })}
-
-        {!loading && (
-          <div
-            ref={containerRef}
-            style={{ width: "100%", ...loadingStyles }}
-          ></div>
-        )}
-        {loading && showLoading && loadingComponent}
-      </ParentComponent>
+      {renderParent({
+        children: parentChild,
+        style: {
+          ...baseParentStyles,
+          ...listStyles,
+        },
+      })}
     </div>
   );
 }
