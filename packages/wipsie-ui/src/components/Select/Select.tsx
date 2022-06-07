@@ -93,7 +93,7 @@ export const Select: React.FC<SelectProps> = (props) => {
   }
 
   function handleOptionsTextColor() {
-    return `color: ${theme.palette.text};`;
+    return `color: ${theme.palette.text}; stroke: ${theme.palette.text};`;
   }
 
   function handleOptionsBorderColor() {
@@ -119,15 +119,18 @@ export const Select: React.FC<SelectProps> = (props) => {
       case "contained":
         return `background: ${opacity(theme.palette.shade, 100)};
         color: ${opacity(theme.palette.text, 40)};
+        stroke: ${opacity(theme.palette.text, 40)};
         border-color: ${opacity(theme.palette.shade, 100)};
         `;
       case "outlined":
         return `background: ${opacity(theme.palette.shade, 100)};
         color: ${opacity(theme.palette.text, 40)};
+        stroke: ${opacity(theme.palette.text, 40)};
         border-color: ${opacity(theme.palette.text, 40)};`;
       case "ghost":
         return `background: ${"transparent"};
         color: ${opacity(theme.palette.text, 50)};
+        stroke: ${opacity(theme.palette.text, 50)};
         border-color: ${"transparent"};`;
       default:
         return "";
@@ -176,13 +179,17 @@ export const Select: React.FC<SelectProps> = (props) => {
       case "contained":
         return `color: ${contrast(
           isThemePalette(color) ? theme.palette[color][500] : color
+        )};
+        stroke: ${contrast(
+          isThemePalette(color) ? theme.palette[color][500] : color
         )};`;
       case "outlined":
       case "ghost":
       default:
         return `color: ${
           isThemePalette(color) ? theme.palette[color][500] : color
-        };`;
+        };
+        stroke: ${isThemePalette(color) ? theme.palette[color][500] : color};`;
     }
   }
 

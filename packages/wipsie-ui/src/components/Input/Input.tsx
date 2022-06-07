@@ -70,15 +70,18 @@ export const Input: React.FC<InputProps> = (props) => {
       case "contained":
         return `background: ${opacity(theme.palette.shade, 100)};
         color: ${opacity(theme.palette.text, 40)};
+        stroke: ${opacity(theme.palette.text, 40)};
         border-color: ${opacity(theme.palette.shade, 100)};
         `;
       case "outlined":
         return `background: ${opacity(theme.palette.shade, 100)};
         color: ${opacity(theme.palette.text, 40)};
+        stroke: ${opacity(theme.palette.text, 40)};
         border-color: ${opacity(theme.palette.text, 40)};`;
       case "ghost":
         return `background: ${"transparent"};
         color: ${opacity(theme.palette.text, 50)};
+        stroke: ${opacity(theme.palette.text, 50)};
         border-color: ${"transparent"};`;
       default:
         return "";
@@ -120,12 +123,16 @@ export const Input: React.FC<InputProps> = (props) => {
   }
 
   function handleTextColor() {
-    if (textColor) return `color: ${textColor};`; // if value is defined by props
-    if (color === "basic") return `color: ${theme.palette.text};`; // if value is basic
+    if (textColor) return `color: ${textColor}; stroke: ${textColor};`; // if value is defined by props
+    if (color === "basic")
+      return `color: ${theme.palette.text}; stroke: ${theme.palette.text};`; // if value is basic
 
     switch (variant) {
       case "contained":
         return `color: ${contrast(
+          isThemePalette(color) ? theme.palette[color][500] : color
+        )};
+        stroke: ${contrast(
           isThemePalette(color) ? theme.palette[color][500] : color
         )};`;
       case "outlined":
@@ -133,7 +140,8 @@ export const Input: React.FC<InputProps> = (props) => {
       default:
         return `color: ${
           isThemePalette(color) ? theme.palette[color][500] : color
-        };`;
+        };
+        stroke: ${isThemePalette(color) ? theme.palette[color][500] : color};`;
     }
   }
 

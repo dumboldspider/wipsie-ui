@@ -74,3 +74,4 @@ export { default as brightness } from "./utils/brightness";
 export * from "./utils/colorWithSeed";
 export * from "./utils/responsive";
 export * from "./utils/environment";
+export type { Modify } from "./types/modify";
