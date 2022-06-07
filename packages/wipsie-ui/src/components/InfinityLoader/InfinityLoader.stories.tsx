@@ -56,12 +56,16 @@ export const CustomGrid = () => {
       <Button onClick={() => setVariable(!variable)}>change</Button>
 
       <InfinityLoader
-        totalPages={999}
         renderParent={(props) => (
-          <Grid container style={{ backgroundColor: "red" }}>
-            {props.children}
-          </Grid>
+          <Grid
+            {...props}
+            container
+            style={{
+              backgroundColor: "red",
+            }}
+          />
         )}
+        totalPages={999}
         renderItem={(item, index) => (
           <Grid item xs={6}>
             <Container backgroundColor={variable ? "primary" : "shade"} mb={2}>
