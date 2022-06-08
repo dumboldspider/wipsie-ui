@@ -1,0 +1,81 @@
+{
+  "name": "package-seed",
+  "version": "1.0.211",
+  "repository": "https://github.com/dumboldspider/wipsie-ui.git",
+  "author": "Daniel Brown <dannbrown.com>",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "dist": "npm run clear && rollup -c",
+    "clear": "rimraf ./dist ./types",
+    "test": "echo \"testing $0\"",
+    "build:types": "tsc -p ./buildconfig -d --emitDeclarationOnly --outDir types && cp -r ./types/ ./dist",
+    "build:dev-types": "tsc -d --outDir dist/esm",
+    "pack": "yarn run clear && yarn run dist && yarn run build:types && npm pack"
+  },
+  "bugs": {
+    "url": "https://github.com/dumboldspider/wipsie-ui/issues"
+  },
+  "homepage": "https://github.com/dumboldspider/wipsie-ui#readme",
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "classnames": "^2.2.5",
+    "lodash": "^4.17.21",
+    "slate": "0.62.0",
+    "slate-history": "0.62.0",
+    "slate-react": "0.62.0"
+  },
+  "peerDependencies": {
+    "@wipsie/ui": "*",
+    "react": "latest",
+    "react-dom": "latest",
+    "slate": "0.62.0",
+    "slate-history": "0.62.0",
+    "slate-react": "0.62.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-react": "^7.14.5",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "@storybook/addon-essentials": "^6.3.10",
+    "@storybook/addon-links": "^6.3.10",
+    "@storybook/react": "^6.3.7",
+    "@svgr/rollup": "^5.5.0",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@types/jest": "^24.9.1",
+    "@types/react": "^16.14.14",
+    "@types/react-dom": "^16.9.14",
+    "@types/slate": "^0.47.11",
+    "@types/slate-react": "^0.50.1",
+    "babel-loader": "^8.2.2",
+    "babel-preset-react-app": "^10.0.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.6.3",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.56.3",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^3.1.8",
+    "rollup-plugin-scss": "^3.0.0",
+    "rollup-plugin-svg": "^2.0.0",
+    "rollup-plugin-terser": "^7.0.2",
+    "rollup-plugin-typescript2": "^0.29.0",
+    "rollup-plugin-url": "^3.0.1",
+    "sass": "^1.49.11",
+    "sass-loader": "^10.2.0",
+    "ts-jest": "^26.5.6",
+    "typescript": "^4.4.2"
+  }
+}
