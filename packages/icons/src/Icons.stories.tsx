@@ -1,15 +1,7 @@
 // Generated with util/create-component.js
 import React from "react";
 import * as Icon from "./index";
-import {
-  Container,
-  Typography,
-  Grid,
-  Spacing,
-  Flex,
-  Input,
-  IconButton,
-} from "@wipsie/ui";
+import { Container, Typography, Grid, Spacing, Flex, Input } from "@wipsie/ui";
 
 export default {
   title: "Wipsie Icons/Icons",
