@@ -37,6 +37,7 @@ export * from "./utils/saveToServer";
 export * from "./utils/selectLocalImage";
 export * from "./utils/selectLocalImage";
 export * from "./utils/isJson";
+export * from "./utils/getEditorNodes";
 
 // @ Plugins
 export * from "./plugins/withImages";
