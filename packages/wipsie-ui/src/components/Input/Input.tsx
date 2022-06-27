@@ -10,6 +10,7 @@ import { InputProps } from "./Input.types";
 export const Input: React.FC<InputProps> = (props) => {
   const theme = useTheme();
   const {
+    ref = null,
     startAdornment = null,
     endAdornment = null,
     fullWidth = false,
@@ -286,6 +287,7 @@ export const Input: React.FC<InputProps> = (props) => {
         <span style={{ paddingRight: 5 }}>{startAdornment}</span>
       )}
       <input
+        ref={ref}
         data-testid="Wps-Input"
         className={classnames("Wps-Input", className)}
         disabled={disabled}
