@@ -60,8 +60,6 @@ export const HorizontalList: React.FC<HorizontalListProps> = (props) => {
       ? setIsStart(true)
       : setIsStart(false);
 
-    // console.log(isStart, isEnd);
-
     scrollEl.current.scrollLeft = prevScrollPos;
   };
 
