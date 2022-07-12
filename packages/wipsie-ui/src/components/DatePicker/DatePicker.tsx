@@ -192,7 +192,6 @@ export function DatePicker({
   useEffect(() => {
     function onclick(event) {
       if (referenceCalendar && referenceCalendar.current) {
-        console.log(referenceCalendar.current.contains(event.target));
         if (!referenceCalendar.current.contains(event.target)) {
           onCancel();
         }

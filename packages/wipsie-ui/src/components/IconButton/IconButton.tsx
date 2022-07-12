@@ -176,15 +176,30 @@ export const IconButton: React.FC<IconButtonProps> = (props) => {
           isThemePalette(backgroundColor)
             ? theme.palette[backgroundColor][500]
             : backgroundColor
+        )};
+        stroke: ${contrast(
+          isThemePalette(backgroundColor)
+            ? theme.palette[backgroundColor][500]
+            : backgroundColor
         )};`;
       case "outlined":
         return `color: ${
           isThemePalette(backgroundColor)
             ? theme.palette[backgroundColor][500]
             : backgroundColor
+        };
+        stroke: ${
+          isThemePalette(backgroundColor)
+            ? theme.palette[backgroundColor][500]
+            : backgroundColor
         };`;
       case "ghost":
         return `color: ${
+          isThemePalette(backgroundColor)
+            ? theme.palette[backgroundColor][500]
+            : backgroundColor
+        };
+        stroke: ${
           isThemePalette(backgroundColor)
             ? theme.palette[backgroundColor][500]
             : backgroundColor

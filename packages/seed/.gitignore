@@ -1,0 +1,8 @@
+node_modules
+example-delete
+storybook-static
+/dist
+
+/types
+
+wipsie-rich-editor-*.tgz

@@ -60,19 +60,27 @@ export const Typography: React.FC<TypographyProps> = (props) => {
     if (!color) return `color: ${theme.palette.text};`;
     switch (color) {
       case "text":
-        return `color: ${theme.palette.text};`;
+        return `color: ${theme.palette.text};
+                stroke: ${theme.palette.text}`;
       case "subtext":
-        return `color: ${theme.palette.subtext};`;
+        return `color: ${theme.palette.subtext};
+                stroke: ${theme.palette.subtext}`;
       case "background":
-        return `color: ${theme.palette.background};`;
+        return `color: ${theme.palette.background};
+                stroke: ${theme.palette.background}`;
       case "highlight":
-        return `color: ${theme.palette.highlight};`;
+        return `color: ${theme.palette.highlight};
+                stroke: ${theme.palette.highlight}`;
       case "shade":
-        return `color: ${theme.palette.shade};`;
+        return `color: ${theme.palette.shade};
+                stroke: ${theme.palette.shade}`;
       default:
         return `color: ${
           isThemePalette(color) ? theme.palette[color][500] : color
-        };`;
+        };
+                stroke: ${
+                  isThemePalette(color) ? theme.palette[color][500] : color
+                }`;
     }
   }
 

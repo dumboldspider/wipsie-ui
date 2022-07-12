@@ -32,7 +32,6 @@ export const Accordion: React.FC<AccordionProps> = (props) => {
 
   function activateTab(index: number) {
     setActiveTab(activeTab === index ? -1 : index);
-    console.log(index, activeTab);
   }
 
   return (
@@ -107,7 +106,6 @@ const Panel = (props) => {
       if (internalRef.current) {
         const internalHeight = internalRef.current.scrollHeight;
         setHeight(internalHeight);
-        console.log(internalHeight);
       }
     }, 333);
   }, []);

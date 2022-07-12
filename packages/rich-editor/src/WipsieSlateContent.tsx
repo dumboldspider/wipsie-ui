@@ -66,7 +66,6 @@ export const WipsieSlateContent = ({
   const pluginRenderLeafs = useCallback((props) => {
     const { leaf, children: originalChildren, attributes } = props;
     const leafKeys = Object.keys(leaf);
-    console.log("leafKeys", leafKeys);
 
     // wrap and rewrap the mark according to the type
     let children = <span {...attributes}>{originalChildren}</span>;

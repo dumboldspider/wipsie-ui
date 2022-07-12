@@ -79,10 +79,8 @@ export const CheckBoxGroup: React.FC<CheckBoxGroupProps> = (props) => {
     if (newSelectedIndex.length <= max) {
       setSelectedIndex(newSelectedIndex);
       onChange(newSelectedIndex);
-      console.log(newSelectedIndex);
     } else {
       onChange([...selectedIndex]);
-      console.log([...selectedIndex]);
     }
   }
 

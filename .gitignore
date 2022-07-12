@@ -68,6 +68,12 @@ lib-esm
 
 *.tsbuildinfo
 
+# turbo
+.turbo
+
+# static export
+_static
+
 # v4 version upgrade additions:
 storybook-static
 

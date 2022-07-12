@@ -98,14 +98,6 @@ export function InfinityLoader(props: InfinityLoaderProps) {
           <div>{JSON.stringify(value)}</div>
         );
       })}
-
-      {!loading && (
-        <div
-          ref={containerRef}
-          style={{ width: "100%", ...loadingStyles }}
-        ></div>
-      )}
-      {loading && showLoading && loadingComponent}
     </>
   );
 
@@ -118,6 +110,14 @@ export function InfinityLoader(props: InfinityLoaderProps) {
           ...listStyles,
         },
       })}
+
+      {!loading && (
+        <div
+          ref={containerRef}
+          style={{ width: "100%", ...loadingStyles }}
+        ></div>
+      )}
+      {loading && showLoading && loadingComponent}
     </div>
   );
 }

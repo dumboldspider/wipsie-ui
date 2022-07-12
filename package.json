@@ -1,5 +1,5 @@
 {
-  "name": "wipsie-lerna-typescript",
+  "name": "wipsie-turbo-typescript",
   "version": "2.0.0",
   "description": "Monorepo with Lerna, TypeScript and Storybook for Wipsie Packages",
   "main": "index.js",
@@ -8,28 +8,26 @@
   "license": "MIT",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/*",
+    "examples/*"
   ],
-  "resolutions": {
-    "babel-loader": "8.1.0"
-  },
   "scripts": {
-    "diff": "lerna diff",
-    "prestart": "yarn libbuild",
-    "build": "lerna run build --stream",
-    "start": "lerna run start --stream",
-    "pack": "lerna run pack --stream",
-    "new-version": "lerna version --conventional-commits --yes",
-    "pack:new": "yarn run new-version && yarn run pack",
+    "pack": "turbo run pack --concurrency=1",
+    "build": "turbo run build --parallel",
+    "dev": "turbo run dev --parallel",
+    "lint": "turbo run lint",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "storybook": "start-storybook -p 6006 -s ./.storybook/public",
     "storybook:build": "build-storybook -s ./.storybook/public -o storybook-static ",
     "storybook:start": "yarn run storybook:build && serve storybook-static",
-    "build-storybook": "build-storybook",
-    "pack:ui": "yarn run new-version && yarn workspace @wipsie/ui run pack",
-    "pack:shared": "yarn run new-version && yarn workspace @wipsie/shared run pack",
-    "pack:editor": "yarn run new-version && yarn workspace @wipsie/rich-editor run pack"
+    "build-storybook": "build-storybook"
+  },
+  "resolutions": {
+    "babel-loader": "8.1.0"
   },
   "devDependencies": {
+    "prettier": "latest",
+    "turbo": "latest",
     "@babel/cli": "^7.14.5",
     "@babel/plugin-proposal-object-rest-spread": "^7.15.6",
     "@babel/plugin-proposal-private-property-in-object": "^7.16.7",
@@ -76,7 +74,6 @@
     "lerna": "^4.0.0",
     "mini-css-extract-plugin": "^2.4.6",
     "postcss-loader": "^6.2.1",
-    "prettier": "^2.3.1",
     "rimraf": "^3.0.2",
     "sass": "^1.47.0",
     "sass-loader": "^12.4.0",
@@ -88,5 +85,10 @@
     "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^3.3.11",
     "webpack-merge": "^5.8.0"
-  }
+  },
+  "engines": {
+    "npm": ">=7.0.0",
+    "node": ">=14.0.0"
+  },
+  "packageManager": "yarn@1.22.18"
 }

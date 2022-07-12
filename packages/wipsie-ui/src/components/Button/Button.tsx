@@ -141,14 +141,17 @@ const WuiButton: React.FC<ButtonProps> = (props) => {
       case "contained":
         return `background: ${opacity(theme.palette.shade, 100)};
         color: ${opacity(theme.palette.text, 40)};
+        stroke: ${opacity(theme.palette.text, 40)};
         border-color: ${opacity(theme.palette.shade, 100)};`;
       case "outlined":
         return `background: ${opacity(theme.palette.shade, 100)};
         color: ${opacity(theme.palette.text, 40)};
+        stroke: ${opacity(theme.palette.text, 40)};
         border-color: ${opacity(theme.palette.text, 40)};`;
       case "ghost":
         return `background: ${"transparent"};
         color: ${opacity(theme.palette.text, 50)};
+        stroke: ${opacity(theme.palette.text, 50)};
         border-color: ${"transparent"};`;
       default:
         return "";
@@ -209,8 +212,18 @@ const WuiButton: React.FC<ButtonProps> = (props) => {
               isThemePalette(textColor)
                 ? theme.palette[textColor][500]
                 : textColor
+            };
+            stroke: ${
+              isThemePalette(textColor)
+                ? theme.palette[textColor][500]
+                : textColor
             };`
           : `color: ${contrast(
+              isThemePalette(backgroundColor)
+                ? theme.palette[backgroundColor][500]
+                : backgroundColor
+            )};
+            stroke: ${contrast(
               isThemePalette(backgroundColor)
                 ? theme.palette[backgroundColor][500]
                 : backgroundColor
@@ -221,8 +234,18 @@ const WuiButton: React.FC<ButtonProps> = (props) => {
               isThemePalette(textColor)
                 ? theme.palette[textColor][500]
                 : textColor
+            };
+            stroke: ${
+              isThemePalette(textColor)
+                ? theme.palette[textColor][500]
+                : textColor
             };`
           : `color: ${
+              isThemePalette(backgroundColor)
+                ? theme.palette[backgroundColor][500]
+                : backgroundColor
+            };
+            stroke: ${
               isThemePalette(backgroundColor)
                 ? theme.palette[backgroundColor][500]
                 : backgroundColor
@@ -233,8 +256,18 @@ const WuiButton: React.FC<ButtonProps> = (props) => {
               isThemePalette(textColor)
                 ? theme.palette[textColor][500]
                 : textColor
+            };
+            stroke: ${
+              isThemePalette(textColor)
+                ? theme.palette[textColor][500]
+                : textColor
             };`
           : `color: ${
+              isThemePalette(backgroundColor)
+                ? theme.palette[backgroundColor][500]
+                : backgroundColor
+            };
+            stroke: ${
               isThemePalette(backgroundColor)
                 ? theme.palette[backgroundColor][500]
                 : backgroundColor
@@ -245,11 +278,33 @@ const WuiButton: React.FC<ButtonProps> = (props) => {
   }
 
   function handleTextColorHover() {
-    if (hoverTextColor) return `color: ${hoverTextColor};`; // if value is defined by props
+    if (hoverTextColor)
+      return `color: ${hoverTextColor}; stroke: ${hoverTextColor};`; // if value is defined by props
 
     switch (variant) {
       case "contained":
         return `color: ${
+          hoverTextColor
+            ? isThemePalette(hoverTextColor)
+              ? theme.palette[hoverTextColor][500]
+              : hoverTextColor
+            : textColor
+            ? isThemePalette(textColor)
+              ? theme.palette[textColor][500]
+              : textColor
+            : hoverBackgroundColor
+            ? contrast(
+                isThemePalette(hoverBackgroundColor)
+                  ? theme.palette[hoverBackgroundColor][500]
+                  : hoverBackgroundColor
+              )
+            : contrast(
+                isThemePalette(backgroundColor)
+                  ? theme.palette[backgroundColor][500]
+                  : backgroundColor
+              )
+        };
+        stroke: ${
           hoverTextColor
             ? isThemePalette(hoverTextColor)
               ? theme.palette[hoverTextColor][500]
@@ -285,9 +340,40 @@ const WuiButton: React.FC<ButtonProps> = (props) => {
             : isThemePalette(backgroundColor)
             ? theme.palette[backgroundColor][500]
             : backgroundColor
+        };
+        stroke: ${
+          hoverTextColor
+            ? isThemePalette(hoverTextColor)
+              ? theme.palette[hoverTextColor][500]
+              : hoverTextColor
+            : textColor
+            ? isThemePalette(textColor)
+              ? theme.palette[textColor][500]
+              : textColor
+            : hoverBackgroundColor
+            ? hoverBackgroundColor
+            : isThemePalette(backgroundColor)
+            ? theme.palette[backgroundColor][500]
+            : backgroundColor
         };`;
       case "ghost":
         return `color: ${
+          hoverTextColor
+            ? isThemePalette(hoverTextColor)
+              ? theme.palette[hoverTextColor][500]
+              : hoverTextColor
+            : textColor
+            ? opacity(
+                isThemePalette(textColor)
+                  ? theme.palette[textColor][500]
+                  : textColor,
+                90
+              )
+            : isThemePalette(backgroundColor)
+            ? opacity(theme.palette[backgroundColor][500], 90)
+            : opacity(backgroundColor, 90)
+        };
+        stroke: ${
           hoverTextColor
             ? isThemePalette(hoverTextColor)
               ? theme.palette[hoverTextColor][500]
