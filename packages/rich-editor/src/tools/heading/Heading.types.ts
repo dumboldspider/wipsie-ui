@@ -10,3 +10,7 @@ export type HeadingExtraProps = {
   children: React.ReactNode;
   attributes: any;
 };
+
+export type HeadingPluginConstructor = {
+  renderElement?: (props: any) => JSX.Element;
+};
