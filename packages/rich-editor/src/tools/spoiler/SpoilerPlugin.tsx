@@ -1,11 +1,14 @@
 import { useTheme } from "@wipsie/ui";
 import React from "react";
 import { useReadOnly } from "slate-react";
+import { SpoilerPluginConstructor } from "./Spoiler.types";
 
 // Spoiler plugin
 export class SpoilerPlugin {
+  // This is where we define the leaf type
   public leafType = "spoiler";
 
+  // This is the plugin leaf renderer
   public renderLeaf = ({ children, attributes }) => {
     const [isHidden, setIsHidden] = React.useState(true);
     const theme = useTheme();
@@ -36,4 +39,9 @@ export class SpoilerPlugin {
       </span>
     );
   };
+
+  // This is where we setup the plugin external options
+  constructor({ renderLeaf = null }: SpoilerPluginConstructor) {
+    this.renderLeaf = renderLeaf || this.renderLeaf;
+  }
 }

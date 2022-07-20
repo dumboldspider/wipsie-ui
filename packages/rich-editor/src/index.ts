@@ -9,16 +9,18 @@ export * from "./TypingCompanion";
 export * from "./hooks/useEditorNodes";
 
 // @ Tools
+// ? OG tools
+// export * from "./tools/indentation";
+// export * from "./tools/alignment";
+// export * from "./tools/list";
+// ? New tools
 export * from "./tools/bold";
 export * from "./tools/italic";
 export * from "./tools/underline";
 export * from "./tools/strikethrough";
 export * from "./tools/heading";
-export * from "./tools/alignment";
-export * from "./tools/list";
 export * from "./tools/link";
 export * from "./tools/image";
-export * from "./tools/indentation";
 export * from "./tools/mentions";
 export * from "./tools/spoiler";
 

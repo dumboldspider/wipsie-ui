@@ -6,7 +6,7 @@ import {
   useSelected,
   useSlateStatic,
 } from "slate-react";
-import { ImageElementProps } from "./Image.types";
+import { ImageElementProps, ImagePluginConstructor } from "./Image.types";
 import { removeImage } from "./ImageUtils";
 
 export class ImagePlugin {
@@ -25,7 +25,10 @@ export class ImagePlugin {
     const editor = useSlateStatic();
     const theme = useTheme();
 
-    const url = element.url as string;
+    const url =
+      element.url.startsWith("data:image") || element.url.startsWith("http")
+        ? element.url
+        : `${this.mediaUrl}/${element.url}?size=${this.mediaSize}`;
     const alt = typeof element.alt === "string" ? element.alt : undefined;
 
     if (readOnly) {
@@ -87,4 +90,18 @@ export class ImagePlugin {
       );
     }
   };
+
+  // This is where we setup the plugin external options
+  constructor({
+    renderElement = null,
+    mediaUrl = "",
+    mediaSize = "1000",
+  }: ImagePluginConstructor) {
+    this.renderElement = renderElement || this.renderElement;
+    this.mediaUrl = mediaUrl;
+    this.mediaSize = mediaSize;
+  }
+
+  private mediaUrl = "";
+  private mediaSize = "";
 }

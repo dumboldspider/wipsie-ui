@@ -16,3 +16,7 @@ export interface LinkState {
   url: string;
   openInNewTab: boolean;
 }
+
+export type LinkPluginConstructor = {
+  renderElement?: (props: any) => JSX.Element;
+};

@@ -21,8 +21,6 @@ import { WipsieSlateEditor } from "../WipsieSlateEditor";
 import { WipsieSlateToolbar } from "../WipsieSlateToolbar";
 import { WipsieSlateContent } from "../WipsieSlateContent";
 import { HeadingsPlugin, HeadingDropdown } from "../tools/heading";
-import { AlignmentGroup } from "../tools/alignment";
-import { ListGroup } from "../tools/list";
 import { HoveringToolbar } from "../HoveringToolbar";
 import { LinkButton } from "../tools/link";
 import { ImageButton } from "../tools/image";
@@ -123,11 +121,11 @@ export const WipsieSlateEditorTesting = () => {
 
   const plugins = useMemo(
     () => [
-      new BoldPlugin(),
-      new ItalicPlugin(),
-      new UnderlinePlugin(),
-      new StrikethroughPlugin(),
-      new HeadingsPlugin(),
+      new BoldPlugin({}),
+      new ItalicPlugin({}),
+      new UnderlinePlugin({}),
+      new StrikethroughPlugin({}),
+      new HeadingsPlugin({}),
       new MentionsPlugin({
         getUserUrl: "https://env.staging.api.wipsie.com/auth/users/",
         searchUrl:
@@ -216,9 +214,6 @@ export const WipsieSlateEditorTesting = () => {
                   <StrikethroughButton />
                   {/* <HeadingsDropdown /> */}
                   <HeadingDropdown icon={"H"} />
-
-                  <ListGroup />
-                  <AlignmentGroup />
 
                   <LinkButton />
                   <ImageButton

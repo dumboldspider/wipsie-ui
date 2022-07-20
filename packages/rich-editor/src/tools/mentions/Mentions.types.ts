@@ -21,4 +21,5 @@ export type MentionsPluginConstructor = {
   accessToken?: string;
   matchRegex?: RegExp;
   matchPrefix?: string;
+  renderElement?: (props: any) => JSX.Element;
 };

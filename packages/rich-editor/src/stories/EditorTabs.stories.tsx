@@ -23,8 +23,6 @@ import { WipsieSlateEditor } from "../WipsieSlateEditor";
 import { WipsieSlateToolbar } from "../WipsieSlateToolbar";
 import { WipsieSlateContent } from "../WipsieSlateContent";
 import { HeadingsPlugin, HeadingDropdown } from "../tools/heading";
-import { AlignmentGroup } from "../tools/alignment";
-import { ListGroup } from "../tools/list";
 import { HoveringToolbar } from "../HoveringToolbar";
 import { LinkButton, LinkPlugin } from "../tools/link";
 import { ImageButton, ImagePlugin } from "../tools/image";
@@ -184,7 +182,7 @@ export const WipsieSlateEditorTesting = () => {
     },
     {
       type: "image",
-      url: "https://env.staging.files.library.wipsie.com/other/d9056fe8-600c-4516-8385-9c4cb3d8e736_52e27f61-f31a-43c1-93dc-14fdbf67058f-large.png",
+      url: "7c9b3909-79d8-4d74-9f1b-9f1a1f1b6f29",
       alt: "",
       children: [
         {
@@ -196,14 +194,17 @@ export const WipsieSlateEditorTesting = () => {
 
   const plugins = useMemo(
     () => [
-      new BoldPlugin(),
-      new ItalicPlugin(),
-      new UnderlinePlugin(),
-      new StrikethroughPlugin(),
-      new HeadingsPlugin(),
-      new SpoilerPlugin(),
-      new LinkPlugin(),
-      new ImagePlugin(),
+      new BoldPlugin({}),
+      new ItalicPlugin({}),
+      new UnderlinePlugin({}),
+      new StrikethroughPlugin({}),
+      new HeadingsPlugin({}),
+      new SpoilerPlugin({}),
+      new LinkPlugin({}),
+      new ImagePlugin({
+        // renderElement: () => <div>image</div>,
+        mediaUrl: "https://env.dev.api.wipsie.com/media/file",
+      }),
       new MentionsPlugin({
         getUserUrl: "https://env.staging.api.wipsie.com/auth/users/",
         searchUrl:
@@ -317,9 +318,6 @@ export const WipsieSlateEditorTesting = () => {
                     <StrikethroughButton />
                     <SpoilerButton />
                     <HeadingDropdown icon={"H"} />
-
-                    <ListGroup />
-                    <AlignmentGroup />
 
                     <LinkButton />
                     <ImageButton

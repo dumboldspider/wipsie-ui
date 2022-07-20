@@ -1,15 +1,19 @@
 import React from "react";
 import { isMod } from "../../utils/isMod";
 import { toggleMark } from "../../utils/toggleMark";
+import { BoldPluginConstructor } from "./Bold.types";
 
 // Bold plugin
 export class BoldPlugin {
+  // This is where we define the leaf type
   public leafType = "bold";
 
+  // This is the plugin leaf renderer
   public renderLeaf = ({ children, attributes }) => (
     <b {...attributes}>{children}</b>
   );
 
+  // This is where we define some behavior when the user presses a key
   public onKeyDown = (
     event: React.KeyboardEvent<HTMLDivElement>,
     { editor }
@@ -22,4 +26,9 @@ export class BoldPlugin {
     }
     return;
   };
+
+  // This is where we setup the plugin external options
+  constructor({ renderLeaf = null }: BoldPluginConstructor) {
+    this.renderLeaf = renderLeaf || this.renderLeaf;
+  }
 }

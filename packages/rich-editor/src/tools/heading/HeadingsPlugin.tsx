@@ -4,8 +4,13 @@ import { isSelectionAnyInHeading, toggleHeadingNodes } from "./HeadingUtils";
 import { isMod } from "../../utils/isMod";
 import { createParagraphNode } from "../../utils/createParagraphNode";
 import { Typography } from "@wipsie/ui";
+import { HeadingPluginConstructor } from "./Heading.types";
 
 export class HeadingsPlugin {
+  // This is where we define the plugin's type
+  public elementType = "heading";
+
+  // This is where we define some behavior when the user presses a key
   public onKeyDown = (event, { editor }) => {
     const modShift = isMod(event);
 
@@ -45,8 +50,7 @@ export class HeadingsPlugin {
     }
   };
 
-  public elementType = "heading";
-
+  // This is how the plugin render inside the editor
   public renderElement = ({ element, children, attributes }) => {
     return (
       <Typography
@@ -57,4 +61,9 @@ export class HeadingsPlugin {
       </Typography>
     );
   };
+
+  // This is where we setup the plugin external options
+  constructor({ renderElement = null }: HeadingPluginConstructor) {
+    this.renderElement = renderElement || this.renderElement;
+  }
 }

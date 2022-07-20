@@ -32,3 +32,9 @@ export interface ImageButtonProps {
   variant?: ButtonProps["variant"];
   color?: ButtonProps["color"];
 }
+
+export type ImagePluginConstructor = {
+  renderElement?: (props: any) => JSX.Element;
+  mediaUrl?: string;
+  mediaSize?: string;
+};

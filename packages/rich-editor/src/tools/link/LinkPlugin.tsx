@@ -1,7 +1,7 @@
 import { Box, Popover } from "@wipsie/ui";
 import React from "react";
 import { useFocused, useReadOnly, useSelected } from "slate-react";
-import { LinkElementProps } from "./Link.types";
+import { LinkElementProps, LinkPluginConstructor } from "./Link.types";
 
 // Link plugin
 export class LinkPlugin {
@@ -51,4 +51,9 @@ export class LinkPlugin {
       );
     }
   };
+
+  // This is where we setup the plugin external options
+  constructor({ renderElement = null }: LinkPluginConstructor) {
+    this.renderElement = renderElement || this.renderElement;
+  }
 }

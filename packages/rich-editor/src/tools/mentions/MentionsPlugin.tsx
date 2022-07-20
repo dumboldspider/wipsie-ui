@@ -20,27 +20,6 @@ import { insertMention } from "./MentionsUtils";
 import { MentionsPluginConstructor } from "./Mentions.types";
 
 export class MentionsPlugin {
-  private searchUrl: string;
-  private getUserUrl: string;
-  private accessToken: string;
-  private matchRegex: RegExp = /^@(\w+)$/;
-  private matchPrefix: string = "@";
-
-  // This is where we setup the plugin external options
-  constructor({
-    getUserUrl,
-    accessToken,
-    searchUrl,
-    matchRegex,
-    matchPrefix,
-  }: MentionsPluginConstructor) {
-    this.getUserUrl = getUserUrl;
-    this.accessToken = accessToken;
-    this.searchUrl = searchUrl;
-    this.matchRegex = matchRegex || this.matchRegex;
-    this.matchPrefix = matchPrefix || this.matchPrefix;
-  }
-
   // This is where we define the plugin's type
   public elementType = "mention";
 
@@ -402,4 +381,27 @@ export class MentionsPlugin {
       </>
     );
   };
+
+  // This is where we setup the plugin external options
+  constructor({
+    getUserUrl,
+    accessToken,
+    searchUrl,
+    matchRegex,
+    matchPrefix,
+    renderElement,
+  }: MentionsPluginConstructor) {
+    this.getUserUrl = getUserUrl;
+    this.accessToken = accessToken;
+    this.searchUrl = searchUrl;
+    this.matchRegex = matchRegex || this.matchRegex;
+    this.matchPrefix = matchPrefix || this.matchPrefix;
+    this.renderElement = renderElement || this.renderElement;
+  }
+
+  private searchUrl: string;
+  private getUserUrl: string;
+  private accessToken: string;
+  private matchRegex: RegExp = /^@(\w+)$/;
+  private matchPrefix: string = "@";
 }
