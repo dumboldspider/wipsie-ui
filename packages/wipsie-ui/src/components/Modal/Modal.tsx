@@ -90,6 +90,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
           top: 0,
           left: 0,
           pointerEvents: "none",
+          ...containerProps.style,
         }}
         {...containerProps}
       >
