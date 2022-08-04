@@ -4,10 +4,12 @@ import classnames from "classnames";
 import { PortalProps } from "./Portal.types";
 import ReactDOM from "react-dom";
 
+const globalDocument = typeof document === "undefined" ? undefined : document;
+
 export const Portal: React.FC<PortalProps> = (props) => {
   const { id, visible = false, children, className, ...otherProps } = props;
 
-  if (!visible) return null;
+  if (!visible || !globalDocument) return null;
 
   return ReactDOM.createPortal(
     <div

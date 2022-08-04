@@ -81,6 +81,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
       />
 
       <Flex
+        {...containerProps}
         align="center"
         justify="center"
         fullHeight
@@ -92,7 +93,6 @@ export const Modal: React.FC<ModalProps> = (props) => {
           pointerEvents: "none",
           ...containerProps.style,
         }}
-        {...containerProps}
       >
         <Animated
           visible={animationTrigger}

@@ -30,6 +30,7 @@ import { useEditorFirstNode, useEditorNodes } from "../hooks/useEditorNodes";
 import { MentionsPlugin } from "../tools/mentions";
 import { useMemo } from "react";
 import { SpoilerPlugin, SpoilerButton } from "../tools/spoiler";
+import { useEditorRef } from "../hooks/useEditorRef";
 
 export default {
   title: "Rich Editor/Editor Preview Tab",
@@ -190,6 +191,16 @@ export const WipsieSlateEditorTesting = () => {
         },
       ],
     },
+    {
+      type: "paragraph",
+      children: [
+        {
+          text: "awdawddwawdawdawdawd",
+          bold: true,
+        },
+      ],
+      align: "center",
+    },
   ];
 
   const plugins = useMemo(
@@ -274,6 +285,12 @@ export const WipsieSlateEditorTesting = () => {
     setActiveTabIndex(newValue);
   };
 
+  // Focus
+  const editorRef = useEditorRef();
+  const handleEditorFocus = () => {
+    editorRef.focus();
+  };
+
   return (
     <ThemeProvider theme={activeTheme}>
       <Box fullWidth m={2} backgroundColor="shade">
@@ -286,6 +303,11 @@ export const WipsieSlateEditorTesting = () => {
                 onClick={handleThemeChange}
               >
                 Theme
+              </Button>
+              <Spacing height={2} />
+
+              <Button backgroundColor="primary" onClick={handleEditorFocus}>
+                Focus
               </Button>
             </Popover>
           </Grid>
@@ -327,6 +349,7 @@ export const WipsieSlateEditorTesting = () => {
                   </WipsieSlateToolbar>
 
                   <WipsieSlateContent
+                    editorRef={editorRef}
                     placeholder="Enter some amazing text..."
                     spellCheck
                     autoFocus

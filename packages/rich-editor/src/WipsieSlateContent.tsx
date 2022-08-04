@@ -3,31 +3,33 @@ import { Editable } from "slate-react";
 import classNames from "classnames";
 import { Container } from "@wipsie/ui";
 import { useEffect } from "react";
-import { useRef } from "react";
+// import { useRef } from "react";
 import { DefaultElementRenders } from "./renders/DefaultElementRenders";
 import { DefaultLeafRenders } from "./renders/DefaultLeafRenders";
 
 export type SlateContentProps = any;
 
-export const WipsieSlateContent = ({
-  className,
-  wrapperStyle,
-  style,
-  value,
-  outerState,
-  plugins,
-  pluginVars,
-  onChange,
-  children,
-  readOnly = false,
-  editor,
-  placeholder = "Start typing...",
-  spellCheck = true,
-  autoFocus = true,
-  backgroundColor = "shade",
-  onKeyDown,
-  ...rest
-}: SlateContentProps) => {
+export const WipsieSlateContent = (props: SlateContentProps) => {
+  const {
+    className,
+    wrapperStyle,
+    style,
+    value,
+    editorRef,
+    // outerState,
+    plugins,
+    pluginVars,
+    onChange,
+    children,
+    readOnly = false,
+    editor,
+    // focus,
+    placeholder = "Start typing...",
+    spellCheck = true,
+    autoFocus = true,
+    backgroundColor = "shade",
+    onKeyDown,
+  } = props;
   // const renderElement = useCallback(
   //   (props) => <RenderElement {...props} />,
   //   []
@@ -102,7 +104,6 @@ export const WipsieSlateContent = ({
   }, []);
 
   // ref
-  const editableRef = useRef<any>(null);
 
   for (const action in plugins) {
     if (plugins[action].useEffect) {
@@ -119,16 +120,19 @@ export const WipsieSlateContent = ({
       p={1}
     >
       <Editable
-        plugins={plugins}
+        id={editorRef && editorRef?.id}
+        // plugins={plugins}
         value={value}
-        // onChange={onChange}
-        itemRef={editableRef}
+        onChange={onChange}
+        // itemRef={editorRef}
+
+        // itemRef={editableRef}
         readOnly={readOnly}
-        outerState={outerState}
+        // outerState={outerState}
         style={style}
         renderElement={pluginRenderElements}
         renderLeaf={pluginRenderLeafs}
-        placeholder={<div>{placeholder}</div>}
+        placeholder={placeholder}
         spellCheck={spellCheck}
         autoFocus={autoFocus}
         onKeyDown={(event) => {
@@ -147,7 +151,7 @@ export const WipsieSlateContent = ({
             // editor.insertText("  ");
           }
         }}
-        {...rest}
+        // {...rest}
       />
       {children}
     </Container>
