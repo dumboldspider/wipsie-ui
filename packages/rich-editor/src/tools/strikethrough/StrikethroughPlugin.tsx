@@ -27,7 +27,8 @@ export class StrikethroughPlugin {
   };
 
   // This is where we setup the plugin external options
-  constructor({ renderLeaf = null }: StrikethroughPluginConstructor) {
+  constructor(props: StrikethroughPluginConstructor = null) {
+    const { renderLeaf = null } = props;
     this.renderLeaf = renderLeaf || this.renderLeaf;
   }
 }

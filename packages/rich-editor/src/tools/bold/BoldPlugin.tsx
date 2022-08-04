@@ -28,7 +28,8 @@ export class BoldPlugin {
   };
 
   // This is where we setup the plugin external options
-  constructor({ renderLeaf = null }: BoldPluginConstructor) {
+  constructor(props: BoldPluginConstructor = null) {
+    const { renderLeaf = null } = props;
     this.renderLeaf = renderLeaf || this.renderLeaf;
   }
 }

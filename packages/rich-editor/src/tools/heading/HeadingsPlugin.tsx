@@ -63,7 +63,8 @@ export class HeadingsPlugin {
   };
 
   // This is where we setup the plugin external options
-  constructor({ renderElement = null }: HeadingPluginConstructor) {
+  constructor(props: HeadingPluginConstructor = null) {
+    const { renderElement = null } = props;
     this.renderElement = renderElement || this.renderElement;
   }
 }

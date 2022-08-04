@@ -383,14 +383,15 @@ export class MentionsPlugin {
   };
 
   // This is where we setup the plugin external options
-  constructor({
-    getUserUrl,
-    accessToken,
-    searchUrl,
-    matchRegex,
-    matchPrefix,
-    renderElement,
-  }: MentionsPluginConstructor) {
+  constructor(props: MentionsPluginConstructor) {
+    const {
+      getUserUrl,
+      accessToken,
+      searchUrl,
+      matchRegex,
+      matchPrefix,
+      renderElement,
+    } = props;
     this.getUserUrl = getUserUrl;
     this.accessToken = accessToken;
     this.searchUrl = searchUrl;

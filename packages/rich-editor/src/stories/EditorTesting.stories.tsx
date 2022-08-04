@@ -121,11 +121,11 @@ export const WipsieSlateEditorTesting = () => {
 
   const plugins = useMemo(
     () => [
-      new BoldPlugin({}),
-      new ItalicPlugin({}),
-      new UnderlinePlugin({}),
-      new StrikethroughPlugin({}),
-      new HeadingsPlugin({}),
+      new BoldPlugin(),
+      new ItalicPlugin(),
+      new UnderlinePlugin(),
+      new StrikethroughPlugin(),
+      new HeadingsPlugin(),
       new MentionsPlugin({
         getUserUrl: "https://env.staging.api.wipsie.com/auth/users/",
         searchUrl:

@@ -27,7 +27,8 @@ export class UnderlinePlugin {
   };
 
   // This is where we setup the plugin external options
-  constructor({ renderLeaf = null }: UnderlinePluginConstructor) {
+  constructor(props: UnderlinePluginConstructor = null) {
+    const { renderLeaf = null } = props;
     this.renderLeaf = renderLeaf || this.renderLeaf;
   }
 }

@@ -28,7 +28,8 @@ export class ItalicPlugin {
   };
 
   // This is where we setup the plugin external options
-  constructor({ renderLeaf = null }: ItalicPluginConstructor) {
+  constructor(props: ItalicPluginConstructor = null) {
+    const { renderLeaf = null } = props;
     this.renderLeaf = renderLeaf || this.renderLeaf;
   }
 }
