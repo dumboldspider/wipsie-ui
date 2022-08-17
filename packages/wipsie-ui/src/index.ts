@@ -65,12 +65,15 @@ export * from "./components/InfinityLoader";
 export * from "./components/DatePicker";
 export * from "./components/TextEditable";
 export * from "./components/Blueprint";
+export * from "./components/Slider";
 
 // @ UTILS
 export { default as responsive } from "./utils/responsive";
 export { default as opacity } from "./utils/opacity";
 export { default as contrast } from "./utils/contrast";
 export { default as brightness } from "./utils/brightness";
+export { default as debounce } from "./utils/debounce";
+export { default as rgba2hex } from "./utils/rgba2hex";
 export * from "./utils/colorWithSeed";
 export * from "./utils/responsive";
 export * from "./utils/environment";

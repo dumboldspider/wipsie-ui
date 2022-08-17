@@ -11,10 +11,6 @@ export type AspectRatioProps = Modify<
     /**
      * Prop description
      */
-    wrapperProps?: React.HTMLProps<HTMLDivElement>;
-    /**
-     * Prop description
-     */
     internalProps?: React.HTMLProps<HTMLDivElement>;
   }
 >;

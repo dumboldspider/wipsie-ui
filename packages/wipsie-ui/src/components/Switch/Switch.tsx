@@ -22,12 +22,13 @@ export const Switch: React.FC<SwitchProps> = (props) => {
     ...otherProps
   } = props;
 
+  function handleShadowColor() {
+    return "#0000003D";
+  }
+
   function handleBackgroundColor() {
     return theme.palette.shade;
     // return isThemePalette(color) ? theme.palette[color][500] : color;
-  }
-  function handleShadowColor() {
-    return "#0000003D";
   }
 
   function handleBackgroundColorActive() {
