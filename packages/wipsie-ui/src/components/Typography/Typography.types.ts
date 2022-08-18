@@ -6,7 +6,7 @@ import {
 } from "../../config/propTypes";
 
 export type TypographyProps = Modify<
-  React.HTMLProps<HTMLButtonElement>,
+  React.HTMLProps<HTMLHeadingElement | HTMLParagraphElement>,
   {
     /**
      * Component to render the Typography
