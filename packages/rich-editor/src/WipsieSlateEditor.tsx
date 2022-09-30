@@ -17,6 +17,7 @@ export type SlateEditorProps = {
   plugins?: any[];
   children?: React.ReactNode;
   onKeyDown?: (event: React.KeyboardEvent) => void;
+  initializer?: any;
 };
 
 export type SlateEditorChildProps = {
@@ -42,12 +43,17 @@ export const WipsieSlateEditor = (props: SlateEditorProps) => {
     children,
     plugins = [],
     onKeyDown,
+    initializer,
   } = props;
 
-  const editor = useMemo(
-    () => createEditorWithPlugins(createEditor() as ReactEditor),
-    []
-  );
+  const editor = useMemo(() => {
+    const currentEditor = createEditorWithPlugins(
+      createEditor() as ReactEditor
+    );
+
+    initializer && initializer.setCurrentEditor(currentEditor); // initialize external hook
+    return currentEditor;
+  }, []);
 
   // Plugins Start
   const pluginVars = plugins.map((plugin) => {
@@ -75,6 +81,7 @@ export const WipsieSlateEditor = (props: SlateEditorProps) => {
     wrapperStyle: style,
     onKeyDown: pluginKeyDown,
     pluginVars: pluginVars,
+    initializer: initializer,
   };
 
   // get plugin renders

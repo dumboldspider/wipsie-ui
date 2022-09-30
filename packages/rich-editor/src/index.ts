@@ -7,7 +7,7 @@ export * from "./TypingCompanion";
 
 // @ Hooks
 export * from "./hooks/useEditorNodes";
-export * from "./hooks/useEditorRef";
+export * from "./hooks/useWipsieEditor";
 
 // @ Tools
 // ? OG tools

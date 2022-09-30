@@ -1,13 +1,41 @@
 import React, { useCallback } from "react";
-import { Editable } from "slate-react";
+import { Editable, ReactEditor } from "slate-react";
 import classNames from "classnames";
 import { Container } from "@wipsie/ui";
 import { useEffect } from "react";
 // import { useRef } from "react";
 import { DefaultElementRenders } from "./renders/DefaultElementRenders";
 import { DefaultLeafRenders } from "./renders/DefaultLeafRenders";
+import { Node } from "slate";
 
-export type SlateContentProps = any;
+export type SlateContentProps = {
+  className?: string;
+  style?: React.CSSProperties;
+  readOnly?: boolean;
+  placeholder?: string;
+  spellCheck?: boolean;
+  autoFocus?: boolean;
+  backgroundColor?: string;
+  placeholderStyle?: React.CSSProperties;
+};
+
+export type InheritedSlateContentProps = {
+  editor?: ReactEditor;
+  plugins: any;
+  pluginVars: any;
+  onChange: any;
+  value?: any;
+  children?: any;
+  onKeyDown?: any;
+  wrapperStyle?: React.CSSProperties;
+  initializer?: any;
+};
+
+type AllSlateContentProps = SlateContentProps & InheritedSlateContentProps;
+
+export const serialize = (nodes) => {
+  return nodes.map((n) => Node.string(n)).join("\n");
+};
 
 export const WipsieSlateContent = (props: SlateContentProps) => {
   const {
@@ -15,7 +43,7 @@ export const WipsieSlateContent = (props: SlateContentProps) => {
     wrapperStyle,
     style,
     value,
-    editorRef,
+    initializer,
     // outerState,
     plugins,
     pluginVars,
@@ -29,7 +57,8 @@ export const WipsieSlateContent = (props: SlateContentProps) => {
     autoFocus = true,
     backgroundColor = "shade",
     onKeyDown,
-  } = props;
+    placeholderStyle,
+  } = props as AllSlateContentProps;
   // const renderElement = useCallback(
   //   (props) => <RenderElement {...props} />,
   //   []
@@ -111,6 +140,8 @@ export const WipsieSlateContent = (props: SlateContentProps) => {
     }
   }
 
+  const plainText = value ? serialize(value) : "";
+
   return (
     <Container
       className={classNames("editor--content", className)}
@@ -120,7 +151,7 @@ export const WipsieSlateContent = (props: SlateContentProps) => {
       p={1}
     >
       <Editable
-        id={editorRef && editorRef?.id}
+        id={initializer && initializer?.id}
         // plugins={plugins}
         value={value}
         onChange={onChange}
@@ -132,7 +163,7 @@ export const WipsieSlateContent = (props: SlateContentProps) => {
         style={style}
         renderElement={pluginRenderElements}
         renderLeaf={pluginRenderLeafs}
-        placeholder={placeholder}
+        // placeholder={placeholder}
         spellCheck={spellCheck}
         autoFocus={autoFocus}
         onKeyDown={(event) => {
@@ -153,6 +184,30 @@ export const WipsieSlateContent = (props: SlateContentProps) => {
         }}
         // {...rest}
       />
+
+      {plainText.length === 0 && (
+        <div
+          className={"placeholder"}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            display: "flex",
+            alignItems: "flex-start",
+            justifyContent: "flex-start",
+            pointerEvents: "none",
+            userSelect: "none",
+            opacity: 0.5,
+            padding: 8,
+            ...placeholderStyle,
+          }}
+        >
+          {placeholder}
+        </div>
+      )}
+
       {children}
     </Container>
   );

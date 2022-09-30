@@ -30,7 +30,7 @@ import { useEditorFirstNode, useEditorNodes } from "../hooks/useEditorNodes";
 import { MentionsPlugin } from "../tools/mentions";
 import { useMemo } from "react";
 import { SpoilerPlugin, SpoilerButton } from "../tools/spoiler";
-import { useEditorRef } from "../hooks/useEditorRef";
+import { useWipsieEditor } from "../hooks/useWipsieEditor";
 
 export default {
   title: "Rich Editor/Editor Preview Tab",
@@ -191,16 +191,6 @@ export const WipsieSlateEditorTesting = () => {
         },
       ],
     },
-    {
-      type: "paragraph",
-      children: [
-        {
-          text: "awdawddwawdawdawdawd",
-          bold: true,
-        },
-      ],
-      align: "center",
-    },
   ];
 
   const plugins = useMemo(
@@ -285,11 +275,11 @@ export const WipsieSlateEditorTesting = () => {
     setActiveTabIndex(newValue);
   };
 
-  // Focus
-  const editorRef = useEditorRef();
-  const handleEditorFocus = () => {
-    editorRef.focus();
-  };
+  // reset
+  const {
+    initializer,
+    options: { editorReset, serializeNodes, editorFocus },
+  } = useWipsieEditor();
 
   return (
     <ThemeProvider theme={activeTheme}>
@@ -304,13 +294,19 @@ export const WipsieSlateEditorTesting = () => {
               >
                 Theme
               </Button>
-              <Spacing height={2} />
-
-              <Button backgroundColor="primary" onClick={handleEditorFocus}>
-                Focus
-              </Button>
             </Popover>
+            <Spacing height={2} />
+
+            <Button backgroundColor="primary" onClick={editorFocus}>
+              Focus
+            </Button>
+            <Spacing height={2} />
+
+            <Button backgroundColor="primary" onClick={editorReset}>
+              Reset
+            </Button>
           </Grid>
+
           <Grid item xs={12}>
             <Tabs
               value={activeTabIndex}
@@ -325,6 +321,7 @@ export const WipsieSlateEditorTesting = () => {
                   value={value}
                   onChange={onChange}
                   plugins={plugins}
+                  initializer={initializer}
                 >
                   <HoveringToolbar>
                     <BoldButton />
@@ -349,7 +346,7 @@ export const WipsieSlateEditorTesting = () => {
                   </WipsieSlateToolbar>
 
                   <WipsieSlateContent
-                    editorRef={editorRef}
+                    // editorRef={editorRef}
                     placeholder="Enter some amazing text..."
                     spellCheck
                     autoFocus
