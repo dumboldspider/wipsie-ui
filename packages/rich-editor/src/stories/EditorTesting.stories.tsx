@@ -26,6 +26,7 @@ import { LinkButton } from "../tools/link";
 import { ImageButton } from "../tools/image";
 import { useEditorFirstNode, useEditorNodes } from "../hooks/useEditorNodes";
 import { MentionsPlugin } from "../tools/mentions";
+import { ImagePlugin } from "../tools/image";
 
 export default {
   title: "Rich Editor/HTML Editor",
@@ -107,16 +108,6 @@ export const WipsieSlateEditorTesting = () => {
         },
       ],
     },
-    {
-      type: "image",
-      url: "https://env.staging.files.library.wipsie.com/other/d9056fe8-600c-4516-8385-9c4cb3d8e736_52e27f61-f31a-43c1-93dc-14fdbf67058f-large.png",
-      alt: "",
-      children: [
-        {
-          text: "",
-        },
-      ],
-    },
   ];
 
   const plugins = useMemo(
@@ -126,6 +117,9 @@ export const WipsieSlateEditorTesting = () => {
       new UnderlinePlugin(),
       new StrikethroughPlugin(),
       new HeadingsPlugin(),
+      new ImagePlugin({
+        mediaUrl: `${process.env.NEXT_PUBLIC_API_GATEWAY_URL}/media/file`,
+      }),
       new MentionsPlugin({
         getUserUrl: "https://env.staging.api.wipsie.com/auth/users/",
         searchUrl:
@@ -217,8 +211,8 @@ export const WipsieSlateEditorTesting = () => {
 
                   <LinkButton />
                   <ImageButton
-                    uploadUrl="https://env.staging.api.wipsie.com/posts/upload"
-                    accessKey=""
+                    uploadUrl="https://env.staging.api.wipsie.com/media/upload"
+                    accessKey="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmJyb3duIiwic3ViIjoiNDlkZDc4YTQtNGVkMi00Njg2LTg0ODItNmFkMmI0YmExZGFjIiwiaWF0IjoxNjY1Njk4NTgxLCJleHAiOjE2NjgyOTA1ODF9.LIWJllYqfX35ktGSgCo5j3xQBeegkVqLpRFfLDNK8Vk"
                   />
                 </WipsieSlateToolbar>
 

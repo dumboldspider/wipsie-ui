@@ -41,6 +41,7 @@ export * from "./utils/selectLocalImage";
 export * from "./utils/selectLocalImage";
 export * from "./utils/isJson";
 export * from "./utils/getEditorNodes";
+export * from "./utils/getBase64";
 
 // @ Plugins
 export * from "./plugins/withImages";

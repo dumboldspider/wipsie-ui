@@ -83,5 +83,12 @@ export const useWipsieEditor = () => {
       serializeNodes,
       editorFocus,
     },
+    classes: {
+      Editor,
+      Node,
+      Transforms,
+    },
   };
 };
+
+export type UseWipsieEditorReturn = ReturnType<typeof useWipsieEditor>;

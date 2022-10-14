@@ -17,6 +17,7 @@ export type SlateContentProps = {
   autoFocus?: boolean;
   backgroundColor?: string;
   placeholderStyle?: React.CSSProperties;
+  children?: React.ReactNode;
 };
 
 export type InheritedSlateContentProps = {
@@ -25,7 +26,6 @@ export type InheritedSlateContentProps = {
   pluginVars: any;
   onChange: any;
   value?: any;
-  children?: any;
   onKeyDown?: any;
   wrapperStyle?: React.CSSProperties;
   initializer?: any;
@@ -156,7 +156,6 @@ export const WipsieSlateContent = (props: SlateContentProps) => {
         value={value}
         onChange={onChange}
         // itemRef={editorRef}
-
         // itemRef={editableRef}
         readOnly={readOnly}
         // outerState={outerState}

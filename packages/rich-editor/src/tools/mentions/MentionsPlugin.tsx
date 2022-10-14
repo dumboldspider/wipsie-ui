@@ -82,7 +82,14 @@ export class MentionsPlugin {
               <>
                 {/* Aspect ratio 1:1 div */}
                 <Avatar
-                  src={data?.profile?.avatar}
+                  src={
+                    data?.profile?.avatar
+                      ? data?.profile?.avatar?.startsWith("data:image") ||
+                        data?.profile?.avatar?.startsWith("http")
+                        ? data?.profile?.avatar
+                        : `${this.mediaUrl}/${data?.profile?.avatar}?size=${this.mediaSize}`
+                      : null
+                  }
                   alt={data?.name}
                   backgroundColor={colorWithSeed(data?.username)}
                   xs="small"
@@ -98,10 +105,19 @@ export class MentionsPlugin {
                     {data?.name}
                   </Typography>
 
-                  <Typography variant="body1" color={theme.palette.subtext}>
-                    {matchPrefix}
-                    {data?.username}
-                  </Typography>
+                  <a
+                    href={
+                      this.profileUrl
+                        ? `${this.profileUrl}/${data?.username}`
+                        : "#"
+                    }
+                    target="_blank"
+                  >
+                    <Typography variant="body1" color={theme.palette.subtext}>
+                      {matchPrefix}
+                      {data?.username}
+                    </Typography>
+                  </a>
                 </Box>
               </>
             )}
@@ -391,6 +407,9 @@ export class MentionsPlugin {
       matchRegex,
       matchPrefix,
       renderElement,
+      mediaUrl,
+      mediaSize = "32",
+      profileUrl,
     } = props;
     this.getUserUrl = getUserUrl;
     this.accessToken = accessToken;
@@ -398,6 +417,9 @@ export class MentionsPlugin {
     this.matchRegex = matchRegex || this.matchRegex;
     this.matchPrefix = matchPrefix || this.matchPrefix;
     this.renderElement = renderElement || this.renderElement;
+    this.mediaUrl = mediaUrl || this.mediaUrl;
+    this.mediaSize = mediaSize || this.mediaSize;
+    this.profileUrl = profileUrl || this.profileUrl;
   }
 
   private searchUrl: string;
@@ -405,4 +427,7 @@ export class MentionsPlugin {
   private accessToken: string;
   private matchRegex: RegExp = /^@(\w+)$/;
   private matchPrefix: string = "@";
+  private mediaUrl: string;
+  private mediaSize: string;
+  private profileUrl: string;
 }

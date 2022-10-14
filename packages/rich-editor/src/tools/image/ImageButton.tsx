@@ -18,6 +18,7 @@ export function ImageButton({
   backgroundColor = "primary",
   variant = "ghost",
   color,
+  editorProps,
 }: ImageButtonProps) {
   const [modalOpen, setModalOpen] = useState(false);
   const handleToggleModal = () => {
@@ -46,6 +47,7 @@ export function ImageButton({
         accessKey={accessKey}
         acceptedFormats={acceptedFormats}
         maxFileSize={maxFileSize}
+        editorProps={editorProps}
       />
     </>
   );

@@ -31,7 +31,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
     closeKey = "Escape",
     backdropProps = {},
     portalProps = { style: {} },
-    containerProps = {},
+    containerProps = null,
     noPortal = false,
     children,
     ...otherProps
@@ -91,7 +91,7 @@ export const Modal: React.FC<ModalProps> = (props) => {
           top: 0,
           left: 0,
           pointerEvents: "none",
-          ...containerProps.style,
+          ...containerProps?.style,
         }}
       >
         <Animated

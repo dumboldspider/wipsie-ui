@@ -12,10 +12,10 @@ import {
 } from "@wipsie/ui";
 import React, { useEffect, useState } from "react";
 import { saveToServer } from "../../utils/saveToServer";
-import { Transforms } from "slate";
-import { ReactEditor, useSlate } from "slate-react";
-import { getImage, insertImage, updateImage } from "./ImageUtils";
+import { getImage, insertImage } from "./ImageUtils";
 import { ImageState } from "./Image.types";
+import { UseWipsieEditorReturn } from "../../hooks/useWipsieEditor";
+// import { getBase64 } from "../../utils/getBase64";
 
 // const invalidUrlMessage =
 //   'Please enter a valid URL, e.g., "http://example.com/test.png".';
@@ -27,6 +27,7 @@ export interface ImageEditorProps {
   accessKey: string;
   acceptedFormats: string;
   maxFileSize: number;
+  editorProps: UseWipsieEditorReturn;
 }
 
 export function ImageEditor({
@@ -36,6 +37,7 @@ export function ImageEditor({
   accessKey,
   acceptedFormats,
   maxFileSize,
+  editorProps,
 }: ImageEditorProps) {
   const [imageState, setImageState] = useState<ImageState | undefined>();
   const [isUploading, setIsUploading] = useState(false);
@@ -48,7 +50,7 @@ export function ImageEditor({
     }
     setIsUploading(true);
     saveToServer(file, uploadUrl, accessKey)
-      .then((result: any) => {
+      .then(async (result: any) => {
         const { formats, id, url } = result;
 
         const imageUrl = formats ? result?.formats?.large?.url : id ? id : url; // get large compressed image
@@ -56,7 +58,10 @@ export function ImageEditor({
         setFile(null);
         setIsUploading(false);
 
-        handleImageSave(imageUrl, "");
+        handleImageSave({
+          url: imageUrl,
+          alt: "",
+        });
       })
       .catch(() => {
         setFile(null);
@@ -66,8 +71,16 @@ export function ImageEditor({
       });
   };
 
-  const editor = useSlate();
-  const { selection } = editor;
+  const {
+    editor,
+    classes: { Transforms },
+  } = editorProps;
+
+  // set selection after editor is loaded
+  let selection = null;
+  if (editor) {
+    selection = editor.selection;
+  }
 
   useEffect(() => {
     if (selection !== null) {
@@ -85,7 +98,7 @@ export function ImageEditor({
   const handleImageCancel = () => {
     if (imageState !== undefined) {
       // reselect in editor because dialog takes away focus
-      ReactEditor.focus(editor as ReactEditor);
+      editorProps.options.editorFocus();
       Transforms.select(editor, imageState.selection);
     }
 
@@ -108,17 +121,34 @@ export function ImageEditor({
   //   handleToggle();
   // };
 
-  const handleImageSave = (url: string, alt: string) => {
-    if (imageState !== undefined) {
-      // reselect in editor because dialog takes away focus
-      ReactEditor.focus(editor as ReactEditor);
-      Transforms.select(editor, imageState.selection);
-
-      // insert image
-      imageState.isNew
-        ? insertImage(editor, url, alt)
-        : updateImage(editor, url, alt);
+  const handleImageSave = async ({
+    url,
+    alt,
+  }: {
+    url: string;
+    alt: string;
+  }) => {
+    let newSelection = selection;
+    if (newSelection === null) {
+      newSelection = {
+        anchor: { path: [0], offset: 0 },
+        focus: { path: [0], offset: 0 },
+      };
     }
+
+    // get file base64
+    // let base64 = file ? await getBase64(file) : null;
+
+    if (url) {
+      editorProps.options.editorFocus();
+      Transforms.select(editor, newSelection);
+
+      insertImage(editor, url, alt); // insert image
+      // imageState.isNew
+      //   ? insertImage(editor, url, alt)
+      //   : updateImage(editor, url, alt);
+    }
+
     handleToggle();
   };
 

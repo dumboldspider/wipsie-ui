@@ -30,6 +30,6 @@ export type ModalProps = Modify<
     disableScrollLock?: boolean;
     closeKey?: string;
     position?: "fixed" | "absolute" | "sticky" | "relative";
-    containerProps?: FlexProps;
+    containerProps?: Omit<FlexProps, "ref">;
   }
 >;

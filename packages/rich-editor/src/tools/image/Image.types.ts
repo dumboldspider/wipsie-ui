@@ -1,4 +1,5 @@
 import { ButtonProps } from "@wipsie/ui";
+import { UseWipsieEditorReturn } from "../../hooks/useWipsieEditor";
 import { BaseElement, Range } from "slate";
 import { RenderElementProps } from "slate-react";
 
@@ -12,6 +13,7 @@ export interface ImageState {
 export interface ImageElementType extends BaseElement {
   url: string;
   alt?: string;
+  file?: File;
 }
 
 export type ImageElementProps = RenderElementProps & {
@@ -31,6 +33,7 @@ export interface ImageButtonProps {
   backgroundColor?: ButtonProps["backgroundColor"];
   variant?: ButtonProps["variant"];
   color?: ButtonProps["color"];
+  editorProps: UseWipsieEditorReturn;
 }
 
 export type ImagePluginConstructor = {

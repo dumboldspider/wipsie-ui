@@ -204,10 +204,12 @@ export const WipsieSlateEditorTesting = () => {
       new LinkPlugin({}),
       new ImagePlugin({
         // renderElement: () => <div>image</div>,
-        mediaUrl: "https://env.dev.api.wipsie.com/media/file",
+        mediaUrl: "https://env.staging.api.wipsie.com/media/file",
       }),
       new MentionsPlugin({
+        mediaUrl: "https://env.staging.api.wipsie.com/media/file",
         getUserUrl: "https://env.staging.api.wipsie.com/auth/users/",
+        profileUrl: "https://beta.wipsie.com/u/",
         searchUrl:
           "https://env.staging.api.wipsie.com/auth/users/search?limit=5&terms=",
       }),
@@ -276,10 +278,12 @@ export const WipsieSlateEditorTesting = () => {
   };
 
   // reset
+  const editorProps = useWipsieEditor();
+
   const {
     initializer,
     options: { editorReset, serializeNodes, editorFocus },
-  } = useWipsieEditor();
+  } = editorProps;
 
   return (
     <ThemeProvider theme={activeTheme}>
@@ -340,8 +344,9 @@ export const WipsieSlateEditorTesting = () => {
 
                     <LinkButton />
                     <ImageButton
-                      uploadUrl="https://env.staging.api.wipsie.com/posts/upload"
-                      accessKey=""
+                      uploadUrl="https://env.staging.api.wipsie.com/media/upload"
+                      accessKey="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImRhbmJyb3duIiwic3ViIjoiNDlkZDc4YTQtNGVkMi00Njg2LTg0ODItNmFkMmI0YmExZGFjIiwiaWF0IjoxNjY1Njk4NTgxLCJleHAiOjE2NjgyOTA1ODF9.LIWJllYqfX35ktGSgCo5j3xQBeegkVqLpRFfLDNK8Vk"
+                      editorProps={editorProps}
                     />
                   </WipsieSlateToolbar>
 
