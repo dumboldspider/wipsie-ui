@@ -43,6 +43,6 @@ export type DatePickerProps = {
   monthLabels?: string[];
   weekDayLabels?: string[];
   backdrop?: boolean;
-  backdropProps?: BackdropProps;
+  backdropProps?: Omit<BackdropProps, "visible">;
   onBackdropClick?: BackdropProps["onClick"];
 };
