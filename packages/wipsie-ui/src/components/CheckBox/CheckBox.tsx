@@ -64,7 +64,14 @@ export const CheckBox: React.FC<CheckBoxProps> = (props) => {
   }
 
   function handleDefaultColor() {
-    return `background: ${theme.palette.basic[500]};`;
+    return `background: ${theme.palette.basic[700]};`;
+  }
+
+  function handleBorderColor() {
+    if (disabled) return `border-color: ${theme.palette.subtext};`;
+    return `border: 1px solid ${
+      isThemePalette(color) ? theme.palette[color][500] : color
+    };`;
   }
 
   function handleDefaultHoverColor() {
@@ -212,6 +219,7 @@ export const CheckBox: React.FC<CheckBoxProps> = (props) => {
           transition: all 0.2s ease-in-out;
           ${handleShape()}
           ${handleDefaultColor()}
+          ${handleBorderColor()}
           ${handleIconColor()}
         }
         .Wps-CheckBox .Wps-CheckBoxIndicator:after {

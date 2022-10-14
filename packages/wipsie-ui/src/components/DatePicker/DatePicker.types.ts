@@ -1,5 +1,6 @@
 import { PopoverProps } from "../Popover";
 import { InputProps } from "../Input";
+import { BackdropProps } from "../Backdrop";
 
 export type DateElement = {
   year: number;
@@ -41,4 +42,7 @@ export type DatePickerProps = {
   onBlur?: InputProps["onBlur"];
   monthLabels?: string[];
   weekDayLabels?: string[];
+  backdrop?: boolean;
+  backdropProps?: BackdropProps;
+  onBackdropClick?: BackdropProps["onClick"];
 };

@@ -8,13 +8,14 @@ import {
   LeftOutlined,
   CheckCircleFilled,
 } from "@ant-design/icons";
+import ThemeProvider from "../../theme/themeProvider";
 
 export default {
   title: "Prototypes/CheckBox",
 };
 
 export const WithBar = () => {
-  const [checked, setChecked] = useState(true);
+  const [checked, setChecked] = useState(false);
 
   function handleChecked() {
     setChecked(!checked);
@@ -22,100 +23,102 @@ export const WithBar = () => {
   }
 
   return (
-    <Container>
-      <CheckBox
-        checked={checked}
-        onClick={handleChecked}
-        label="bar"
-        size="mini"
-        //   icon={<CheckCircleFilled />}
-      />
-      <Spacing height={10} />
-      <CheckBox
-        checked={checked}
-        onClick={handleChecked}
-        label="bar"
-        size="small"
-        //   icon={<CheckCircleFilled />}
-      />
-      <Spacing height={10} />
-      <CheckBox
-        checked={checked}
-        onClick={handleChecked}
-        label="bar"
-        size="medium"
-        color="info"
-        //   icon={<CheckCircleFilled />}
-      />
-      <Spacing height={10} />
-      <CheckBox
-        checked={checked}
-        onClick={handleChecked}
-        label="bar"
-        size="large"
-        disabled
+    <ThemeProvider theme="dark">
+      <Container>
+        <CheckBox
+          checked={checked}
+          onClick={handleChecked}
+          label="bar"
+          size="mini"
+          //   icon={<CheckCircleFilled />}
+        />
+        <Spacing height={10} />
+        <CheckBox
+          checked={checked}
+          onClick={handleChecked}
+          label="bar"
+          size="small"
+          //   icon={<CheckCircleFilled />}
+        />
+        <Spacing height={10} />
+        <CheckBox
+          checked={checked}
+          onClick={handleChecked}
+          label="bar"
+          size="medium"
+          color="info"
+          //   icon={<CheckCircleFilled />}
+        />
+        <Spacing height={10} />
+        <CheckBox
+          checked={checked}
+          onClick={handleChecked}
+          label="bar"
+          size="large"
+          disabled
 
-        //   icon={<CheckCircleFilled />}
-      />
-      <Spacing height={10} />
-      <CheckBox
-        checked={checked}
-        onClick={handleChecked}
-        label="bar"
-        size="xlarge"
-        textColor="primary"
-        //   icon={<CheckCircleFilled />}
-      />
-      <Spacing height={10} />
-      <CheckBox
-        checked={checked}
-        onClick={handleChecked}
-        label="bar"
-        size="mini"
-        icon={<CheckCircleFilled />}
-      />
-      <Spacing height={10} />
-      <CheckBox
-        checked={checked}
-        onClick={handleChecked}
-        label="bar"
-        size="small"
-        icon={<CheckCircleFilled />}
-      />
-      <Spacing height={10} />
-      <CheckBox
-        checked={checked}
-        onClick={handleChecked}
-        label="bar"
-        size="medium"
-        icon={<CheckCircleFilled />}
-      />
-      <Spacing height={10} />
-      <CheckBox
-        checked={checked}
-        onClick={handleChecked}
-        label="bar"
-        size="large"
-        disabled
-        icon={<CheckCircleFilled />}
-      />
-      <Spacing height={10} />
-      <CheckBox
-        checked={checked}
-        onClick={handleChecked}
-        label="bar"
-        size="xlarge"
-        icon={<CheckCircleFilled />}
-      />
-      <Spacing height={10} />
-      <input
-        type="checkbox"
-        name=""
-        id=""
-        checked={checked}
-        disabled
-        onClick={handleChecked}
-      />
-    </Container>
+          //   icon={<CheckCircleFilled />}
+        />
+        <Spacing height={10} />
+        <CheckBox
+          checked={checked}
+          onClick={handleChecked}
+          label="bar"
+          size="xlarge"
+          textColor="primary"
+          //   icon={<CheckCircleFilled />}
+        />
+        <Spacing height={10} />
+        <CheckBox
+          checked={checked}
+          onClick={handleChecked}
+          label="bar"
+          size="mini"
+          icon={<CheckCircleFilled />}
+        />
+        <Spacing height={10} />
+        <CheckBox
+          checked={checked}
+          onClick={handleChecked}
+          label="bar"
+          size="small"
+          icon={<CheckCircleFilled />}
+        />
+        <Spacing height={10} />
+        <CheckBox
+          checked={checked}
+          onClick={handleChecked}
+          label="bar"
+          size="medium"
+          icon={<CheckCircleFilled />}
+        />
+        <Spacing height={10} />
+        <CheckBox
+          checked={checked}
+          onClick={handleChecked}
+          label="bar"
+          size="large"
+          disabled
+          icon={<CheckCircleFilled />}
+        />
+        <Spacing height={10} />
+        <CheckBox
+          checked={checked}
+          onClick={handleChecked}
+          label="bar"
+          size="xlarge"
+          icon={<CheckCircleFilled />}
+        />
+        <Spacing height={10} />
+        <input
+          type="checkbox"
+          name=""
+          id=""
+          checked={checked}
+          disabled
+          onClick={handleChecked}
+        />
+      </Container>
+    </ThemeProvider>
   );
 };

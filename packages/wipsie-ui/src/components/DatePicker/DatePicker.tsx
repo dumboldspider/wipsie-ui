@@ -41,6 +41,9 @@ export function DatePicker({
   onBlur,
   monthLabels,
   weekDayLabels,
+  backdrop = true,
+  backdropProps,
+  onBackdropClick = () => {},
 }: DatePickerProps) {
   const [referenceCalendar, setReferenceCalendar] = useState<any>(null);
   const currentDate = new Date();
@@ -253,8 +256,12 @@ export function DatePicker({
         backgroundColor={backgroundColor}
         visible={open}
         position={position}
-        backdrop
-        onBackdropClick={() => handleTogglePopover()}
+        backdrop={backdrop}
+        onBackdropClick={(e: any) => {
+          handleTogglePopover();
+          onBackdropClick && onBackdropClick(e);
+        }}
+        backdropProps={backdropProps}
         width={width}
         style={{
           ...wrapperProps?.style,
