@@ -4,7 +4,7 @@ import { DatePicker } from "./DatePicker";
 import { Container } from "../Container";
 
 export default {
-  title: "Prototypes/Divider",
+  title: "Prototypes/DatePicker",
 };
 
 export const WithBar = () => (

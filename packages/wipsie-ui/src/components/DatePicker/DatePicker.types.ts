@@ -39,4 +39,6 @@ export type DatePickerProps = {
   value?: any;
   onChange?: InputProps["onChange"];
   onBlur?: InputProps["onBlur"];
+  monthLabels?: string[];
+  weekDayLabels?: string[];
 };
