@@ -238,7 +238,11 @@ export class MentionsPlugin {
                   key: user?.username,
                   title: user?.name,
                   id: user?.id,
-                  avatar: user?.profile?.avatar,
+                  avatar:  user?.profile?.avatar ? user?.profile?.avatar?.startsWith("data:image") ||
+                  user?.profile?.avatar?.startsWith("http")
+                      ? user?.profile?.avatar
+                      : `${this.mediaUrl}/${user?.profile?.avatar}?size=${this.mediaSize}`
+                  : null,
                 }))
               );
             });
