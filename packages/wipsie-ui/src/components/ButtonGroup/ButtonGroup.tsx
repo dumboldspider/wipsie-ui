@@ -3,11 +3,13 @@ import React from "react";
 import classnames from "classnames";
 
 import { ButtonGroupProps } from "./ButtonGroup.types";
+import useTheme from "../../hooks/useTheme";
 
 export const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
+  const theme = useTheme();
   const {
     children,
-    shape = "round",
+    shape = null,
     orientation = "horizontal",
     variant = "contained",
     size = "medium",
@@ -24,7 +26,7 @@ export const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
     // Checking isValidElement is the safe way and avoids a typescript
     // error too.
     if (React.isValidElement(child)) {
-      return React.cloneElement(child, {
+      return React.cloneElement(child as React.ReactElement<any>, {
         groupVariant: variant,
         groupShape: shape,
         groupSize: size,

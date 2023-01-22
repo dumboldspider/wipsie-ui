@@ -18,7 +18,7 @@ export const Input: React.FC<InputProps> = (props) => {
     textColor = null,
     borderColor = null,
     size = "medium",
-    shape = "round",
+    shape = theme.layout.defaultShape,
     variant = "contained",
     align = "spaced",
     required = false,

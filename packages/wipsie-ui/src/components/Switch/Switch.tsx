@@ -17,7 +17,7 @@ export const Switch: React.FC<SwitchProps> = (props) => {
     iconColor = null,
     color = "primary",
     size = "medium",
-    shape = "round",
+    shape = theme.layout.defaultShape,
     className = null,
     ...otherProps
   } = props;

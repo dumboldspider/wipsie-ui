@@ -174,6 +174,7 @@ export const defaultLayout: WipsieThemesLayout = {
   breakpointTablet: defaultBreakpoints.sm.max,
   stroke: "2px",
   modalIndex: 1000,
+  defaultShape: "round",
 };
 
 export const commonPalette: WipsieThemesCommonPalette = {

@@ -15,7 +15,7 @@ export const Popover: React.FC<PopoverProps> = (props) => {
     content = "",
     visible = null,
     position = "bottom",
-    shape = "rounded",
+    shape = theme.layout.defaultShape,
     spacing = 0.1,
     hoverSpacing = 1,
     arrow = false,

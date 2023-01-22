@@ -18,7 +18,7 @@ export const Select: React.FC<SelectProps> = (props) => {
     textColor = null,
     borderColor = null,
     size = "medium",
-    shape = "round",
+    shape = theme.layout.defaultShape,
     variant = "contained",
     align = "spaced",
     required = false,

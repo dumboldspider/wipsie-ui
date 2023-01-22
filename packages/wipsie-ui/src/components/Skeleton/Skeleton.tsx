@@ -10,7 +10,7 @@ import { getBreakpoints } from "../Flex/Flex.functions";
 export const Skeleton: React.FC<SkeletonProps> = (props) => {
   const theme = useTheme();
   const {
-    type = "circle",
+    type = theme.layout.defaultShape,
     radius = null,
     color = "shade",
     visible = true,

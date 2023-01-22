@@ -15,7 +15,7 @@ export const Slider: React.FC<SliderProps> = (props) => {
     min = 1,
     wrapperProps = {},
     color = "primary",
-    shape = "round",
+    shape = theme.layout.defaultShape,
     size = "medium",
     width = "100%",
     fullWidth = false,

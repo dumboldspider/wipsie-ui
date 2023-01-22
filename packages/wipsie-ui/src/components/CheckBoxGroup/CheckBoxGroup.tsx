@@ -92,7 +92,7 @@ export const CheckBoxGroup: React.FC<CheckBoxGroupProps> = (props) => {
       typeof child.type === "function" &&
       child.type.name === "CheckBox"
     ) {
-      return React.cloneElement(child, {
+      return React.cloneElement(child as React.ReactElement<any>, {
         groupShape: shape,
         groupSize: size,
         groupColor: color,

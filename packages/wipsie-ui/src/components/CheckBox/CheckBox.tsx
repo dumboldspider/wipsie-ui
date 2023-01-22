@@ -38,7 +38,11 @@ export const CheckBox: React.FC<CheckBoxProps> = (props) => {
   const size = props.size ? props.size : groupSize ? groupSize : "medium";
 
   // shape for the button or group of buttons
-  const shape = props.shape ? props.shape : groupShape ? groupShape : "rounded";
+  const shape = props.shape
+    ? props.shape
+    : groupShape
+    ? groupShape
+    : theme.layout.defaultShape;
 
   function handleBackgroundColor() {
     return `background: ${

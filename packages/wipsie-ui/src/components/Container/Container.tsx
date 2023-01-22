@@ -59,7 +59,7 @@ export const Container = forwardRef(
       blur = 5,
       elevation = 10,
       elevationHover = 20,
-      shape = "round",
+      shape = theme.layout.defaultShape,
       ...otherProps
     } = props as any;
 

@@ -68,6 +68,7 @@ export interface WipsieThemesLayout {
   breakpointTablet: string;
   stroke: string;
   modalIndex: number;
+  defaultShape: string;
 }
 
 export interface WipsieThemesFonts {

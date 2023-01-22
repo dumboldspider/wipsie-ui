@@ -15,7 +15,7 @@ export const TextArea: React.FC<TextAreaProps> = (props) => {
     textColor = null,
     borderColor = null,
     size = "medium",
-    shape = "round",
+    shape = theme.layout.defaultShape,
     variant = "contained",
     required = false,
     disabled = false,

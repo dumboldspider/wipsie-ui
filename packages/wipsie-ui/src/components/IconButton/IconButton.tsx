@@ -35,7 +35,11 @@ export const IconButton: React.FC<IconButtonProps> = (props) => {
   const size = props.size ? props.size : groupSize ? groupSize : "medium";
 
   // shape for the button or group of buttons
-  const shape = props.shape ? props.shape : groupShape ? groupShape : "round";
+  const shape = props.shape
+    ? props.shape
+    : groupShape
+    ? groupShape
+    : theme.layout.defaultShape;
 
   // background color for the button or group  of buttons
   const backgroundColor = props.backgroundColor
