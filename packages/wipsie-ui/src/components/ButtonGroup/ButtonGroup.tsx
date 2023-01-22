@@ -3,10 +3,8 @@ import React from "react";
 import classnames from "classnames";
 
 import { ButtonGroupProps } from "./ButtonGroup.types";
-import useTheme from "../../hooks/useTheme";
 
 export const ButtonGroup: React.FC<ButtonGroupProps> = (props) => {
-  const theme = useTheme();
   const {
     children,
     shape = null,
