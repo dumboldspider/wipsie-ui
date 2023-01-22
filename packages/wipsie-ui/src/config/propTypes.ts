@@ -8,12 +8,12 @@ export const normalColors = tuple(
   "secondary",
   "success",
   "warning",
-  "error",
-  "gradient"
+  "error"
 );
 
 export const simpleColors = tuple(
   "basic",
+  "neutral",
   "primary",
   "secondary",
   "success",
@@ -29,8 +29,7 @@ export const extendedColors = tuple(
   "success",
   "warning",
   "error",
-  "invert",
-  "gradient"
+  "invert"
 );
 
 export const extraColors = tuple(
@@ -45,7 +44,6 @@ export const extraColors = tuple(
   "alert",
   "purple",
   "violet",
-  "gradient",
   "cyan"
 );
 
@@ -53,7 +51,6 @@ export const normalLoaders = tuple(
   "default",
   "points",
   "points-opacity",
-  "gradient",
   "spinner"
 );
 

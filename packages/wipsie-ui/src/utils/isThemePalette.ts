@@ -7,6 +7,7 @@ export default function themePalette(type: string) {
     case "warning":
     case "danger":
     case "basic":
+    case "neutral":
       return true;
     default:
       return false;
