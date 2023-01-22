@@ -8,6 +8,7 @@ export interface WipsieThemesPalette {
   text: string;
 
   basic: WipsieThemeItem;
+  neutral: WipsieThemeItem;
   primary: WipsieThemeItem;
   secondary: WipsieThemeItem;
 
