@@ -13,7 +13,7 @@ type AvatarLinkProps = React.HTMLProps<HTMLAnchorElement> & {
   /**
    * What background color to use
    */
-  wrapperProps?: React.HTMLProps<HTMLAnchorElement>;
+  wrapperProps?: React.HTMLProps<HTMLDivElement> | React.AnchorHTMLAttributes<HTMLAnchorElement>;
 };
 
 type AvatarDivProps = React.HTMLProps<HTMLDivElement> & {
@@ -25,7 +25,7 @@ type AvatarDivProps = React.HTMLProps<HTMLDivElement> & {
   /**
    * What background color to use
    */
-  wrapperProps?: React.HTMLProps<HTMLDivElement>;
+  wrapperProps?: React.HTMLProps<HTMLDivElement> | React.AnchorHTMLAttributes<HTMLAnchorElement>;
 };
 
 interface DefaultAvatarProps {
@@ -101,7 +101,7 @@ interface DefaultAvatarProps {
   /**
    * What background color to use
    */
-  imageProps?: React.HTMLProps<HTMLImageElement>;
+  imageProps?: React.ImgHTMLAttributes<HTMLImageElement>;
   /**
    * Avatar Icon
    */

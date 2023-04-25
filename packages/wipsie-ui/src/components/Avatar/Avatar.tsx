@@ -14,10 +14,10 @@ const WuiAvatar: React.FC<AvatarProps> = (props) => {
     src,
     alt,
     groupShape = null,
-    brokenSrc = null,
-    imageProps = null as any,
-    wrapperProps = null as any,
-    href = null,
+    brokenSrc = undefined,
+    imageProps = {},
+    wrapperProps = {},
+    href = undefined,
     groupXS = "medium",
     groupSM = null,
     groupMD = null,
@@ -140,7 +140,7 @@ const WuiAvatar: React.FC<AvatarProps> = (props) => {
       href={href}
       className={classnames("Wps-AvatarWrapper", className)}
       {...wrapperProps}
-      {...otherProps}
+      {...(otherProps as any)}
     >
       <style jsx>{`
         .Wps-AvatarWrapper {
@@ -188,6 +188,7 @@ const WuiAvatar: React.FC<AvatarProps> = (props) => {
           alt={alt}
           data-testid="Wps-Avatar"
           className={classnames("Wps-Avatar")}
+          referrerPolicy={imageProps.referrerPolicy}
           {...imageProps}
         />
       )}
