@@ -13,22 +13,25 @@ export const AlignTopArrow01Icon = ({
 }: IconProps) => {
 
   return (
-<svg 
-viewBox="0 0 24 24" 
-width={size} 
-height={size} 
-fill={fill || "none"} 
-style={{ 
-  stroke: stroke,
-  display: "inline-block",
-  verticalAlign: align,
-  transition: "all 0.3s ease-in-out", 
-}} xmlns="http://www.w3.org/2000/svg">
-<path d="M21 3H3M12 21V7M12 7L5 14M12 7L19 14" 
-strokeWidth={strokeWidth} 
-strokeLinecap={strokeLinecap} 
-strokeLinejoin={strokeLinejoin}/>
-</svg>
+    <svg 
+      viewBox="0 0 24 24" 
+      width={size} 
+      height={size} 
+      fill={fill || "none"} 
+      style={{ 
+        stroke: stroke,
+        display: "inline-block",
+        verticalAlign: align,
+        transition: "all 0.3s ease-in-out",
+        strokeWidth: strokeWidth,
+        strokeLinecap: strokeLinecap,
+        strokeLinejoin: strokeLinejoin
+      }}
+    >
 
+<path d="M21 3H3M12 21V7M12 7L5 14M12 7L19 14"    />
+
+
+    </svg>
   );
 };

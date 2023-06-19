@@ -13,22 +13,25 @@ export const ArrowDownLeftIcon = ({
 }: IconProps) => {
 
   return (
-<svg 
-viewBox="0 0 24 24" 
-width={size} 
-height={size} 
-fill={fill || "none"} 
-style={{ 
-  stroke: stroke,
-  display: "inline-block",
-  verticalAlign: align,
-  transition: "all 0.3s ease-in-out", 
-}} xmlns="http://www.w3.org/2000/svg">
-<path d="M17 7L7 17M7 17H17M7 17V7" 
-strokeWidth={strokeWidth} 
-strokeLinecap={strokeLinecap} 
-strokeLinejoin={strokeLinejoin}/>
-</svg>
+    <svg 
+      viewBox="0 0 24 24" 
+      width={size} 
+      height={size} 
+      fill={fill || "none"} 
+      style={{ 
+        stroke: stroke,
+        display: "inline-block",
+        verticalAlign: align,
+        transition: "all 0.3s ease-in-out",
+        strokeWidth: strokeWidth,
+        strokeLinecap: strokeLinecap,
+        strokeLinejoin: strokeLinejoin
+      }}
+    >
 
+<path d="M17 7L7 17M7 17H17M7 17V7"    />
+
+
+    </svg>
   );
 };

@@ -380,6 +380,7 @@ export { Diamond01Icon } from "./icons/Diamond01Icon";
 export { Diamond02Icon } from "./icons/Diamond02Icon";
 export { Disc01Icon } from "./icons/Disc01Icon";
 export { Disc02Icon } from "./icons/Disc02Icon";
+export { DiscordIcon } from "./icons/DiscordIcon";
 export { DistributeSpacingHorizontalIcon } from "./icons/DistributeSpacingHorizontalIcon";
 export { DistributeSpacingVerticalIcon } from "./icons/DistributeSpacingVerticalIcon";
 export { Divide01Icon } from "./icons/Divide01Icon";

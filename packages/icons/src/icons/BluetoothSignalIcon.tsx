@@ -13,22 +13,25 @@ export const BluetoothSignalIcon = ({
 }: IconProps) => {
 
   return (
-<svg 
-viewBox="0 0 24 24" 
-width={size} 
-height={size} 
-fill={fill || "none"} 
-style={{ 
-  stroke: stroke,
-  display: "inline-block",
-  verticalAlign: align,
-  transition: "all 0.3s ease-in-out", 
-}} xmlns="http://www.w3.org/2000/svg">
-<path d="M2 7L14 17L8 22V2L14 7L2 17M20.1445 6.5C21.2581 8.04804 21.914 9.94743 21.914 12C21.914 14.0526 21.2581 15.952 20.1445 17.5M17 8.85724C17.6214 9.74811 17.9858 10.8315 17.9858 12.0001C17.9858 13.1686 17.6214 14.2521 17 15.143" 
-strokeWidth={strokeWidth} 
-strokeLinecap={strokeLinecap} 
-strokeLinejoin={strokeLinejoin}/>
-</svg>
+    <svg 
+      viewBox="0 0 24 24" 
+      width={size} 
+      height={size} 
+      fill={fill || "none"} 
+      style={{ 
+        stroke: stroke,
+        display: "inline-block",
+        verticalAlign: align,
+        transition: "all 0.3s ease-in-out",
+        strokeWidth: strokeWidth,
+        strokeLinecap: strokeLinecap,
+        strokeLinejoin: strokeLinejoin
+      }}
+    >
 
+<path d="M2 7L14 17L8 22V2L14 7L2 17M20.1445 6.5C21.2581 8.04804 21.914 9.94743 21.914 12C21.914 14.0526 21.2581 15.952 20.1445 17.5M17 8.85724C17.6214 9.74811 17.9858 10.8315 17.9858 12.0001C17.9858 13.1686 17.6214 14.2521 17 15.143"    />
+
+
+    </svg>
   );
 };

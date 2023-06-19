@@ -13,22 +13,25 @@ export const ArrowsUpIcon = ({
 }: IconProps) => {
 
   return (
-<svg 
-viewBox="0 0 24 24" 
-width={size} 
-height={size} 
-fill={fill || "none"} 
-style={{ 
-  stroke: stroke,
-  display: "inline-block",
-  verticalAlign: align,
-  transition: "all 0.3s ease-in-out", 
-}} xmlns="http://www.w3.org/2000/svg">
-<path d="M7 20V4M7 4L3 8M7 4L11 8M17 20V9M17 9L13 13M17 9L21 13" 
-strokeWidth={strokeWidth} 
-strokeLinecap={strokeLinecap} 
-strokeLinejoin={strokeLinejoin}/>
-</svg>
+    <svg 
+      viewBox="0 0 24 24" 
+      width={size} 
+      height={size} 
+      fill={fill || "none"} 
+      style={{ 
+        stroke: stroke,
+        display: "inline-block",
+        verticalAlign: align,
+        transition: "all 0.3s ease-in-out",
+        strokeWidth: strokeWidth,
+        strokeLinecap: strokeLinecap,
+        strokeLinejoin: strokeLinejoin
+      }}
+    >
 
+<path d="M7 20V4M7 4L3 8M7 4L11 8M17 20V9M17 9L13 13M17 9L21 13"    />
+
+
+    </svg>
   );
 };

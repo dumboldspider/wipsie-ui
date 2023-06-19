@@ -13,22 +13,25 @@ export const Sliders01Icon = ({
 }: IconProps) => {
 
   return (
-<svg 
-viewBox="0 0 24 24" 
-width={size} 
-height={size} 
-fill={fill || "none"} 
-style={{ 
-  stroke: stroke,
-  display: "inline-block",
-  verticalAlign: align,
-  transition: "all 0.3s ease-in-out", 
-}} xmlns="http://www.w3.org/2000/svg">
-<path d="M5 21V14M5 10V3M12 21V12M12 8V3M19 21V16M19 12V3M2 14H8M9 8H15M16 16H22" 
-strokeWidth={strokeWidth} 
-strokeLinecap={strokeLinecap} 
-strokeLinejoin={strokeLinejoin}/>
-</svg>
+    <svg 
+      viewBox="0 0 24 24" 
+      width={size} 
+      height={size} 
+      fill={fill || "none"} 
+      style={{ 
+        stroke: stroke,
+        display: "inline-block",
+        verticalAlign: align,
+        transition: "all 0.3s ease-in-out",
+        strokeWidth: strokeWidth,
+        strokeLinecap: strokeLinecap,
+        strokeLinejoin: strokeLinejoin
+      }}
+    >
 
+<path d="M5 21V14M5 10V3M12 21V12M12 8V3M19 21V16M19 12V3M2 14H8M9 8H15M16 16H22"    />
+
+
+    </svg>
   );
 };

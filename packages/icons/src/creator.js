@@ -9,7 +9,7 @@ const OUT_DIR = path.join(__dirname, "icons");
 const files = fs.readdirSync(READ_DIR);
 
 // Replaces start
-const COMPONENT_START = (componentName) => `
+const COMPONENT_START = (componentName, viewBox) => `
 import React from "react";
 import { IconProps } from "../Icon.types";
 
@@ -24,37 +24,45 @@ export const ${componentName} = ({
 }: IconProps) => {
 
   return (
+    <svg 
+      viewBox="${viewBox}" 
+      width={size} 
+      height={size} 
+      fill={fill || "none"} 
+      style={{ 
+        stroke: stroke,
+        display: "inline-block",
+        verticalAlign: align,
+        transition: "all 0.3s ease-in-out",
+        strokeWidth: strokeWidth,
+        strokeLinecap: strokeLinecap,
+        strokeLinejoin: strokeLinejoin
+      }}
+    >
 `;
 
 const COMPONENT_END = () => `
+    </svg>
   );
 };
 `;
 
-const SVG_PROPS = `width="24" height="24" viewBox="0 0 24 24" fill="none"`;
-const SVG_PROPS_REPLACE = `
-viewBox="0 0 24 24" 
-width={size} 
-height={size} 
-fill={fill || "none"} 
-style={{ 
-  stroke: stroke,
-  display: "inline-block",
-  verticalAlign: align,
-  transition: "all 0.3s ease-in-out", 
-}}`;
+// should match svg tags and close
+const CLEAN_SVG_PROPS = /<svg[^>]*>|<\/svg>/g;
+const CLEAN_PATH_PROPS =
+  /stroke=["'][^"']*["']|stroke-width=["'][^"']*["']|stroke-linecap=["'][^"']*["']|stroke-linejoin=["'][^"']*["']/g;
 
-const PATH_PROPS = `stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"`;
-const PATH_PROPS_REPLACE = `
-strokeWidth={strokeWidth} 
-strokeLinecap={strokeLinecap} 
-strokeLinejoin={strokeLinejoin}`;
 // Replaces end
 
 // Get file data start
 const fileNames = files
   .filter((file) => file.endsWith(".svg"))
   .map((file) => {
+    const filePath = path.join(READ_DIR, file);
+    const fileContent = fs.readFileSync(filePath, "utf8");
+    const viewBoxMatch = fileContent.match(/viewBox="([^"]*)"/);
+    const viewBox = viewBoxMatch ? viewBoxMatch[1] : "0 0 24 24";
+
     return {
       name:
         file
@@ -63,6 +71,7 @@ const fileNames = files
           .map((s) => s[0].toUpperCase() + s.slice(1))
           .join("") + "Icon",
       file,
+      viewBox,
     };
   });
 // get file data end
@@ -73,19 +82,19 @@ execSync("mkdir -p " + OUT_DIR);
 execSync("rm -rf " + path.join(ROOT_DIR, "index.ts"));
 console.log("Cleaned");
 
-fileNames.forEach(({ name, file }) => {
+fileNames.forEach(({ name, file, viewBox }) => {
   // read the file content as string
-  const fileContent = fs.readFileSync(READ_DIR + "/" + file, "utf8");
+  const fileContent = fs.readFileSync(path.join(READ_DIR, file), "utf8");
+
+  const cleanedFileContent = fileContent
+    .replace(CLEAN_SVG_PROPS, "")
+    .replace(CLEAN_PATH_PROPS, "");
 
   const FileFinal =
-    COMPONENT_START(name) +
-    fileContent
-      .replaceAll(SVG_PROPS, SVG_PROPS_REPLACE)
-      .replaceAll(PATH_PROPS, PATH_PROPS_REPLACE) +
-    COMPONENT_END();
+    COMPONENT_START(name, viewBox) + cleanedFileContent + COMPONENT_END();
 
   // write the file
-  fs.writeFileSync(OUT_DIR + "/" + name + ".tsx", FileFinal, (err) => {
+  fs.writeFileSync(path.join(OUT_DIR, name + ".tsx"), FileFinal, (err) => {
     console.log(err);
   });
 });
@@ -99,7 +108,7 @@ const FinalIndex =
   "\n" +
   `export type { IconProps } from "./Icon.types";`;
 
-fs.writeFileSync(ROOT_DIR + "/index.ts", FinalIndex, (err) => {
+fs.writeFileSync(path.join(ROOT_DIR, "index.ts"), FinalIndex, (err) => {
   console.log(err);
 });
 
