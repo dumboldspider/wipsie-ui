@@ -31,6 +31,8 @@ export const Snackbar: React.FC<SnackbarProps> = (props) => {
     noPortal = false,
 
     style = {},
+    fixedStyle = {},
+    animatedStyle = {},
     children,
     ...otherProps
   } = props;
@@ -80,6 +82,7 @@ export const Snackbar: React.FC<SnackbarProps> = (props) => {
           width: fullWidth ? "100%" : "auto",
           height: fullHeight ? "100%" : "auto",
           margin: handleValue(spacing),
+          ...fixedStyle,
         }}
       >
         <Animated
@@ -91,6 +94,7 @@ export const Snackbar: React.FC<SnackbarProps> = (props) => {
             zIndex: theme.layout.modalIndex,
             width: fullWidth ? "100%" : "auto",
             height: fullHeight ? "100%" : "auto",
+            ...animatedStyle,
             ...style,
           }}
           {...otherProps}

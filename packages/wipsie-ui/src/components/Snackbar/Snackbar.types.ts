@@ -10,13 +10,13 @@ export type SnackbarProps = Modify<
   React.HTMLProps<HTMLDivElement>,
   (
     | {
-        backdrop: true;
-        onBackdropClick: React.MouseEventHandler<HTMLElement>;
-      }
+      backdrop: true;
+      onBackdropClick: React.MouseEventHandler<HTMLElement>;
+    }
     | {
-        backdrop?: false;
-        onBackdropClick?: React.MouseEventHandler<HTMLElement>;
-      }
+      backdrop?: false;
+      onBackdropClick?: React.MouseEventHandler<HTMLElement>;
+    }
   ) & {
     backdropColor?: SimpleColors;
     onBackdropClick?: () => void;
@@ -24,6 +24,8 @@ export type SnackbarProps = Modify<
 
     noPortal?: boolean;
     portalProps?: Omit<PortalProps, "children" | "id" | "visible">;
+    fixedStyle?: React.CSSProperties;
+    animatedStyle?: React.CSSProperties;
 
     id: string;
     open: boolean;
